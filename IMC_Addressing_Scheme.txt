@@ -1,0 +1,71 @@
+IMC Addressing Scheme
+
+Version 1.0.0
+
+_______________________________________________________________________________
+
+IMC Addressing ID
+------------------
+
+   15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+   |      |                                       |
+   Selectors             Systems
+   
+   
+   
+   
+   Selectors - 23 (8)  | Systems - 213 (8192)
+   Grouping
+   000x	0-1  Vehicle except 0x0000 which has special meaning
+   001x	2-3  Vehicle
+   010x	4-5  CCU
+   011x	6-7  Sensor
+   100x	8-9  Sensor
+   101x	A-B  Reserved
+   110x	C-D  Reserved
+   111x	E-F  Reserved {draft purpose is: Any (broadcast) Aqui podemos usar os 3bits 
+                 seguintes para dizer o tipo de broadcast 
+                 (CCUs, Vehicles,...) minus FFF0-FFFF reserved (8)}
+
+
+Special IDs
+0x0000  Announce ID 
+0xFFF0  Bradcast ID (reserved not used for now)
+0xFFFF	Null ID
+
+_______________________________________________________________________________
+
+Vehicles Subdivision
+--------------------
+
+            12 11 10
+
+In case of Vehicle there is a subdivision for the next 3 bits
+Vehicle.<Subtype> (0x0*)3bits
+	>> AUV 0 (000b)
+	>> ROV 1 (001b)
+	>> ASV 2 (010b)
+	>> UAV 3 (011b)
+ 
+_______________________________________________________________________________
+
+IDs for the first use
+---------------------
+
+see "imc-addreses.ini"
+
+_______________________________________________________________________________
+
+IMC3 Addressing Entity
+----------------------
+
+                           07 06 05 04 03 02 01 00
+                           |                      |
+                                   Entities
+                                   
+Entity - 28 (255)
+
+Special Entities
+0xFF	Undefined/Manager/All
+
+_______________________________________________________________________________

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by ZP (FEUP) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="IMC">
+		<xs:annotation>
+			<xs:documentation source="This schema defines the XML format for IMC message serialization">This message represents a XML serialization of one or more IMC messages</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="message" type="messageType">
+					<xs:unique name="uniqueFieldAbbrev">
+						<xs:annotation>
+							<xs:documentation>There can't be repeated fields in the same message</xs:documentation>
+						</xs:annotation>
+						<xs:selector xpath="field"/>
+						<xs:field xpath="@name"/>
+					</xs:unique>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="version" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>textual representation of IMC version like 2.2.1</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+		<!--	<xs:unique name="uniqueMessageId">
+			<xs:selector xpath="message"/>
+			<xs:field xpath="@id"/>
+			<xs:field xpath="@timestamp"/>
+		</xs:unique> -->
+	</xs:element>
+	<xs:complexType name="fieldType" mixed="true">
+		<xs:choice minOccurs="0">
+			<xs:element name="inline">
+				<xs:complexType mixed="true">
+					<xs:complexContent mixed="true">
+						<xs:extension base="inlineMsgType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+		<xs:attribute name="name" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>optionally inform the type for this field</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!--		<xs:sequence minOccurs="0">
+			<xs:element name="inline" type="inlineMsgType"/>
+		</xs:sequence>
+		<xs:attribute name="name" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>optionally inform the type for this field</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+-->
+	</xs:complexType>
+	<xs:complexType name="messageType">
+		<xs:complexContent>
+			<xs:extension base="inlineMsgType">
+				<xs:attribute name="time" type="xs:long" use="required">
+					<xs:annotation>
+						<xs:documentation>The time in remote peer, in seconds since 1st January 1970, of message generation </xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="src" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>The origin of this message</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="dst" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>The final destination of the message</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="inlineMsgType" mixed="true">
+		<xs:sequence>
+			<xs:element name="field" type="fieldType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The value is serialized to string. In case of rawdata, the data is serialized by transforming bytes into hexadecimal representation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>The message abbreviated name for logging purposes (if  this version's definitions is not present)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>
