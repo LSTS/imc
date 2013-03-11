@@ -7,7 +7,7 @@
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -->
 
-<addresses revision="$Rev: 1704 $">
+<addresses>
   <address id="0x0000" name="announce"/>
   <address id="0x0001" name="isurus"/>
   <address id="0x0002" name="nauv"/>
