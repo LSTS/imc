@@ -651,7 +651,7 @@
       device. The destination device is selected using the destination
       entity identification number.
     </description>
-    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="DCAL">
+    <field name="Operation" abbrev="op" type="uint8" unit="Enumerated" prefix="DCAL">
       <description>
         Operation to perform.
       </description>
