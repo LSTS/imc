@@ -765,7 +765,7 @@
           The activation procedure failed and the field 'error' contains the error message.
         </description>
       </value>
-      <value id="5" abbrev="DEACT_IP" name="Deactivation Failed">
+      <value id="5" abbrev="DEACT_IP" name="Deactivation In Progress">
         <description>
           Deactivation is in progress.
         </description>
@@ -1313,9 +1313,11 @@
       Request to send SMS.
     </description>
     <field name="Sequence Number" abbrev="seq" type="uint32_t">
-      Sequence number.
+      <description>
+        Sequence number.
+      </description>
     </field>
-    <field name="Destination" abbrev="dst" type="plaintext">
+    <field name="Destination" abbrev="destination" type="plaintext">
       <description>
         Number or name of the recipient.
       </description>
@@ -1336,7 +1338,7 @@
     <description>
       Received SMS data.
     </description>
-    <field name="Source" abbrev="src" type="plaintext">
+    <field name="Source" abbrev="source" type="plaintext">
       <description>
         Number of name of the sender.
       </description>
@@ -1350,7 +1352,9 @@
 
   <message id="159" name="SMS State" abbrev="SmsState" source="vehicle">
     <field name="Sequence Number" abbrev="seq" type="uint32_t">
-      Sequence number.
+      <description>
+        Sequence number.
+      </description>
     </field>
     <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="SMS">
       <description>
@@ -6264,7 +6268,7 @@
     </description>
     <field name="Timeline" abbrev="timeline" type="plaintext" />
     <field name="Predicate" abbrev="predicate" type="plaintext" />
-    <field name="Attributes" abbrev="attributes" type="plaintext" unit="Tuplelist" />
+    <field name="Attributes" abbrev="attributes" type="plaintext" unit="TupleList" />
   </message>
 
   <message id="652" name="TREX Command" abbrev="TrexCommand" source="vehicle,ccu">
