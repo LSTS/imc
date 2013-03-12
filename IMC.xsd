@@ -189,12 +189,12 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:attribute>
-            <xs:attribute name="creation" use="required">
+            <xs:attribute name="creation" use="optional">
                 <xs:simpleType>
                     <xs:restriction base="xs:string"/>
                 </xs:simpleType>
             </xs:attribute>
-            <xs:attribute name="revision" use="required">
+            <xs:attribute name="revision" use="optional">
                 <xs:simpleType>
                     <xs:restriction base="xs:string"/>
                 </xs:simpleType>
