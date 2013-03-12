@@ -5216,9 +5216,11 @@
 
   	<field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="FR">
   	  <value abbrev="WAIT" name="Waiting for first reference" id="1"/>
-  	  <value abbrev="GOING" name="Going towards received reference" id="2"/>
-  	  <value abbrev="STAYING" name="Loitering after arriving at the reference" id="3"/>
-  	  <value abbrev="TIMEOUT" name="Controlling system timed out" id="4"/>
+  	  <value abbrev="GOTO" name="Going towards received reference" id="2"/>
+  	  <value abbrev="LOITER" name="Loitering after arriving at the reference" id="3"/>
+  	  <value abbrev="HOVER" name="Hovering after arriving at the reference" id="4"/>
+  	  <value abbrev="ELEVATOR" name="Moving in z after arriving at the target cylinder" id="5"/>
+  	  <value abbrev="TIMEOUT" name="Controlling system timed out" id="6"/>
   	</field>
 
   	<field name="Proximity" abbrev="proximity" type="uint8_t" unit="Bitfield" prefix="PROX">
