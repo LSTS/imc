@@ -1,0 +1,9 @@
+<?xml-stylesheet type="text/xsl" href="ant2html.xsl"?>
+<project name="IMC" default="test" basedir=".">	
+	<target name="test">
+		<schemavalidate>
+			<fileset dir="." includes="IMC.xml"/>
+		</schemavalidate>
+	</target>
+</project>
+		
