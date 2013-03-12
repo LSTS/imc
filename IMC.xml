@@ -2803,6 +2803,11 @@
     <description>
       This message allows controlling power channels.
     </description>
+    <field name="Channel Name" abbrev="name" type="plaintext">
+      <description>
+        The name of the power channel.
+      </description>
+    </field>
     <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" min="0" max="6" prefix="PCC_OP">
       <description>
         Operation to perform.
@@ -2867,11 +2872,6 @@
     <field name="Name" abbrev="name" type="plaintext">
       <description>
         Power Channel Name.
-      </description>
-    </field>
-    <field name="Label" abbrev="label" type="plaintext">
-      <description>
-        Power Channel Label.
       </description>
     </field>
     <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="PCS">
