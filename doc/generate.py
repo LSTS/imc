@@ -16,15 +16,23 @@ import os.path
 import shutil
 import rst
 import message
+import argparse
 from subprocess import check_call
 
 # Folder where this script is located.
 cod_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Parse command line arguments.
+parser = argparse.ArgumentParser(
+    description="This script generates IMC's reference documentation.")
+parser.add_argument('--prefix', dest='prefix', default=os.path.join(cod_dir, 'reference'),
+    help='destination folder')
+parser.add_argument('--commit', dest='commit', default='unknown',
+    help='commit id')
+args = parser.parse_args()
+
 # Destination/build folder.
-if len(sys.argv) == 2:
-    bld_dir = sys.argv[1]
-else:
-    bld_dir = os.path.join(cod_dir, 'reference')
+bld_dir = args.prefix
 src_dir = os.path.join(bld_dir, '_sources')
 thm_dir = os.path.join(cod_dir, 'themes')
 img_dir = os.path.join(cod_dir, 'images')
@@ -35,7 +43,7 @@ tree = ElementTree()
 root = tree.parse(xml)
 release = root.get('version')
 version = '.'.join(release.split('.')[:2])
-revision = root.get('revision').replace('$Rev:', '').replace('$', '').strip()
+revision = args.commit
 
 files = []
 
