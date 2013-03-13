@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!-- edited with XMLSpy v2009 (http://www.altova.com) by pdias (FEUP) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="5.0.0">
     <xs:annotation>
         <xs:documentation>
    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Copyright (C) 2007-2011 Laboratório de Sistemas e Tecnologia Subaquática
+   + Copyright (C) 2007-2013 Laboratório de Sistemas e Tecnologia Subaquática
    + Departamento de Engenharia Electrotécnica e de Computadores
    + Rua Dr. Roberto Frias, 4200-465 Porto, Portugal
    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
