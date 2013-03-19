@@ -1,13 +1,11 @@
 #############################################################################
 # This Python file uses the following encoding: utf-8                       #
 #############################################################################
-# Copyright (C) 2012 Laboratório de Sistemas e Tecnologia Subaquática       #
+# Copyright (C) 2013 Laboratório de Sistemas e Tecnologia Subaquática       #
 # Departamento de Engenharia Electrotécnica e de Computadores               #
 # Rua Dr. Roberto Frias, 4200-465 Porto, Portugal                           #
 #############################################################################
 # Author: Ricardo Martins                                                   #
-#############################################################################
-# $Id:: rst.py 1586 2012-11-18 18:13:29Z rasm                             $:#
 #############################################################################
 
 class Table:
