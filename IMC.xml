@@ -205,6 +205,8 @@
     <unit abbrev="rpm/s" name="Revolutions per minute per second"/>
     <unit abbrev="s" name="Second"/>
     <unit abbrev="V" name="Volt"/>
+    <unit abbrev="g" name="Gravity acceleration"/>
+    <unit abbrev="bps" name="Bits per second"/>
     <unit abbrev="Enumerated" name="Enumeration of integer values"/>
     <unit abbrev="List" name="Comma separated list of values"/>
     <unit abbrev="Bitfield" name="Bit field"/>
@@ -290,7 +292,7 @@
   </bitfields>
 
   <message-groups>
-      <message-group name="Maneuver" abbrev="Maneuver">
+    <message-group name="Maneuver" abbrev="Maneuver">
       <message-type abbrev="Goto"/>
       <message-type abbrev="PopUp"/>
       <message-type abbrev="Teleoperation"/>
@@ -5350,6 +5352,9 @@
     <field name="Maneuver" abbrev="maneuver" type="message" message-type="Maneuver">
       <description>Maneuver to be executed (for 'EXEC_MANEUVER' command)</description>
     </field>
+    <field name="Calibration Time" abbrev="calib_time" type="uint16_t" unit="s">
+      <description>Amount of time to calibrate</description>
+    </field>
     <field name="Info" abbrev="info" type="plaintext">
       <description>Complementary human-readable information for replies.</description>
     </field>
@@ -6486,5 +6491,13 @@
       <value abbrev="ESTABLISHED" name="Established" id="1"/>
       <value abbrev="CLOSED" name="Closed" id="2"/>
     </field>
+  </message>
+
+  <message id="811" name="Push Entity Parameters" abbrev="PushEntityParameters" source="ccu,vehicle">
+    <field name="Entity Name" abbrev="name" type="plaintext"/>
+  </message>
+
+  <message id="812" name="Pop Entity Parameters" abbrev="PopEntityParameters" source="ccu,vehicle">
+    <field name="Entity Name" abbrev="name" type="plaintext"/>
   </message>
 </messages>
