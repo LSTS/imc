@@ -205,8 +205,6 @@
     <unit abbrev="rpm/s" name="Revolutions per minute per second"/>
     <unit abbrev="s" name="Second"/>
     <unit abbrev="V" name="Volt"/>
-    <unit abbrev="g" name="Gravity acceleration"/>
-    <unit abbrev="bps" name="Bits per second"/>
     <unit abbrev="Enumerated" name="Enumeration of integer values"/>
     <unit abbrev="List" name="Comma separated list of values"/>
     <unit abbrev="Bitfield" name="Bit field"/>
