@@ -2893,7 +2893,7 @@
 
   <message id="312" name="LED Brightness" abbrev="LedBrightness" source="vehicle">
     <description>
-      Brightness of an LED (Light-Emitting Diode).
+      Brightness value of an LED (Light-Emitting Diode).
     </description>
     <field name="Name" abbrev="name" type="plaintext">
       <description>
@@ -2932,7 +2932,7 @@
     </field>
     <field name="Value" abbrev="value" type="uint8_t">
       <description>
-        Desired intensity value.
+        Desired brightness value.
       </description>
     </field>
   </message>
