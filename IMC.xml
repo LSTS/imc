@@ -308,6 +308,7 @@
       <message-type abbrev="CompassCalibration"/>
       <message-type abbrev="CoverArea"/>
       <message-type abbrev="FollowReference"/>
+      <message-type abbrev="CommsRelay"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
