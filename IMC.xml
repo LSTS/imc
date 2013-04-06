@@ -5515,6 +5515,9 @@
       <value id="3" abbrev="UNDERWATER" name="Underwater">
 	<description>Vehicle is underwater</description>
       </value>
+      <value id="4" abbrev="UNKNOWN" name="Unknown">
+	<description>Vehicle medium is unknown</description>
+      </value>
     </field>
   </message>
 
