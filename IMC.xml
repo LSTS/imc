@@ -6339,7 +6339,7 @@
       <description>The id of the goal, if applicable (OP == POST_GOAL || OP == RECALL_GOAL)</description>
     </field>
     
-    <field name="Token" abbrev="token" type="TrexToken">
+    <field name="Token" abbrev="token" type="message" message-type="TrexToken">
       <description>Goal / observation to post, if applicable (OP == POST_GOAL || OP == POST_TOKEN)</description>
     </field>
   </message>
