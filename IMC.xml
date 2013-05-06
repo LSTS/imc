@@ -1371,6 +1371,17 @@
     </field>
     <field name="Error Message" abbrev="error" type="plaintext"/>
   </message>
+  
+  <message id="170" name="IridiumMessage" abbrev="IridiumMsg" source="vehicle,ccu">
+    <field name="Identifier" abbrev="id" type="plaintext">
+      <description>The unique identifier of the device this message is related to.</description>
+    </field>
+    <field name="Timestamp" abbrev="htime" type="fp64_t" unit="s">
+        <description>Timestamp (Epoch time).</description>
+    </field>
+    <field name="Latitude Reference" abbrev="lat" type="fp64_t" unit="rad" />
+    <field name="Longitude Reference" abbrev="lon" type="fp64_t" unit="rad" />
+  </message>
 
   <!-- Acoustic Networking -->
   <message id="200" name="LBL Range" abbrev="LblRange" source="vehicle" flags="periodic">
@@ -5158,7 +5169,6 @@
     </field>
   </message>
 
-  <!-- NOT YET IMPLEMENTED -->
   <message id="478" name="Follow Reference Maneuver" abbrev="FollowReference" source="ccu">
     <description>
       This maneuver follows a reference given by an external entity.
