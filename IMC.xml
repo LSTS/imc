@@ -1372,7 +1372,7 @@
     <field name="Error Message" abbrev="error" type="plaintext"/>
   </message>
   
-  <message id="170" name="IridiumMessage" abbrev="IridiumMsg" source="vehicle,ccu">
+  <message id="170" name="Received Iridium Message" abbrev="IridiumMsgRx" source="vehicle,ccu">
     <field name="Identifier" abbrev="id" type="plaintext">
       <description>The unique identifier of the device this message is related to.</description>
     </field>
@@ -1381,7 +1381,30 @@
     </field>
     <field name="Latitude Reference" abbrev="lat" type="fp64_t" unit="rad" />
     <field name="Longitude Reference" abbrev="lon" type="fp64_t" unit="rad" />
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        Message data.
+      </description>
+    </field>
   </message>
+  
+  <message id="171" name="Transmit Iridium Message" abbrev="IridiumMsgTx" source="vehicle,ccu">
+    <field name="Identifier" abbrev="id" type="plaintext">
+      <description>The unique identifier of the device this message is related to.</description>
+    </field>
+    <field name="Timestamp" abbrev="htime" type="fp64_t" unit="s">
+        <description>Timestamp (Epoch time).</description>
+    </field>
+    <field name="Latitude Reference" abbrev="lat" type="fp64_t" unit="rad" />
+    <field name="Longitude Reference" abbrev="lon" type="fp64_t" unit="rad" />
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        Message data.
+      </description>
+    </field>
+  </message>
+  
+  
 
   <!-- Acoustic Networking -->
   <message id="200" name="LBL Range" abbrev="LblRange" source="vehicle" flags="periodic">
