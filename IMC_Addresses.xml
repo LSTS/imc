@@ -27,7 +27,6 @@
   <address id="0x6001" name="lauv-dolphin-1-doam"/>
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
-  <address id="0x8011" name="manta-0"/>
   <address id="0x8012" name="manta-1"/>
   <address id="0x8013" name="manta-2"/>
   <address id="0x8014" name="manta-3"/>
@@ -35,6 +34,7 @@
   <address id="0x8016" name="manta-5"/>
   <address id="0x801a" name="manta-9"/>
   <address id="0x801b" name="manta-10"/>
+  <address id="0x801c" name="manta-11"/>
   <address id="0x8040" name="piccolo-gs1"/>
   <address id="0x8041" name="piccolo-gs2"/>
   <address id="0x8042" name="piccolo-gs3"/>
