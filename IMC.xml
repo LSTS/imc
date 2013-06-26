@@ -1372,6 +1372,22 @@
     <field name="Error Message" abbrev="error" type="plaintext"/>
   </message>
   
+  <message id="160" name="Text Message" abbrev="TextMessage" source="vehicle">
+    <description>
+      A text message has been received.
+    </description>
+    <field name="Origin" abbrev="origin" type="plaintext">
+      <description>
+        Message origin (if known).
+      </description>
+    </field>
+    <field name="Text" abbrev="text" type="plaintext">
+      <description>
+        Message contents.
+      </description>
+    </field>
+  </message>  
+  
   <message id="170" name="Received Iridium Message" abbrev="IridiumMsgRx" source="vehicle,ccu">
     <field name="Origin Identifier" abbrev="origin" type="plaintext">
       <description>The unique identifier of this message's origin device (e.g. lauv-xtreme-2, manta-0).</description>
