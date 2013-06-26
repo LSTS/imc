@@ -1392,6 +1392,9 @@
     <field name="Request Identifier" abbrev="req_id" type="uint16_t">
         <description>The request identifier used to receive transmission updates.</description>
     </field>
+    <field name="Time to live" abbrev="ttl" type="uint16_t" unit="s">
+        <description>Time, in seconds, after which there will be no more atempts to transmit the message.</description>
+    </field>
     <field name="Destination Identifier" abbrev="destination" type="plaintext">
       <description>The unique identifier of this message's destination (e.g. lauv-xtreme-2, manta-0).</description>
     </field>
@@ -1411,6 +1414,7 @@
         <value abbrev="ERROR" name="Error while trying to transmit message" id="2"/>
         <value abbrev="QUEUED" name="Message has been queued for transmission" id="3"/>
         <value abbrev="TRANSMIT" name="Message is currently being transmitted" id="4"/>
+        <value abbrev="EXPIRED" name="Message's TTL has expired. Transmition cancelled." id="5"/>
     </field>
     <field name="Status Text" abbrev="text" type="plaintext"/>
   </message>
