@@ -3525,6 +3525,20 @@
     </field>
   </message>
 
+  <message id="361" name="Alignment State" abbrev="AlignmentState" source="vehicle">
+    <description>
+      This message notifies the vehicle is ready for dead-reckoning missions.
+    </description>
+    <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="AS">
+      <description>
+        Alignment State.
+      </description>
+      <value id="0" name="Not Aligned" abbrev="NOT_ALIGNED"/>
+      <value id="1" name="Aligned" abbrev="ALIGNED"/>
+      <value id="2" name="Not Supported" abbrev="NOT_SUPPORTED"/>
+    </field>
+  </message>
+
   <!-- Guidance -->
   <message id="400" name="Desired Heading" abbrev="DesiredHeading"  source="vehicle">
     <description>
@@ -6409,7 +6423,7 @@
   </message>
   
   <message id="655" abbrev="TrexOperation" name="TREX Operation" source="vehicle,ccu">
-  	<description>
+    <description>
       This message is used to control TREX execution
     </description>
     
@@ -6437,7 +6451,7 @@
     </field>
     
     <field name="Attribute type" abbrev="attr_type" type="uint8_t" unit="Enumerated" prefix="TYPE">
-   	  <value abbrev="BOOL" name="Boolean Domain" id="1"/>
+      <value abbrev="BOOL" name="Boolean Domain" id="1"/>
       <value abbrev="INT" name="Integer Domain" id="2"/>
       <value abbrev="FLOAT" name="Float Domain" id="3"/>
       <value abbrev="STRING" name="String Domain" id="4"/>
@@ -6460,8 +6474,8 @@
   </message>
   
   <message id="658" abbrev="TrexPlan" name="TREX Plan" source="vehicle,ccu">
-  	<field name="Reactor name" abbrev="reactor" type="plaintext" />
-  	<field name="Tokens" abbrev="tokens" type="message-list" message-type="TrexToken" />
+    <field name="Reactor name" abbrev="reactor" type="plaintext" />
+    <field name="Tokens" abbrev="tokens" type="message-list" message-type="TrexToken" />
   </message>
 
   <!-- Vision -->
