@@ -39,15 +39,23 @@
   <address id="0x8041" name="piccolo-gs2"/>
   <address id="0x8042" name="piccolo-gs3"/>
   <address id="0x8401" name="spot-01"/>
-  <address id="0x8401" name="spot-01"/>
-  <address id="0x8401" name="spot-01"/>
-  <address id="0x8401" name="spot-01"/>
-  <address id="0x8401" name="spot-01"/>
-  <address id="0x8401" name="spot-01"/>
-  <address id="0x8401" name="spot-01"/>
-  <address id="0x8401" name="spot-01"/>
-  <address id="0x8401" name="spot-01"/>
-  <address id="0x8401" name="spot-01"/><address id="0x8401" name="spot-01"/>
+  <address id="0x8402" name="spot-02"/>
+  <address id="0x8403" name="spot-03"/>
+  <address id="0x8404" name="spot-04"/>
+  <address id="0x8405" name="spot-05"/>
+  <address id="0x8406" name="spot-06"/>
+  <address id="0x8407" name="spot-07"/>
+  <address id="0x8408" name="spot-08"/>
+  <address id="0x8409" name="spot-09"/>
+  <address id="0x840a" name="spot-10"/>
+  <address id="0x840b" name="spot-11"/>
+  <address id="0x840c" name="spot-12"/>
+  <address id="0x840d" name="spot-13"/>
+  <address id="0x840e" name="spot-14"/>
+  <address id="0x840f" name="spot-15"/>
+  <address id="0x8410" name="spot-16"/>
+  <address id="0x8410" name="spot-16"/>
+  <address id="0x8410" name="spot-16"/>
   <address id="0x0c01" name="lusitania"/>
   <address id="0x0c02" name="sedona"/>
   <address id="0x0c03" name="x8-00"/>
