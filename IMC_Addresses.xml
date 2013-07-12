@@ -70,6 +70,9 @@
   <address id="0x84a2" name="argos-02"/>
   <address id="0x84a3" name="argos-03"/>
   <address id="0x84a4" name="argos-04"/>
+  <address id="0x8500" name="wavy-0"/>
+  <address id="0x8501" name="wavy-1"/>
+  <address id="0x8502" name="wavy-2"/>
   <address id="0x0c01" name="lusitania"/>
   <address id="0x0c02" name="sedona"/>
   <address id="0x0c03" name="x8-00"/>
