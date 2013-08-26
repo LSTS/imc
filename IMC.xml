@@ -3498,24 +3498,9 @@
     <description>
       LBL Beacon position estimate.
     </description>
-    <field name="Beacon Name" abbrev="beacon" type="plaintext">
+    <field name="LBL Beacon Configuration" abbrev="beacon" type="message" message-type="LblBeacon">
       <description>
-        Name/Label of the acoustic transponder.
-      </description>
-    </field>
-    <field name="North position" abbrev="x" type="fp64_t" unit="m">
-      <description>
-        The North offset of the North/East/Down field.
-      </description>
-    </field>
-    <field name="East position" abbrev="y" type="fp64_t" unit="m">
-      <description>
-        The East offset of the North/East/Down field.
-      </description>
-    </field>
-    <field name="Depth" abbrev="depth" type="fp32_t" unit="m">
-      <description>
-        The beacon's depth.
+	Position and configuration of an LBL transponder (beacon).
       </description>
     </field>
     <field name="North position variance" abbrev="var_x" type="fp64_t" unit="m">
