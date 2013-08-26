@@ -3500,19 +3500,34 @@
     </description>
     <field name="LBL Beacon Configuration" abbrev="beacon" type="message" message-type="LblBeacon">
       <description>
-	Position and configuration of an LBL transponder (beacon).
+	LBL Beacon configuration estimate.
       </description>
     </field>
-    <field name="North position variance" abbrev="var_x" type="fp64_t" unit="m">
+    <field name="North position" abbrev="x" type="fp32_t" unit="m">
+      <description>
+        The North position offset of the NED field with respect to origin.
+      </description>
+    </field>
+    <field name="East position" abbrev="y" type="fp32_t" unit="m">
+      <description>
+        The East position offset of the NED field with respect to origin.
+      </description>
+    </field>
+    <field name="North position variance" abbrev="var_x" type="fp32_t" unit="m">
       <description>
         The North offset variance of the North/East/Down
         field with respect to LLH.
       </description>
     </field>
-    <field name="East position variance" abbrev="var_y" type="fp64_t" unit="m">
+    <field name="East position variance" abbrev="var_y" type="fp32_t" unit="m">
       <description>
         The East offset variance of the North/East/Down
         field with respect to LLH.
+      </description>
+    </field>
+    <field name="Distance" abbrev="distance" type="fp32_t" unit="m">
+      <description>
+	Distance between current LBL Beacon position and filter estimation.
       </description>
     </field>
   </message>
