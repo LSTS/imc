@@ -19,6 +19,8 @@
   <address id="0x0018" name="lauv-xtreme-2"/>
   <address id="0x0019" name="lauv-seacon-4"/>
   <address id="0x001A" name="lauv-noptilus-1"/>
+  <address id="0x001B" name="lauv-noptilus-2"/>
+  <address id="0x001C" name="lauv-noptilus-3"/>
   <address id="0x00D1" name="lauv-simulator-1"/>
   <address id="0x0101" name="lauv-dolphin-1"/>
   <address id="0x0401" name="rov-ies"/>
