@@ -798,7 +798,7 @@
     </description>
     <field name="Action on the vehicle operational limits" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
       <description>
-        Action on the vehicle simulation parameters for the formation control
+        Action on the vehicle operation limits
       </description>
       <value id="0" name="Request" abbrev="REQUEST"/>
       <value id="1" name="Set" abbrev="SET"/>
@@ -938,7 +938,7 @@
         The phi Euler angle from the vehicle's attitude.
       </description>
     </field>
-    <field name="Rotation over y axis" abbrev="theta" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+    <field name="Rotation over y axis" abbrev="theta" type="fp32_t" unit="rad" min="-1.57079632679490" max="1.57079632679490">
       <description>
         The theta Euler angle from the vehicle's attitude.
       </description>
@@ -1529,7 +1529,7 @@
         Name of the group of systems.
       </description>
     </field>
-    <field name="Group List Action" abbrev="Action" type="uint8_t" unit="Enumerated">
+    <field name="Group List Action" abbrev="Action" type="uint8_t" unit="Enumerated" prefix="OP">
       <description>
 	Actions on the group list.
       </description>
@@ -3175,7 +3175,7 @@
         The phi Euler angle from the vehicle's attitude.
       </description>
     </field>
-    <field name="Rotation over y axis" abbrev="theta" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+    <field name="Rotation over y axis" abbrev="theta" type="fp32_t" unit="rad" min="-1.57079632679490" max="1.57079632679490">
       <description>
         The theta Euler angle from the vehicle's attitude.
       </description>
@@ -5403,7 +5403,7 @@
       The maneuver defines:
        - Vehicles included in the formation group
        - Formation shape configuration
-       - Plan (set of maneuvers) to by followed by the formation center
+       - Plan (set of maneuvers) to be followed by the formation center
        - Speed at which that plan is followed
        - Path contrains (virtual leader bank limit)
        - Supervision settings
@@ -5536,8 +5536,7 @@
   </message>
 
   <message id="480" name="Follow Reference State" abbrev="FollowRefState" source="vehicle">
-
-  	<field name="Controlling Source" abbrev="control_src" type="uint16_t">
+ 	<field name="Controlling Source" abbrev="control_src" type="uint16_t">
   		<description>
   	 	  The IMC identifier of the source system that is allowed to control the vehicle.
   	 	  If the value ''0xFFFF'' is used, any system is allowed to command references.
@@ -5891,7 +5890,7 @@
 	Evaluation of the stream turbulence level, through the stream acceleration.
       </description>
     </field>
-    <field name="Position Mismatch Monitor" abbrev="PosSimMon" type="uint8_t" unit="Enumerated">
+    <field name="Position Mismatch Monitor" abbrev="PosSimMon" type="uint8_t" unit="Enumerated" prefix="POS">
       <description>
 	Position mismatch monitoring flag.
       </description>
@@ -5899,14 +5898,14 @@
       <value id="1" name="Warning threshold" abbrev="WRN"/>
       <value id="2" name="Limit threshold" abbrev="LIM"/>
     </field>
-    <field name="Communications Monitor" abbrev="CommMon" type="uint8_t" unit="Enumerated">
+    <field name="Communications Monitor" abbrev="CommMon" type="uint8_t" unit="Enumerated" prefix="COMMS">
       <description>
 	Communications monitoring flag.
       </description>
       <value id="0" name="Ok" abbrev="OK"/>
       <value id="1" name="Timeout" abbrev="TIMEOUT"/>
     </field>
-    <field name="Convergence" abbrev="ConvergMon" type="uint8_t" unit="Enumerated">
+    <field name="Convergence" abbrev="ConvergMon" type="uint8_t" unit="Enumerated" prefix="CONV">
       <description>
 	Convergence monitoring flag.
       </description>
@@ -6508,6 +6507,137 @@
     </field>
   </message>
 
+  <message id="563" name="Leader State" abbrev="LeaderState" source="vehicle" flags="periodic">
+    <description>
+      This message defines the formation leader state.
+
+      LeaderState is a complete description of the leader state
+      in terms of parameters such as position, orientation and
+      velocities at a particular moment in time.
+
+      The system position is given by a North-East-Down (NED)
+      local tangent plane displacement (x, y, z) relative to
+      an absolute WGS-84 coordinate (latitude, longitude,
+      height above ellipsoid).
+
+      The symbols for position and attitude as well as linear and
+      angular velocities were chosen according to SNAME's notation (1950).
+      The body-fixed reference frame and Euler angles are depicted
+      next:
+
+      .. figure:: images/euler-lauv.png
+         :align:  center
+
+         Euler angles
+    </description>
+    <field name="Group Name" abbrev="group_name" type="plaintext">
+      <description>
+        Name for the formation group.
+      </description>
+    </field>
+    <field name="Action on the leader state" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Action on the formation leader state variables
+      </description>
+      <value id="0" name="Request" abbrev="REQUEST"/>
+      <value id="1" name="Set" abbrev="SET"/>
+      <value id="2" name="Report" abbrev="REPORT"/>
+    </field>
+    <field name="Latitude (WGS-84)" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude.
+      </description>
+    </field>
+    <field name="Longitude (WGS-84)" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude.
+      </description>
+    </field>
+    <field name="Height (WGS-84)" abbrev="height" type="fp32_t" unit="m">
+      <description>
+        Height above the WGS-84 ellipsoid.
+      </description>
+    </field>
+    <field name="Offset north" abbrev="x" type="fp32_t" unit="m">
+      <description>
+        The North offset of the North/East/Down field with respect to
+        LLH.
+      </description>
+    </field>
+    <field name="Offset east" abbrev="y" type="fp32_t" unit="m">
+      <description>
+        The East offset of the North/East/Down field with respect to
+        LLH.
+      </description>
+    </field>
+    <field name="Offset down" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        The Down offset of the North/East/Down field with respect to
+        LLH.
+      </description>
+    </field>
+    <field name="Rotation over x axis" abbrev="phi" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        The phi Euler angle from the vehicle's attitude.
+      </description>
+    </field>
+    <field name="Rotation over y axis" abbrev="theta" type="fp32_t" unit="rad" min="-1.57079632679490" max="1.57079632679490">
+      <description>
+        The theta Euler angle from the vehicle's attitude.
+      </description>
+    </field>
+    <field name="Rotation over z axis" abbrev="psi" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        The psi Euler angle from the vehicle's attitude.
+      </description>
+    </field>
+    <field name="Ground Velocity X (North)" abbrev="vx" type="fp32_t" unit="m/s">
+      <description>
+        Ground Velocity xx axis velocity component.
+      </description>
+    </field>
+    <field name="Ground Velocity Y (East)" abbrev="vy" type="fp32_t" unit="m/s">
+      <description>
+        Ground Velocity yy axis velocity component.
+      </description>
+    </field>
+    <field name="Ground Velocity Z (Down)" abbrev="vz" type="fp32_t" unit="m/s">
+      <description>
+        Ground Velocity zz axis velocity component.
+      </description>
+    </field>
+    <field name="Angular Velocity in x" abbrev="p" type="fp32_t" unit="rad/s" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        The angular velocity over body-fixed xx axis (roll).
+      </description>
+    </field>
+    <field name="Angular Velocity in y" abbrev="q" type="fp32_t" unit="rad/s" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        The angular velocity over body-fixed yy axis (pitch).
+      </description>
+    </field>
+    <field name="Angular Velocity in z" abbrev="r" type="fp32_t" unit="rad/s"  min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        The angular velocity over body-fixed zz axis (yaw).
+      </description>
+    </field>
+    <field name="Stream Velocity X (North)" abbrev="svx" type="fp32_t" unit="m/s">
+      <description>
+        Stream Velocity xx axis velocity component.
+      </description>
+    </field>
+    <field name="Stream Velocity Y (East)" abbrev="svy" type="fp32_t" unit="m/s">
+      <description>
+        Stream Velocity yy axis velocity component.
+      </description>
+    </field>
+    <field name="Stream Velocity Z (Down)" abbrev="svz" type="fp32_t" unit="m/s">
+      <description>
+        Stream Velocity zz axis velocity component.
+      </description>
+    </field>
+  </message>
+
   <!-- CCU Messages (Internal and between CCUs) -->
   <message id="600" name="Reported State" abbrev="ReportedState" source="vehicle,ccu">
     <description>
@@ -6900,12 +7030,13 @@
     <description>
       Formation controller paramenters, as: trajectory gains, control boundary layer thickness, and formation shape gains.
     </description>
-    <field name="Action" abbrev="Action" type="uint8_t" unit="Enumerated">
+    <field name="Action" abbrev="Action" type="uint8_t" unit="Enumerated" prefix="OP">
       <description>
 	Action on the vehicle formation control parameters.
       </description>
-      <value id="0" name="Request" abbrev="Req"/>
-      <value id="1" name="Set/Report" abbrev="Set"/>
+      <value id="0" name="Request" abbrev="REQ"/>
+      <value id="1" name="Set" abbrev="SET"/>
+      <value id="2" name="Report" abbrev="REP"/>
     </field>
     <field name="Longitudinal Gain" abbrev="LonGain" type="uint32_t">
       <description>
