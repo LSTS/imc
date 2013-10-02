@@ -29,6 +29,7 @@
   <address id="0x08c1" name="hermes"/>
   <address id="0x08c2" name="hermes-desired"/>
   <address id="0x08c3" name="hermes-target"/>
+  <address id="0x08c4" name="tex-wg"/>
   <address id="0x6000" name="doam"/>
   <address id="0x6001" name="lauv-dolphin-1-doam"/>
   <address id="0x8000" name="star"/>
@@ -73,6 +74,11 @@
   <address id="0x84a2" name="argos-02"/>
   <address id="0x84a3" name="argos-03"/>
   <address id="0x84a4" name="argos-04"/>
+  <address id="0x84a5" name="carson"/>
+  <address id="0x84a6" name="paragon"/>
+  <address id="0x84a7" name="dorado"/>
+  <address id="0x84a8" name="esp-mack"/>
+  <address id="0x84a9" name="esp-bruce"/>
   <address id="0x8500" name="wavy-0"/>
   <address id="0x8501" name="wavy-1"/>
   <address id="0x8502" name="wavy-2"/>
