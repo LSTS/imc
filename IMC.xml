@@ -6752,41 +6752,4 @@
       An 'Abort' message was received and acted upon.
     </description>
   </message>
-
-  <message id="819" name="UTC Time" abbrev="UtcTime" source="vehicle" flags="periodic">
-    <description>
-      UTC date and time.
-    </description>
-    <field name="Year" abbrev="year" type="uint16_t">
-      <description>
-        Number of Common Era years.
-      </description>
-    </field>
-    <field name="Month" abbrev="month" type="uint8_t" min="1" max="12">
-      <description>
-        Month number.
-      </description>
-    </field>
-    <field name="Day" abbrev="day" type="uint8_t" min="1" max="31">
-      <description>
-        The day of the month, in the range 1 to 31
-      </description>
-    </field>
-    <field name="Hour" abbrev="hour" type="uint8_t" min="0" max="23">
-      <description>
-        The number of hours past midnight.
-      </description>
-    </field>
-    <field name="Minute" abbrev="minute" type="uint8_t" min="0" max="59">
-      <description>
-        The number of minutes after the hour.
-      </description>
-    </field>
-    <field name="Second" abbrev="second" type="uint8_t" min="0" max="60">
-      <description>
-        The number of seconds after the minute, normally in the range
-        0 to 59, but can be up to 60 to allow for leap seconds.
-      </description>
-    </field>
-  </message>
 </messages>
