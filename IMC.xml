@@ -5588,7 +5588,7 @@
       </description>
     </field>
   </message>
-  
+
   <message id="478" name="Follow Reference Maneuver" abbrev="FollowReference" source="ccu">
     <description>
       This maneuver follows a reference given by an external entity.

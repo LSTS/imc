@@ -19,14 +19,21 @@
   <address id="0x0018" name="lauv-xtreme-2"/>
   <address id="0x0019" name="lauv-seacon-4"/>
   <address id="0x001A" name="lauv-noptilus-1"/>
+  <address id="0x001B" name="lauv-noptilus-2"/>
+  <address id="0x001C" name="lauv-noptilus-3"/>
+  <address id="0x00D1" name="lauv-simulator-1"/>
   <address id="0x0101" name="lauv-dolphin-1"/>
   <address id="0x0401" name="rov-ies"/>
   <address id="0x0402" name="adamastor"/>
   <address id="0x0801" name="swordfish"/>
+  <address id="0x08c1" name="hermes"/>
+  <address id="0x08c2" name="hermes-desired"/>
+  <address id="0x08c3" name="hermes-target"/>
+  <address id="0x08c4" name="tex-wg"/>
   <address id="0x6000" name="doam"/>
+  <address id="0x6001" name="lauv-dolphin-1-doam"/>
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
-  <address id="0x8011" name="manta-0"/>
   <address id="0x8012" name="manta-1"/>
   <address id="0x8013" name="manta-2"/>
   <address id="0x8014" name="manta-3"/>
@@ -34,12 +41,53 @@
   <address id="0x8016" name="manta-5"/>
   <address id="0x801a" name="manta-9"/>
   <address id="0x801b" name="manta-10"/>
+  <address id="0x801c" name="manta-11"/>
   <address id="0x8040" name="piccolo-gs1"/>
   <address id="0x8041" name="piccolo-gs2"/>
   <address id="0x8042" name="piccolo-gs3"/>
+  <address id="0x8401" name="spot-01"/>
+  <address id="0x8402" name="spot-02"/>
+  <address id="0x8403" name="spot-03"/>
+  <address id="0x8404" name="spot-04"/>
+  <address id="0x8405" name="spot-05"/>
+  <address id="0x8406" name="spot-06"/>
+  <address id="0x8407" name="spot-07"/>
+  <address id="0x8408" name="spot-08"/>
+  <address id="0x8409" name="spot-09"/>
+  <address id="0x840a" name="spot-10"/>
+  <address id="0x840b" name="spot-11"/>
+  <address id="0x840c" name="spot-12"/>
+  <address id="0x840d" name="spot-13"/>
+  <address id="0x840e" name="spot-14"/>
+  <address id="0x840f" name="spot-15"/>
+  <address id="0x8410" name="spot-16"/>
+  <address id="0x8411" name="spot-17"/>
+  <address id="0x8412" name="spot-18"/>
+  <address id="0x8413" name="spot-19"/>
+  <address id="0x8414" name="spot-20"/>
+  <address id="0x8415" name="spot-21"/>
+  <address id="0x8416" name="spot-22"/>
+  <address id="0x8417" name="spot-23"/>
+  <address id="0x8418" name="spot-24"/>
+  <address id="0x8419" name="spot-25"/>
+  <address id="0x84a1" name="argos-01"/>
+  <address id="0x84a2" name="argos-02"/>
+  <address id="0x84a3" name="argos-03"/>
+  <address id="0x84a4" name="argos-04"/>
+  <address id="0x84a5" name="carson"/>
+  <address id="0x84a6" name="paragon"/>
+  <address id="0x84a7" name="dorado"/>
+  <address id="0x84a8" name="esp-mack"/>
+  <address id="0x84a9" name="esp-bruce"/>
+  <address id="0x8500" name="wavy-0"/>
+  <address id="0x8501" name="wavy-1"/>
+  <address id="0x8502" name="wavy-2"/>
   <address id="0x0c01" name="lusitania"/>
   <address id="0x0c02" name="sedona"/>
   <address id="0x0c03" name="x8-00"/>
+  <address id="0x0c04" name="x8-01"/>
+  <address id="0x0c05" name="x8-02"/>
+  <address id="0x0c06" name="x8-03"/>
   <address id="0x0c22" name="alfa-02"/>
   <address id="0x0c23" name="alfa-03"/>
   <address id="0x0c24" name="alfa-04"/>
@@ -61,6 +109,13 @@
   <address id="0x0c76" name="pilatus-06"/>
   <address id="0x0c90" name="extended"/>
   <address id="0x0cf1" name="form-leader-01"/>
+  <address id="0x0cf1" name="form-leader-02"/>
+  <address id="0x0cf1" name="form-leader-03"/>
+  <address id="0x0cf1" name="form-leader-04"/>
+  <address id="0x0cf1" name="form-leader-05"/>
+  <address id="0x0cf1" name="form-leader-06"/>
+  <address id="0x4101" name="ccu-lsts-1-1"/>
+  <address id="0x416A" name="ccu-zp-1-106"/>
   <address id="0xfff0" name="broadcast"/>
   <address id="0xffff" name="null"/>
 </addresses>
