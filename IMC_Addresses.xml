@@ -20,7 +20,8 @@
   <address id="0x001A" name="lauv-noptilus-1"/>
   <address id="0x001B" name="lauv-noptilus-2"/>
   <address id="0x001C" name="lauv-noptilus-3"/>
-  <address id="0x001D" name="lauv-xplore-1"/>
+  <address id="0x001D" name="lauv-lsts-1"/>
+  <address id="0x001E" name="lauv-xplore-1"/>
   <address id="0x00D1" name="lauv-simulator-1"/>
   <address id="0x0101" name="lauv-dolphin-1"/>
   <address id="0x0401" name="rov-ies"/>
