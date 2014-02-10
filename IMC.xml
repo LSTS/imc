@@ -2532,6 +2532,11 @@
         The value of the wind speed as measured by the sensor.
       </description>
     </field>
+    <field name="Turbulence" abbrev="turbulence" type="fp32_t" unit="m/s">
+      <description>
+        Wind turbulence intensity.
+      </description>
+    </field>
   </message>
 
   <message id="272" name="Relative Humidity" abbrev="RelativeHumidity" source="vehicle" flags="periodic">
