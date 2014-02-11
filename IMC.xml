@@ -902,6 +902,10 @@
       </description>
     </field>
   </message>
+  
+  <message id="20" name="Message List" abbrev="MessageList" >
+  	<field name="Messages" abbrev="msgs" type="message-list"/>
+  </message>
 
   <!-- Simulation -->
   <message id="50" name="Simulated State" abbrev="SimulatedState" source="vehicle">
