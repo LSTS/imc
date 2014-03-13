@@ -904,7 +904,7 @@
     </field>
   </message>
 
-  <message id="20" name="Message List" abbrev="MessageList" >
+  <message id="20" name="Message List" abbrev="MsgList" >
   	<field name="Messages" abbrev="msgs" type="message-list"/>
   </message>
 
