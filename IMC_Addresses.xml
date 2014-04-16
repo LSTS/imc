@@ -120,6 +120,7 @@
   <address id="0x0cf6" name="form-leader-06"/>
   <address id="0x4101" name="ccu-lsts-1-1"/>
   <address id="0x416A" name="ccu-zp-1-106"/>
+  <address id="0x4282" name="ccu-meg-2-130"/>
   <address id="0xfff0" name="broadcast"/>
   <address id="0xffff" name="null"/>
 </addresses>
