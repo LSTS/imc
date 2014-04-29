@@ -47,6 +47,8 @@
   <address id="0x8040" name="piccolo-gs1"/>
   <address id="0x8041" name="piccolo-gs2"/>
   <address id="0x8042" name="piccolo-gs3"/>
+  <address id="0x8070" name="ais-1"/>
+  <address id="0x8071" name="ais-2"/>
   <address id="0x8401" name="spot-01"/>
   <address id="0x8402" name="spot-02"/>
   <address id="0x8403" name="spot-03"/>
