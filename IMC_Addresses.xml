@@ -35,6 +35,7 @@
   <address id="0x6000" name="doam"/>
   <address id="0x6001" name="lauv-dolphin-1-doam"/>
   <address id="0x6002" name="lauv-seacon-1-aux"/>
+  <address id="0x6003" name="lauv-noptilus-3-aux"/>
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
   <address id="0x8012" name="manta-1"/>
