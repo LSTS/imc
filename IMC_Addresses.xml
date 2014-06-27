@@ -24,6 +24,7 @@
   <address id="0x001E" name="lauv-xplore-1"/>
   <address id="0x00D1" name="lauv-simulator-1"/>
   <address id="0x0101" name="lauv-dolphin-1"/>
+  <address id="0x0102" name="lauv-lupis-1"/>
   <address id="0x0401" name="rov-ies"/>
   <address id="0x0402" name="adamastor"/>
   <address id="0x0801" name="swordfish"/>
@@ -34,6 +35,7 @@
   <address id="0x6000" name="doam"/>
   <address id="0x6001" name="lauv-dolphin-1-doam"/>
   <address id="0x6002" name="lauv-seacon-1-aux"/>
+  <address id="0x6003" name="lauv-noptilus-3-aux"/>
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
   <address id="0x8012" name="manta-1"/>
@@ -44,9 +46,12 @@
   <address id="0x801a" name="manta-9"/>
   <address id="0x801b" name="manta-10"/>
   <address id="0x801c" name="manta-11"/>
+  <address id="0x801d" name="manta-12"/>
   <address id="0x8040" name="piccolo-gs1"/>
   <address id="0x8041" name="piccolo-gs2"/>
   <address id="0x8042" name="piccolo-gs3"/>
+  <address id="0x8070" name="ais-1"/>
+  <address id="0x8071" name="ais-2"/>
   <address id="0x8401" name="spot-01"/>
   <address id="0x8402" name="spot-02"/>
   <address id="0x8403" name="spot-03"/>
@@ -72,10 +77,7 @@
   <address id="0x8417" name="spot-23"/>
   <address id="0x8418" name="spot-24"/>
   <address id="0x8419" name="spot-25"/>
-  <address id="0x84a1" name="argos-01"/>
-  <address id="0x84a2" name="argos-02"/>
-  <address id="0x84a3" name="argos-03"/>
-  <address id="0x84a4" name="argos-04"/>
+  <address id="0x841a" name="spot-26"/>
   <address id="0x84a5" name="carson"/>
   <address id="0x84a6" name="paragon"/>
   <address id="0x84a7" name="dorado"/>
@@ -90,6 +92,7 @@
   <address id="0x0c04" name="x8-01"/>
   <address id="0x0c05" name="x8-02"/>
   <address id="0x0c06" name="x8-03"/>
+  <address id="0x0c07" name="x8-04"/>
   <address id="0x0c13" name="hexa-00"/>
   <address id="0x0c22" name="alfa-02"/>
   <address id="0x0c23" name="alfa-03"/>
@@ -119,6 +122,9 @@
   <address id="0x0cf6" name="form-leader-06"/>
   <address id="0x4101" name="ccu-lsts-1-1"/>
   <address id="0x416A" name="ccu-zp-1-106"/>
+  <address id="0x4282" name="ccu-meg-2-130"/>
+  <address id="0x410a" name="ccu-pitvant-laptop-01-1-10"/>
+  <address id="0x406c" name="ccu-lsts-0-108"/>
   <address id="0xfff0" name="broadcast"/>
   <address id="0xffff" name="null"/>
 </addresses>
