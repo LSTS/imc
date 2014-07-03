@@ -35,6 +35,7 @@
   <address id="0x6000" name="doam"/>
   <address id="0x6001" name="lauv-dolphin-1-doam"/>
   <address id="0x6002" name="lauv-seacon-1-aux"/>
+  <address id="0x6003" name="lauv-noptilus-3-aux"/>
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
   <address id="0x8012" name="manta-1"/>
@@ -45,6 +46,7 @@
   <address id="0x801a" name="manta-9"/>
   <address id="0x801b" name="manta-10"/>
   <address id="0x801c" name="manta-11"/>
+  <address id="0x801d" name="manta-12"/>
   <address id="0x8040" name="piccolo-gs1"/>
   <address id="0x8041" name="piccolo-gs2"/>
   <address id="0x8042" name="piccolo-gs3"/>
@@ -76,66 +78,6 @@
   <address id="0x8418" name="spot-24"/>
   <address id="0x8419" name="spot-25"/>
   <address id="0x841a" name="spot-26"/>
-  <address id="0x8600" name="argos-138157"/>
-  <address id="0x8601" name="argos-138158"/>
-  <address id="0x8602" name="argos-138159"/>
-  <address id="0x8603" name="argos-138160"/>
-  <address id="0x8604" name="argos-138161"/>
-  <address id="0x8605" name="argos-138162"/>
-  <address id="0x8606" name="argos-138163"/>
-  <address id="0x8607" name="argos-138164"/>
-  <address id="0x8608" name="argos-138165"/>
-  <address id="0x8609" name="argos-138166"/>
-  <address id="0x860a" name="argos-138167"/>
-  <address id="0x860b" name="argos-138168"/>
-  <address id="0x860c" name="argos-138169"/>
-  <address id="0x860d" name="argos-138170"/>
-  <address id="0x860e" name="argos-138171"/>
-  <address id="0x860f" name="argos-138172"/>
-  <address id="0x8610" name="argos-138173"/>
-  <address id="0x8611" name="argos-138174"/>
-  <address id="0x8612" name="argos-138175"/>
-  <address id="0x8613" name="argos-138176"/>
-  <address id="0x8614" name="argos-138177"/>
-  <address id="0x8615" name="argos-138178"/>
-  <address id="0x8616" name="argos-138179"/>
-  <address id="0x8617" name="argos-138180"/>
-  <address id="0x8618" name="argos-138181"/>
-  <address id="0x8619" name="argos-138182"/>
-  <address id="0x861a" name="argos-138183"/>
-  <address id="0x861b" name="argos-138184"/>
-  <address id="0x861c" name="argos-138185"/>
-  <address id="0x861d" name="argos-138186"/>
-  <address id="0x861e" name="argos-138187"/>
-  <address id="0x861f" name="argos-138188"/>
-  <address id="0x8620" name="argos-138189"/>
-  <address id="0x8621" name="argos-138190"/>
-  <address id="0x8622" name="argos-138191"/>
-  <address id="0x8623" name="argos-138192"/>
-  <address id="0x8624" name="argos-138193"/>
-  <address id="0x8625" name="argos-138194"/>
-  <address id="0x8626" name="argos-138195"/>
-  <address id="0x8627" name="argos-138196"/>
-  <address id="0x8628" name="argos-132041"/>
-  <address id="0x8629" name="argos-132042"/>
-  <address id="0x862a" name="argos-132043"/>
-  <address id="0x862b" name="argos-132044"/>
-  <address id="0x862c" name="argos-133669"/>
-  <address id="0x862d" name="argos-133670"/>
-  <address id="0x862e" name="argos-133671"/>
-  <address id="0x862f" name="argos-133672"/>
-  <address id="0x8630" name="argos-135925"/>
-  <address id="0x8631" name="argos-135926"/>
-  <address id="0x8632" name="argos-135927"/>
-  <address id="0x8633" name="argos-135928"/>
-  <address id="0x8634" name="argos-135929"/>
-  <address id="0x8635" name="argos-135930"/>
-  <address id="0x8636" name="argos-135931"/>
-  <address id="0x8637" name="argos-135932"/>
-  <address id="0x8638" name="argos-135933"/>
-  <address id="0x8639" name="argos-135934"/>
-  <address id="0x863a" name="argos-135935"/>
-  <address id="0x863b" name="argos-136978"/>
   <address id="0x84a5" name="carson"/>
   <address id="0x84a6" name="paragon"/>
   <address id="0x84a7" name="dorado"/>
