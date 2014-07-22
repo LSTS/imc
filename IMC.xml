@@ -7624,6 +7624,27 @@
     </field>
   </message>
 
+  <message id="821" name="Formation Evaluation Data" abbrev="FormationEval">
+    <description>
+      Formation control performance evaluation variables.
+    </description>
+    <field name="Mean position error" abbrev="err_mean" type="fp32_t">
+      <description>
+        Mean position error relative to the formation reference.
+      </description>
+    </field>
+    <field name="Absolute minimum distance" abbrev="dist_min_abs" type="fp32_t">
+      <description>
+        Overall minimum distance to any other vehicle in the formation.
+      </description>
+    </field>
+    <field name="Mean minimum distance" abbrev="dist_min_mean" type="fp32_t">
+      <description>
+        Mean minimum distance to any other vehicle in the formation.
+      </description>
+    </field>
+  </message>
+
   <message id="877" abbrev="MessagePart" name="Message Fragment">
       <field name="Transmission Unique Id" abbrev="uid" type="uint8_t"/>
       <field name="Fragment Number" abbrev="frag_number" type="uint8_t"/>
