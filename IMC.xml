@@ -5852,7 +5852,7 @@
     </field>
   </message>
 
-  <message id="482" name="Relative State" abbrev="RelativeState">
+  <message id="481" name="Relative State" abbrev="RelativeState">
     <description>
       Inter-vehicle formation state.
     </description>
