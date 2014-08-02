@@ -5710,6 +5710,11 @@
         List of formation participants.
       </description>
     </field>
+    <field name="Formation Leader Bank Limit" abbrev="leader_bank_lim" type="fp32_t" unit="rad">
+      <description>
+        Maximum absolute bank allowed for the formation leader.
+      </description>
+    </field>
     <field name="Formation Leader Minimum Speed" abbrev="leader_speed_min" type="fp32_t" unit="m/s">
       <description>
         Minimum speed allowed for the formation leader flight.
@@ -5720,9 +5725,14 @@
         Maximum speed allowed for the formation leader flight.
       </description>
     </field>
-    <field name="Formation Leader Bank Limit" abbrev="leader_bank_lim" type="fp32_t" unit="m/s">
+    <field name="Formation Leader Minimum Altitude" abbrev="leader_alt_min" type="fp32_t" unit="m">
       <description>
-        Maximum absolute bank allowed for the formation leader.
+        Minimum altitude allowed for the formation leader flight.
+      </description>
+    </field>
+    <field name="Formation Leader Maximum Altitude" abbrev="leader_alt_max" type="fp32_t" unit="m">
+      <description>
+        Maximum altitude allowed for the formation leader flight.
       </description>
     </field>
     <field name="Position mismatch limit" abbrev="pos_sim_err_lim" type="fp32_t" unit="m">
