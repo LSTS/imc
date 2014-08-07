@@ -7420,6 +7420,18 @@
     <field name="Reactor name" abbrev="reactor" type="plaintext" />
     <field name="Tokens" abbrev="tokens" type="message-list" message-type="TrexToken" />
   </message>
+  
+  <message id="660" abbrev="Event" name="Event" source="vehicle,ccu">
+    <description>
+      This message is used for signaling asynchronous events between different (sub) systems.      
+    </description>
+  	<field name="Topic" abbrev="topic" type="plaintext">
+  	  <description>The name or type of this event</description>
+  	</field>
+  	<field name="Data" abbrev="data" type="plaintext" unit="Tuplelist">
+  	  <description>A map with additional event information.</description>
+  	</field>
+  </message>
 
   <!-- Vision -->
   <message id="700" name="Video Data" abbrev="VideoData" source="ccu, vehicle">
