@@ -7428,7 +7428,7 @@
   	<field name="Topic" abbrev="topic" type="plaintext">
   	  <description>The name or type of this event</description>
   	</field>
-  	<field name="Data" abbrev="data" type="plaintext" unit="Tuplelist">
+  	<field name="Data" abbrev="data" type="plaintext" unit="TupleList">
   	  <description>A map with additional event information.</description>
   	</field>
   </message>
