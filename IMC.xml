@@ -7783,7 +7783,8 @@
   </message>
 
   <message id="889" abbrev="Aborted" name="Aborted">
-    This message signals that an :ref:`Abort` message was received and
-    acted upon.
+    <description>
+      This message signals that an :ref:`Abort` message was received and acted upon.
+    </description>
   </message>
 </messages>
