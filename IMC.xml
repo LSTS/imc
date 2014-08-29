@@ -7379,17 +7379,17 @@
     <field name="Reactor name" abbrev="reactor" type="plaintext" />
     <field name="Tokens" abbrev="tokens" type="message-list" message-type="TrexToken" />
   </message>
-  
+
   <message id="660" abbrev="Event" name="Event" source="vehicle,ccu">
     <description>
-      This message is used for signaling asynchronous events between different (sub) systems.      
+      This message is used for signaling asynchronous events between different (sub) systems.
     </description>
-  	<field name="Topic" abbrev="topic" type="plaintext">
-  	  <description>The name or type of this event</description>
-  	</field>
-  	<field name="Data" abbrev="data" type="plaintext" unit="TupleList">
-  	  <description>A map with additional event information.</description>
-  	</field>
+    <field name="Topic" abbrev="topic" type="plaintext">
+      <description>The name or type of this event</description>
+    </field>
+    <field name="Data" abbrev="data" type="plaintext" unit="TupleList">
+      <description>A map with additional event information.</description>
+    </field>
   </message>
 
   <!-- Vision -->
@@ -7726,6 +7726,6 @@
   <message id="889" abbrev="Aborted" name="Aborted">
     <description>
       This message signals that an :ref:`Abort` message was received and acted upon.
-    </description>    
+    </description>
   </message>
 </messages>
