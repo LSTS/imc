@@ -120,6 +120,18 @@
   <address id="0x0cf4" name="form-leader-04"/>
   <address id="0x0cf5" name="form-leader-05"/>
   <address id="0x0cf6" name="form-leader-06"/>
+  <address id="0x0d01" name="ntnu-hexa-001"/>
+  <address id="0x0d02" name="ntnu-hexa-002"/>
+  <address id="0x0d03" name="ntnu-hexa-003"/>
+  <address id="0x0d04" name="ntnu-hexa-004"/>
+  <address id="0x0d21" name="ntnu-x8-001"/>
+  <address id="0x0d22" name="ntnu-x8-002"/>
+  <address id="0x0d23" name="ntnu-x8-003"/>
+  <address id="0x0d24" name="ntnu-x8-004"/>
+  <address id="0x0d41" name="ntnu-penguin-001"/>
+  <address id="0x0d42" name="ntnu-penguin-002"/>
+  <address id="0x0d43" name="ntnu-penguin-003"/>
+  <address id="0x0d44" name="ntnu-penguin-004"/>
   <address id="0x4101" name="ccu-lsts-1-1"/>
   <address id="0x416A" name="ccu-zp-1-106"/>
   <address id="0x4282" name="ccu-meg-2-130"/>
