@@ -10,7 +10,7 @@
           xsi:noNamespaceSchemaLocation="IMC.xsd"
           name="IMC"
           long-name="Inter Module Communication"
-          version="5.4.1">
+          version="5.4.2">
 
   <description>
     This document describes the communications protocol associated
@@ -323,10 +323,6 @@
       <message-type abbrev="DesiredSpeed"/>
       <message-type abbrev="DesiredPath"/>
     </message-group>
-
-    <message-group abbrev="Payload" name="Payload">
-      <message-type abbrev="SonarConfig"/>
-    </message-group>
   </message-groups>
 
   <flags>
@@ -532,19 +528,6 @@
       <description>
         Example: "Battery=11;CTD=3"
       </description>
-    </field>
-  </message>
-
-  <message id="6" name="Entity Control" abbrev="EntityControl" source="vehicle,ccu">
-    <description>
-      Control the activity of entities.
-    </description>
-    <field name="Operation" abbrev="op" type="uint8_t" prefix="ECO" unit="Enumerated">
-      <description>
-        Activate or deactivate an entity.
-      </description>
-      <value id="0" abbrev="DEACTIVATE" name="Activate Entity"/>
-      <value id="1" abbrev="ACTIVATE" name="Deactivate Entity"/>
     </field>
   </message>
 
@@ -1645,27 +1628,6 @@
     </field>
   </message>
 
-  <message id="201" name="LBL Detection" abbrev="LblDetection" source="vehicle" flags="periodic">
-    <description>
-      Report of an LBL detection.
-    </description>
-    <field name="Transmission" abbrev="tx" type="uint8_t">
-      <description>
-        True for transmission detections.
-      </description>
-    </field>
-    <field name="Channel" abbrev="channel" type="uint8_t">
-      <description>
-        Channel.
-      </description>
-    </field>
-    <field name="Timer" abbrev="timer" type="uint16_t">
-      <description>
-        Internal Timer Value.
-      </description>
-    </field>
-  </message>
-
   <message id="202" name="LBL Beacon Configuration" abbrev="LblBeacon" source="ccu,vehicle">
     <description>
       Position and configuration of an LBL transponder (beacon).
@@ -1730,42 +1692,6 @@
     </field>
   </message>
 
-  <message id="204" name="Acoustic Range" abbrev="AcousticRange" source="vehicle">
-    <description>
-      Issue an acoustic range command.
-    </description>
-    <field name="Target Modem Address" abbrev="address" type="uint8_t">
-      <description>
-        Target modem address.
-      </description>
-    </field>
-  </message>
-
-  <message id="205" name="Acoustic Range Reply" abbrev="AcousticRangeReply" source="vehicle">
-    <description>
-      Acoustic range measure in response to a range command.
-    </description>
-    <field name="Target Modem Address" abbrev="address" type="uint8_t">
-      <description>
-        Target modem address.
-      </description>
-    </field>
-    <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="RNG">
-      <description>
-        Status indicating reply to range request.
-      </description>
-      <value id="0" name="Range obtained" abbrev="OK"/>
-      <value id="1" name="Range not obtained" abbrev="NO_RESPONSE"/>
-      <value id="2" name="Error occurred in operation" abbrev="ERROR"/>
-    </field>
-    <field name="Range" abbrev="range" type="fp32_t" unit="m">
-      <description>
-        Range measure obtained. Usable if status indicates successful
-        reply.
-      </description>
-    </field>
-  </message>
-
   <message id="206" name="Acoustic Message" abbrev="AcousticMessage" source="vehicle">
     <description>
       Send an acoustic message.
@@ -1775,52 +1701,6 @@
         Message to send.
       </description>
     </field>
-  </message>
-
-  <message id="207" name="Acoustic Diagnostic" abbrev="AcousticDiagnostic">
-    <description>
-      Enable/Disable Acoustic Diagnostic.
-    </description>
-    <field name="Enable" abbrev="enable" type="uint8_t" prefix="DIAG">
-      <description>
-        Enable/Disable diagnostic.
-      </description>
-      <value id="0" name="Disable" abbrev="DISABLE"/>
-      <value id="1" name="Enable" abbrev="ENABLE"/>
-    </field>
-  </message>
-
-  <message id="208" name="Acoustic Noise" abbrev="AcousticNoise">
-    <description>
-      Report on the conditions of the underwater medium, for when
-      acoustic diagnostics are enabled.
-    </description>
-    <field name="Summary" abbrev="summary" type="uint8_t" prefix="NOISE" unit="Enumerated">
-      <description>
-        Noise level characterization.
-      </description>
-      <value id="0" abbrev="NORMAL" name="Normal Conditions"/>
-      <value id="1" abbrev="LOW" name="Some Background Noise"/>
-      <value id="2" abbrev="HIGH" name="Too Much Background Noise"/>
-      <value id="3" abbrev="NO_SIGNAL" name="No Signal"/>
-    </field>
-    <field name="Noise Level" abbrev="level" unit="dB" type="uint8_t">
-      <description>
-        Noise level value.
-      </description>
-    </field>
-  </message>
-
-  <message id="209" name="Acoustic Ping" abbrev="AcousticPing">
-    <description>
-      Ping remote modem.
-    </description>
-  </message>
-
-  <message id="210" name="Acoustic Ping Reply" abbrev="AcousticPingReply">
-    <description>
-      Acoust Ping Reply.
-    </description>
   </message>
 
   <message id="211" name="Acoustic Operation" abbrev="AcousticOperation">
@@ -2574,28 +2454,6 @@
     <field name="Value" abbrev="value" type="rawdata">
       <description>
         Raw binary data as extracted directly from the device.
-      </description>
-    </field>
-  </message>
-
-  <message id="275" name="Sonar Configuration" abbrev="SonarConfig" source="vehicle" flags="periodic">
-    <description>
-      This message contains high-level runtime configuration
-      parameters for Sonars.
-    </description>
-    <field name="Frequency" abbrev="frequency" type="uint32_t" unit="Hz">
-      <description>
-        Operating frequency.
-      </description>
-    </field>
-    <field name="Minimum Range" abbrev="min_range" type="uint16_t" unit="m">
-      <description>
-        Minimum operating range.
-      </description>
-    </field>
-    <field name="Maximum Range" abbrev="max_range" type="uint16_t" unit="m">
-      <description>
-        Maximum operating range.
       </description>
     </field>
   </message>
@@ -7394,27 +7252,6 @@
   </message>
 
   <!-- Vision -->
-  <message id="700" name="Video Data" abbrev="VideoData" source="ccu, vehicle">
-    <description/>
-    <field name="Identification Number" abbrev="id" type="uint8_t"/>
-    <field name="Width Size" abbrev="width" type="uint16_t"/>
-    <field name="Height Size" abbrev="height" type="uint16_t"/>
-    <field name="Width Step" abbrev="widthstep" type="uint16_t"/>
-    <field name="Number of Channels" abbrev="channels" type="uint8_t"/>
-    <field name="Pixel Depth" abbrev="depth" type="uint8_t"/>
-    <field name="Final Data" abbrev="finaldata" type="uint8_t"/>
-    <field name="Data" abbrev="data" type="rawdata"/>
-  </message>
-
-  <message id="701" name="Raw Image" abbrev="RawImage" source="ccu, vehicle">
-    <description/>
-    <field name="Width" abbrev="width" type="uint16_t"/>
-    <field name="Height" abbrev="height" type="uint16_t"/>
-    <field name="Channels" abbrev="channels" type="uint8_t"/>
-    <field name="Pixel Depth" abbrev="depth" type="uint8_t"/>
-    <field name="Data" abbrev="data" type="rawdata"/>
-  </message>
-
   <message id="702" name="Compressed Image" abbrev="CompressedImage" source="ccu, vehicle">
     <description/>
     <field name="Frame Id" abbrev="frameid" type="uint8_t"/>
