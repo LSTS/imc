@@ -293,6 +293,23 @@
 
   <message-groups>
     <message-group name="Maneuver" abbrev="Maneuver">
+      <field name="Plan Reference" abbrev="plan_ref" type="uint32_t">
+	<description>
+	  Unsigned integer reference for the scope of the maneuver.
+          Plan reference should only be set by who parses the plan.
+	  It should increment with each parsed plan specification.
+	</description>
+      </field>
+      <field name="Maneuver ID" abbrev="id" type="plaintext">
+	<description>
+	  ID given to this maneuver in the executing plan.
+	</description>
+      </field>
+      <field name="Memento" abbrev="memento" type="plaintext">
+	<description>
+	  List of tuples allowing this maneuver to resume itself
+	</description>
+      </field>
       <message-type abbrev="Goto"/>
       <message-type abbrev="PopUp"/>
       <message-type abbrev="Teleoperation"/>
