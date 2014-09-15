@@ -6971,6 +6971,11 @@
           Plan is cyclical.
         </description>
       </value>
+      <value id="0x07" name="All" abbrev="ALL">
+        <description>
+	  All properties checked.
+        </description>
+      </value>
     </field>
     <field name="Durations" abbrev="durations" type="plaintext" unit="TupleList">
       <description>
