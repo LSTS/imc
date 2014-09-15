@@ -291,57 +291,6 @@
     </def>
   </bitfields>
 
-  <message-groups>
-    <message-group name="Maneuver" abbrev="Maneuver">
-      <field name="Plan Reference" abbrev="plan_ref" type="uint32_t">
-	<description>
-	  Unsigned integer reference for the scope of the maneuver.
-          Plan reference should only be set by who parses the plan.
-	  It should increment with each parsed plan specification.
-	</description>
-      </field>
-      <field name="Maneuver ID" abbrev="id" type="plaintext">
-	<description>
-	  ID given to this maneuver in the executing plan.
-	</description>
-      </field>
-      <field name="Memento" abbrev="memento" type="plaintext">
-	<description>
-	  List of tuples allowing this maneuver to resume itself
-	</description>
-      </field>
-      <message-type abbrev="Goto"/>
-      <message-type abbrev="PopUp"/>
-      <message-type abbrev="Teleoperation"/>
-      <message-type abbrev="Loiter"/>
-      <message-type abbrev="IdleManeuver"/>
-      <message-type abbrev="LowLevelControl"/>
-      <message-type abbrev="Rows"/>
-      <message-type abbrev="FollowPath"/>
-      <message-type abbrev="YoYo"/>
-      <message-type abbrev="StationKeeping"/>
-      <message-type abbrev="Elevator"/>
-      <message-type abbrev="FollowTrajectory"/>
-      <message-type abbrev="CustomManeuver"/>
-      <message-type abbrev="VehicleFormation"/>
-      <message-type abbrev="CompassCalibration"/>
-      <message-type abbrev="CoverArea"/>
-      <message-type abbrev="FollowReference"/>
-      <message-type abbrev="CommsRelay"/>
-      <message-type abbrev="FormationPlanExecution"/>
-      <message-type abbrev="Dislodge"/>
-    </message-group>
-
-    <message-group name="Control Command" abbrev="ControlCommand">
-      <message-type abbrev="DesiredZ"/>
-      <message-type abbrev="DesiredHeading"/>
-      <message-type abbrev="DesiredRoll"/>
-      <message-type abbrev="DesiredPitch"/>
-      <message-type abbrev="DesiredSpeed"/>
-      <message-type abbrev="DesiredPath"/>
-    </message-group>
-  </message-groups>
-
   <flags>
     <flag abbrev="periodic" name="Periodic"/>
     <flag abbrev="deprecated" name="Deprecated"/>
@@ -3607,7 +3556,13 @@
   </message>
 
   <!-- Guidance -->
-  <message id="400" name="Desired Heading" abbrev="DesiredHeading"  source="vehicle">
+  <message name="Control Command" abbrev="ControlCommand">
+    <description>
+      Base message for control commands.
+    </description>
+  </message>
+
+  <message id="400" name="Desired Heading" abbrev="DesiredHeading" extends="ControlCommand" source="vehicle">
     <description>
       Desired Heading angle reference value for the control layer.
     </description>
@@ -3619,7 +3574,7 @@
     </field>
   </message>
 
-  <message id="401" name="Desired Z" abbrev="DesiredZ"  source="vehicle">
+  <message id="401" name="Desired Z" abbrev="DesiredZ" extends="ControlCommand"  source="vehicle">
     <description>
       Desired Z reference value for the control layer.
     </description>
@@ -3635,7 +3590,7 @@
     </field>
   </message>
 
-  <message id="402" name="Desired Speed" abbrev="DesiredSpeed"  source="vehicle">
+  <message id="402" name="Desired Speed" abbrev="DesiredSpeed" extends="ControlCommand" source="vehicle">
     <description>
       Desired Speed reference value for the control layer.
     </description>
@@ -3652,7 +3607,7 @@
     </field>
   </message>
 
-  <message id="403" name="Desired Roll" abbrev="DesiredRoll" source="vehicle">
+  <message id="403" name="Desired Roll" abbrev="DesiredRoll" extends="ControlCommand" source="vehicle">
     <description>
       Desired Roll angle reference value for the control layer.
     </description>
@@ -3663,7 +3618,7 @@
     </field>
   </message>
 
-  <message id="404" name="Desired Pitch" abbrev="DesiredPitch" source="vehicle">
+  <message id="404" name="Desired Pitch" abbrev="DesiredPitch" extends="ControlCommand" source="vehicle">
     <description>
       Desired Pitch angle reference value for the control layer.
     </description>
@@ -3686,7 +3641,7 @@
     </field>
   </message>
 
-  <message id="406" name="Desired Path" abbrev="DesiredPath" source="vehicle">
+  <message id="406" name="Desired Path" abbrev="DesiredPath" extends="ControlCommand" source="vehicle">
     <description>
       Perform path control.
 
@@ -4202,7 +4157,30 @@
   </message>
 
   <!-- Maneuvering -->
-  <message id="450" name="Goto Maneuver" abbrev="Goto" source="ccu">
+  <message name="Maneuver" abbrev="Maneuver">
+    <description>
+      Base message for all maneuvers.
+    </description>
+    <field name="Plan Reference" abbrev="plan_ref" type="uint32_t">
+      <description>
+	Unsigned integer reference for the scope of the maneuver.
+        Plan reference should only be set by who parses the plan.
+	It should increment with each parsed plan specification.
+      </description>
+    </field>
+    <field name="Maneuver ID" abbrev="id" type="plaintext">
+      <description>
+	ID given to this maneuver in the executing plan.
+      </description>
+    </field>
+    <field name="Memento" abbrev="memento" type="plaintext">
+      <description>
+	List of tuples allowing this maneuver to resume itself
+      </description>
+    </field>
+  </message>
+
+  <message id="450" name="Goto Maneuver" abbrev="Goto" extends="Maneuver" source="ccu">
     <description>
       A "Goto" is a maneuver specifying a movement of the vehicle to a
       target waypoint. The waypoint is described by the WGS-84
@@ -4280,7 +4258,7 @@
     </field>
   </message>
 
-  <message id="451" name="PopUp Maneuver" abbrev="PopUp" source="ccu">
+  <message id="451" name="PopUp Maneuver" abbrev="PopUp" extends="Maneuver" source="ccu">
     <description>
       The Pop Up maneuver makes the vehicle come to the surface at a
       specific waypoint. This maneuver is restricted to underwater vehicles.
@@ -4367,7 +4345,7 @@
     </field>
   </message>
 
-  <message id="452" name="Teleoperation Maneuver" abbrev="Teleoperation" source="ccu">
+  <message id="452" name="Teleoperation Maneuver" abbrev="Teleoperation" extends="Maneuver" source="ccu">
     <description>
       The Teleoperation Maneuver lets the vehicle be controlled by an
       external human operator.
@@ -4379,7 +4357,7 @@
     </field>
   </message>
 
-  <message id="453" name="Loiter Maneuver" abbrev="Loiter" source="ccu">
+  <message id="453" name="Loiter Maneuver" abbrev="Loiter" extends="Maneuver" source="ccu">
     <description>
       The Loiter maneuver makes the vehicle circle around a specific
       waypoint with fixed depth reference.
@@ -4468,7 +4446,7 @@
     </field>
   </message>
 
-  <message id="454" name="Idle Maneuver" abbrev="IdleManeuver" source="">
+  <message id="454" name="Idle Maneuver" abbrev="IdleManeuver" extends="Maneuver" source="">
     <description>
       Causes the vehicle to stay idle for some time.
     </description>
@@ -4485,7 +4463,7 @@
     </field>
   </message>
 
-  <message id="455" name="Low Level Control Maneuver" abbrev="LowLevelControl" source="ccu">
+  <message id="455" name="Low Level Control Maneuver" abbrev="LowLevelControl" extends="Maneuver" source="ccu">
     <description>
       Low level maneuver that sends a (heading, roll, speed, ...)
       reference to a controller of the vehicle and then optionally
@@ -4509,7 +4487,7 @@
     </field>
   </message>
 
-  <message id="456" name="Rows Maneuver" abbrev="Rows" source="ccu">
+  <message id="456" name="Rows Maneuver" abbrev="Rows" extends="Maneuver" source="ccu">
     <description>Rows maneuver (i.e: lawn mower type maneuver)</description>
     <field name="Timeout" abbrev="timeout" type="uint16_t" unit="s">
       <description>
@@ -4596,7 +4574,7 @@
     </field>
   </message>
 
-  <message id="457" name="Follow Path Maneuver" abbrev="FollowPath" source="ccu">
+  <message id="457" name="Follow Path Maneuver" abbrev="FollowPath" extends="Maneuver" source="ccu">
     <description>
       Maneuver constituted by a list of Path Points.
     </description>
@@ -4668,7 +4646,7 @@
     </field>
   </message>
 
-  <message id="459" name="Yo-Yo Maneuver" abbrev="YoYo" source="ccu">
+  <message id="459" name="Yo-Yo Maneuver" abbrev="YoYo" extends="Maneuver" source="ccu">
     <description>
       A "yo-yo" is a maneuver specifying a vehicle movement to a
       target waypoint in which depth/altitude varies along the way
@@ -4733,7 +4711,7 @@
     </description>
   </message>
 
-  <message id="461" name="Station Keeping" abbrev="StationKeeping" source="ccu">
+  <message id="461" name="Station Keeping" abbrev="StationKeeping" extends="Maneuver" source="ccu">
     <description>
       The Station Keeping maneuver makes the vehicle come to the surface
       and then enter a given circular perimeter around a waypoint coordinate
@@ -4782,7 +4760,7 @@
     </field>
   </message>
 
-  <message id="462" name="Elevator Maneuver" abbrev="Elevator" source="ccu">
+  <message id="462" name="Elevator Maneuver" abbrev="Elevator" extends="Maneuver" source="ccu">
     <description>
       The Elevator maneuver specifies a vehicle to reach a target
       waypoint using a cruise altitude/depth and then ascend or
@@ -4864,7 +4842,7 @@
     </field>
   </message>
 
-  <message id="463" name="Follow Trajectory" abbrev="FollowTrajectory" source="ccu">
+  <message id="463" name="Follow Trajectory" abbrev="FollowTrajectory" extends="Maneuver" source="ccu">
     <description>
       Maneuver constituted by a list of Trajectory Points.
     </description>
@@ -4945,7 +4923,7 @@
     </field>
   </message>
 
-  <message id="465" name="Custom Maneuver" abbrev="CustomManeuver" source="ccu">
+  <message id="465" name="Custom Maneuver" abbrev="CustomManeuver" extends="Maneuver" source="ccu">
     <description>
       The Custom Maneuver message may be used as specification of a
       very specific maneuver not covered by the IMC scope. The
@@ -4972,7 +4950,7 @@
     </field>
   </message>
 
-  <message id="466" name="Vehicle Formation" abbrev="VehicleFormation" source="ccu">
+  <message id="466" name="Vehicle Formation" abbrev="VehicleFormation" extends="Maneuver" source="ccu">
     <description>
       Coordinate maneuver using two or more cooperating systems.
     </description>
@@ -5162,7 +5140,7 @@
     </field>
   </message>
 
-  <message id="472" abbrev="CommsRelay" name="Communications Relay" >
+  <message id="472" abbrev="CommsRelay" name="Communications Relay" extends="Maneuver" source="ccu">
     <description>
       In this maneuver, a vehicle drives to the center of two other
       systems (a, b) in order to be used as a communications relay.
@@ -5210,7 +5188,7 @@
     </field>
   </message>
 
-  <message id="473" abbrev="CoverArea" name="Cover Area">
+  <message id="473" abbrev="CoverArea" name="Cover Area" extends="Maneuver" source="ccu">
     <description>
       Given a polygonal area, generates trajectories to cover the
       area.
@@ -5275,7 +5253,7 @@
     </field>
   </message>
 
-  <message id="475" name="Compass Calibration Maneuver" abbrev="CompassCalibration" source="ccu">
+  <message id="475" name="Compass Calibration Maneuver" abbrev="CompassCalibration" extends="Maneuver" source="ccu">
     <description>
       This maneuver is a mix between the Loiter maneuver and the YoYo maneuver.
       The vehicle cirlcles around a specific waypoint with a variable Z
@@ -5396,7 +5374,7 @@
     </field>
   </message>
 
-  <message id="477" name="Formation Plan Execution" abbrev="FormationPlanExecution" source="ccu">
+  <message id="477" name="Formation Plan Execution" abbrev="FormationPlanExecution" extends="Maneuver" source="ccu">
     <description>
       A "Formation Plan" is a maneuver specifying a plan for a team of vehicles.
       The maneuver defines:
@@ -5482,7 +5460,7 @@
     </field>
   </message>
 
-  <message id="478" name="Follow Reference Maneuver" abbrev="FollowReference" source="ccu">
+  <message id="478" name="Follow Reference Maneuver" abbrev="FollowReference" extends="Maneuver" source="ccu">
     <description>
       This maneuver follows a reference given by an external entity.
     </description>
@@ -5810,7 +5788,7 @@
     </field>
   </message>
 
-  <message id="483" name="Dislodge Maneuver" abbrev="Dislodge" source="ccu">
+  <message id="483" name="Dislodge Maneuver" abbrev="Dislodge" extends="Maneuver" source="ccu">
     <description>
       A "Dislodge" is a maneuver ordering the vehicle to attempt a
       series of thruster operations that will hopefully get it
