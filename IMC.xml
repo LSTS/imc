@@ -323,10 +323,6 @@
       <message-type abbrev="DesiredSpeed"/>
       <message-type abbrev="DesiredPath"/>
     </message-group>
-
-    <message-group abbrev="Payload" name="Payload">
-      <message-type abbrev="SonarConfig"/>
-    </message-group>
   </message-groups>
 
   <flags>
@@ -535,19 +531,6 @@
     </field>
   </message>
 
-  <message id="6" name="Entity Control" abbrev="EntityControl" source="vehicle,ccu">
-    <description>
-      Control the activity of entities.
-    </description>
-    <field name="Operation" abbrev="op" type="uint8_t" prefix="ECO" unit="Enumerated">
-      <description>
-        Activate or deactivate an entity.
-      </description>
-      <value id="0" abbrev="DEACTIVATE" name="Activate Entity"/>
-      <value id="1" abbrev="ACTIVATE" name="Deactivate Entity"/>
-    </field>
-  </message>
-
   <message id="7" name="CPU Usage" abbrev="CpuUsage" source="vehicle" flags="periodic">
     <description>
       Report of software CPU usage.
@@ -579,75 +562,6 @@
     <description>
       Request the destination system to restart itself.
     </description>
-  </message>
-
-  <message id="10" name="Parameter" abbrev="Parameter" source="ccu,vehicle" flags="deprecated">
-    <description>
-      This message gives information about a configuration parameter.
-    </description>
-    <field name="Section Name" abbrev="section" type="plaintext">
-      <description>
-        The name of the configuration section.
-      </description>
-    </field>
-    <field name="Parameter Name" abbrev="param" type="plaintext">
-      <description>
-        The name of the parameter.
-      </description>
-    </field>
-    <field name="Value" abbrev="value" type="plaintext">
-      <description>
-        The current value of the parameter.
-      </description>
-    </field>
-  </message>
-
-  <message id="11" name="Parameters Control" abbrev="ParameterControl" source="ccu" flags="deprecated">
-    <description>
-      This message is used to control the configuration in
-      IMC-compatible systems.
-    </description>
-    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
-      <description>
-        The operation to be done to the configuration is encoded here.
-      </description>
-      <value abbrev="SET_PARAMS" name="Set Parameters" id="1">
-        <description>
-          Change the value of parameters (these changes will be
-          potentially lost if the vehicle is shut down)
-        </description>
-      </value>
-      <value abbrev="SAVE_PARAMS" name="Save Parameters" id="2">
-        <description>
-          Change the value of parameters (these changes will be stored to disk)
-        </description>
-      </value>
-      <value abbrev="RESET_PARAMS" name="Reset Parameters" id="3">
-        <description>
-          Revert the passed parameters to default values. If *params*
-          is empty, then all parameters will be reverted to default.
-        </description>
-      </value>
-      <value abbrev="QUERY_PARAMS" name="Query Parameters" id="4">
-        <description>
-          Request a list of current parameter values. The parameters
-          to be retrieved match that on the *params* field.
-        </description>
-      </value>
-      <value abbrev="PARAMS_LIST" name="Parameters listing" id="5">
-        <description>
-          After being queried for parameters, a system answers with a
-          message using this operation and *params* field set.
-        </description>
-      </value>
-    </field>
-    <field name="Parameters" abbrev="params" type="message-list" message-type="Parameter">
-      <description>
-        The list of parameters to be retrieved / to be set /
-        answered. Parameters are encoded as a list of :ref:`Parameter`
-        messages.
-      </description>
-    </field>
   </message>
 
   <message id="12" name="Device Calibration Control" abbrev="DevCalibrationControl" source="vehicle,ccu">
@@ -1645,27 +1559,6 @@
     </field>
   </message>
 
-  <message id="201" name="LBL Detection" abbrev="LblDetection" source="vehicle" flags="periodic">
-    <description>
-      Report of an LBL detection.
-    </description>
-    <field name="Transmission" abbrev="tx" type="uint8_t">
-      <description>
-        True for transmission detections.
-      </description>
-    </field>
-    <field name="Channel" abbrev="channel" type="uint8_t">
-      <description>
-        Channel.
-      </description>
-    </field>
-    <field name="Timer" abbrev="timer" type="uint16_t">
-      <description>
-        Internal Timer Value.
-      </description>
-    </field>
-  </message>
-
   <message id="202" name="LBL Beacon Configuration" abbrev="LblBeacon" source="ccu,vehicle">
     <description>
       Position and configuration of an LBL transponder (beacon).
@@ -1730,42 +1623,6 @@
     </field>
   </message>
 
-  <message id="204" name="Acoustic Range" abbrev="AcousticRange" source="vehicle">
-    <description>
-      Issue an acoustic range command.
-    </description>
-    <field name="Target Modem Address" abbrev="address" type="uint8_t">
-      <description>
-        Target modem address.
-      </description>
-    </field>
-  </message>
-
-  <message id="205" name="Acoustic Range Reply" abbrev="AcousticRangeReply" source="vehicle">
-    <description>
-      Acoustic range measure in response to a range command.
-    </description>
-    <field name="Target Modem Address" abbrev="address" type="uint8_t">
-      <description>
-        Target modem address.
-      </description>
-    </field>
-    <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="RNG">
-      <description>
-        Status indicating reply to range request.
-      </description>
-      <value id="0" name="Range obtained" abbrev="OK"/>
-      <value id="1" name="Range not obtained" abbrev="NO_RESPONSE"/>
-      <value id="2" name="Error occurred in operation" abbrev="ERROR"/>
-    </field>
-    <field name="Range" abbrev="range" type="fp32_t" unit="m">
-      <description>
-        Range measure obtained. Usable if status indicates successful
-        reply.
-      </description>
-    </field>
-  </message>
-
   <message id="206" name="Acoustic Message" abbrev="AcousticMessage" source="vehicle">
     <description>
       Send an acoustic message.
@@ -1775,52 +1632,6 @@
         Message to send.
       </description>
     </field>
-  </message>
-
-  <message id="207" name="Acoustic Diagnostic" abbrev="AcousticDiagnostic">
-    <description>
-      Enable/Disable Acoustic Diagnostic.
-    </description>
-    <field name="Enable" abbrev="enable" type="uint8_t" prefix="DIAG">
-      <description>
-        Enable/Disable diagnostic.
-      </description>
-      <value id="0" name="Disable" abbrev="DISABLE"/>
-      <value id="1" name="Enable" abbrev="ENABLE"/>
-    </field>
-  </message>
-
-  <message id="208" name="Acoustic Noise" abbrev="AcousticNoise">
-    <description>
-      Report on the conditions of the underwater medium, for when
-      acoustic diagnostics are enabled.
-    </description>
-    <field name="Summary" abbrev="summary" type="uint8_t" prefix="NOISE" unit="Enumerated">
-      <description>
-        Noise level characterization.
-      </description>
-      <value id="0" abbrev="NORMAL" name="Normal Conditions"/>
-      <value id="1" abbrev="LOW" name="Some Background Noise"/>
-      <value id="2" abbrev="HIGH" name="Too Much Background Noise"/>
-      <value id="3" abbrev="NO_SIGNAL" name="No Signal"/>
-    </field>
-    <field name="Noise Level" abbrev="level" unit="dB" type="uint8_t">
-      <description>
-        Noise level value.
-      </description>
-    </field>
-  </message>
-
-  <message id="209" name="Acoustic Ping" abbrev="AcousticPing">
-    <description>
-      Ping remote modem.
-    </description>
-  </message>
-
-  <message id="210" name="Acoustic Ping Reply" abbrev="AcousticPingReply">
-    <description>
-      Acoust Ping Reply.
-    </description>
   </message>
 
   <message id="211" name="Acoustic Operation" abbrev="AcousticOperation">
@@ -2574,28 +2385,6 @@
     <field name="Value" abbrev="value" type="rawdata">
       <description>
         Raw binary data as extracted directly from the device.
-      </description>
-    </field>
-  </message>
-
-  <message id="275" name="Sonar Configuration" abbrev="SonarConfig" source="vehicle" flags="periodic">
-    <description>
-      This message contains high-level runtime configuration
-      parameters for Sonars.
-    </description>
-    <field name="Frequency" abbrev="frequency" type="uint32_t" unit="Hz">
-      <description>
-        Operating frequency.
-      </description>
-    </field>
-    <field name="Minimum Range" abbrev="min_range" type="uint16_t" unit="m">
-      <description>
-        Minimum operating range.
-      </description>
-    </field>
-    <field name="Maximum Range" abbrev="max_range" type="uint16_t" unit="m">
-      <description>
-        Maximum operating range.
       </description>
     </field>
   </message>
@@ -7180,69 +6969,6 @@
     </field>
   </message>
 
-  <message id="564" name="Plan Statistics" abbrev="PlanStatistics" source="vehicle">
-    <field name="Plan Identifier" abbrev="plan_id" type="plaintext">
-      <description>
-        The name of the plan to be generated.
-      </description>
-    </field>
-    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TP">
-      <description>
-        Type of plan statistics, if they are launched before, during or after the plan execution.
-      </description>
-      <value id="0" name="Before Plan" abbrev="PREPLAN"/>
-      <value id="1" name="During Plan" abbrev="INPLAN"/>
-      <value id="2" name="After Plan" abbrev="POSTPLAN"/>
-    </field>
-    <field name="Properties" abbrev="properties" type="uint8_t" prefix="PRP" unit="Bitfield">
-      <value id="0x00" name="Basic Plan" abbrev="BASIC">
-	<description>
-          Basic plan, meaning it is Linear, Finite and Noncyclic.
-        </description>
-      </value>
-      <value id="0x01" name="Nonlinear" abbrev="NONLINEAR">
-        <description>
-          Plan is nonlinear.
-        </description>
-      </value>
-      <value id="0x02" name="Infinite" abbrev="INFINITE">
-        <description>
-          Plan is infinite in duration.
-        </description>
-      </value>
-      <value id="0x04" name="Cyclical" abbrev="CYCLICAL">
-        <description>
-          Plan is cyclical.
-        </description>
-      </value>
-      <value id="0x07" name="All" abbrev="ALL">
-        <description>
-	  All properties checked.
-        </description>
-      </value>
-    </field>
-    <field name="Durations" abbrev="durations" type="plaintext" unit="TupleList">
-      <description>
-	Maneuver and plan duration statistics in seconds, for example: “Total=1000,Goto1=20,Rows=980”
-      </description>
-    </field>
-    <field name="Distances" abbrev="distances" type="plaintext" unit="TupleList">
-      <description>
-	Distances travelled in meters in each maneuver and/or total: “Total=2000,Rows=1800,Elevator=200”
-      </description>
-    </field>
-    <field name="Actions" abbrev="actions" type="plaintext" unit="TupleList">
-      <description>
-	List of components active by plan actions during the plan and time active in seconds: “Sidescan=100,Camera Module=150”
-      </description>
-    </field>
-    <field name="Fuel" abbrev="fuel" type="plaintext" unit="TupleList">
-      <description>
-	Amount of fuel spent, in battery percentage, by different parcels (if applicable): “Total=35,Hotel=5,Payload=10,Motion=20,IMU=0”
-      </description>
-    </field>
-  </message>
-
   <!-- CCU Messages (Internal and between CCUs) -->
   <message id="600" name="Reported State" abbrev="ReportedState" source="vehicle,ccu">
     <description>
@@ -7498,27 +7224,6 @@
   </message>
 
   <!-- Vision -->
-  <message id="700" name="Video Data" abbrev="VideoData" source="ccu, vehicle">
-    <description/>
-    <field name="Identification Number" abbrev="id" type="uint8_t"/>
-    <field name="Width Size" abbrev="width" type="uint16_t"/>
-    <field name="Height Size" abbrev="height" type="uint16_t"/>
-    <field name="Width Step" abbrev="widthstep" type="uint16_t"/>
-    <field name="Number of Channels" abbrev="channels" type="uint8_t"/>
-    <field name="Pixel Depth" abbrev="depth" type="uint8_t"/>
-    <field name="Final Data" abbrev="finaldata" type="uint8_t"/>
-    <field name="Data" abbrev="data" type="rawdata"/>
-  </message>
-
-  <message id="701" name="Raw Image" abbrev="RawImage" source="ccu, vehicle">
-    <description/>
-    <field name="Width" abbrev="width" type="uint16_t"/>
-    <field name="Height" abbrev="height" type="uint16_t"/>
-    <field name="Channels" abbrev="channels" type="uint8_t"/>
-    <field name="Pixel Depth" abbrev="depth" type="uint8_t"/>
-    <field name="Data" abbrev="data" type="rawdata"/>
-  </message>
-
   <message id="702" name="Compressed Image" abbrev="CompressedImage" source="ccu, vehicle">
     <description/>
     <field name="Frame Id" abbrev="frameid" type="uint8_t"/>
