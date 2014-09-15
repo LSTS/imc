@@ -3509,12 +3509,6 @@
     </field>
   </message>
 
-  <message id="359" name="Navigation Reset" abbrev="NavigationReset">
-    <description>
-      Request a navigation reset.
-    </description>
-  </message>
-
   <message id="360" name="LBL Beacon Position Estimate" abbrev="LblEstimate">
     <description>
       LBL Beacon position estimate.
