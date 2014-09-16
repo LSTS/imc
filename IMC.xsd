@@ -7,10 +7,10 @@
    + Departamento de Engenharia Electrotécnica e de Computadores
    + Rua Dr. Roberto Frias, 4200-465 Porto, Portugal
    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + author: Paulo Dias (pdias@fe.up.pt)
+   + author: Paulo Dias (pdias@fe.up.pt), José Pinto (zepinto@fe.up.pt)
    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		</xs:documentation>
-        <xs:documentation>This is the schema to validate v5 of the embedded message protocol</xs:documentation>
+        <xs:documentation>This is the schema to validate v5.4.x of the embedded message protocol</xs:documentation>
     </xs:annotation>
     <xs:element name="messages">
         <xs:annotation>
@@ -245,6 +245,10 @@
             <xs:selector xpath="message/field"/>
             <xs:field xpath="@subtype"/>
         </xs:keyref>
+        <xs:keyref name="keyExtendsMessageRef" refer="uniqueMessageAbbrev">
+            <xs:selector xpath="message"/>
+            <xs:field xpath="@extends"/>
+        </xs:keyref>        
     </xs:element>
     <xs:element name="field" type="fieldType">
         <xs:annotation>
@@ -322,7 +326,7 @@
             <xs:element name="description" type="documentationType" minOccurs="0"/>
             <xs:element ref="field" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="id" use="required">
+        <xs:attribute name="id" use="optional">
             <xs:simpleType>
                 <xs:restriction base="xs:integer">
                     <xs:minInclusive value="0"/>
@@ -338,6 +342,11 @@
             <xs:simpleType>
                 <xs:restriction base="xs:string"/>
             </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="extends" use="optional">
+        	<xs:simpleType>
+        		<xs:restriction base="xs:string"/>
+        	</xs:simpleType>
         </xs:attribute>
         <xs:attribute name="flags" type="xs:token">
             <xs:annotation>
