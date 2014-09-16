@@ -427,7 +427,7 @@
     <group name="Autonomy" abbrev="GroupAutonomy" min="650" max="699"/>
     <group name="Vision" abbrev="GroupVision" min="700" max="749"/>
     <group name="External" abbrev="GroupExternal" min="750" max="799"/>
-    <group name="Development" abbrev="GroupDevelopment" min="800" max="849"/>
+    <group name="Development" abbrev="GroupDevelopment" min="800" max="900"/>
     <group name="Custom" abbrev="GroupCustom" min="1000" max="65534"/>
   </groups>
 
@@ -3070,7 +3070,8 @@
       The body-fixed reference frame and Euler angles are depicted
       next:
 
-      .. figure:: images/euler-lauv.png
+      .. figure:: ../images/euler-lauv.png
+
       :align:  center
 
       Euler angles
@@ -6809,7 +6810,8 @@
       The body-fixed reference frame and Euler angles are depicted
       next:
 
-      .. figure:: images/euler-lauv.png
+      .. figure:: ../images/euler-lauv.png
+
       :align:  center
 
       Euler angles
@@ -7306,7 +7308,8 @@
       Request creating a new session with this remote peer. Example
       session sequence is shown in the following diagram.
 
-      .. figure:: images/session_sequence.png
+      .. figure:: ../images/session_sequence.png
+
       :align:  center
     </description>
     <field name="Session Timeout" abbrev="timeout" type="uint32_t">
