@@ -819,6 +819,85 @@
     </field>
   </message>
 
+  <message id="17" name="Entity Activation Lock" abbrev="EntityActivationLock" source="vehicle,ccu">
+    <description>
+      Activation lock negotiation.
+    </description>
+    <field name="Lock Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="EAL">
+      <description>
+        Operation to be performed.
+      </description>
+      <value id="0" name="Acquire" abbrev="ACQUIRE">
+	<description>
+	  Request a lock on the target entiy activation state, with a desired timeout.
+	</description>
+      </value>
+      <value id="1" name="Acquire Ack" abbrev="ACQUIRE_ACK">
+	<description>
+	  Acknowledge a lock ackquisition, inform of the actual timeout (may differ
+	  from target value).
+	</description>
+      </value>
+      <value id="2" name="Release" abbrev="RELEASE">
+	<description>
+	  Release the lock on the target entity activation state.
+	</description>
+      </value>
+      <value id="3" name="Release Ack" abbrev="RELEASE_ACK">
+	<description>
+	  Acknowledge the release the lock on the target entity activation state.
+	</description>
+      </value>
+      <value id="4" name="Lock Timed Out" abbrev="TIMEOUT">
+	<description>
+	  Inform the lock holder of a forced release because of timeout.
+	</description>
+      </value>
+    </field>
+    <field name="Timeout" abbrev="timeout" type="uint16_t">
+      <description>
+        Time before activation lock is lost.
+      </description>
+    </field>
+  </message>
+
+  <message id="18" name="Entity Status" abbrev="EntityStatus" source="vehicle">
+    <description>
+      Status report by an entity in the vehicle.
+    </description>
+    <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="ESTA">
+      <description>
+	Entity State
+      </description>
+      <value id="0" name="Inactive" abbrev="INACTIVE">
+	<description>
+	  The entity is inactive and using the least power possible.
+	</description>
+      </value>
+      <value id="1" name="Active" abbrev="ACTIVE">
+	<description>
+	  The entity is active and performing its function properly.
+	</description>
+      </value>
+      <value id="2" name="Busy" abbrev="BUSY">
+	<description>
+	  The entity is in a transition state, not performing its function.
+	</description>
+      </value>
+      <value id="3" name="Fault" abbrev="FAULT">
+	<description>
+	  The entity is not able to perform its function due to a fault.
+	</description>
+      </value>
+    </field>
+  </message>
+
+  <message id="19" name="Query Entity Status" abbrev="QueryEntityStatus" source="vehicle,ccu">
+    <description>
+      Query the status of an entity. The recipient shall reply with an EntityStatus message.
+    </description>
+  </message>
+
   <message id="20" name="Message List" abbrev="MsgList" >
         <field name="Messages" abbrev="msgs" type="message-list"/>
   </message>
