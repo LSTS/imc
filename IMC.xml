@@ -6928,6 +6928,69 @@
     </field>
   </message>
 
+  <message id="564" name="Plan Statistics" abbrev="PlanStatistics" source="vehicle">
+    <field name="Plan Identifier" abbrev="plan_id" type="plaintext">
+      <description>
+        The name of the plan to be generated.
+      </description>
+    </field>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TP">
+      <description>
+        Type of plan statistics, if they are launched before, during or after the plan execution.
+      </description>
+      <value id="0" name="Before Plan" abbrev="PREPLAN"/>
+      <value id="1" name="During Plan" abbrev="INPLAN"/>
+      <value id="2" name="After Plan" abbrev="POSTPLAN"/>
+    </field>
+    <field name="Properties" abbrev="properties" type="uint8_t" prefix="PRP" unit="Bitfield">
+      <value id="0x00" name="Basic Plan" abbrev="BASIC">
+	<description>
+          Basic plan, meaning it is Linear, Finite and Noncyclic.
+        </description>
+      </value>
+      <value id="0x01" name="Nonlinear" abbrev="NONLINEAR">
+        <description>
+          Plan is nonlinear.
+        </description>
+      </value>
+      <value id="0x02" name="Infinite" abbrev="INFINITE">
+        <description>
+          Plan is infinite in duration.
+        </description>
+      </value>
+      <value id="0x04" name="Cyclical" abbrev="CYCLICAL">
+        <description>
+          Plan is cyclical.
+        </description>
+      </value>
+      <value id="0x07" name="All" abbrev="ALL">
+        <description>
+	  All properties checked.
+        </description>
+      </value>
+    </field>
+    <field name="Durations" abbrev="durations" type="plaintext" unit="TupleList">
+      <description>
+	Maneuver and plan duration statistics in seconds, for example: “Total=1000,Goto1=20,Rows=980”
+      </description>
+    </field>
+    <field name="Distances" abbrev="distances" type="plaintext" unit="TupleList">
+      <description>
+	Distances travelled in meters in each maneuver and/or total: “Total=2000,Rows=1800,Elevator=200”
+      </description>
+    </field>
+    <field name="Actions" abbrev="actions" type="plaintext" unit="TupleList">
+      <description>
+	List of components active by plan actions during the plan and time active in seconds: “Sidescan=100,Camera Module=150”
+      </description>
+    </field>
+    <field name="Fuel" abbrev="fuel" type="plaintext" unit="TupleList">
+      <description>
+	Amount of fuel spent, in battery percentage, by different parcels (if applicable): “Total=35,Hotel=5,Payload=10,Motion=20,IMU=0”
+      </description>
+    </field>
+  </message>
+
   <!-- CCU Messages (Internal and between CCUs) -->
   <message id="600" name="Reported State" abbrev="ReportedState" source="vehicle,ccu">
     <description>
