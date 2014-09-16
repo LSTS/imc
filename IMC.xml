@@ -3982,8 +3982,8 @@
     <field name = "Path Reference" abbrev="path_ref" type="uint32_t">
       <description>
         Unsigned integer reference of the desired path message to which this
-	PathControlState message refers to.
-	Path reference should only be set by a maneuver, not by path controllers.
+        PathControlState message refers to.
+        Path reference should only be set by a maneuver, not by path controllers.
       </description>
     </field>
     <field name="Start Point -- Latitude WGS-84" abbrev="start_lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
@@ -5551,115 +5551,115 @@
     <field name="Commanded X Acceleration (North)" abbrev="ax_cmd" type="fp32_t">
       <description>
         Commanded acceleration computed by the formation controller: northward direction.
-	On the vehicle directional reference frame.
-	Constrained by the vehicle operational limits.
+        On the vehicle directional reference frame.
+        Constrained by the vehicle operational limits.
       </description>
     </field>
     <field name="Commanded Y Acceleration (East)" abbrev="ay_cmd" type="fp32_t">
       <description>
         Commanded acceleration computed by the formation controller: eastward direction.
-	On the vehicle directional reference frame.
-	Constrained by the vehicle operational limits.
+        On the vehicle directional reference frame.
+        Constrained by the vehicle operational limits.
       </description>
     </field>
     <field name="Commanded Z Acceleration (Down)" abbrev="az_cmd" type="fp32_t">
       <description>
         Commanded acceleration computed by the formation controller: downward direction.
-	On the vehicle directional reference frame.
-	Constrained by the vehicle operational limits.
+        On the vehicle directional reference frame.
+        Constrained by the vehicle operational limits.
       </description>
     </field>
     <field name="Desired X Acceleration (North)" abbrev="ax_des" type="fp32_t">
       <description>
         Desired acceleration computed by the formation controller: northward direction.
-	On the fixed reference frame.
+        On the fixed reference frame.
       </description>
     </field>
     <field name="Desired Y Acceleration (East)" abbrev="ay_des" type="fp32_t">
       <description>
         Desired acceleration computed by the formation controller: eastward direction.
-	On the fixed reference frame.
+        On the fixed reference frame.
       </description>
     </field>
     <field name="Desired Z Acceleration (Down)" abbrev="az_des" type="fp32_t">
       <description>
         Desired acceleration computed by the formation controller: downward direction.
-	On the fixed reference frame.
+        On the fixed reference frame.
       </description>
     </field>
     <field name="X Virtual Error (North)" abbrev="virt_err_x" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Overall formation combined virtual error: northward direction.
-	On the fixed reference frame.
+        Components of the vehicle desired acceleration.
+        Overall formation combined virtual error: northward direction.
+        On the fixed reference frame.
       </description>
     </field>
     <field name="Y Virtual Error (East)" abbrev="virt_err_y" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Overall formation combined virtual error: eastward direction.
-	On the fixed reference frame.
+        Components of the vehicle desired acceleration.
+        Overall formation combined virtual error: eastward direction.
+        On the fixed reference frame.
       </description>
     </field>
     <field name="Z Virtual Error (Down)" abbrev="virt_err_z" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Overall formation combined virtual error: downward direction.
-	On the fixed reference frame.
+        Components of the vehicle desired acceleration.
+        Overall formation combined virtual error: downward direction.
+        On the fixed reference frame.
       </description>
     </field>
     <field name="X Sliding Surface Feedback (North)" abbrev="surf_fdbk_x" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Overall formation combined sliding surface feedback: northward direction.
-	On the fixed reference frame.
+        Components of the vehicle desired acceleration.
+        Overall formation combined sliding surface feedback: northward direction.
+        On the fixed reference frame.
       </description>
     </field>
     <field name="Y Sliding Surface Feedback (East)" abbrev="surf_fdbk_y" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Overall formation combined sliding surface feedback: eastward direction.
-	On the fixed reference frame.
+        Components of the vehicle desired acceleration.
+        Overall formation combined sliding surface feedback: eastward direction.
+        On the fixed reference frame.
       </description>
     </field>
     <field name="Z Sliding Surface Feedback (Down)" abbrev="surf_fdbk_z" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Overall formation combined sliding surface feedback: downward direction.
-	On the fixed reference frame.
+        Components of the vehicle desired acceleration.
+        Overall formation combined sliding surface feedback: downward direction.
+        On the fixed reference frame.
       </description>
     </field>
     <field name="X Uncertainty Compensation (North)" abbrev="surf_unkn_x" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Dynamics uncertainty compensation: northward direction.
+        Components of the vehicle desired acceleration.
+        Dynamics uncertainty compensation: northward direction.
       </description>
     </field>
     <field name="Y Uncertainty Compensation (East)" abbrev="surf_unkn_y" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Dynamics uncertainty compensation: eastward direction.
+        Components of the vehicle desired acceleration.
+        Dynamics uncertainty compensation: eastward direction.
       </description>
     </field>
     <field name="Z Uncertainty Compensation (Down)" abbrev="surf_unkn_z" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Dynamics uncertainty compensation: downward direction.
+        Components of the vehicle desired acceleration.
+        Dynamics uncertainty compensation: downward direction.
       </description>
     </field>
     <field name="X Convergence Deviation (North)" abbrev="ss_x" type="fp32_t">
       <description>
-	Combined deviation from convergence (sliding surface): North component.
+        Combined deviation from convergence (sliding surface): North component.
       </description>
     </field>
     <field name="Y Convergence Deviation (East)" abbrev="ss_y" type="fp32_t">
       <description>
-	Combined deviation from convergence (sliding surface): East component.
+        Combined deviation from convergence (sliding surface): East component.
       </description>
     </field>
     <field name="Z Convergence Deviation (Down)" abbrev="ss_z" type="fp32_t">
       <description>
-	Combined deviation from convergence (sliding surface): Down component.
+        Combined deviation from convergence (sliding surface): Down component.
       </description>
     </field>
     <field name="Relative State" abbrev="rel_state" type="message-list" message-type="RelativeState">
@@ -5690,100 +5690,100 @@
     </field>
     <field name="Control Importance" abbrev="ctrl_imp" type="fp32_t">
       <description>
-	Weight in the computation of the desired acceleration.
+        Weight in the computation of the desired acceleration.
       </description>
     </field>
     <field name="Relative Direction X (North)" abbrev="rel_dir_x" type="fp32_t">
       <description>
-	Inter-vehicle direction vector: North component.
+        Inter-vehicle direction vector: North component.
       </description>
     </field>
     <field name="Relative Direction Y (East)" abbrev="rel_dir_y" type="fp32_t">
       <description>
-	Inter-vehicle direction vector: East component.
+        Inter-vehicle direction vector: East component.
       </description>
     </field>
     <field name="Relative Direction Z (Down)" abbrev="rel_dir_z" type="fp32_t">
       <description>
-	Inter-vehicle direction vector: Down component.
+        Inter-vehicle direction vector: Down component.
       </description>
     </field>
     <field name="X Position Error (North)" abbrev="err_x" type="fp32_t">
       <description>
-	Relative position error: North component.
+        Relative position error: North component.
       </description>
     </field>
     <field name="Y Position Error (East)" abbrev="err_y" type="fp32_t">
       <description>
-	Relative position error: East component.
+        Relative position error: East component.
       </description>
     </field>
     <field name="Z Position Error (Down)" abbrev="err_z" type="fp32_t">
       <description>
-	Relative position error: Down component.
+        Relative position error: Down component.
       </description>
     </field>
     <field name="X Position Error In Relative Frame (North)" abbrev="rf_err_x" type="fp32_t">
       <description>
-	Relative position error: X component on the inter-vehicle reference frame.
+        Relative position error: X component on the inter-vehicle reference frame.
       </description>
     </field>
     <field name="Y Position Error In Relative Frame (East)" abbrev="rf_err_y" type="fp32_t">
       <description>
-	Relative position error: Y component on the inter-vehicle reference frame.
+        Relative position error: Y component on the inter-vehicle reference frame.
       </description>
     </field>
     <field name="Z Position Error In Relative Frame (Down)" abbrev="rf_err_z" type="fp32_t">
       <description>
-	Relative position error: Z component on the inter-vehicle reference frame.
+        Relative position error: Z component on the inter-vehicle reference frame.
       </description>
     </field>
     <field name="X Velocity Error In Relative Frame (North)" abbrev="rf_err_vx" type="fp32_t">
       <description>
-	Relative veloctity error: X component in the inter-vehicle reference frame.
+        Relative veloctity error: X component in the inter-vehicle reference frame.
       </description>
     </field>
     <field name="Y Velocity Error In Relative Frame (East)" abbrev="rf_err_vy" type="fp32_t">
       <description>
-	Relative velocity error: Y component on the inter-vehicle reference frame.
+        Relative velocity error: Y component on the inter-vehicle reference frame.
       </description>
     </field>
     <field name="Z Velocity Error In Relative Frame (Down)" abbrev="rf_err_vz" type="fp32_t">
       <description>
-	Relative velocity error: Z component on the inter-vehicle reference frame.
+        Relative velocity error: Z component on the inter-vehicle reference frame.
       </description>
     </field>
     <field name="X Convergence Deviation (North)" abbrev="ss_x" type="fp32_t">
       <description>
-	Deviation from convergence (sliding surface): X component on the inter-vehicle reference frame.
+        Deviation from convergence (sliding surface): X component on the inter-vehicle reference frame.
       </description>
     </field>
     <field name="Y Convergence Deviation (East)" abbrev="ss_y" type="fp32_t">
       <description>
-	Deviation from convergence (sliding surface): Y component on the inter-vehicle reference frame.
+        Deviation from convergence (sliding surface): Y component on the inter-vehicle reference frame.
       </description>
     </field>
     <field name="Z Convergence Deviation (Down)" abbrev="ss_z" type="fp32_t">
       <description>
-	Deviation from convergence (sliding surface): Z component on the inter-vehicle reference frame.
+        Deviation from convergence (sliding surface): Z component on the inter-vehicle reference frame.
       </description>
     </field>
     <field name="X Virtual Error (North)" abbrev="virt_err_x" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Relative virtual error: northward direction.
+        Components of the vehicle desired acceleration.
+        Relative virtual error: northward direction.
       </description>
     </field>
     <field name="Y Virtual Error (East)" abbrev="virt_err_y" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Relative virtual error: eastward direction.
+        Components of the vehicle desired acceleration.
+        Relative virtual error: eastward direction.
       </description>
     </field>
     <field name="Z Virtual Error (Down)" abbrev="virt_err_z" type="fp32_t">
       <description>
-	Components of the vehicle desired acceleration.
-	Relative virtual error: downward direction.
+        Components of the vehicle desired acceleration.
+        Relative virtual error: downward direction.
       </description>
     </field>
   </message>
@@ -5810,7 +5810,7 @@
     </field>
     <field name="Direction" abbrev="direction" type="uint8_t" unit="Enumerated" prefix="DIR">
       <description>
-	Direction to which the vehicle should attempt to unstuck.
+        Direction to which the vehicle should attempt to unstuck.
       </description>
       <value abbrev="AUTO" name="Let the vehicle decide" id="0"/>
       <value abbrev="FORWARD" name="Attempt to move forward" id="1"/>
@@ -7478,15 +7478,15 @@
   </message>
 
   <message id="877" abbrev="MessagePart" name="Message Fragment">
-      <field name="Transmission Unique Id" abbrev="uid" type="uint8_t"/>
-      <field name="Fragment Number" abbrev="frag_number" type="uint8_t"/>
-      <field name="Total Number of fragments" abbrev="num_frags" type="uint8_t"/>
-      <field name="Fragment Data" abbrev="data" type="rawdata"/>
+    <field name="Transmission Unique Id" abbrev="uid" type="uint8_t"/>
+    <field name="Fragment Number" abbrev="frag_number" type="uint8_t"/>
+    <field name="Total Number of fragments" abbrev="num_frags" type="uint8_t"/>
+    <field name="Fragment Data" abbrev="data" type="rawdata"/>
   </message>
 
   <message id="888" abbrev="NeptusBlob" name="Neptus Blob">
-      <field name="ContentType" abbrev="content_type" type="plaintext"/>
-      <field name="Content" abbrev="content" type="rawdata"/>
+    <field name="ContentType" abbrev="content_type" type="plaintext"/>
+    <field name="Content" abbrev="content" type="rawdata"/>
   </message>
 
   <message id="889" abbrev="Aborted" name="Aborted">
