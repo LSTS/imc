@@ -5093,7 +5093,7 @@
     </field>
   </message>
 
-  <message id="471" name="Follow System" abbrev="FollowSystem" source="ccu,vehicle">
+  <message id="471" name="Follow System" abbrev="FollowSystem" extends="Maneuver" source="ccu,vehicle">
     <description>
       System-following maneuver.
     </description>
