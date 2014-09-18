@@ -5823,6 +5823,12 @@
     </field>
   </message>
 
+  <message id="484" name="Maneuver Memento" abbrev="Memento" extends="Maneuver" source="vehicle">
+    <description>
+      Message that should be dispatched by a maneuver after it has been interrupted.
+    </description>
+  </message>
+
   <!-- Vehicle Supervision -->
   <message id="500" name="Vehicle State" abbrev="VehicleState" source="vehicle">
     <description>
