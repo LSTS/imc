@@ -199,6 +199,8 @@
     <unit abbrev="N" name="Newton"/>
     <unit abbrev="Pa" name="Pascal"/>
     <unit abbrev="%" name="Percent"/>
+    <unit abbrev="PPM" name="Parts per million"/>
+    <unit abbrev="PPB" name="Parts per billion"/>
     <unit abbrev="PSU" name="Pratical Salinity Unit"/>
     <unit abbrev="rad" name="Radian"/>
     <unit abbrev="rad/s" name="Radian per second"/>
@@ -2653,6 +2655,40 @@
       </value>
     </field>
   </message>
+
+  <message id="285" name="Rhodamine Dye" abbrev="RhodamineDye" source="vehicle" flags="periodic">
+    <description>
+      Rhodamine Dye measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="PPB">
+      <description>
+        Amount of rhodamine dye detected.
+      </description>
+    </field>
+  </message>
+
+  <message id="286" name="Crude Oil" abbrev="CrudeOil" source="vehicle" flags="periodic">
+    <description>
+      Crude oil measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="PPB">
+      <description>
+        Amount of crude oil detected.
+      </description>
+    </field>
+  </message>
+
+  <message id="287" name="Fine Oil" abbrev="FineOil" source="vehicle" flags="periodic">
+    <description>
+      Fine oil measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="PPB">
+      <description>
+        Amount of fine oil detected.
+      </description>
+    </field>
+  </message>
+
 
   <!-- Actuation -->
   <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
