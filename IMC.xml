@@ -7024,6 +7024,37 @@
     </field>
   </message>
 
+  <message id="565" name="Plan Memento" abbrev="PlanMemento" source="ccu,vehicle">
+    <description>
+      Information of a plan's interrupted state.
+      Reports to a unique specific message of type PlanSpecification with
+      a certain plan_id.
+
+      A plan memento is comprised of its own id, the PlanSpecification's id
+      and maneuver related information.
+    </description>
+    <field name="ID" abbrev="id" type="plaintext">
+      <description>
+        The PlanMemento's identifier.
+      </description>
+    </field>
+    <field name="Plan ID" abbrev="plan_id" type="plaintext">
+      <description>
+        The corresponding plan's identifier.
+      </description>
+    </field>
+    <field name="Maneuver ID" abbrev="maneuver_id" type="plaintext">
+      <description>
+	The ID of the maneuver from which the plan should resume
+      </description>
+    </field>
+    <field name="Memento" abbrev="memento" type="plaintext" unit="TupleList">>
+      <description>
+	List of tuples allowing the maneuver to resume itself
+      </description>
+    </field>
+  </message>
+
   <!-- CCU Messages (Internal and between CCUs) -->
   <message id="600" name="Reported State" abbrev="ReportedState" source="vehicle,ccu">
     <description>
