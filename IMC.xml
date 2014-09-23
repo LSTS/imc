@@ -196,6 +196,7 @@
     <unit abbrev="µs" name="Microsecond"/>
     <unit abbrev="S/m" name="Siemens per meter"/>
     <unit abbrev="Nm" name="Newton meter"/>
+    <unit abbrev="NTU" name="Nephelometric Turbidity Unit"/>
     <unit abbrev="N" name="Newton"/>
     <unit abbrev="Pa" name="Pascal"/>
     <unit abbrev="%" name="Percent"/>
@@ -2689,6 +2690,16 @@
     </field>
   </message>
 
+  <message id="288" name="Turbidity" abbrev="Turbidity" source="vehicle" flags="periodic">
+    <description>
+      Turbidity measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="NTU">
+      <description>
+        Turbidity reading.
+      </description>
+    </field>
+  </message>
 
   <!-- Actuation -->
   <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
