@@ -7031,68 +7031,6 @@
     </field>
   </message>
 
-<message id="565" name="Plan Memento" abbrev="PlanMemento" source="vehicle,ccu">
-    <description>
-      Identity and description of a plan's resume parameters,
-      associated with plan.
-
-      A plan mmento is defined by a plan identifier, a set of
-      maneuver specifications, and data about the plan stopped.
-    </description>
-    <field name="Plan ID" abbrev="plan_id" type="plaintext">
-      <description>
-        The plan's identifier.
-      </description>
-    </field>
-   <field name="Plan Description" abbrev="description" type="plaintext">
-      <description>
-        Verbose text description of plan.
-      </description>
-    </field>
-    <field name="Namespace" abbrev="vnamespace" type="plaintext">
-      <description>
-        Namespace for plan variables.
-      </description>
-    </field>
-    <field name="Plan Variables" abbrev="variables" type="message-list" message-type="PlanVariable">
-      <description>
-        Plan variables.
-      </description>
-    </field>
-    <field name="Starting maneuver" abbrev="start_man_id" type="plaintext">
-      <description>
-        Indicates the id of the starting maneuver for this plan.
-      </description>
-    </field>
-    <field name="Maneuvers" abbrev="maneuvers" type="message-list" message-type="PlanManeuver">
-      <description>
-        List of maneuver specifications.
-      </description>
-    </field>
-    <field name="Transitions" abbrev="transitions" type="message-list" message-type="PlanTransition">
-      <description>
-        List of maneuver specifications.
-      </description>
-    </field>
-    <field name="Start Actions" abbrev="start_actions" type="message-list">
-      <description>
-        Contains an optionally defined 'MessageList' for actions fired
-        on plan activation.
-      </description>
-    </field>
-    <field name="End Actions" abbrev="end_actions" type="message-list">
-      <description>
-        Contains an optionally defined 'MessageList' for actions fired
-        on plan termination.
-      </description>
-    </field>
-    <field name="Memento variables" abbrev="mvar" type="plaintext">
-      <description>
-	Temporary variable to illustrate a PlanMemento message.
-      </description>
-    </field>
-  </message>
-
   <!-- CCU Messages (Internal and between CCUs) -->
   <message id="600" name="Reported State" abbrev="ReportedState" source="vehicle,ccu">
     <description>
