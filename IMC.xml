@@ -6408,6 +6408,14 @@
       <value id="2" name="Reply -- Failure" abbrev="FAILURE"/>
       <value id="3" name="Reply -- In Progress" abbrev="IN_PROGRESS"/>
     </field>
+    <field name="Operation Type" abbrev="ot" unit="Enumerated" type="uint8_t" prefix="DBOT">
+      <description>
+        Indicates if the message is a request, or a reply to a
+        previous request.
+      </description>
+      <value id="0" name="Plan" abbrev="PLAN"/>
+      <value id="1" name="Memento" abbrev="MEMENTO"/>
+    </field>
     <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="DBOP">
       <description>
         Indicates the operation affecting the DB.
