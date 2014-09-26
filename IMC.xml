@@ -6408,13 +6408,22 @@
       <value id="2" name="Reply -- Failure" abbrev="FAILURE"/>
       <value id="3" name="Reply -- In Progress" abbrev="IN_PROGRESS"/>
     </field>
-    <field name="Operation Type" abbrev="ot" unit="Enumerated" type="uint8_t" prefix="DBOT">
+    <field name="Data Type" abbrev="dt" unit="Enumerated" type="uint8_t" prefix="DBDT">
       <description>
-        Indicates if the message is a request, or a reply to a
-        previous request.
+        Indicates the plan data type (specification/memento). Depending
+	on the data type, the DB operations will be used in different
+	tables.
       </description>
       <value id="0" name="Plan" abbrev="PLAN"/>
+        <description>
+	  Indicates if the data type inside arg field
+	  is of type PlanSpecification.
+	</description>
       <value id="1" name="Memento" abbrev="MEMENTO"/>
+        <description>
+	  Indicates if the data type inside arg field
+	  is of type PlanMemento.
+        </description>
     </field>
     <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="DBOP">
       <description>
