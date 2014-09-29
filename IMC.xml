@@ -6501,9 +6501,10 @@
         appropriately identify replies
       </description>
     </field>
-    <field name="Plan ID" abbrev="plan_id" type="plaintext">
+    <field name="Object ID" abbrev="object_id" type="plaintext">
       <description>
-        Plan identifier for the operation, if one is required.
+        Object (plan/memento) identifier for the operation,
+	if one is required.
       </description>
     </field>
     <field name="Argument" abbrev="arg" type="message">
@@ -6524,15 +6525,15 @@
     <description>
       Characterizes the state of the entire plan database.
     </description>
-    <field name="Plan -- Count" abbrev="plan_count" type="uint16_t">
+    <field name="Object -- Count" abbrev="object_count" type="uint16_t">
       <description>
-        Number of stored plans.
+        Number of stored objects (plan/memento).
       </description>
     </field>
-    <field name="Plan -- Size of all plans" abbrev="plan_size" type="uint32_t">
+    <field name="Object -- Size of all objects" abbrev="object_size" type="uint32_t">
       <description>
-        Size of all plans.The value equals the sum of the IMC payload
-        sizes for 'PlanSpecification' stored in the DB.
+        Size of all objects of one type. The value equals the sum of the IMC payload
+        sizes for 'PlanSpecification' or "PlanMemento" stored in the DB.
       </description>
     </field>
     <field name="Last Change -- Time" abbrev="change_time" type="fp64_t" unit="s">
@@ -6557,23 +6558,23 @@
         plan id, in compliance with RFC 1321.
       </description>
     </field>
-    <field name="Plan info" abbrev="plans_info" type="message-list" message-type="PlanDBInformation">
+    <field name="Object info" abbrev="object_info" type="message-list" message-type="PlanDBInformation">
       <description>
-        Individual information for plans.
+        Individual information for objects (plan/memento).
       </description>
     </field>
   </message>
 
   <message id="558" name="Plan DB Information" abbrev="PlanDBInformation">
-    <field name="Plan ID" abbrev="plan_id" type="plaintext">
+    <field name="Object ID" abbrev="object_id" type="plaintext">
       <description>
-        Plan identifier.
+        Object (plan/memento) identifier.
       </description>
     </field>
-    <field name="Plan Size" abbrev="plan_size" type="uint16_t">
+    <field name="Object Size" abbrev="Object_size" type="uint16_t">
       <description>
-        Plan size. The value equals the IMC message payload of the
-        associated 'PlanSpecification' message in bytes.
+        Object size. The value equals the IMC message payload of the
+        associated 'PlanSpecification' or 'PlanMemento' message in bytes.
       </description>
     </field>
     <field name="Last Changed -- Time" abbrev="change_time" type="fp64_t">
