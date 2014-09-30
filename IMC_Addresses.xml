@@ -27,6 +27,8 @@
   <address id="0x0102" name="lauv-lupis-1"/>
   <address id="0x0103" name="lauv-dolphin-2"/>
   <address id="0x0104" name="lauv-dolphin-3"/>
+  <address id="0x0105" name="lauv-oceaneco-1"/>
+  <address id="0x0106" name="lauv-oceaneco-2"/>
   <address id="0x0401" name="rov-ies"/>
   <address id="0x0402" name="adamastor"/>
   <address id="0x0801" name="swordfish"/>
