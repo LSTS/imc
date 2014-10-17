@@ -6414,16 +6414,18 @@
 	on the data type, the DB operations will be used in different
 	tables.
       </description>
-      <value id="0" name="Plan" abbrev="PLAN"/>
+      <value id="0" name="Plan" abbrev="PLAN">
         <description>
 	  Indicates if the data type inside arg field
 	  is of type PlanSpecification.
 	</description>
-      <value id="1" name="Memento" abbrev="MEMENTO"/>
+	</value>
+      <value id="1" name="Memento" abbrev="MEMENTO">
         <description>
 	  Indicates if the data type inside arg field
 	  is of type PlanMemento.
         </description>
+        </value>
     </field>
     <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="DBOP">
       <description>
@@ -6597,6 +6599,12 @@
         MD5 plan verification code. The value is calculated over the
         message payload of the 'PlanSpecification', in compliance with
         RFC 1321.
+      </description>
+    </field>
+    <field name="Complementary Information" abbrev="COMPLEMENTARY_INFORMATION" type="plaintext">
+      <description>
+	Human-readable complementary information. It can be used to send 
+	information which is not part of the common DB information.
       </description>
     </field>
   </message>
@@ -7066,7 +7074,7 @@
 	The ID of the maneuver from which the plan should resume
       </description>
     </field>
-    <field name="Memento" abbrev="memento" type="plaintext" unit="TupleList">>
+    <field name="Memento" abbrev="memento" type="plaintext" unit="TupleList">
       <description>
 	List of tuples allowing the maneuver to resume itself
       </description>
