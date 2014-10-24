@@ -1,6 +1,6 @@
 IMC Addressing Scheme
 
-Version 1.0.0
+Version 1.1.0
 
 _______________________________________________________________________________
 
@@ -16,16 +16,16 @@ IMC Addressing ID
    
    Selectors - 23 (8)  | Systems - 213 (8192)
    Grouping
-   000x	0-1  Vehicle except 0x0000 which has special meaning
-   001x	2-3  Vehicle
+   000x	0-1  Vehicles of LSTS except 0x0000 which has special meaning
+   001x	2-3  Other vehicles 
    010x	4-5  CCU
-   011x	6-7  Sensor
-   100x	8-9  Sensor
+   011x	6    Sensors of LSTS (Payload Vehicle modules)
+        7    Other Sensors (Payload Vehicle modules)
+   100x	8    Sensor of LSTS (Self containing sensor systems)
+        9    Other sensors (Self containing sensor systems)
    101x	A-B  Reserved
    110x	C-D  Reserved
-   111x	E-F  Reserved {draft purpose is: Any (broadcast) Aqui podemos usar os 3bits 
-                 seguintes para dizer o tipo de broadcast 
-                 (CCUs, Vehicles,...) minus FFF0-FFFF reserved (8)}
+   111x	E-F  Reserved
 
 
 Special IDs
@@ -49,15 +49,15 @@ Vehicle.<Subtype> (0x0*)3bits
  
 _______________________________________________________________________________
 
-IDs for the first use
----------------------
+IDs already in use
+------------------
 
-see "imc-addresses.ini"
+see "IMC_Addresses.xml"
 
 _______________________________________________________________________________
 
-IMC3 Addressing Entity
-----------------------
+IMC Addressing Entity
+---------------------
 
                            07 06 05 04 03 02 01 00
                            |                      |
