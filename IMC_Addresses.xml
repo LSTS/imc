@@ -94,6 +94,8 @@
   <address id="0x8500" name="wavy-0"/>
   <address id="0x8501" name="wavy-1"/>
   <address id="0x8502" name="wavy-2"/>
+  <address id="0x9001" name="ntnu-nest-01"/>
+  <address id="0x9002" name="ntnu-nest-02"/>
   <address id="0x0c01" name="lusitania"/>
   <address id="0x0c02" name="sedona"/>
   <address id="0x0c03" name="x8-00"/>
@@ -128,18 +130,25 @@
   <address id="0x0cf4" name="form-leader-04"/>
   <address id="0x0cf5" name="form-leader-05"/>
   <address id="0x0cf6" name="form-leader-06"/>
-  <address id="0x0d01" name="ntnu-hexa-001"/>
-  <address id="0x0d02" name="ntnu-hexa-002"/>
-  <address id="0x0d03" name="ntnu-hexa-003"/>
-  <address id="0x0d04" name="ntnu-hexa-004"/>
-  <address id="0x0d21" name="ntnu-x8-001"/>
-  <address id="0x0d22" name="ntnu-x8-002"/>
-  <address id="0x0d23" name="ntnu-x8-003"/>
-  <address id="0x0d24" name="ntnu-x8-004"/>
-  <address id="0x0d41" name="ntnu-penguin-001"/>
-  <address id="0x0d42" name="ntnu-penguin-002"/>
-  <address id="0x0d43" name="ntnu-penguin-003"/>
-  <address id="0x0d44" name="ntnu-penguin-004"/>
+  <address id="0x2c00" name="ntnu-hexa-testbed"/>
+  <address id="0x2c01" name="ntnu-hexa-001"/>
+  <address id="0x2c02" name="ntnu-hexa-002"/>
+  <address id="0x2c03" name="ntnu-hexa-003"/>
+  <address id="0x2c04" name="ntnu-hexa-004"/>
+  <address id="0x2c21" name="ntnu-x8-001"/>
+  <address id="0x2c22" name="ntnu-x8-002"/>
+  <address id="0x2c23" name="ntnu-x8-003"/>
+  <address id="0x2c24" name="ntnu-x8-004"/>
+  <address id="0x2c25" name="ntnu-x8-005"/>
+  <address id="0x2c26" name="ntnu-x8-006"/>
+  <address id="0x2c27" name="ntnu-x8-007"/>
+  <address id="0x2c28" name="ntnu-x8-008"/>
+  <address id="0x2c29" name="ntnu-x8-009"/>
+  <address id="0x2c30" name="ntnu-x8-010"/>
+  <address id="0x2c41" name="ntnu-penguin-001"/>
+  <address id="0x2c42" name="ntnu-penguin-002"/>
+  <address id="0x2c43" name="ntnu-penguin-003"/>
+  <address id="0x2c44" name="ntnu-penguin-004"/>
   <address id="0x4101" name="ccu-lsts-1-1"/>
   <address id="0x416A" name="ccu-zp-1-106"/>
   <address id="0x410a" name="ccu-pitvant-laptop-01-1-10"/>
