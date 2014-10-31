@@ -8,7 +8,9 @@
 -->
 
 <addresses>
+  <!-- Special ID -->
   <address id="0x0000" name="announce"/>
+  <!-- AUVs (LSTS) -->
   <address id="0x0001" name="isurus"/>
   <address id="0x0002" name="nauv"/>
   <address id="0x0010" name="lauv-blue"/>
@@ -29,19 +31,83 @@
   <address id="0x0104" name="lauv-dolphin-3"/>
   <address id="0x0105" name="lauv-oceaneco-1"/>
   <address id="0x0106" name="lauv-oceaneco-2"/>
+  <!-- ROVs (LSTS) -->
   <address id="0x0401" name="rov-ies"/>
   <address id="0x0402" name="adamastor"/>
+  <!-- ASVs (LSTS) -->
   <address id="0x0801" name="swordfish"/>
   <address id="0x08c1" name="hermes"/>
   <address id="0x08c2" name="hermes-desired"/>
   <address id="0x08c3" name="hermes-target"/>
   <address id="0x08c4" name="tex-wg"/>
+  <!-- UAVs (LSTS) -->
+  <address id="0x0c01" name="lusitania"/>
+  <address id="0x0c02" name="sedona"/>
+  <address id="0x0c03" name="x8-00"/>
+  <address id="0x0c04" name="x8-01"/>
+  <address id="0x0c05" name="x8-02"/>
+  <address id="0x0c06" name="x8-03"/>
+  <address id="0x0c07" name="x8-04"/>
+  <address id="0x0c13" name="hexa-00"/>
+  <address id="0x0c22" name="alfa-02"/>
+  <address id="0x0c23" name="alfa-03"/>
+  <address id="0x0c24" name="alfa-04"/>
+  <address id="0x0c25" name="alfa-05"/>
+  <address id="0x0c26" name="alfa-06"/>
+  <address id="0x0c27" name="alfa-07"/>
+  <address id="0x0c28" name="alfa-08"/>
+  <address id="0x0c29" name="alfa-09"/>
+  <address id="0x0c30" name="piccolo-testbed"/>
+  <address id="0x0c53" name="cularis-03"/>
+  <address id="0x0c54" name="cularis-04"/>
+  <address id="0x0c55" name="cularis-05"/>
+  <address id="0x0c56" name="cularis-06"/>
+  <address id="0x0c57" name="cularis-07"/>
+  <address id="0x0c58" name="cularis-08"/>
+  <address id="0x0c73" name="pilatus-03"/>
+  <address id="0x0c74" name="pilatus-04"/>
+  <address id="0x0c75" name="pilatus-05"/>
+  <address id="0x0c76" name="pilatus-06"/>
+  <address id="0x0c90" name="extended"/>
+  <address id="0x0cf1" name="form-leader-01"/>
+  <address id="0x0cf2" name="form-leader-02"/>
+  <address id="0x0cf3" name="form-leader-03"/>
+  <address id="0x0cf4" name="form-leader-04"/>
+  <address id="0x0cf5" name="form-leader-05"/>
+  <address id="0x0cf6" name="form-leader-06"/>
+  <!-- UAVs (Others) -->
+  <address id="0x2c00" name="ntnu-hexa-testbed"/>
+  <address id="0x2c01" name="ntnu-hexa-001"/>
+  <address id="0x2c02" name="ntnu-hexa-002"/>
+  <address id="0x2c03" name="ntnu-hexa-003"/>
+  <address id="0x2c04" name="ntnu-hexa-004"/>
+  <address id="0x2c21" name="ntnu-x8-001"/>
+  <address id="0x2c22" name="ntnu-x8-002"/>
+  <address id="0x2c23" name="ntnu-x8-003"/>
+  <address id="0x2c24" name="ntnu-x8-004"/>
+  <address id="0x2c25" name="ntnu-x8-005"/>
+  <address id="0x2c26" name="ntnu-x8-006"/>
+  <address id="0x2c27" name="ntnu-x8-007"/>
+  <address id="0x2c28" name="ntnu-x8-008"/>
+  <address id="0x2c29" name="ntnu-x8-009"/>
+  <address id="0x2c30" name="ntnu-x8-010"/>
+  <address id="0x2c41" name="ntnu-penguin-001"/>
+  <address id="0x2c42" name="ntnu-penguin-002"/>
+  <address id="0x2c43" name="ntnu-penguin-003"/>
+  <address id="0x2c44" name="ntnu-penguin-004"/>
+  <!-- CCUs (special IDs) -->
+  <address id="0x4101" name="ccu-lsts-1-1"/>
+  <address id="0x416A" name="ccu-zp-1-106"/>
+  <address id="0x410a" name="ccu-pitvant-laptop-01-1-10"/>
+  <address id="0x406c" name="ccu-lsts-0-108"/>
+  <!-- Sensors of LSTS (Payload Vehicle modules) -->
   <address id="0x6000" name="doam"/>
   <address id="0x6001" name="lauv-dolphin-1-doam"/>
   <address id="0x6002" name="lauv-seacon-1-aux"/>
   <address id="0x6003" name="lauv-noptilus-3-aux"/>
   <address id="0x6004" name="lauv-dolphin-2-aux"/>
   <address id="0x6005" name="lauv-dolphin-3-aux"/>
+  <!-- Sensors of LSTS (Self containing sensor systems) -->
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
   <address id="0x8012" name="manta-1"/>
@@ -94,65 +160,10 @@
   <address id="0x8500" name="wavy-0"/>
   <address id="0x8501" name="wavy-1"/>
   <address id="0x8502" name="wavy-2"/>
+  <!-- Other Sensors (Self containing sensor systems) -->
   <address id="0x9001" name="ntnu-nest-01"/>
   <address id="0x9002" name="ntnu-nest-02"/>
-  <address id="0x0c01" name="lusitania"/>
-  <address id="0x0c02" name="sedona"/>
-  <address id="0x0c03" name="x8-00"/>
-  <address id="0x0c04" name="x8-01"/>
-  <address id="0x0c05" name="x8-02"/>
-  <address id="0x0c06" name="x8-03"/>
-  <address id="0x0c07" name="x8-04"/>
-  <address id="0x0c13" name="hexa-00"/>
-  <address id="0x0c22" name="alfa-02"/>
-  <address id="0x0c23" name="alfa-03"/>
-  <address id="0x0c24" name="alfa-04"/>
-  <address id="0x0c25" name="alfa-05"/>
-  <address id="0x0c26" name="alfa-06"/>
-  <address id="0x0c27" name="alfa-07"/>
-  <address id="0x0c28" name="alfa-08"/>
-  <address id="0x0c29" name="alfa-09"/>
-  <address id="0x0c30" name="piccolo-testbed"/>
-  <address id="0x0c53" name="cularis-03"/>
-  <address id="0x0c54" name="cularis-04"/>
-  <address id="0x0c55" name="cularis-05"/>
-  <address id="0x0c56" name="cularis-06"/>
-  <address id="0x0c57" name="cularis-07"/>
-  <address id="0x0c58" name="cularis-08"/>
-  <address id="0x0c73" name="pilatus-03"/>
-  <address id="0x0c74" name="pilatus-04"/>
-  <address id="0x0c75" name="pilatus-05"/>
-  <address id="0x0c76" name="pilatus-06"/>
-  <address id="0x0c90" name="extended"/>
-  <address id="0x0cf1" name="form-leader-01"/>
-  <address id="0x0cf2" name="form-leader-02"/>
-  <address id="0x0cf3" name="form-leader-03"/>
-  <address id="0x0cf4" name="form-leader-04"/>
-  <address id="0x0cf5" name="form-leader-05"/>
-  <address id="0x0cf6" name="form-leader-06"/>
-  <address id="0x2c00" name="ntnu-hexa-testbed"/>
-  <address id="0x2c01" name="ntnu-hexa-001"/>
-  <address id="0x2c02" name="ntnu-hexa-002"/>
-  <address id="0x2c03" name="ntnu-hexa-003"/>
-  <address id="0x2c04" name="ntnu-hexa-004"/>
-  <address id="0x2c21" name="ntnu-x8-001"/>
-  <address id="0x2c22" name="ntnu-x8-002"/>
-  <address id="0x2c23" name="ntnu-x8-003"/>
-  <address id="0x2c24" name="ntnu-x8-004"/>
-  <address id="0x2c25" name="ntnu-x8-005"/>
-  <address id="0x2c26" name="ntnu-x8-006"/>
-  <address id="0x2c27" name="ntnu-x8-007"/>
-  <address id="0x2c28" name="ntnu-x8-008"/>
-  <address id="0x2c29" name="ntnu-x8-009"/>
-  <address id="0x2c30" name="ntnu-x8-010"/>
-  <address id="0x2c41" name="ntnu-penguin-001"/>
-  <address id="0x2c42" name="ntnu-penguin-002"/>
-  <address id="0x2c43" name="ntnu-penguin-003"/>
-  <address id="0x2c44" name="ntnu-penguin-004"/>
-  <address id="0x4101" name="ccu-lsts-1-1"/>
-  <address id="0x416A" name="ccu-zp-1-106"/>
-  <address id="0x410a" name="ccu-pitvant-laptop-01-1-10"/>
-  <address id="0x406c" name="ccu-lsts-0-108"/>
-  <address id="0xfff0" name="broadcast"/>
-  <address id="0xffff" name="null"/>
+  <!-- Special IDs -->
+  <address id="0xFFF0" name="broadcast"/>
+  <address id="0xFFFF" name="null"/>
 </addresses>
