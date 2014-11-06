@@ -313,7 +313,6 @@
       <message-type abbrev="CoverArea"/>
       <message-type abbrev="FollowReference"/>
       <message-type abbrev="CommsRelay"/>
-      <message-type abbrev="Formation"/>
       <message-type abbrev="Dislodge"/>
     </message-group>
 
@@ -7556,7 +7555,8 @@
 
   <message id="820" name="Formation Control Parameters" abbrev="FormationControlParams" source="ccu,vehicle">
     <description>
-      Formation controller paramenters, as: trajectory gains, control boundary layer thickness, and formation shape gains.
+      Formation controller paramenters, as: trajectory gains,
+      control boundary layer thickness, and formation shape gains.
     </description>
     <field name="Action" abbrev="Action" type="uint8_t" unit="Enumerated" prefix="OP">
       <description>
@@ -7624,24 +7624,34 @@
     <description>
       Formation control performance evaluation variables.
     </description>
-    <field name="Mean position error" abbrev="err_mean" type="fp32_t">
+    <field name="Mean Position Error" abbrev="err_mean" type="fp32_t">
       <description>
         Mean position error relative to the formation reference.
       </description>
     </field>
-    <field name="Absolute minimum distance" abbrev="dist_min_abs" type="fp32_t">
+    <field name="Absolute Minimum Distance" abbrev="dist_min_abs" type="fp32_t">
       <description>
         Overall minimum distance to any other vehicle in the formation.
       </description>
     </field>
-    <field name="Mean minimum distance" abbrev="dist_min_mean" type="fp32_t">
+    <field name="Mean Minimum Distance" abbrev="dist_min_mean" type="fp32_t">
+      <description>
+        Mean minimum distance to any other vehicle in the formation.
+      </description>
+    </field>
+    <field name="Mean Roll Rate" abbrev="roll_rate_mean" type="fp32_t">
       <description>
         Mean minimum distance to any other vehicle in the formation.
       </description>
     </field>
     <field name="Evaluation Time" abbrev="time" type="fp32_t">
       <description>
-        Time interval over which the error and the the minimum distance were averaged.
+        Period over which the evaluation data is averaged.
+      </description>
+    </field>
+    <field name="Formation Control Parameters" abbrev="FormationControlParams" type="message" message-type="FormationControlParams">
+      <description>
+        Formation controller paramenters during the evaluation period.
       </description>
     </field>
   </message>
