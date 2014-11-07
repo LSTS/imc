@@ -7649,7 +7649,7 @@
         Period over which the evaluation data is averaged.
       </description>
     </field>
-    <field name="Formation Control Parameters" abbrev="FormationControlParams" type="message" message-type="FormationControlParams">
+    <field name="Formation Control Parameters" abbrev="ControlParams" type="message" message-type="FormationControlParams">
       <description>
         Formation controller paramenters during the evaluation period.
       </description>
