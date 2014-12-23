@@ -5967,18 +5967,9 @@
       <value id="1" name="Stop Maneuver" abbrev="STOP_MANEUVER">
         <description>Stop 'maneuver' being executed.</description>
       </value>
-      <value id="2" name="Start Calibration" abbrev="START_CALIBRATION">
-        <description>Start calibrating vehicle.</description>
-      </value>
-      <value id="3" name="Stop Calibration" abbrev="STOP_CALIBRATION">
-        <description>Stop calibrating vehicle.</description>
-      </value>
     </field>
     <field name="Maneuver" abbrev="maneuver" type="message" message-type="Maneuver">
       <description>Maneuver to be executed (for 'EXEC_MANEUVER' command)</description>
-    </field>
-    <field name="Calibration Time" abbrev="calib_time" type="uint16_t" unit="s">
-      <description>Amount of time to calibrate</description>
     </field>
     <field name="Info" abbrev="info" type="plaintext">
       <description>Complementary human-readable information for replies.</description>
