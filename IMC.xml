@@ -5880,11 +5880,6 @@
           Ready to service requests.
         </description>
       </value>
-      <value id="1" name="Calibration" abbrev="CALIBRATION">
-        <description>
-          Ongoing vehicle calibration.
-        </description>
-      </value>
       <value id="2" name="Error" abbrev="ERROR">
         <description>
           Errors are set.
@@ -5893,11 +5888,6 @@
       <value id="3" name="Maneuver" abbrev="MANEUVER">
         <description>
           A maneuver is executing.
-        </description>
-      </value>
-      <value id="4" name="External Control" abbrev="EXTERNAL">
-        <description>
-          External control is active.
         </description>
       </value>
       <value id="5" name="Boot" abbrev="BOOT">
