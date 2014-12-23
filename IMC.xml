@@ -6068,17 +6068,6 @@
     </description>
   </message>
 
-  <message id="506" name="Calibration" abbrev="Calibration" source="vehicle">
-    <description>
-      Initiate overall calibration of a vehicle.
-    </description>
-    <field name="Duration" abbrev="duration" type="uint16_t" unit="s">
-      <description>
-        Duration of calibration.
-      </description>
-    </field>
-  </message>
-
   <message id="507" name="Control Loops" abbrev="ControlLoops" source="vehicle">
     <description>
       Enable or disable control loops.
