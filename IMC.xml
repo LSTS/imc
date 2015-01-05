@@ -6684,7 +6684,7 @@
       <value id="0" name="Blocked" abbrev="BLOCKED">
         <description>
           Plan execution is blocked e.g., due to a vehicle error,
-          or if no plan is loaded.
+          or booting.
         </description>
       </value>
       <value id="1" name="Ready" abbrev="READY">
@@ -6692,9 +6692,9 @@
           Ready to start plan execution.
         </description>
       </value>
-      <value id="2" name="Initializing" abbrev="INITIALIZING">
+      <value id="2" name="Activating" abbrev="ACTIVATING">
         <description>
-          Initializing plan for execution.
+          Activating entities before plan execution.
         </description>
       </value>
       <value id="3" name="Executing" abbrev="EXECUTING">
