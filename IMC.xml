@@ -5086,6 +5086,16 @@
     <description>
       Maneuver control state.
     </description>
+    <field name="Maneuver ID" abbrev="id" type="plaintext">
+      <description>
+        The maneuver ID or name.
+      </description>
+    </field>
+    <field name="Maneuver Type" abbrev="type" type="uint16_t">
+      <description>
+        The maneuver type or message identification number.
+      </description>
+    </field>
     <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="MCS">
       <description>
         Code indicating maneuver state.
