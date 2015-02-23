@@ -5,5 +5,20 @@
 			<fileset dir="." includes="IMC.xml"/>
 		</schemavalidate>
 	</target>
+	<target name="doc" depends="test">
+		<mkdir dir="doc/images"/>
+		<exec executable="python3" failonerror="true">
+			<arg line="doc/generate.py"/>
+		</exec>
+	</target>
+	<target name="package" depends="doc">
+		<tstamp>
+		     <format property="time.stamp" pattern="yyyy-MM-dd"/>
+		</tstamp>
+		<zip destfile="imc_${time.stamp}.zip">
+			<fileset dir="doc/reference" includes="*"/>
+			<fileset dir="." includes="*.xml"/>
+		</zip>
+	</target>
 </project>
 		
