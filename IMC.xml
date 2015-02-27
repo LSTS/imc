@@ -5882,6 +5882,8 @@
       <value abbrev="SPEED" name="Use Speed Reference" id="0x02"/>
       <value abbrev="Z" name="Use Z Reference" id="0x04"/>
       <value abbrev="RADIUS" name="Use Radius Reference" id="0x08"/>
+      <value abbrev="START_POINT" name="Use this Reference as Start Position for PathControler" id="0x10"/>
+      <value abbrev="DIRECT" name="Use Current Position as Start Position for PathControler" id="0x20"/>
       <value abbrev="MANDONE" name="Flag Maneuver Completion" id="0x80"/>
     </field>
     <field name="Speed Reference" abbrev="speed" type="message" message-type="DesiredSpeed"/>
