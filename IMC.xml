@@ -820,11 +820,25 @@
       </description>
     </field>
   </message>
-
+  
   <message id="20" name="Message List" abbrev="MsgList" >
     <field name="Messages" abbrev="msgs" type="message-list"/>
   </message>
 
+  <message id="21" abbrev="ConfigRequest" name="Configuration Parameters Request">
+  	<description>Command requesting the system to send its configuration file</description>  	
+  </message>
+  
+  <message id="22" abbrev="ConfigReply" name="Configuration Parameters Reply">
+  	<description>Message containing the configuration file of the source system.</description>
+  	<field name="Locale" abbrev="locale" type="plaintext">
+  		<description>The locale used to produce this configuration file</description>
+  	</field>
+  	<field name="Configuration Data" abbrev="config" type="rawdata">
+  		<description>The parameters file, encoded as XML and *compressed using GZip compression*</description>
+  	</field>
+  </message>
+  
   <!-- Simulation -->
   <message id="50" name="Simulated State" abbrev="SimulatedState" source="vehicle">
     <description>
