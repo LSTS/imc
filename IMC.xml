@@ -7493,6 +7493,7 @@
     <field name="Destination System" abbrev="sys_dst" type="plaintext"/>
     <field name="Flags" abbrev="flags" type="uint8_t" unit="Bitfield" prefix="UTF">
       <value abbrev="ACK" name="Acknowledgement" id="0x01"/>
+      <value abbrev="DELAYED" name="Delayed" id="0x02"/>
     </field>
     <field name="Data" abbrev="data" type="rawdata"/>
   </message>
@@ -7502,6 +7503,7 @@
     <field name="Destination System" abbrev="sys_dst" type="plaintext"/>
     <field name="Flags" abbrev="flags" type="uint8_t" unit="Bitfield" prefix="URF">
       <value abbrev="PROMISCUOUS" name="Promiscuous" id="0x01"/>
+      <value abbrev="DELAYED" name="Delayed" id="0x02"/>
     </field>
     <field name="Data" abbrev="data" type="rawdata"/>
   </message>
