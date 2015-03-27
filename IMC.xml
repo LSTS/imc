@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+ Copyright (C) 2007-2014 Laboratório de Sistemas e Tecnologia Subaquática   +
++ Copyright (C) 2007-2015 Laboratório de Sistemas e Tecnologia Subaquática   +
 + Departamento de Engenharia Electrotécnica e de Computadores                +
 + Rua Dr. Roberto Frias, 4200-465 Porto, Portugal                            +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -10,7 +10,7 @@
           xsi:noNamespaceSchemaLocation="IMC.xsd"
           name="IMC"
           long-name="Inter Module Communication"
-          version="5.4.3">
+          version="5.4.4">
 
   <description>
     This document describes the communications protocol associated
