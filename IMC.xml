@@ -7688,4 +7688,27 @@
       </description>
     </field>
   </message>
+
+  <message id="893" abbrev="ParametersXml" name="Parameters XML">
+    <description>
+      Message containing the parameters XML of the source system.
+    </description>
+    <field name="Locale" abbrev="locale" type="plaintext">
+      <description>
+        The locale used to produce this parameters XML.
+      </description>
+    </field>
+    <field name="Configuration Data" abbrev="config" type="rawdata">
+      <description>
+        The parameters XML file compressed using the GNU zip (gzip) format.
+      </description>
+    </field>
+  </message>
+
+  <message id="894" name="Get Parameters XML" abbrev="GetParametersXml">
+    <description>
+      Request the destination system to send its parameters XML file via a
+      :ref:`ParametersXml` message.
+    </description>
+  </message>
 </messages>
