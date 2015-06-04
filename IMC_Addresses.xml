@@ -98,6 +98,8 @@
   <address id="0x2c44" name="ntnu-penguin-004"/>
   <!-- CCUs (special IDs) -->
   <address id="0x4101" name="ccu-lsts-1-1"/>
+  <address id="0x410E" name="ccu-lsts-1-14"/>
+  <address id="0x4114" name="ccu-lsts-1-20"/>
   <address id="0x416A" name="ccu-zp-1-106"/>
   <address id="0x410a" name="ccu-pitvant-laptop-01-1-10"/>
   <address id="0x406c" name="ccu-lsts-0-108"/>
