@@ -8081,4 +8081,17 @@
       :ref:`ParametersXml` message.
     </description>
   </message>
+  
+  <!-- BEGIN NECSAVE Messages -->
+  
+  <message id="2001" abbrev="NecMsg" name="NECSAVE Message">
+  	<field abbrev="data" name="Data" type="RawData"/>
+  </message>
+  
+  <message id="2002" abbrev="JsonObject" name="JSON Object">
+  	<field abbrev="json" name="JSON Data" type="plaintext"/>
+  </message>
+    
+  <!-- END   NECSAVE Messages -->
+  
 </messages>
