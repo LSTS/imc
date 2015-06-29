@@ -2706,7 +2706,7 @@
     <description>
       Chlorophyll measurement.
     </description>
-    <field name="Value" abbrev="value" type="fp32_t" unit="μg/L">
+    <field name="Value" abbrev="value" type="fp32_t" unit="µg/L">
       <description>
 	Chlorophyll reading.
       </description>
