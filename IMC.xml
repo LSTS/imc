@@ -202,6 +202,7 @@
     <unit abbrev="%" name="Percent"/>
     <unit abbrev="PPM" name="Parts per million"/>
     <unit abbrev="PPB" name="Parts per billion"/>
+    <unit abbrev="µg/L" name="Microgram per liter"/>
     <unit abbrev="PSU" name="Pratical Salinity Unit"/>
     <unit abbrev="rad" name="Radian"/>
     <unit abbrev="rad/s" name="Radian per second"/>
@@ -2697,6 +2698,17 @@
     <field name="Value" abbrev="value" type="fp32_t" unit="NTU">
       <description>
         Turbidity reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="289" name="Chlorophyll" abbrev="Chlorophyll" source="vehicle" flags="periodic">
+    <description>
+      Chlorophyll measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="μg/L">
+      <description>
+	Chlorophyll reading.
       </description>
     </field>
   </message>
