@@ -106,6 +106,7 @@
   <address id="0x416A" name="ccu-zp-1-106"/>
   <address id="0x410a" name="ccu-pitvant-laptop-01-1-10"/>
   <address id="0x406c" name="ccu-lsts-0-108"/>
+  <address id="0x5FFF" name="europtus"/>
   <!-- Sensors of LSTS (Payload Vehicle modules) -->
   <address id="0x6000" name="doam"/>
   <address id="0x6001" name="lauv-dolphin-1-doam"/>
