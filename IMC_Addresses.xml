@@ -162,6 +162,7 @@
   <address id="0x8418" name="spot-24"/>
   <address id="0x8419" name="spot-25"/>
   <address id="0x841a" name="spot-26"/>
+  <address id="0x841b" name="tracer"/>
   <address id="0x84a5" name="carson"/>
   <address id="0x84a6" name="paragon"/>
   <address id="0x84a7" name="dorado"/>
