@@ -1551,12 +1551,12 @@
         Time taken between the communications package/message is send from the source until it arrives to the destination.
       </description>
     </field>
-    <field name="Communications Source System ID" abbrev="CommsSrc" type="uint16_t">
+    <field name="Communications Source System ID" abbrev="comms_src" type="uint16_t">
       <description>
         ID of system that was the source of the communication package.
       </description>
     </field>
-    <field name="Communications Source Entity ID" abbrev="CommsEnt" type="uint8_t">
+    <field name="Communications Source Entity ID" abbrev="comms_ent" type="uint8_t">
       <description>
         ID of system's entity that was the source of the communication package.
       </description>
