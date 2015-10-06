@@ -1556,6 +1556,11 @@
         ID of system that was the source of the communication package.
       </description>
     </field>
+    <field name="Communications Source Entity ID" abbrev="CommsEnt" type="uint8_t">
+      <description>
+        ID of system's entity that was the source of the communication package.
+      </description>
+    </field>
   </message>
 
 
