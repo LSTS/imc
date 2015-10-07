@@ -5593,6 +5593,11 @@
     <description>
       Monitoring variables for the formation state and performance.
     </description>
+    <field name="Minimum Distance" abbrev="dist_min" type="fp32_t">
+      <description>
+        Minimum distance among all formation vehicles.
+      </description>
+    </field>
     <field name="Commanded X Acceleration (North)" abbrev="ax_cmd" type="fp32_t">
       <description>
         Commanded acceleration computed by the formation controller: northward direction.
