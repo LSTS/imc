@@ -5593,11 +5593,6 @@
     <description>
       Monitoring variables for the formation state and performance.
     </description>
-    <field name="Minimum Distance" abbrev="dist_min" type="fp32_t">
-      <description>
-        Minimum distance among all formation vehicles.
-      </description>
-    </field>
     <field name="Commanded X Acceleration (North)" abbrev="ax_cmd" type="fp32_t">
       <description>
         Commanded acceleration computed by the formation controller: northward direction.
@@ -6089,6 +6084,137 @@
       </description>
     </field>
   </message>
+
+  <message id="486" name="Formation Monitoring Data" abbrev="ExtendedFormationMonitor">
+    <description>
+      Monitoring variables for the formation state and performance.
+    </description>
+    <field name="Minimum Distance" abbrev="dist_min" type="fp32_t">
+      <description>
+        Minimum distance among all formation vehicles.
+      </description>
+    </field>
+    <field name="Commanded X Acceleration (North)" abbrev="ax_cmd" type="fp32_t">
+      <description>
+        Commanded acceleration computed by the formation controller: northward direction.
+        On the vehicle directional reference frame.
+        Constrained by the vehicle operational limits.
+      </description>
+    </field>
+    <field name="Commanded Y Acceleration (East)" abbrev="ay_cmd" type="fp32_t">
+      <description>
+        Commanded acceleration computed by the formation controller: eastward direction.
+        On the vehicle directional reference frame.
+        Constrained by the vehicle operational limits.
+      </description>
+    </field>
+    <field name="Commanded Z Acceleration (Down)" abbrev="az_cmd" type="fp32_t">
+      <description>
+        Commanded acceleration computed by the formation controller: downward direction.
+        On the vehicle directional reference frame.
+        Constrained by the vehicle operational limits.
+      </description>
+    </field>
+    <field name="Desired X Acceleration (North)" abbrev="ax_des" type="fp32_t">
+      <description>
+        Desired acceleration computed by the formation controller: northward direction.
+        On the fixed reference frame.
+      </description>
+    </field>
+    <field name="Desired Y Acceleration (East)" abbrev="ay_des" type="fp32_t">
+      <description>
+        Desired acceleration computed by the formation controller: eastward direction.
+        On the fixed reference frame.
+      </description>
+    </field>
+    <field name="Desired Z Acceleration (Down)" abbrev="az_des" type="fp32_t">
+      <description>
+        Desired acceleration computed by the formation controller: downward direction.
+        On the fixed reference frame.
+      </description>
+    </field>
+    <field name="X Virtual Error (North)" abbrev="virt_err_x" type="fp32_t">
+      <description>
+        Components of the vehicle desired acceleration.
+        Overall formation combined virtual error: northward direction.
+        On the fixed reference frame.
+      </description>
+    </field>
+    <field name="Y Virtual Error (East)" abbrev="virt_err_y" type="fp32_t">
+      <description>
+        Components of the vehicle desired acceleration.
+        Overall formation combined virtual error: eastward direction.
+        On the fixed reference frame.
+      </description>
+    </field>
+    <field name="Z Virtual Error (Down)" abbrev="virt_err_z" type="fp32_t">
+      <description>
+        Components of the vehicle desired acceleration.
+        Overall formation combined virtual error: downward direction.
+        On the fixed reference frame.
+      </description>
+    </field>
+    <field name="X Sliding Surface Feedback (North)" abbrev="surf_fdbk_x" type="fp32_t">
+      <description>
+        Components of the vehicle desired acceleration.
+        Overall formation combined sliding surface feedback: northward direction.
+        On the fixed reference frame.
+      </description>
+    </field>
+    <field name="Y Sliding Surface Feedback (East)" abbrev="surf_fdbk_y" type="fp32_t">
+      <description>
+        Components of the vehicle desired acceleration.
+        Overall formation combined sliding surface feedback: eastward direction.
+        On the fixed reference frame.
+      </description>
+    </field>
+    <field name="Z Sliding Surface Feedback (Down)" abbrev="surf_fdbk_z" type="fp32_t">
+      <description>
+        Components of the vehicle desired acceleration.
+        Overall formation combined sliding surface feedback: downward direction.
+        On the fixed reference frame.
+      </description>
+    </field>
+    <field name="X Uncertainty Compensation (North)" abbrev="surf_unkn_x" type="fp32_t">
+      <description>
+        Components of the vehicle desired acceleration.
+        Dynamics uncertainty compensation: northward direction.
+      </description>
+    </field>
+    <field name="Y Uncertainty Compensation (East)" abbrev="surf_unkn_y" type="fp32_t">
+      <description>
+        Components of the vehicle desired acceleration.
+        Dynamics uncertainty compensation: eastward direction.
+      </description>
+    </field>
+    <field name="Z Uncertainty Compensation (Down)" abbrev="surf_unkn_z" type="fp32_t">
+      <description>
+        Components of the vehicle desired acceleration.
+        Dynamics uncertainty compensation: downward direction.
+      </description>
+    </field>
+    <field name="X Convergence Deviation (North)" abbrev="ss_x" type="fp32_t">
+      <description>
+        Combined deviation from convergence (sliding surface): North component.
+      </description>
+    </field>
+    <field name="Y Convergence Deviation (East)" abbrev="ss_y" type="fp32_t">
+      <description>
+        Combined deviation from convergence (sliding surface): East component.
+      </description>
+    </field>
+    <field name="Z Convergence Deviation (Down)" abbrev="ss_z" type="fp32_t">
+      <description>
+        Combined deviation from convergence (sliding surface): Down component.
+      </description>
+    </field>
+    <field name="Relative State" abbrev="rel_state" type="message-list" message-type="RelativeState">
+      <description>
+        List of RelativeState messages, encoding the inter-vehicle formation state.
+      </description>
+    </field>
+  </message>
+
 
   <!-- Vehicle Supervision -->
   <message id="500" name="Vehicle State" abbrev="VehicleState" source="vehicle">
