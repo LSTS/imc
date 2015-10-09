@@ -1324,14 +1324,9 @@
       Measure of the RSSI by a networking device.
       Indicates the gain or loss in the signal strenght due to the transmission and reception equipment and the transmission medium and distance.
     </description>
-    <field name="Value" abbrev="value" type="fp32_t">
+    <field name="Value" abbrev="value" type="fp32_t" max="100" unit="%">
       <description>
         RSSI measurement.
-      </description>
-    </field>
-    <field name="RSSI Units" abbrev="units" type="uint8_t" unit="Enumerated" enum-def="RSSIUnits">
-      <description>
-        Indicates the units used for the RSSI value.
       </description>
     </field>
   </message>
@@ -1547,6 +1542,23 @@
     <field name="Systems Name List" abbrev="GroupList" type="plaintext">
       <description>
         List of names of system in the group, separated by commas.
+      </description>
+    </field>
+  </message>
+
+  <message id="182" name="Receive Signal Strength Information" abbrev="ExtendedRSSI" source="vehicle">
+    <description>
+      Measure of the RSSI by a networking device.
+      Indicates the gain or loss in the signal strenght due to the transmission and reception equipment and the transmission medium and distance.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t">
+      <description>
+        RSSI measurement.
+      </description>
+    </field>
+    <field name="RSSI Units" abbrev="units" type="uint8_t" unit="Enumerated" enum-def="RSSIUnits">
+      <description>
+        Indicates the units used for the RSSI value.
       </description>
     </field>
   </message>
