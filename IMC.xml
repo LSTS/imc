@@ -1611,6 +1611,21 @@
         A list of LBL beacon configuration messages.
       </description>
     </field>
+    <field name="Interrogation channel" abbrev="query_channel" type="uint8_t">
+      <description>
+        Interrogation channel.
+      </description>
+    </field>
+    <field name="Reply channel" abbrev="reply_channel" type="uint8_t">
+      <description>
+        Reply channel.
+      </description>
+    </field>
+    <field name="Transponder delay" abbrev="transponder_delay" type="uint8_t" unit="ms">
+      <description>
+        Transponder delay.
+      </description>
+    </field>
   </message>
 
   <message id="206" name="Acoustic Message" abbrev="AcousticMessage" source="vehicle">
@@ -8132,17 +8147,17 @@
       :ref:`ParametersXml` message.
     </description>
   </message>
-  
+
   <!-- BEGIN NECSAVE Messages -->
-  
+
   <message id="2001" abbrev="NecMsg" name="NECSAVE Message">
   	<field abbrev="data" name="Data" type="rawdata"/>
   </message>
-  
+
   <message id="2002" abbrev="JsonObject" name="JSON Object">
   	<field abbrev="json" name="JSON Data" type="plaintext"/>
   </message>
-    
+
   <!-- END   NECSAVE Messages -->
-  
+
 </messages>
