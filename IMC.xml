@@ -1611,21 +1611,6 @@
         A list of LBL beacon configuration messages.
       </description>
     </field>
-    <field name="Interrogation channel" abbrev="query_channel" type="uint8_t">
-      <description>
-        Interrogation channel.
-      </description>
-    </field>
-    <field name="Reply channel" abbrev="reply_channel" type="uint8_t">
-      <description>
-        Reply channel.
-      </description>
-    </field>
-    <field name="Transponder delay" abbrev="transponder_delay" type="uint8_t" unit="ms">
-      <description>
-        Transponder delay.
-      </description>
-    </field>
   </message>
 
   <message id="206" name="Acoustic Message" abbrev="AcousticMessage" source="vehicle">
