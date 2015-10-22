@@ -8186,6 +8186,79 @@
     </field>
   </message>
 
+  <message id="824" name="Formation Evaluation Data" abbrev="ExtendedFormationEvaluation">
+    <description>
+      Formation control performance evaluation variables.
+    </description>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="FC">
+      <description>
+        Indicates if the message is a request, or a reply to a previous request.
+      </description>
+      <value id="0" name="Request" abbrev="REQUEST"/>
+      <value id="1" name="Report" abbrev="REPORT"/>
+    </field>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Operation to perform.
+      </description>
+      <value id="0" name="Start" abbrev="START">
+        <description>
+          Start the formation maneuver.
+        </description>
+      </value>
+      <value id="1" name="Stop" abbrev="STOP">
+        <description>
+          Stop the formation maneuver.
+        </description>
+      </value>
+      <value id="2" name="Ready" abbrev="READY">
+        <description>
+          Stop the formation maneuver.
+        </description>
+      </value>
+      <value id="3" name="Executing" abbrev="EXECUTING">
+        <description>
+          Stop the formation maneuver.
+        </description>
+      </value>
+      <value id="4" name="Failure" abbrev="FAILURE">
+        <description>
+          Stop the formation maneuver.
+        </description>
+      </value>
+    </field>
+    <field name="Mean Position Error" abbrev="err_mean" type="fp32_t">
+      <description>
+        Mean position error relative to the formation reference.
+      </description>
+    </field>
+    <field name="Absolute Minimum Distance" abbrev="dist_min_abs" type="fp32_t">
+      <description>
+        Overall minimum distance to any other vehicle in the formation.
+      </description>
+    </field>
+    <field name="Mean Minimum Distance" abbrev="dist_min_mean" type="fp32_t">
+      <description>
+        Mean minimum distance to any other vehicle in the formation.
+      </description>
+    </field>
+    <field name="Mean Roll Rate" abbrev="roll_rate_mean" type="fp32_t">
+      <description>
+        Mean minimum distance to any other vehicle in the formation.
+      </description>
+    </field>
+    <field name="Evaluation Time" abbrev="timespan" type="fp32_t" unit="s">
+      <description>
+        Time span over which the evaluation data is averaged.
+      </description>
+    </field>
+    <field name="Formation Control Parameters" abbrev="ControlParams" type="message" message-type="FormationControlParams">
+      <description>
+        Formation controller paramenters during the evaluation period.
+      </description>
+    </field>
+  </message>
+
   <message id="877" abbrev="MessagePart" name="Message Fragment">
     <field name="Transmission Unique Id" abbrev="uid" type="uint8_t"/>
     <field name="Fragment Number" abbrev="frag_number" type="uint8_t"/>
