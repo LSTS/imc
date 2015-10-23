@@ -2714,6 +2714,17 @@
     </field>
   </message>
 
+  <message id="290" name="Altitude" abbrev="Altitude" source="vehicle">
+    <description>
+      Report of Altitude.
+    </description>
+    <field name="Measured Altitude" abbrev="value" type="fp32_t" unit="m">
+      <description>
+        Altitude value measured by a sensor.
+      </description>
+    </field>
+  </message>
+
   <!-- Actuation -->
   <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
     <description>
@@ -3640,6 +3651,22 @@
     <field name="Z component (Down)" abbrev="z" type="fp64_t" unit="m/s">
       <description>
         Z component (Down).
+      </description>
+    </field>
+  </message>
+
+  <message id="363" name="Airflow" abbrev="Airflow" source="vehicle">
+    <description>
+      Airflow angles.
+    </description>
+    <field name="Angle of attack" abbrev="aoa" type="fp32_t" unit="rad">
+      <description>
+        Angle of attack.
+      </description>
+    </field>
+    <field name="Sideslip angle" abbrev="ssa" type="fp32_t" unit="rad">
+      <description>
+        Sideslip angle.
       </description>
     </field>
   </message>
