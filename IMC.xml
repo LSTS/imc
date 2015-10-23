@@ -2714,17 +2714,6 @@
     </field>
   </message>
 
-  <message id="290" name="Altitude" abbrev="Altitude" source="vehicle">
-    <description>
-      Report of Altitude.
-    </description>
-    <field name="Measured Altitude" abbrev="value" type="fp32_t" unit="m">
-      <description>
-        Altitude value measured by a sensor.
-      </description>
-    </field>
-  </message>
-
   <!-- Actuation -->
   <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
     <description>
