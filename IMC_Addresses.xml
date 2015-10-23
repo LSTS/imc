@@ -79,6 +79,9 @@
   <address id="0x2c02" name="ntnu-hexa-002"/>
   <address id="0x2c03" name="ntnu-hexa-003"/>
   <address id="0x2c04" name="ntnu-hexa-004"/>
+  <address id="0x2c11" name="ntnu-octo-001"/>
+  <address id="0x2c12" name="ntnu-octo-002"/>
+  <address id="0x2c13" name="ntnu-octo-003"/>
   <address id="0x2c21" name="ntnu-x8-001"/>
   <address id="0x2c22" name="ntnu-x8-002"/>
   <address id="0x2c23" name="ntnu-x8-003"/>
