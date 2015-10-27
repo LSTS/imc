@@ -122,6 +122,8 @@
   <address id="0x8020" name="manta-15"/>
   <address id="0x8021" name="manta-16"/>
   <address id="0x8026" name="manta-21"/>
+  <address id="0x8027" name="manta-22"/>
+  <address id="0x8028" name="manta-23"/>
   <address id="0x8040" name="piccolo-gs1"/>
   <address id="0x8041" name="piccolo-gs2"/>
   <address id="0x8042" name="piccolo-gs3"/>
