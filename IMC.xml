@@ -3646,8 +3646,13 @@
 
   <message id="363" name="Airflow" abbrev="Airflow" source="vehicle">
     <description>
-      Airflow angles.
+      Airspeed along with airflow angles.
     </description>
+    <field name="Airspeed" abbrev="va" type="fp32_t" unit="m/s">
+      <description>
+        Airspeed, the 2-norm of the relative velocity.
+      </description>
+    </field>
     <field name="Angle of attack" abbrev="aoa" type="fp32_t" unit="rad">
       <description>
         Angle of attack.
