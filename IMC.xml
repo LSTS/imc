@@ -2714,6 +2714,39 @@
     </field>
   </message>
 
+  <message id="290" name="Fluorescein" abbrev="Fluorescein" source="vehicle" flags="periodic">
+    <description>
+      Fluorescein measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="PPB">
+      <description>
+	Fluorescein reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="291" name="Phycocyanin" abbrev="Phycocyanin" source="vehicle" flags="periodic">
+    <description>
+      Phycocyanin measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="PPB">
+      <description>
+	Phycocyanin reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="292" name="Phycoerythrin" abbrev="Phycoerythrin" source="vehicle" flags="periodic">
+    <description>
+      Phycoerythrin measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="PPB">
+      <description>
+	Phycoerythrin reading.
+      </description>
+    </field>
+  </message>
+
   <!-- Actuation -->
   <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
     <description>
