@@ -318,6 +318,7 @@
       <message-type abbrev="CommsRelay"/>
       <message-type abbrev="FormationPlanExecution"/>
       <message-type abbrev="Dislodge"/>
+      <message-type abbrev="Drop"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -6100,6 +6101,54 @@
     </field>
   </message>
 
+<message id="486" name="Drop Maneuver" abbrev="Drop" source="ccu">
+    <description>
+      The Drop maneuver makes the vehicle circle around a specific
+      waypoint with fixed depth reference and then drop a payload.
+    </description>
+    <field name="Timeout" abbrev="timeout" type="uint16_t" unit="s">
+      <description>
+        The amount of time the maneuver is allowed to run.
+      </description>
+    </field>
+    <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude of target waypoint.
+      </description>
+    </field>
+    <field name="Longitude WGS-84" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude of target waypoint.
+      </description>
+    </field>
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        Target reference in the z axis. Use z_units to specify
+        whether z represents depth, altitude or other.
+      </description>
+    </field>
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the z reference.
+      </description>
+    </field>
+    <field name="Speed" abbrev="speed" type="fp32_t">
+      <description>
+        Maneuver speed reference.
+      </description>
+    </field>
+    <field name="Speed Units" abbrev="speed_units" type="uint8_t" value="0" unit="Enumerated" enum-def="SpeedUnits">
+      <description>
+        Speed units.
+      </description>
+    </field>
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for maneuver.
+      </description>
+    </field>
+  </message>
+  
   <!-- Vehicle Supervision -->
   <message id="500" name="Vehicle State" abbrev="VehicleState" source="vehicle">
     <description>
