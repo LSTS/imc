@@ -2788,7 +2788,7 @@
     </field>
   </message>
   
-  <message id="290" name="GPS Fix RTK" abbrev="GpsFixRtk" source="vehicle" flags="periodic">
+  <message id="293" name="GPS Fix RTK" abbrev="GpsFixRtk" source="vehicle" flags="periodic">
     <description>
       Report of an RTK-GPS fix.
     </description>
