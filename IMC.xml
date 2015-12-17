@@ -4455,6 +4455,107 @@
       </value>
     </field>
   </message>
+  
+  <message id="414" name="Desired Linear State" abbrev="DesiredLinearState">
+    <description>
+      Position, velocity and acceleration setpoints in NED
+    </description>
+    <field name="Desired pos in xx" abbrev="x" type="fp64_t" unit="m">
+      <description>
+        Desired pos in x.
+      </description>
+    </field>
+    <field name="Desired pos in yy" abbrev="y" type="fp64_t" unit="m">
+      <description>
+        Desired pos in y.
+      </description>
+    </field>
+    <field name="Desired pos in zz" abbrev="z" type="fp64_t" unit="m">
+      <description>
+        Desired pos in z.
+      </description>
+    </field>
+    <field name="Desired Linear Speed in xx" abbrev="vx" type="fp64_t" unit="m/s">
+      <description>
+        Desired speed along NED x axis.
+      </description>
+    </field>
+    <field name="Desired Linear Speed in yy" abbrev="vy" type="fp64_t" unit="m/s">
+      <description>
+        Desired speed along NED y axis.
+      </description>
+    </field>
+    <field name="Desired Linear Speed in zz" abbrev="vz" type="fp64_t" unit="m/s">
+      <description>
+        Desired speed along NED z axis.
+      </description>
+    </field>
+    <field name="Desired Linear Acceleration in xx" abbrev="ax" type="fp64_t" unit="m/s/s">
+      <description>
+        Desired acceleration along NED x axis.
+      </description>
+    </field>
+    <field name="Desired Linear Acceleration in yy" abbrev="ay" type="fp64_t" unit="m/s/s">
+      <description>
+        Desired acceleration along NED y axis.
+      </description>
+    </field>
+    <field name="Desired Linear Acceleration in zz" abbrev="az" type="fp64_t" unit="m/s/s">
+      <description>
+        Desired acceleration along NED z axis.
+      </description>
+    </field>
+    <field name="Flags" abbrev="flags" type="uint16_t" unit="Bitfield" prefix="FL">
+      <description>
+        Setpoint Flags
+      </description>
+      <value id="0x0001" abbrev="X" name="Value of x is meaningful">
+        <description>
+          If enabled then field x has a meaningful value.
+        </description>
+      </value>
+      <value id="0x0002" abbrev="Y" name="Value of y is meaningful">
+        <description>
+          If enabled then field y has a meaningful value.
+        </description>
+      </value>
+      <value id="0x0004" abbrev="Z" name="Value of z is meaningful">
+        <description>
+          If enabled then field z has a meaningful value.
+        </description>
+      </value>
+      <value id="0x0008" abbrev="VX" name="Value of vx is meaningful">
+        <description>
+          If enabled then field vx has a meaningful value.
+        </description>
+      </value>
+      <value id="0x0010" abbrev="VY" name="Value of vy is meaningful">
+        <description>
+          If enabled then field vy has a meaningful value.
+        </description>
+      </value>
+      <value id="0x0020" abbrev="VZ" name="Value of vz is meaningful">
+        <description>
+          If enabled then field vz has a meaningful value.
+        </description>
+      </value>
+      <value id="0x0040" abbrev="AX" name="Value of ax is meaningful">
+        <description>
+          If enabled then field ax has a meaningful value.
+        </description>
+      </value>
+      <value id="0x0080" abbrev="AY" name="Value of ay is meaningful">
+        <description>
+          If enabled then field ay has a meaningful value.
+        </description>
+      </value>
+      <value id="0x0100" abbrev="AZ" name="Value of az is meaningful">
+        <description>
+          If enabled then field az has a meaningful value.
+        </description>
+      </value>
+    </field>
+  </message>
 
   <!-- Maneuvering -->
   <message id="450" name="Goto Maneuver" abbrev="Goto" source="ccu">
