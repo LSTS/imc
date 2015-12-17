@@ -1670,6 +1670,60 @@
     </field>
   </message>
 
+  <message id="204" name="Report Control" abbrev="ReportControl" source="ccu,vehicle">
+    <description>
+      This message is sent to trigger acoustic reports to a destination system.
+    </description>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Operation to perform.
+      </description>
+      <value id="0" name="Request Start of Reports" abbrev="REQUEST_START">
+        <description>
+          Request a system to periodically send acoustic reports. The
+          destination system will reply with a STARTED command. Periodicity
+          will be defined by the field 'period'.
+        </description>
+      </value>
+      <value id="1" name="Report Started" abbrev="STARTED">
+        <description>
+          The destination system will reply a message with this operation
+          everytime an acoustic report is successfully started. The periodicity
+          of acoustic reports is indicated in the field 'period'.
+        </description>
+      </value>
+      <value id="2" name="Request Stop of Reports" abbrev="REQUEST_STOP">
+        <description>
+          Request a system to stop dispatching acoustic reports. The
+          destination system will reply with a STOPPED command.
+        </description>
+      </value>
+      <value id="3" name="Report Stopped" abbrev="STOPPED">
+        <description>
+          The destination system will reply a message with this operation
+          everytime a scheduled acoustic report is successfully stopped.
+        </description>
+      </value>
+      <value id="4" name="Request Single Reports" abbrev="REQUEST_REPORT">
+        <description>
+          Request a system to issue a single acoustic reports. The
+          destination system will reply with a REPORT_ISSUED command.
+        </description>
+      </value>
+      <value id="5" name="Single Report Sent" abbrev="REPORT_SENT">
+        <description>
+          The destination system will reply a single report request with
+          this operation.
+        </description>
+      </value>
+    </field>
+    <field name="Period" abbrev="period" type="uint16_t" unit="s">
+      <description>
+        Acoustic Reports periodicity.
+      </description>
+    </field>
+  </message>
+
   <message id="206" name="Acoustic Message" abbrev="AcousticMessage" source="vehicle">
     <description>
       Send an acoustic message.
