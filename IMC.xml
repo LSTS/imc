@@ -1548,7 +1548,8 @@
     </description>
     <field name="Value" abbrev="value" type="fp32_t" unit="s" min="0">
       <description>
-        Time taken between the communications package/message is send from the source until it arrives to the destination.
+        Time taken between the communications package/message is sent
+        from the source until it arrives to the destination.
       </description>
     </field>
     <field name="Communications Source System ID" abbrev="sys_src" type="uint16_t">
@@ -1557,7 +1558,6 @@
       </description>
     </field>
   </message>
-
 
   <!-- Acoustic Networking -->
   <message id="200" name="LBL Range" abbrev="LblRange" source="vehicle" flags="periodic">
@@ -8148,17 +8148,17 @@
       :ref:`ParametersXml` message.
     </description>
   </message>
-  
+
   <!-- BEGIN NECSAVE Messages -->
   
   <message id="2001" abbrev="NecMsg" name="NECSAVE Message">
-  	<field abbrev="data" name="Data" type="rawdata"/>
+    <field abbrev="data" name="Data" type="rawdata"/>
   </message>
   
   <message id="2002" abbrev="JsonObject" name="JSON Object">
-  	<field abbrev="json" name="JSON Data" type="plaintext"/>
+    <field abbrev="json" name="JSON Data" type="plaintext"/>
   </message>
-    
+
   <!-- END   NECSAVE Messages -->
   
 </messages>
