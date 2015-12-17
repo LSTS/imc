@@ -1326,7 +1326,7 @@
   <message id="153" name="Receive Signal Strength Information" abbrev="RSSI" source="vehicle">
     <description>
       Measure of the RSSI by a networking device.
-      Indicates the gain or loss in the signal strenght due to the transmission and reception equipment and the transmission medium and distance.
+      Indicates the gain or loss in the signal strength due to the transmission and reception equipment and the transmission medium and distance.
     </description>
     <field name="Value" abbrev="value" type="fp32_t" max="100" unit="%">
       <description>
@@ -2788,7 +2788,7 @@
       </description>
     </field>
   </message>
-  
+
   <message id="293" name="GPS Fix RTK" abbrev="GpsFixRtk" source="vehicle" flags="periodic">
     <description>
       Report of an RTK-GPS fix.
@@ -4455,7 +4455,7 @@
       </value>
     </field>
   </message>
-  
+
   <message id="414" name="Desired Linear State" abbrev="DesiredLinearState">
     <description>
       Position, velocity and acceleration setpoints in NED
@@ -6469,7 +6469,7 @@
       </description>
     </field>
   </message>
-  
+
   <!-- Vehicle Supervision -->
   <message id="500" name="Vehicle State" abbrev="VehicleState" source="vehicle">
     <description>
