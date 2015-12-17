@@ -262,6 +262,11 @@
       <value id="2" name="Altitude" abbrev="ALTITUDE"/>
       <value id="3" name="Height" abbrev="HEIGHT"/>
     </def>
+
+    <def name="RSSI Units" abbrev="RSSIUnits" prefix="RSSIUNITS">
+      <value id="0" name="Decibel" abbrev="dB"/>
+      <value id="1" name="Percentage" abbrev="PERCENTAGE"/>
+    </def>
   </enumerations>
 
   <bitfields>
@@ -1319,6 +1324,7 @@
   <message id="153" name="Receive Signal Strength Information" abbrev="RSSI" source="vehicle">
     <description>
       Measure of the RSSI by a networking device.
+      Indicates the gain or loss in the signal strenght due to the transmission and reception equipment and the transmission medium and distance.
     </description>
     <field name="Value" abbrev="value" type="fp32_t" max="100" unit="%">
       <description>
@@ -1555,6 +1561,24 @@
     <field name="Communications Source System ID" abbrev="sys_src" type="uint16_t">
       <description>
         ID of system that was the source of the communication package.
+      </description>
+    </field>
+  </message>
+
+  <message id="183" name="Extended Receive Signal Strength Information" abbrev="ExtendedRSSI" source="vehicle">
+    <description>
+      Measure of the RSSI by a networking device.
+      Indicates the gain or loss in the signal strenght due to the transmission
+      and reception equipment and the transmission medium and distance.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t">
+      <description>
+        RSSI measurement.
+      </description>
+    </field>
+    <field name="RSSI Units" abbrev="units" type="uint8_t" unit="Enumerated" enum-def="RSSIUnits">
+      <description>
+        Indicates the units used for the RSSI value.
       </description>
     </field>
   </message>
