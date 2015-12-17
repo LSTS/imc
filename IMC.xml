@@ -1546,7 +1546,7 @@
     </field>
   </message>
 
-  <message id="182" name="Receive Signal Strength Information" abbrev="ExtendedRSSI" source="vehicle">
+  <message id="182" name="Receive Signal Strength Information - Extended Information" abbrev="ExtendedRSSI" source="vehicle">
     <description>
       Measure of the RSSI by a networking device.
       Indicates the gain or loss in the signal strenght due to the transmission and reception equipment and the transmission medium and distance.
