@@ -3718,6 +3718,27 @@
     </field>
   </message>
 
+  <message id="363" name="Airflow" abbrev="Airflow" source="vehicle">
+    <description>
+      Airspeed along with airflow angles.
+    </description>
+    <field name="Airspeed" abbrev="va" type="fp32_t" unit="m/s">
+      <description>
+        Airspeed, the 2-norm of the relative velocity.
+      </description>
+    </field>
+    <field name="Angle of attack" abbrev="aoa" type="fp32_t" unit="rad">
+      <description>
+        Angle of attack.
+      </description>
+    </field>
+    <field name="Sideslip angle" abbrev="ssa" type="fp32_t" unit="rad">
+      <description>
+        Sideslip angle.
+      </description>
+    </field>
+  </message>
+
   <!-- Guidance -->
   <message id="400" name="Desired Heading" abbrev="DesiredHeading"  source="vehicle">
     <description>
