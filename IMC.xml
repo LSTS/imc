@@ -2710,7 +2710,7 @@
     </description>
     <field name="Value" abbrev="value" type="fp32_t" unit="µg/L">
       <description>
-	Chlorophyll reading.
+        Chlorophyll reading.
       </description>
     </field>
   </message>
@@ -6101,10 +6101,14 @@
     </field>
   </message>
 
-<message id="486" name="Drop Maneuver" abbrev="Drop" source="ccu">
+  <message id="486" name="Drop Maneuver" abbrev="Drop" source="ccu">
     <description>
-      The Drop maneuver makes the vehicle circle around a specific
-      waypoint with fixed depth reference and then drop a payload.
+      A "Drop" is a maneuver specifying a movement of the vehicle to a
+      target waypoint. The waypoint is described by the WGS-84
+      waypoint coordinate and target Z reference.
+
+      Mandatory parameters defined for a "Goto" are
+      timeout, speed and speed units.
     </description>
     <field name="Timeout" abbrev="timeout" type="uint16_t" unit="s">
       <description>
@@ -8200,11 +8204,11 @@
   <!-- BEGIN NECSAVE Messages -->
 
   <message id="2001" abbrev="NecMsg" name="NECSAVE Message">
-  	<field abbrev="data" name="Data" type="rawdata"/>
+    <field abbrev="data" name="Data" type="rawdata"/>
   </message>
 
   <message id="2002" abbrev="JsonObject" name="JSON Object">
-  	<field abbrev="json" name="JSON Data" type="plaintext"/>
+    <field abbrev="json" name="JSON Data" type="plaintext"/>
   </message>
 
   <!-- END   NECSAVE Messages -->
