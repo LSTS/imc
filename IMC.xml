@@ -2787,6 +2787,127 @@
       </description>
     </field>
   </message>
+  
+  <message id="290" name="GPS Fix RTK" abbrev="GpsFixRtk" source="vehicle" flags="periodic">
+    <description>
+      Report of an RTK-GPS fix.
+    </description>
+    <field name="Validity" abbrev="validity" type="uint16_t" unit="Bitfield" prefix="RFV">
+      <description>
+        Validity of fields.
+      </description>
+      <value id="0x0001" name="Valid Time" abbrev="VALID_TIME">
+        <description>
+          Field 'tow' is valid.
+        </description>
+      </value>
+      <value id="0x0002" name="Valid Base LLH" abbrev="VALID_BASE">
+        <description>
+          Fields 'base_lat', 'base_lon' and 'base_height' are valid.
+        </description>
+      </value>
+      <value id="0x0004" name="Valid Position" abbrev="VALID_POS">
+        <description>
+          Fields 'n', 'e', 'd' are valid.
+        </description>
+      </value>
+      <value id="0x0008" name="Valid Velocity" abbrev="VALID_VEL">
+        <description>
+          Fields 'v_n', 'v_e', 'v_d' are valid.
+        </description>
+      </value>
+    </field>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="RTK">
+      <description>
+        Type of fix.
+      </description>
+      <value id="0x00" name="None" abbrev="NONE">
+        <description>
+          No solution, but RTK task is running.
+        </description>
+      </value>
+      <value id="0x01" name="Obs" abbrev="OBS">
+        <description>
+          No solution, but receiving observations.
+        </description>
+      </value>
+      <value id="0x02" name="Float" abbrev="FLOAT">
+        <description>
+          Floating point solution of IAR.
+        </description>
+      </value>
+      <value id="0x03" name="Fixed" abbrev="FIXED">
+        <description>
+          Fixed (single) solution of IAR.
+        </description>
+      </value>
+    </field>
+    <field name="GPS Time of Week" abbrev="tow" type="uint32_t">
+      <description>
+        GPS Time of Week.
+      </description>
+    </field>
+    <field name="Base Latitude WGS-84" abbrev="base_lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude coordinate of the base.
+      </description>
+    </field>
+    <field name="Base Longitude WGS-84" abbrev="base_lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude coordinate of the base.
+      </description>
+    </field>
+    <field name="Base Height above WGS-84 ellipsoid" abbrev="base_height" type="fp32_t" unit="m">
+      <description>
+        Height above WGS-84 ellipsoid of the base.
+      </description>
+    </field>
+    <field name="Position North" abbrev="n" type="fp32_t" unit="m">
+      <description>
+        Baseline North coordinate.
+      </description>
+    </field>
+    <field name="Position East" abbrev="e" type="fp32_t" unit="m">
+      <description>
+        Baseline East coordinate.
+      </description>
+    </field>
+    <field name="Position Down" abbrev="d" type="fp32_t" unit="m">
+      <description>
+        Baseline Down coordinate.
+      </description>
+    </field>
+    <field name="Velocity North" abbrev="v_n" type="fp32_t" unit="m/s">
+      <description>
+        Velocity North coordinate.
+      </description>
+    </field>
+    <field name="Velocity East" abbrev="v_e" type="fp32_t" unit="m/s">
+      <description>
+        Velocity East coordinate.
+      </description>
+    </field>
+    <field name="Velocity Down" abbrev="v_d" type="fp32_t" unit="m/s">
+      <description>
+        Velocity Down coordinate.
+      </description>
+    </field>
+    <field name="Number of Satellites" abbrev="satellites" type="uint8_t">
+      <description>
+        Number of satellites used in solution.
+      </description>
+    </field>
+    <field name="IAR Hypotheses" abbrev="iar_hyp" type="uint16_t">
+      <description>
+        Number of hypotheses in the Integer Ambiguity Resolution (smaller is better).
+      </description>
+    </field>
+    <field name="IAR Ratio" abbrev="iar_ratio" type="fp32_t">
+      <description>
+        Quality ratio of Integer Ambiguity Resolution (bigger is better).
+      </description>
+    </field>
+  </message>
 
   <!-- Actuation -->
   <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
