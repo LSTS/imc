@@ -191,7 +191,7 @@
     <unit abbrev="MiB" name="Mebibyte"/>
     <unit abbrev="m" name="Meter"/>
     <unit abbrev="m/s" name="Meter per second"/>
-    <unit abbrev="m/s/s" name="Meter per second^2"/>
+    <unit abbrev="m/s/s" name="Meter per square second"/>
     <unit abbrev="ms" name="Millisecond"/>
     <unit abbrev="µs" name="Microsecond"/>
     <unit abbrev="S/m" name="Siemens per meter"/>
