@@ -6922,9 +6922,10 @@
       </description>
       <value id="0" name="Request Start of Reports" abbrev="REQUEST_START">
         <description>
-          Request a system to periodically send reports using through 'interface'.
+          Request a system to periodically send reports through 'interface'.
 	  The destination system will reply with a STARTED command. Periodicity
-          will be defined by the field 'period'.
+          will be defined by the field 'period'. If applicable, the destination
+	  address is defined in field 'dst'.
         </description>
       </value>
       <value id="1" name="Report Started" abbrev="STARTED">
@@ -6932,33 +6933,38 @@
           The destination system will reply a message with this operation
           everytime a report is successfully started. The periodicity of
 	  reports is indicated in the field 'period' while the communication
-	  interface to be used is described in field 'interface'.
+	  interface to be used is described in field 'interface'. If applicable,
+	  the destination address is defined in field 'dst'.
         </description>
       </value>
       <value id="2" name="Request Stop of Reports" abbrev="REQUEST_STOP">
         <description>
           Request a system to stop dispatching reports through a given
 	  communication interface described in 'interface'. The destination
-	  system will reply with a STOPPED command.
+	  system will reply with a STOPPED command. If applicable, the
+	  destination address is defined in field 'dst'.
         </description>
       </value>
       <value id="3" name="Report Stopped" abbrev="STOPPED">
         <description>
           The destination system will reply a message with this operation
           everytime a scheduled report is successfully stopped in a defined
-	  communication interface.
+	  communication interface. If applicable, the destination address
+	  is defined in field 'dst'.
         </description>
       </value>
       <value id="4" name="Request Single Reports" abbrev="REQUEST_REPORT">
         <description>
           Request a system to issue a single report in a defined communication
 	  interface. The destination system will reply with a REPORT_ISSUED command.
+	  If applicable, the destination address is defined in field 'dst'.
         </description>
       </value>
       <value id="5" name="Single Report Sent" abbrev="REPORT_SENT">
         <description>
           The destination system will reply a single report request with
-          this operation.
+          this operation.If applicable, the destination address is defined
+	  in field 'dst'.
         </description>
       </value>
     </field>
@@ -6982,6 +6988,12 @@
     <field name="Period" abbrev="period" type="uint16_t" unit="s">
       <description>
         Desired periodicity for scheduled reports.
+      </description>
+    </field>
+    <field name="Destination" abbrev="dst" type="plaintext">
+      <description>
+	Destination Address to be filled where applicable. It should be
+	interpreted differently depending on communication interface.
       </description>
     </field>
   </message>
