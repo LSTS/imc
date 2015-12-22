@@ -116,14 +116,14 @@
   <address id="0x8014" name="manta-3"/>
   <address id="0x8015" name="manta-4"/>
   <address id="0x8016" name="manta-5"/>
-  <address id="0x801a" name="manta-9"/>
+  <address id="0x801a" name="manta-dmsmw-01"/>
   <address id="0x801c" name="manta-11"/>
   <address id="0x801d" name="manta-12"/>
   <address id="0x8020" name="manta-15"/>
   <address id="0x8021" name="manta-16"/>
   <address id="0x8026" name="manta-21"/>
-  <address id="0x8027" name="manta-22"/>
-  <address id="0x8028" name="manta-23"/>
+  <address id="0x8027" name="manta-dmsmw-02"/>
+  <address id="0x8028" name="manta-dmsmw-03"/>
   <address id="0x8040" name="piccolo-gs1"/>
   <address id="0x8041" name="piccolo-gs2"/>
   <address id="0x8042" name="piccolo-gs3"/>
