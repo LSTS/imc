@@ -6970,7 +6970,7 @@
         </description>
       </value>
     </field>
-    <field name="Communication Interface" abbrev="interface" type="uint8_t" unit="Bitfield" prefix="CI">
+    <field name="Communication Interface" abbrev="comm_interface" type="uint8_t" unit="Bitfield" prefix="CI">
       <description>
         Communication interface to be used for reports.
       </description>
@@ -6992,7 +6992,7 @@
         Desired periodicity for scheduled reports.
       </description>
     </field>
-    <field name="Destination" abbrev="dst" type="plaintext">
+    <field name="Destination System" abbrev="sys_dst" type="plaintext">
       <description>
         Destination Address to be filled where applicable. It should be
         interpreted differently depending on communication interface.
