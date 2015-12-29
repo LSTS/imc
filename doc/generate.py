@@ -1,7 +1,7 @@
 #############################################################################
 # This Python file uses the following encoding: utf-8                       #
 #############################################################################
-# Copyright (C) 2013 Laboratório de Sistemas e Tecnologia Subaquática       #
+# Copyright (C) 2016 Laboratório de Sistemas e Tecnologia Subaquática       #
 # Departamento de Engenharia Electrotécnica e de Computadores               #
 # Rua Dr. Roberto Frias, 4200-465 Porto, Portugal                           #
 #############################################################################
