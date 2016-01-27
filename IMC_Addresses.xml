@@ -36,6 +36,7 @@
   <address id="0x08c3" name="hermes-target"/>
   <address id="0x08c4" name="tex-wg"/>
   <!-- UAVs (LSTS) -->
+  <address id="0x0c00" name="pixhawk-testbed"/>
   <address id="0x0c01" name="lusitania"/>
   <address id="0x0c02" name="sedona"/>
   <address id="0x0c03" name="x8-00"/>
@@ -46,6 +47,8 @@
   <address id="0x0c08" name="aero-01"/>
   <address id="0x0c09" name="mariner-01"/>
   <address id="0x0c10" name="mariner-02"/>
+  <address id="0x0c1a" name="x8-05"/>
+  <address id="0x0c1b" name="x8-06"/>
   <address id="0x0c13" name="hexa-00"/>
   <address id="0x0c22" name="alfa-02"/>
   <address id="0x0c23" name="alfa-03"/>
