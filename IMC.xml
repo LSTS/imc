@@ -2909,6 +2909,40 @@
       </description>
     </field>
   </message>
+  
+  <message id="294" name="External Navigation Data" abbrev="ExternalNavData" source="vehicle" flags="periodic">
+      <description>
+          This message is a representation of the state of the vehicle,
+          as seen by an external navigation computer. 
+          
+          An example usage is when DUNE is used with ardupilot. The
+          data gathered from the autopilot is a complete navigation 
+          solution. 
+                    
+          ExternalNavData contains an inline Estimated State, which
+          is a complete description of the system
+          in terms of parameters such as position, orientation and
+          velocities at a particular moment in time.
+          
+          The Type field selects wether the navigation data is a 
+          full state estimation, or only concerns attitude or 
+          position/velocity. 
+          
+      </description>
+      <field name="Estimated State" abbrev="state" type="message" message-type="EstimatedState">
+          <description>
+              External Navigation Data. 
+          </description>
+      </field>
+      <field name="Nav Data Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="EXTNAV">
+          <description>
+              The type of external navigation data
+          </description>
+          <value id="0" name="Full State" abbrev="FULL"/>
+          <value id="1" name="Attitude Heading Reference System Only" abbrev="AHRS"/>
+          <value id="2" name="Position Reference System only" abbrev="POSREF"/>
+      </field>
+  </message>
 
   <!-- Actuation -->
   <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
