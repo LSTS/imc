@@ -6516,7 +6516,7 @@
         Z reference units to use while travelling to the destination.
       </description>
     </field>
-    <field name="Delayed Behavior" abbrev="delayed" type="uint8_t" value="0" unit="Enumerated">
+    <field name="Delayed Behavior" abbrev="delayed" type="uint8_t" value="0" unit="Enumerated" prefix="DBEH">
       <description>
         What to do if the vehicle fails to arrive before or at the requested time.
       </description>
