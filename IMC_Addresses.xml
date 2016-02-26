@@ -31,6 +31,7 @@
   <address id="0x0402" name="adamastor"/>
   <!-- ASVs (LSTS) -->
   <address id="0x0801" name="swordfish"/>
+  <address id="0x0802" name="caravela"/>
   <address id="0x08c1" name="hermes"/>
   <address id="0x08c2" name="hermes-desired"/>
   <address id="0x08c3" name="hermes-target"/>
