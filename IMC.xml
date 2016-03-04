@@ -1827,6 +1827,36 @@
     </field>
   </message>
 
+  <message id="214" name="Acoustic Link Quality" abbrev="AcousticLink">
+    <description>
+      This message is used to report the perceived link quality to other
+      acoustic peers.
+    </description>
+    <field name="Peer Name" abbrev="peer" type="plaintext">
+      <description>
+        The name of the peer on the other side of this link.
+      </description>
+    </field>
+    <field name="Received Signal Strength Indicator" abbrev="rssi" type="fp32_t" unit="dB">
+      <description>
+        RSSI is a signed floating point number. Higher RSSI values correspond to
+        stronger signals.
+        The signal strength is acceptable when measured RSSI values lie between
+        -20 dB and -85 dB.
+      </description>
+    </field>
+    <field name="Signal Integrity Level" abbrev="integrity" type="uint16_t">
+      <description>
+        Signal Integrity value illustrates distortion of the last received
+        acoustic signal. It is calculated based on cross-correlation
+        measurements.
+        Higher *Signal Integrity Level* values correspond to less distorted
+        signals. An acoustic link is considered weak if the *Signal Integrity
+        Level* value is less than 100.
+      </description>
+    </field>
+  </message>
+
   <!-- Sensors -->
   <message id="250" name="Revolutions Per Minute" abbrev="Rpm" source="vehicle">
     <description>
