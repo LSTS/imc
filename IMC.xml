@@ -1608,8 +1608,35 @@
     </field>
     <field name="Data" abbrev="data" type="message-list" message-type="HistoricSample"/>
   </message>
-
-  <message id="185" abbrev="HistoricSample" name="Historic Data Sample">
+  
+  <message id="185" abbrev="CompressedHistory" name="Compressed Historic Data Series">
+    <description>
+	  This message holds a list of inline data samples produced by one or more vehicles in the past. 
+	  It is used to transfer data over disruption tolerant networks.        
+    </description>
+    <field name="Base Latitude" abbrev="base_lat" type="fp32_t" unit="°">
+      <description>          
+        All data sent inside this message will have offsets relative to this latitude.
+      </description>
+    </field>
+    <field name="Base Longitude" abbrev="base_lon" type="fp32_t" unit="°">
+    <description>          
+      All data sent inside this message will have offsets relative to this longitude.
+    </description>
+    </field>
+    <field name="Base Timestamp" abbrev="base_time" type="fp32_t" unit="s">
+	  <description>          
+      	All data sent inside this message will use this time as the origin (0).
+      </description>
+    </field>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        A message-list of HistoricSample messages compressed with GZip algorithm.
+      </description>
+	</field>
+  </message>
+  
+  <message id="186" abbrev="HistoricSample" name="Historic Data Sample">
     <field name="Original System Id" abbrev="sys_id" type="uint16_t">
       <description>
         The IMC identifier of the system that produced this sample.
@@ -1646,7 +1673,7 @@
     </field>
 	  <field name="Data Sample" abbrev="sample" type="message"/>
   </message>
-
+  
   <!-- Acoustic Networking -->
   <message id="200" name="LBL Range" abbrev="LblRange" source="vehicle" flags="periodic">
     <description>
