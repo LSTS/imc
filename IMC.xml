@@ -1666,7 +1666,7 @@
 	    Negative values mean depth and positive values mean altitude.
       </description>
     </field>
-    <field name="Time offset" abbrev="t" type="uint16_t" unit="s">
+    <field name="Time offset" abbrev="t" type="int16_t" unit="s">
       <description>
         Time offset in seconds relative to the base time expressed in the enclosing `HistoricData` message.
       </description>
