@@ -326,6 +326,7 @@
       <message-type abbrev="FormationPlanExecution"/>
       <message-type abbrev="Dislodge"/>
       <message-type abbrev="Drop"/>
+      <message-type abbrev="ScheduledGoto"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -6588,6 +6589,74 @@
       <description>
         Custom settings for maneuver.
       </description>
+    </field>
+  </message>
+  
+  <message id="487" name="Scheduled Goto" abbrev="ScheduledGoto" source="ccu">
+    <description>
+      This maneuver is used to command the vehicle to arrive at some destination at 
+      a specified absolute time.
+      
+      The vehicle's speed will vary according to environment conditions and/or maneuver start time.      
+    </description>
+    <field name="Time of arrival" abbrev="arrival_time" type="fp64_t" unit="s">
+      <description>
+        Unix timestamp, in seconds, for the arrival at the destination.
+      </description>
+    </field>
+    <field name="Destination Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude of target waypoint.
+      </description>
+    </field>
+    <field name="Destination Longitude WGS-84" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude of target waypoint.
+      </description>
+    </field>
+    <field name="Destination Z Reference" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        Target reference in the z axis. Use z_units to specify
+        whether z represents depth, altitude or other.
+      </description>
+    </field>
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the destination z reference.
+      </description>
+    </field>    
+    <field name="Travel Z Reference" abbrev="travel_z" type="fp32_t" unit="m">
+      <description>
+        Z reference to use while travelling to the destination.
+      </description>
+    </field>
+    <field name="Travel Z Units" abbrev="travel_z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Z reference units to use while travelling to the destination.
+      </description>
+    </field>
+    <field name="Delayed Behavior" abbrev="delayed" type="uint8_t" value="0" unit="Enumerated" prefix="DBEH">
+      <description>
+        What to do if the vehicle fails to arrive before or at the requested time.
+      </description>
+      <value abbrev="RESUME" name="Resume" id="0">
+      	<description>
+      	  If the vehicle fails to arrive at the specified time, it will keep going to the destination 
+      	  at top speed and only then consider this maneuver completed. 
+      	</description>
+      </value>
+      <value abbrev="SKIP" name="Skip" id="1">
+      	<description>
+      	  If the vehicle fails to arrive at the specified time, it will stop the current maneuver and
+      	  advance to the next one (independently of how far it is from destination). 
+      	</description>
+      </value>
+      <value abbrev="FAIL" name="Fail" id="2">
+      	<description>
+      	  If the vehicle fails to arrive at the specified time, it will stop the execution of this 
+      	  maneuver with a FAILED result (the entire plan will be stopped). 
+      	</description>
+      </value>      
     </field>
   </message>
 
