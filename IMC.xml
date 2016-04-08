@@ -1251,6 +1251,64 @@
       </description>
     </field>
   </message>
+  
+  <message id="107" name="Historic CTD" abbrev="HistoricCTD" used-by="vehicle">
+    <description>
+    	This message is used to store historic (transmitted afterwards) CTD data .
+    </description>
+    <field name="Conductivity" abbrev="conductivity" type="fp32_t" unit="S/m"/>
+    <field name="Temperature" abbrev="temperature" type="fp32_t" unit="°C"/>
+    <field name="Depth" abbrev="depth" type="fp32_t" unit="m"/>
+  </message>
+  
+  <message id="108" name="Historic Telemetry" abbrev="HistoricTelemetry" used-by="vehicle">
+    <description>
+    	This message is used to store historic (transmitted afterwards) telemetry information.
+    </description>
+    <field name="Altitude" abbrev="altitude" type="fp32_t" unit="m"/>
+    <field name="Roll" abbrev="roll" type="uint16_t">
+    	<description>
+    		Roll encoded as α.(65535/(2.π))
+    	</description>
+    </field>
+    <field name="Pitch" abbrev="pitch" type="uint16_t">
+        <description>
+    		Pitch encoded as α.(65535/(2.π))
+    	</description>
+    </field>
+    <field name="Yaw" abbrev="yaw" type="uint16_t">
+    	<description>
+    		Yaw encoded as α.(65535/(2.π))
+    	</description>
+    </field>
+    <field name="Speed" abbrev="speed" type="int16_t" unit="dm"/>
+  </message>
+  
+  <message id="109" name="Historic Sonar Data" abbrev="HistoricSonarData" used-by="vehicle">
+    <description>
+    	This message is used to store historic (transmitted afterwards) sonar data.
+    </description>
+    <field name="Altitude" abbrev="altitude" type="fp32_t" unit="m"/>
+    <field name="Width" abbrev="width" type="fp32_t" unit="m"/>
+    <field name="Length" abbrev="length" type="fp32_t" unit="m"/>
+    <field name="Bearing" abbrev="bearing" type="fp32_t"/>
+    <field name="Pixels Per Line" abbrev="pxl" type="int16_t">
+    	<description>
+    		The number of pixels per line as the data in 'sonar_data' may 
+    		correspond to more than one sequential sidescan lines.
+    	</description>
+    </field>
+    <field name="Encoding" abbrev="encoding" type="uint8_t" unit="Enumerated" prefix="ENC">
+    	<value abbrev="ONE_BYTE_PER_PIXEL" name="One Byte Per Pixel" id="0"/>
+    	<value abbrev="PNG" name="PNG compressed image" id="1"/>
+    	<value abbrev="JPEG" name="JPEG compressed image" id="2"/>
+    </field>
+    <field name="SonarData" abbrev="sonar_data" type="rawdata">
+    	<description>
+    		Sonar data encoded as in 'encoding'.
+    	</description>
+    </field>
+  </message>
 
   <!--  Networking Messages -->
   <message id="150" name="Heartbeat" abbrev="Heartbeat" source="vehicle,ccu" flags="periodic">
