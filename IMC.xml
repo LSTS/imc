@@ -1674,6 +1674,23 @@
 	  <field name="Data Sample" abbrev="sample" type="message"/>
   </message>
   
+  <message id="187" abbrev="HistoricDataQuery" name="Historic Data Query">
+    <field name="Request Id" abbrev="req_id" type="uint16_t" />
+    <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="HRTYPE">
+    	<value abbrev="QUERY" name="Query" id="1">
+    		<description>Request data from the Data Store</description>
+    	</value>
+    	<value abbrev="REPLY" name="Reply" id="2">
+    		<description>Data Store response with Data (using field 'data')</description>
+    	</value>
+    	<value abbrev="CLEAR" name="Clear" id="3">
+    		<description>Clear 'data' from the Data Store</description>
+    	</value>
+    </field>
+    <field name="Maximum Size" abbrev="max_size" type="uint16_t"/>
+    <field name="Data" abbrev="data" type="message" message-type="HistoricData"/>
+  </message>
+  
   <!-- Acoustic Networking -->
   <message id="200" name="LBL Range" abbrev="LblRange" source="vehicle" flags="periodic">
     <description>
