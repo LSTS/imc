@@ -1309,6 +1309,20 @@
     	</description>
     </field>
   </message>
+  
+  <message id="110" name="Historic Event" abbrev="HistoricEvent" used-by="vehicle">
+    <description>
+    	This message is used to store historic event log entries.
+    </description>
+    <field name="Event" abbrev="text" type="plaintext"/>
+    <field name="Event Type" abbrev="type" type="uint8_t" unit="Enumerated">
+      <description>
+        Type of event.
+      </description>
+      <value id="0" abbrev="INFO" name="Information"/>
+      <value id="1" abbrev="ERROR" name="Error"/>            
+    </field>    
+  </message>
 
   <!--  Networking Messages -->
   <message id="150" name="Heartbeat" abbrev="Heartbeat" source="vehicle,ccu" flags="periodic">
