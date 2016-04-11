@@ -1763,6 +1763,34 @@
     <field name="Data" abbrev="data" type="message" message-type="HistoricData"/>
   </message>
 
+  <message id="188" abbrev="RemoteCommand" name="Remote Command" source="ccu,vehicle">
+    <description>
+      Command to remote system. If a system receives a RemoteCommand and it isn't the intended recipient, then it should
+      resend it. 
+    </description>
+    <field name="Original Source" abbrev="original_source" type="uint16_t">
+      <description>
+        IMC id of the original sender.
+      </description>
+    </field>
+    <field name="Destination" abbrev="destination" type="uint16_t">
+      <description>
+        IMC id of the recipient.
+      </description>
+    </field>
+    <field name="Timeout" abbrev="timeout" type="fp64_t" unit="s">
+      <description>
+        Expiration time of the message (Epoch Time), in seconds. If the message doesn't reach the destination within timeout,
+        the validity of the message expires and there will be no more attempts to transmit the message.
+      </description>
+    </field>
+    <field name="Command" abbrev="cmd" type="message">
+      <description>
+        Command to be unpacked by the recipient.
+      </description>
+    </field>
+  </message>
+
   <!-- Acoustic Networking -->
   <message id="200" name="LBL Range" abbrev="LblRange" source="vehicle" flags="periodic">
     <description>
