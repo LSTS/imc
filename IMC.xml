@@ -1253,6 +1253,78 @@
     </field>
   </message>
 
+  <message id="107" name="Historic CTD" abbrev="HistoricCTD" used-by="vehicle">
+    <description>
+    	This message is used to store historic (transmitted afterwards) CTD data .
+    </description>
+    <field name="Conductivity" abbrev="conductivity" type="fp32_t" unit="S/m"/>
+    <field name="Temperature" abbrev="temperature" type="fp32_t" unit="°C"/>
+    <field name="Depth" abbrev="depth" type="fp32_t" unit="m"/>
+  </message>
+
+  <message id="108" name="Historic Telemetry" abbrev="HistoricTelemetry" used-by="vehicle">
+    <description>
+    	This message is used to store historic (transmitted afterwards) telemetry information.
+    </description>
+    <field name="Altitude" abbrev="altitude" type="fp32_t" unit="m"/>
+    <field name="Roll" abbrev="roll" type="uint16_t">
+    	<description>
+    		Roll encoded as α.(65535/(2.π))
+    	</description>
+    </field>
+    <field name="Pitch" abbrev="pitch" type="uint16_t">
+        <description>
+    		Pitch encoded as α.(65535/(2.π))
+    	</description>
+    </field>
+    <field name="Yaw" abbrev="yaw" type="uint16_t">
+    	<description>
+    		Yaw encoded as α.(65535/(2.π))
+    	</description>
+    </field>
+    <field name="Speed" abbrev="speed" type="int16_t" unit="dm"/>
+  </message>
+
+  <message id="109" name="Historic Sonar Data" abbrev="HistoricSonarData" used-by="vehicle">
+    <description>
+    	This message is used to store historic (transmitted afterwards) sonar data.
+    </description>
+    <field name="Altitude" abbrev="altitude" type="fp32_t" unit="m"/>
+    <field name="Width" abbrev="width" type="fp32_t" unit="m"/>
+    <field name="Length" abbrev="length" type="fp32_t" unit="m"/>
+    <field name="Bearing" abbrev="bearing" type="fp32_t"/>
+    <field name="Pixels Per Line" abbrev="pxl" type="int16_t">
+    	<description>
+    		The number of pixels per line as the data in 'sonar_data' may
+    		correspond to more than one sequential sidescan lines.
+    	</description>
+    </field>
+    <field name="Encoding" abbrev="encoding" type="uint8_t" unit="Enumerated" prefix="ENC">
+    	<value abbrev="ONE_BYTE_PER_PIXEL" name="One Byte Per Pixel" id="0"/>
+    	<value abbrev="PNG" name="PNG compressed image" id="1"/>
+    	<value abbrev="JPEG" name="JPEG compressed image" id="2"/>
+    </field>
+    <field name="SonarData" abbrev="sonar_data" type="rawdata">
+    	<description>
+    		Sonar data encoded as in 'encoding'.
+    	</description>
+    </field>
+  </message>
+
+  <message id="110" name="Historic Event" abbrev="HistoricEvent" used-by="vehicle">
+    <description>
+    	This message is used to store historic event log entries.
+    </description>
+    <field name="Event" abbrev="text" type="plaintext"/>
+    <field name="Event Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="EVTYPE">
+      <description>
+        Type of event.
+      </description>
+      <value id="0" abbrev="INFO" name="Information"/>
+      <value id="1" abbrev="ERROR" name="Error"/>
+    </field>
+  </message>
+
   <!--  Networking Messages -->
   <message id="150" name="Heartbeat" abbrev="Heartbeat" source="vehicle,ccu" flags="periodic">
     <description>
@@ -1609,24 +1681,24 @@
     </field>
     <field name="Data" abbrev="data" type="message-list" message-type="HistoricSample"/>
   </message>
-  
+
   <message id="185" abbrev="CompressedHistory" name="Compressed Historic Data Series">
     <description>
-	  This message holds a list of inline data samples produced by one or more vehicles in the past. 
-	  It is used to transfer data over disruption tolerant networks.        
+	  This message holds a list of inline data samples produced by one or more vehicles in the past.
+	  It is used to transfer data over disruption tolerant networks.
     </description>
     <field name="Base Latitude" abbrev="base_lat" type="fp32_t" unit="°">
-      <description>          
+      <description>
         All data sent inside this message will have offsets relative to this latitude.
       </description>
     </field>
     <field name="Base Longitude" abbrev="base_lon" type="fp32_t" unit="°">
-    <description>          
+    <description>
       All data sent inside this message will have offsets relative to this longitude.
     </description>
     </field>
     <field name="Base Timestamp" abbrev="base_time" type="fp32_t" unit="s">
-	  <description>          
+	  <description>
       	All data sent inside this message will use this time as the origin (0).
       </description>
     </field>
@@ -1636,7 +1708,7 @@
       </description>
 	</field>
   </message>
-  
+
   <message id="186" abbrev="HistoricSample" name="Historic Data Sample">
     <field name="Original System Id" abbrev="sys_id" type="uint16_t">
       <description>
@@ -1674,7 +1746,52 @@
     </field>
 	  <field name="Data Sample" abbrev="sample" type="message"/>
   </message>
-  
+
+  <message id="187" abbrev="HistoricDataQuery" name="Historic Data Query">
+    <field name="Request Id" abbrev="req_id" type="uint16_t" />
+    <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="HRTYPE">
+    	<value abbrev="QUERY" name="Query" id="1">
+    		<description>Request data from the Data Store</description>
+    	</value>
+    	<value abbrev="REPLY" name="Reply" id="2">
+    		<description>Data Store response with Data (using field 'data')</description>
+    	</value>
+    	<value abbrev="CLEAR" name="Clear" id="3">
+    		<description>Clear 'data' from the Data Store</description>
+    	</value>
+    </field>
+    <field name="Maximum Size" abbrev="max_size" type="uint16_t"/>
+    <field name="Data" abbrev="data" type="message" message-type="HistoricData"/>
+  </message>
+
+  <message id="188" abbrev="RemoteCommand" name="Remote Command" source="ccu,vehicle">
+    <description>
+      Command to remote system. If a system receives a RemoteCommand and it isn't the intended recipient, then it should
+      resend it. 
+    </description>
+    <field name="Original Source" abbrev="original_source" type="uint16_t">
+      <description>
+        IMC id of the original sender.
+      </description>
+    </field>
+    <field name="Destination" abbrev="destination" type="uint16_t">
+      <description>
+        IMC id of the recipient.
+      </description>
+    </field>
+    <field name="Timeout" abbrev="timeout" type="fp64_t" unit="s">
+      <description>
+        Expiration time of the message (Epoch Time), in seconds. If the message doesn't reach the destination within timeout,
+        the validity of the message expires and there will be no more attempts to transmit the message.
+      </description>
+    </field>
+    <field name="Command" abbrev="cmd" type="message">
+      <description>
+        Command to be unpacked by the recipient.
+      </description>
+    </field>
+  </message>
+
   <!-- Acoustic Networking -->
   <message id="200" name="LBL Range" abbrev="LblRange" source="vehicle" flags="periodic">
     <description>
