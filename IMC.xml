@@ -8910,4 +8910,156 @@
       :ref:`ParametersXml` message.
     </description>
   </message>
+
+  <message id="895" name="USBL Angles Extended" abbrev="UsblAnglesExtended">
+    <description>
+      This message contains information, collected using USBL, about the
+      bearing and elevation of a target.
+    </description>
+    <field name="Target" abbrev="target" type="uint16_t">
+      <description>
+        Target's IMC address.
+      </description>
+    </field>
+    <field name="Local Bearing" abbrev="lbearing" type="fp32_t" unit="rad">
+      <description>
+        Target's bearing in the local device's reference frame.
+      </description>
+    </field>
+    <field name="Local Elevation" abbrev="lelevation" type="fp32_t" unit="rad">
+      <description>
+        Target's elevation in the local device's reference frame.
+      </description>
+    </field>
+    <field name="Bearing" abbrev="bearing" type="fp32_t" unit="rad">
+      <description>
+        Target's bearing in the navigation reference frame.
+      </description>
+    </field>
+    <field name="Elevation" abbrev="elevation" type="fp32_t" unit="rad">
+      <description>
+        Target's elevation in the navigation reference frame.
+      </description>
+    </field>
+    <field name="Roll Angle" abbrev="phi" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        Rotation around the device longitudinal axis.
+      </description>
+    </field>
+    <field name="Pitch Angle" abbrev="theta" type="fp32_t" unit="rad" min="-1.57079632679490" max="1.57079632679490">
+      <description>
+        Rotation around the device lateral or transverse axis.
+      </description>
+    </field>
+    <field name="Yaw Angle" abbrev="psi" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        Rotation around the device vertical axis.
+      </description>
+    </field>
+    <field name="Accuracy" abbrev="accuracy" type="fp32_t" unit="rad" min="0" max="3.141592653589793">
+      <description>
+        Accuracy of the fix.
+      </description>
+    </field>
+  </message>
+
+  <message id="896" name="USBL Position Extended" abbrev="UsblPositionExtended">
+    <description>
+      This message contains information, collected using USBL, about a
+      target's position.
+    </description>
+    <field name="Target" abbrev="target" type="uint16_t">
+      <description>
+        Target's IMC address.
+      </description>
+    </field>
+    <field name="X" abbrev="x" type="fp32_t" unit="m">
+      <description>
+        X coordinate of the target in the local device's reference frame.
+      </description>
+    </field>
+    <field name="Y" abbrev="y" type="fp32_t" unit="m">
+      <description>
+        Y coordinate of the target in the local device's reference frame.
+      </description>
+    </field>
+    <field name="Z" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        Z coordinate of the target in the local device's reference frame.
+      </description>
+    </field>
+    <field name="N" abbrev="n" type="fp32_t" unit="m">
+      <description>
+        X coordinate of the target in the navigation reference frame.
+      </description>
+    </field>
+    <field name="E" abbrev="e" type="fp32_t" unit="m">
+      <description>
+        Y coordinate of the target in the navigation reference frame.
+      </description>
+    </field>
+    <field name="D" abbrev="d" type="fp32_t" unit="m">
+      <description>
+        Z coordinate of the target in the navigation reference frame.
+      </description>
+    </field>
+    <field name="Roll Angle" abbrev="phi" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        Rotation around the device longitudinal axis.
+      </description>
+    </field>
+    <field name="Pitch Angle" abbrev="theta" type="fp32_t" unit="rad" min="-1.57079632679490" max="1.57079632679490">
+      <description>
+        Rotation around the device lateral or transverse axis.
+      </description>
+    </field>
+    <field name="Yaw Angle" abbrev="psi" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        Rotation around the device vertical axis.
+      </description>
+    </field>
+    <field name="Accuracy" abbrev="accuracy" type="fp32_t" unit="m" min="0">
+      <description>
+        Accuracy of the position fix.
+      </description>
+    </field>
+  </message>
+
+  <message id="897" name="USBL Fix Extended" abbrev="UsblFixExtended">
+    <description>
+      This message contains the WGS-84 position of a target computed using
+      USBL.
+    </description>
+    <field name="Target" abbrev="target" type="uint16_t">
+      <description>
+        Target's IMC address.
+      </description>
+    </field>
+    <field name="Latitude (WGS-84)" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude.
+      </description>
+    </field>
+    <field name="Longitude (WGS-84)" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude.
+      </description>
+    </field>
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the z reference.
+      </description>
+    </field>
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        Target reference in the z axis. Use z_units to specify
+        whether z represents depth, altitude or other.
+      </description>
+    </field>
+    <field name="Accuracy" abbrev="accuracy" type="fp32_t" unit="m" min="0">
+      <description>
+        Accuracy of the position fix.
+      </description>
+    </field>
+  </message>
 </messages>
