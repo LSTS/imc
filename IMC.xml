@@ -8916,9 +8916,9 @@
       This message contains information, collected using USBL, about the
       bearing and elevation of a target.
     </description>
-    <field name="Target" abbrev="target" type="uint16_t">
+    <field name="Target" abbrev="target" type="plaintext">
       <description>
-        Target's IMC address.
+        Target's system name.
       </description>
     </field>
     <field name="Local Bearing" abbrev="lbearing" type="fp32_t" unit="rad">
@@ -8968,9 +8968,9 @@
       This message contains information, collected using USBL, about a
       target's position.
     </description>
-    <field name="Target" abbrev="target" type="uint16_t">
+    <field name="Target" abbrev="target" type="plaintext">
       <description>
-        Target's IMC address.
+        Target's system name.
       </description>
     </field>
     <field name="X" abbrev="x" type="fp32_t" unit="m">
@@ -9030,9 +9030,9 @@
       This message contains the WGS-84 position of a target computed using
       USBL.
     </description>
-    <field name="Target" abbrev="target" type="uint16_t">
+    <field name="Target" abbrev="target" type="plaintext">
       <description>
-        Target's IMC address.
+        Target's system name.
       </description>
     </field>
     <field name="Latitude (WGS-84)" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
