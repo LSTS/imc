@@ -337,6 +337,11 @@
       <message-type abbrev="DesiredSpeed"/>
       <message-type abbrev="DesiredPath"/>
     </message-group>
+
+    <message-group name="RemoteData" abbrev="RemoteData">
+      <message-type abbrev="RemoteCommand"/>
+      <message-type abbrev="HistoricSample"/>
+    </message-group>
   </message-groups>
 
   <flags>
@@ -1679,7 +1684,7 @@
       	All data sent inside this message will use this time as the origin (0).
       </description>
     </field>
-    <field name="Data" abbrev="data" type="message-list" message-type="HistoricSample"/>
+    <field name="Data" abbrev="data" type="message-list" message-type="RemoteCommand"/>
   </message>
 
   <message id="185" abbrev="CompressedHistory" name="Compressed Historic Data Series">
