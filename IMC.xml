@@ -336,6 +336,7 @@
       <message-type abbrev="DesiredPitch"/>
       <message-type abbrev="DesiredSpeed"/>
       <message-type abbrev="DesiredPath"/>
+      <message-type abbrev="DesiredThrottle"/>
     </message-group>
 
     <message-group name="RemoteData" abbrev="RemoteData">
@@ -4799,6 +4800,17 @@
     </field>
   </message>
 
+  <message id="415" name="Desired Throttle" abbrev="DesiredThrottle" source="vehicle">
+    <description>
+      Desired throttle e.g. for Plane in FBWA-mode.
+    </description>
+    <field name="Value" abbrev="value" type="fp64_t" unit="%">
+      <description>
+        The value of the desired throttle.
+      </description>
+    </field>
+  </message>
+
   <!-- Maneuvering -->
   <message id="450" name="Goto Maneuver" abbrev="Goto" source="ccu">
     <description>
@@ -5092,7 +5104,7 @@
     <field name="Control" abbrev="control" type="message" message-type="ControlCommand">
       <description>
         Control command: can be of type DesiredZ, DesiredHeading,
-        DesiredRoll, DesiredPitch, DesiredSpeed, or DesiredPath.
+        DesiredRoll, DesiredPitch, DesiredSpeed, DesiredThrottle or DesiredPath.
       </description>
     </field>
     <field name="Duration" abbrev="duration" type="uint16_t" unit="s">
