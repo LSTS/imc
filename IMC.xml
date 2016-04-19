@@ -1684,7 +1684,7 @@
       	All data sent inside this message will use this time as the origin (0).
       </description>
     </field>
-    <field name="Data" abbrev="data" type="message-list" message-type="RemoteCommand"/>
+    <field name="Data" abbrev="data" type="message-list" message-type="RemoteData"/>
   </message>
 
   <message id="185" abbrev="CompressedHistory" name="Compressed Historic Data Series">
