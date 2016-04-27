@@ -8962,4 +8962,73 @@
       :ref:`ParametersXml` message.
     </description>
   </message>
+  
+  <message id="895" abbrev="SetCoordImage" name="Set coordinates of image">
+    <description>
+      Message containing the x and y coordinates of object to track in image master.
+    </description>
+    <field name="Identifier" abbrev="camId" type="uint8_t">
+      <description>
+        Camera id.
+      </description>
+    </field>
+    <field name="X" abbrev="x" type="uint16_t">
+      <description>
+        X coordinate of the target in the image frame.
+      </description>
+    </field>
+    <field name="Y" abbrev="y" type="uint16_t">
+      <description>
+        Y coordinate of the target in the image frame.
+      </description>
+    </field>
+  </message>
+  
+  <message id="896" abbrev="GetCoordImage" name="Get coordinates of image">
+    <description>
+      Message containing the x and y coordinates of object to track in image slave.
+    </description>
+    <field name="Identifier" abbrev="camId" type="uint8_t">
+      <description>
+        Camera id.
+      </description>
+    </field>
+    <field name="X" abbrev="x" type="uint16_t">
+      <description>
+        X coordinate of the target in the image frame.
+      </description>
+    </field>
+    <field name="Y" abbrev="y" type="uint16_t">
+      <description>
+        Y coordinate of the target in the image frame.
+      </description>
+    </field>
+  </message>
+  
+  <message id="897" abbrev="RealCoordXYZ" name="Get real coordinates xyz">
+    <description>
+      Message containing the x, y and z coordinates of object in the real world.
+    </description>
+    <field name="Tracking" abbrev="tracking" type="uint8_t" unit="Enumerated" enum-def="Boolean">
+      <description>
+        System is tracking.
+      </description>
+    </field>
+    <field name="X" abbrev="x" type="uint16_t" unit="m">
+      <description>
+        X coordinate of the target in the real world frame.
+      </description>
+    </field>
+    <field name="Y" abbrev="y" type="uint16_t" unit="m">
+      <description>
+        Y coordinate of the target in the real world frame.
+      </description>
+    </field>
+    <field name="Z" abbrev="z" type="uint16_t" unit="m">
+      <description>
+        Z coordinate of the target in the real world frame.
+      </description>
+    </field>
+  </message>
+  
 </messages>
