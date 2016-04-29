@@ -203,6 +203,7 @@
     <unit abbrev="%" name="Percent"/>
     <unit abbrev="PPM" name="Parts per million"/>
     <unit abbrev="PPB" name="Parts per billion"/>
+    <unit abbrev="px" name="Pixel"/>
     <unit abbrev="µg/L" name="Microgram per liter"/>
     <unit abbrev="PSU" name="Pratical Salinity Unit"/>
     <unit abbrev="rad" name="Radian"/>
@@ -8962,4 +8963,83 @@
       :ref:`ParametersXml` message.
     </description>
   </message>
+  
+  <message id="895" abbrev="SetImageCoords" name="Set Image Coordinates">
+    <description>
+      Message containing the x and y coordinates of object to track in remote peer.
+    </description>
+    <field name="Camera Identifier" abbrev="camId" type="uint8_t">
+      <description>
+        Camera identifier.
+      </description>
+    </field>
+    <field name="X" abbrev="x" type="uint16_t" unit="px">
+      <description>
+        X coordinate of the target in the image frame.
+      </description>
+    </field>
+    <field name="Y" abbrev="y" type="uint16_t" unit="px">
+      <description>
+        Y coordinate of the target in the image frame.
+      </description>
+    </field>
+  </message>
+  
+  <message id="896" abbrev="GetImageCoords" name="Get Image Coordinates">
+    <description>
+      Message containing the x and y coordinates of object to track in image slave.
+    </description>
+    <field name="Camera Identifier" abbrev="camId" type="uint8_t">
+      <description>
+        Camera identifier.
+      </description>
+    </field>
+    <field name="X" abbrev="x" type="uint16_t" unit="px">
+      <description>
+        X coordinate of the target in the image frame.
+      </description>
+    </field>
+    <field name="Y" abbrev="y" type="uint16_t" unit="px">
+      <description>
+        Y coordinate of the target in the image frame.
+      </description>
+    </field>
+  </message>
+  
+  <message id="897" abbrev="GetWorldCoordinates" name="Get World Coordinates">
+    <description>
+      Message containing the x, y and z coordinates of object in the real world.
+    </description>
+    <field name="Tracking" abbrev="tracking" type="uint8_t" unit="Enumerated" enum-def="Boolean">
+      <description>
+        True when system is tracking.
+      </description>
+    </field>
+    <field name="Latitude" abbrev="lat" type="fp64_t" unit="rad">
+      <description>
+        Latitude of the real world frame origin.
+      </description>
+    </field>
+    <field name="Longitude" abbrev="lon" type="fp64_t" unit="rad">
+      <description>
+        Longitude of the real world frame origin.
+      </description>
+    </field>
+    <field name="X" abbrev="x" type="uint16_t" unit="m">
+      <description>
+        X offsets of the target in the real world frame.
+      </description>
+    </field>
+    <field name="Y" abbrev="y" type="uint16_t" unit="m">
+      <description>
+        Y offsets of the target in the real world frame.
+      </description>
+    </field>
+    <field name="Z" abbrev="z" type="uint16_t" unit="m">
+      <description>
+        Z offsets of the target in the real world frame.
+      </description>
+    </field>
+  </message>
+  
 </messages>
