@@ -337,6 +337,7 @@
       <message-type abbrev="Drop"/>
       <message-type abbrev="ScheduledGoto"/>
       <message-type abbrev="RowsCoverage"/>
+      <message-type abbrev="Takeoff"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -6859,7 +6860,7 @@
       </value>      
     </field>
   </message>
-
+  
   <message id="488" name="Rows Coverage" abbrev="RowsCoverage" source="ccu">
     <description>Rows coverage (i.e: lawn mower type maneuver) but with adaptive cover</description>
     <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
@@ -6954,6 +6955,52 @@
       </description>
     </field>
   </message>
+
+  <message id="489" name="Takeoff Maneuver" abbrev="Takeoff" source="ccu">
+    <description>
+      Automatic takeoff for UAVs.
+      This maneuver specifies a target waypoint where to takeoff.
+      
+      Takeoff direction is set from the direction the plane is pointing when the auto takeoff command is started.
+      It will remain that way until the vehicle reaches the target z reference. After that it will go to the target waypoint.
+    </description>
+    <field name="UAV Type" abbrev="uav_type" type="uint8_t" unit="Enumerated" enum-def="UAVType">
+      <description>
+        UAV type.
+      </description>
+    </field>
+    <field name="Latitude WGS-84" abbrev="land_lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude of target waypoint.
+      </description>
+    </field>
+    <field name="Longitude WGS-84" abbrev="land_lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude of target waypoint.
+      </description>
+    </field>
+    <field name="Z Reference" abbrev="takeoff_z" type="fp32_t" unit="m">
+      <description>
+        Target altitude or height for the automatic takeoff. 
+      </description>
+    </field>
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the z reference.
+      </description>
+    </field>
+    <field name="Pitch Angle" abbrev="takeoff_pitch"  type="fp32_t" unit="rad" min="-1.57079632679490" max="1.57079632679490">
+      <description>
+        Minimum pitch angle during automatic takeoff.
+      </description>
+    </field>
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for maneuver.
+      </description>
+    </field>
+  </message>
+
 
   <!-- Vehicle Supervision -->
   <message id="500" name="Vehicle State" abbrev="VehicleState" source="vehicle">
