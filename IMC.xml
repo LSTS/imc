@@ -9025,17 +9025,17 @@
         Longitude of the real world frame origin.
       </description>
     </field>
-    <field name="X" abbrev="x" type="uint16_t" unit="m">
+    <field name="X" abbrev="x" type="fp32_t" unit="m">
       <description>
         X offsets of the target in the real world frame.
       </description>
     </field>
-    <field name="Y" abbrev="y" type="uint16_t" unit="m">
+    <field name="Y" abbrev="y" type="fp32_t" unit="m">
       <description>
         Y offsets of the target in the real world frame.
       </description>
     </field>
-    <field name="Z" abbrev="z" type="uint16_t" unit="m">
+    <field name="Z" abbrev="z" type="fp32_t" unit="m">
       <description>
         Z offsets of the target in the real world frame.
       </description>
