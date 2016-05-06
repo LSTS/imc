@@ -338,6 +338,7 @@
       <message-type abbrev="ScheduledGoto"/>
       <message-type abbrev="RowsCoverage"/>
       <message-type abbrev="Takeoff"/>
+      <message-type abbrev="Land"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -6994,6 +6995,58 @@
         Minimum pitch angle during automatic takeoff.
       </description>
     </field>
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for maneuver.
+      </description>
+    </field>
+  </message>
+  
+  <message id="489" name="Land Maneuver" abbrev="Land">
+    <description>
+      Automatic landing on the ground, for UAVs.
+      This maneuver specifies the target toutchdown location and sets the final approach based on the maneuver bearing and glide slope parameters.
+    </description>
+      <field name="UAV Type" abbrev="uav_type" type="uint8_t" unit="Enumerated" enum-def="UAVType">
+      <description>
+        UAV type.
+      </description>
+    </field>
+    <field name="Latitude WGS-84" abbrev="land_lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude of toutchdown waypoint.
+      </description>
+    </field>
+    <field name="Longitude WGS-84" abbrev="land_lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude of toutchdown waypoint.
+      </description>
+    </field>
+    <field name="Abort Z Reference" abbrev="abort_z" type="fp32_t" unit="m">
+      <description>
+        Abort altitude or height. If landing is aborted while executing, the UAV will maintain its course and attempt to climb to the abort z reference.
+      </description>
+    </field>
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the abort z reference.
+      </description>
+    </field>
+    <field name="Bearing" abbrev="bearing" type="fp64_t" unit="rad" min="0" max="6.283185307179586">
+      <description>
+        Land bearing angle.
+      </description>
+    </field>
+    <field name="Glide Slope" abbrev="glide_slope" type="uint8_t" unit="%" min="0" max="10">
+      <description>
+        Ratio of the distance from the last waypoint to the landing point (toutchdown) and the height difference between them.
+      </description>
+    </field>
+    <field name="Glide Slope Altitude" abbrev="glide_slope_alt" type="fp32_t" unit="m">
+      <description>
+        Height difference between the last waypoint to the landing point (toutchdown).
+      </description>
+    </field> 
     <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
       <description>
         Custom settings for maneuver.
