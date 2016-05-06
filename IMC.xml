@@ -271,7 +271,7 @@
       <value id="1" name="Percentage" abbrev="PERCENTAGE"/>
     </def>
     
-    <def abbrev="UAV Type" name="UAVType" prefix="UAVTYPE">
+    <def name="UAV Type" abbrev="UAVType" prefix="UAVTYPE">
       <value id="0" name="Fixed-Wing" abbrev="FIXEDWING"/>
       <value id="1" name="Copter" abbrev="COPTER"/>
       <value id="2" name="Vtol" abbrev="VTOL"/>
