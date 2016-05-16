@@ -328,6 +328,7 @@
       <message-type abbrev="FormationPlanExecution"/>
       <message-type abbrev="Dislodge"/>
       <message-type abbrev="Drop"/>
+      <message-type abbrev="Sample"/>
       <message-type abbrev="ScheduledGoto"/>
     </message-group>
 
@@ -6875,11 +6876,27 @@
         Speed units.
       </description>
     </field>
+    <field name="Syringe0" abbrev="syringe0" type="uint8_t" unit="Enumerated" enum-def="Boolean">
+      <description>
+        True when sampling with servo 0.
+      </description>
+    </field>
+    <field name="Syringe1" abbrev="syringe1" type="uint8_t" unit="Enumerated" enum-def="Boolean">
+      <description>
+        True when sampling with servo 1.
+      </description>
+    </field>
+    <field name="Syringe2" abbrev="syringe2" type="uint8_t" unit="Enumerated" enum-def="Boolean">
+      <description>
+        True when sampling with servo 2.
+      </description>
+    </field>
     <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
       <description>
         Custom settings for maneuver.
       </description>
     </field>
+
   </message>
 
   <!-- Vehicle Supervision -->
