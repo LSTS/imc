@@ -3190,6 +3190,17 @@
       </field>
   </message>
 
+  <message id="295" name="Throttle" abbrev="Throttle" source="vehicle">
+    <description>
+      Throttle e.g. for Plane/Copter .
+    </description>
+    <field name="Value" abbrev="value" type="fp64_t" unit="%">
+      <description>
+        The value of the desired throttle.
+      </description>
+    </field>
+  </message>
+
   <!-- Actuation -->
   <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
     <description>
