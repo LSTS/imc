@@ -6869,7 +6869,7 @@
         Rows bearing angle.
       </description>
     </field>
-    <field name="Cross Angle" abbrev="cross_angle" type="fp64_t" unit="rad" min="-1.047197551197" max="1,047197551197">
+    <field name="Cross Angle" abbrev="cross_angle" type="fp64_t" unit="rad" min="-1.047197551197" max="1.047197551197">
       <description>
         Rows cross angle reference.
       </description>
