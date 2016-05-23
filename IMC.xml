@@ -6899,7 +6899,7 @@
         Maximum range of the sensor (in meters downwards from the vehicle's position).
       </description>
     </field>
-    <field name="Overlap" abbrev="overlap" type="uint8_t" unit="m" max="100" value="10">
+    <field name="Overlap" abbrev="overlap" type="uint8_t" unit="%" max="100" value="10">
       <description>
         Amount of overlap among different transect surveys.
       </description>
