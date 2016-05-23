@@ -6884,38 +6884,40 @@
         Length of the maneuver.
       </description>
     </field>
-    <field name="Curve Offset" abbrev="coff" type="uint8_t" unit="m" min="0">
+    <field name="Curve Offset" abbrev="coff" type="uint8_t" unit="m">
       <description>
         Desired curve offset.
       </description>
     </field>
-    <field name="Apperture Angle" abbrev="apperture" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793" value="‪2.094395‬">
+    <field name="Angular Aperture" abbrev="angAperture" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793" value="‪2.094395‬">
       <description>
-        Apperture Angle.
+         Angular aperture of the sensor (looking downwards).
       </description>
     </field>
-    <field name="Range" abbrev="range" type="uint8_t" unit="m" min="0">
+    <field name="Range" abbrev="range" type="uint16_t" unit="m">
       <description>
-        Range.
+        Maximum range of the sensor (in meters downwards from the vehicle's position).
       </description>
     </field>
-    <field name="Overlap" abbrev="overlap" type="uint8_t" unit="m" min="0" max="50" value="10">
+    <field name="Overlap" abbrev="overlap" type="uint8_t" unit="m" max="100" value="10">
       <description>
-        Overlap.
-      </description>
-    </field>
-    <field name="Payload" abbrev="payload" type="plaintext">
-      <description>
-        Overlap.
+        Amount of overlap among different transect surveys.
       </description>
     </field>
     <field name="Flags" abbrev="flags" type="uint8_t" unit="Bitfield" prefix="FLG">
       <description>
-        Maneuver flags.
+        Maneuver optional flags.
       </description>
-      <value id="0x01" name="Square Curve" abbrev="SQUARE_CURVE"/>
-      <value id="0x02" name="First Curve Right" abbrev="CURVE_RIGHT"/>
-      <value id="0x03" name="Try Fill Data From Payload" abbrev="FILL_BY_PAYLOAD"/>
+      <value id="0x01" name="Square Curve" abbrev="SQUARE_CURVE">
+      	<description>
+      	  Whether to move between transects using an additional perpendicular transect.
+      	</description>      
+      </value>
+      <value id="0x02" name="First Curve Right" abbrev="CURVE_RIGHT">
+      	<description>
+      	  Shall the vehicle turn towards the right after the first transect (alternatively it will turn left).
+      	</description>
+      </value>
     </field>
     <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
       <description>
