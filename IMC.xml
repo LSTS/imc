@@ -205,6 +205,7 @@
     <unit abbrev="PPB" name="Parts per billion"/>
     <unit abbrev="px" name="Pixel"/>
     <unit abbrev="µg/L" name="Microgram per liter"/>
+    <unit abbrev="µM" name="Micromolar"/>
     <unit abbrev="PSU" name="Pratical Salinity Unit"/>
     <unit abbrev="rad" name="Radian"/>
     <unit abbrev="rad/s" name="Radian per second"/>
@@ -3188,6 +3189,28 @@
           <value id="1" name="Attitude Heading Reference System Only" abbrev="AHRS"/>
           <value id="2" name="Position Reference System only" abbrev="POSREF"/>
       </field>
+  </message>
+
+  <message id="295" name="Dissolved Oxygen" abbrev="DissolvedOxygen" source="vehicle" flags="periodic">
+    <description>
+      Dissolved Oxygen measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="µM">
+      <description>
+        Dissolved Oxygen reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="296" name="Air Saturation" abbrev="AirSaturation" source="vehicle" flags="periodic">
+    <description>
+      Air Saturation measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="%">
+      <description>
+        Air Saturation reading.
+      </description>
+    </field>
   </message>
 
   <!-- Actuation -->
