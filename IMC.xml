@@ -6980,7 +6980,7 @@
         WGS-84 Longitude of target waypoint.
       </description>
     </field>
-    <field name="Z Reference" abbrev="takeoff_z" type="fp32_t" unit="m">
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
       <description>
         Target altitude or height for the automatic takeoff. 
       </description>
@@ -7032,7 +7032,7 @@
         WGS-84 Longitude of touchdown waypoint.
       </description>
     </field>
-    <field name="Z Reference" abbrev="land_z" type="fp32_t" unit="m">
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
       <description>
         Target altitude or height for the automatic landing.
       </description>
