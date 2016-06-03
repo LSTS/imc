@@ -3213,6 +3213,28 @@
     </field>
   </message>
 
+  <message id="297" name="pH" abbrev="pH" source="vehicle" flags="periodic">
+    <description>
+      Report of pH.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t">
+      <description>
+        The value of the pH as measured by the sensor.
+      </description>
+    </field>
+  </message>
+
+  <message id="298" name="Redox Potential" abbrev="Redox" source="vehicle" flags="periodic">
+    <description>
+      Report of Redox Potential.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="V">
+      <description>
+        The value of the Redox as measured by the sensor.
+      </description>
+    </field>
+  </message>
+
   <!-- Actuation -->
   <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
     <description>
@@ -9313,25 +9335,5 @@
     </field>
   </message>
 
-  <message id="901" name="pH" abbrev="pH" source="vehicle" flags="periodic">
-    <description>
-      Report of conductivity.
-    </description>
-    <field name="Measured pH" abbrev="value" type="fp32_t" >
-      <description>
-        The value of the pH as measured by the sensor.
-      </description>
-    </field>
-  </message>
 
-  <message id="902" name="Redox" abbrev="Eh" source="vehicle" flags="periodic">
-    <description>
-      Report of conductivity.
-    </description>
-    <field name="Measured Eh" abbrev="value" type="fp32_t" unit="V">
-      <description>
-        The value of the Redox as measured by the sensor.
-      </description>
-    </field>
-  </message>
 </messages>
