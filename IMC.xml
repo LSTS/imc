@@ -1777,7 +1777,7 @@
   <message id="188" abbrev="RemoteCommand" name="Remote Command" source="ccu,vehicle">
     <description>
       Command to remote system. If a system receives a RemoteCommand and it isn't the intended recipient, then it should
-      resend it. 
+      resend it.
     </description>
     <field name="Original Source" abbrev="original_source" type="uint16_t">
       <description>
@@ -3156,29 +3156,29 @@
       </description>
     </field>
   </message>
-  
+
   <message id="294" name="External Navigation Data" abbrev="ExternalNavData" source="vehicle" flags="periodic">
       <description>
           This message is a representation of the state of the vehicle,
-          as seen by an external navigation computer. 
-          
+          as seen by an external navigation computer.
+
           An example usage is when DUNE is used with ardupilot. The
-          data gathered from the autopilot is a complete navigation 
-          solution. 
-                    
+          data gathered from the autopilot is a complete navigation
+          solution.
+
           ExternalNavData contains an inline Estimated State, which
           is a complete description of the system
           in terms of parameters such as position, orientation and
           velocities at a particular moment in time.
-          
-          The Type field selects wether the navigation data is a 
-          full state estimation, or only concerns attitude or 
-          position/velocity. 
-          
+
+          The Type field selects wether the navigation data is a
+          full state estimation, or only concerns attitude or
+          position/velocity.
+
       </description>
       <field name="Estimated State" abbrev="state" type="message" message-type="EstimatedState">
           <description>
-              External Navigation Data. 
+              External Navigation Data.
           </description>
       </field>
       <field name="Nav Data Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="EXTNAV">
@@ -6785,13 +6785,13 @@
       </description>
     </field>
   </message>
-  
+
   <message id="487" name="Scheduled Goto" abbrev="ScheduledGoto" source="ccu">
     <description>
-      This maneuver is used to command the vehicle to arrive at some destination at 
+      This maneuver is used to command the vehicle to arrive at some destination at
       a specified absolute time.
-      
-      The vehicle's speed will vary according to environment conditions and/or maneuver start time.      
+
+      The vehicle's speed will vary according to environment conditions and/or maneuver start time.
     </description>
     <field name="Time of arrival" abbrev="arrival_time" type="fp64_t" unit="s">
       <description>
@@ -6818,7 +6818,7 @@
       <description>
         Units of the destination z reference.
       </description>
-    </field>    
+    </field>
     <field name="Travel Z Reference" abbrev="travel_z" type="fp32_t" unit="m">
       <description>
         Z reference to use while travelling to the destination.
@@ -6835,22 +6835,22 @@
       </description>
       <value abbrev="RESUME" name="Resume" id="0">
       	<description>
-      	  If the vehicle fails to arrive at the specified time, it will keep going to the destination 
-      	  at top speed and only then consider this maneuver completed. 
+      	  If the vehicle fails to arrive at the specified time, it will keep going to the destination
+      	  at top speed and only then consider this maneuver completed.
       	</description>
       </value>
       <value abbrev="SKIP" name="Skip" id="1">
       	<description>
       	  If the vehicle fails to arrive at the specified time, it will stop the current maneuver and
-      	  advance to the next one (independently of how far it is from destination). 
+      	  advance to the next one (independently of how far it is from destination).
       	</description>
       </value>
       <value abbrev="FAIL" name="Fail" id="2">
       	<description>
-      	  If the vehicle fails to arrive at the specified time, it will stop the execution of this 
-      	  maneuver with a FAILED result (the entire plan will be stopped). 
+      	  If the vehicle fails to arrive at the specified time, it will stop the execution of this
+      	  maneuver with a FAILED result (the entire plan will be stopped).
       	</description>
-      </value>      
+      </value>
     </field>
   </message>
 
@@ -6934,7 +6934,7 @@
       <value id="0x01" name="Square Curve" abbrev="SQUARE_CURVE">
       	<description>
       	  Whether to move between transects using an additional perpendicular transect.
-      	</description>      
+      	</description>
       </value>
       <value id="0x02" name="First Curve Right" abbrev="CURVE_RIGHT">
       	<description>
@@ -9082,7 +9082,7 @@
       :ref:`ParametersXml` message.
     </description>
   </message>
-  
+
   <message id="895" abbrev="SetImageCoords" name="Set Image Coordinates">
     <description>
       Message containing the x and y coordinates of object to track in remote peer.
@@ -9103,7 +9103,7 @@
       </description>
     </field>
   </message>
-  
+
   <message id="896" abbrev="GetImageCoords" name="Get Image Coordinates">
     <description>
       Message containing the x and y coordinates of object to track in image slave.
@@ -9124,7 +9124,7 @@
       </description>
     </field>
   </message>
-  
+
   <message id="897" abbrev="GetWorldCoordinates" name="Get World Coordinates">
     <description>
       Message containing the x, y and z coordinates of object in the real world.
@@ -9160,7 +9160,7 @@
       </description>
     </field>
   </message>
-  
+
   <message id="898" name="USBL Angles Extended" abbrev="UsblAnglesExtended">
     <description>
       This message contains information, collected using USBL, about the
@@ -9309,6 +9309,28 @@
     <field name="Accuracy" abbrev="accuracy" type="fp32_t" unit="m" min="0">
       <description>
         Accuracy of the position fix.
+      </description>
+    </field>
+  </message>
+
+  <message id="901" name="pH" abbrev="pH" source="vehicle" flags="periodic">
+    <description>
+      Report of conductivity.
+    </description>
+    <field name="Measured pH" abbrev="value" type="fp32_t" >
+      <description>
+        The value of the pH as measured by the sensor.
+      </description>
+    </field>
+  </message>
+
+  <message id="902" name="Redox" abbrev="Eh" source="vehicle" flags="periodic">
+    <description>
+      Report of conductivity.
+    </description>
+    <field name="Measured Eh" abbrev="value" type="fp32_t" unit="V">
+      <description>
+        The value of the Redox as measured by the sensor.
       </description>
     </field>
   </message>
