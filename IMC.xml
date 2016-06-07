@@ -7012,7 +7012,7 @@
     </field>
   </message>
   
-  <message id="489" name="Land Maneuver" abbrev="Land">
+  <message id="490" name="Land Maneuver" abbrev="Land">
     <description>
       Automatic landing on the ground, for UAVs.
       This maneuver specifies the target touchdown location and sets the final approach based on the maneuver bearing and glide slope parameters.
