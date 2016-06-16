@@ -3213,7 +3213,7 @@
     </field>
   </message>
 
-  <message id="297" name="pH" abbrev="pH" source="vehicle" flags="periodic">
+  <message id="297" name="PH" abbrev="PH" source="vehicle" flags="periodic">
     <description>
       Report of pH.
     </description>
