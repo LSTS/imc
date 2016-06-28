@@ -3213,6 +3213,24 @@
     </field>
   </message>
 
+  <message id="299" name="Dissolved Organic Matter" abbrev="DissolvedOrganicMatter" source="vehicle" flags="periodic">
+    <description>
+      Dissolved Organic Matter measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="PPB">
+      <description>
+        Dissolved Organic Matter reading.
+      </description>
+    </field>
+    <field name="Type of measurement" abbrev="type" type="uint8_t" unit="Enumerated" prefix="DT">
+      <description>
+	Type of measurement.
+      </description>
+      <value id="0" abbrev="COLORED" name="Colored"/>
+      <value id="1" abbrev="FLUORESCENT" name="Fluorescent"/>
+    </field>
+  </message>
+
   <!-- Actuation -->
   <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
     <description>
