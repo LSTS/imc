@@ -270,6 +270,12 @@
       <value id="0" name="Decibel" abbrev="dB"/>
       <value id="1" name="Percentage" abbrev="PERCENTAGE"/>
     </def>
+    
+    <def name="UAV Type" abbrev="UAVType" prefix="UAVTYPE">
+      <value id="0" name="Fixed-Wing" abbrev="FIXEDWING"/>
+      <value id="1" name="Copter" abbrev="COPTER"/>
+      <value id="2" name="Vtol" abbrev="VTOL"/>
+    </def>
   </enumerations>
 
   <bitfields>
@@ -333,6 +339,8 @@
       <message-type abbrev="ScheduledGoto"/>
       <message-type abbrev="RowsCoverage"/>
       <message-type abbrev="ImageTracking"/>
+      <message-type abbrev="Takeoff"/>
+      <message-type abbrev="Land"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -6866,7 +6874,7 @@
       </value>      
     </field>
   </message>
-
+  
   <message id="488" name="Rows Coverage" abbrev="RowsCoverage" source="ccu">
     <description>Rows coverage (i.e: lawn mower type maneuver) but with adaptive cover</description>
     <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
@@ -7034,6 +7042,118 @@
       A "ImageTracking" is a maneuver specifying a particular heading to the
       detected object.
     </description>
+  </message>
+
+  <message id="491" name="Takeoff Maneuver" abbrev="Takeoff" source="ccu">
+    <description>
+      Automatic takeoff for UAVs.
+      This maneuver specifies a target waypoint where to takeoff.
+      
+      Takeoff direction is set from the direction the plane is pointing when the auto takeoff command is started.
+      It will remain that way until the vehicle reaches the target z reference. After that it will go to the target waypoint.
+    </description>
+    <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude of target waypoint.
+      </description>
+    </field>
+    <field name="Longitude WGS-84" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude of target waypoint.
+      </description>
+    </field>
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        Target altitude or height for the automatic takeoff. 
+      </description>
+    </field>
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the z reference.
+      </description>
+    </field>
+    <field name="Speed" abbrev="speed" type="fp32_t">
+      <description>
+        Maneuver speed reference.
+      </description>
+    </field>
+    <field name="Speed Units" abbrev="speed_units" type="uint8_t" value="0" unit="Enumerated" enum-def="SpeedUnits">
+      <description>
+        Speed units.
+      </description>
+    </field>
+    <field name="Pitch Angle" abbrev="takeoff_pitch"  type="fp32_t" unit="rad" min="0" max="1.57079632679490">
+      <description>
+        Minimum pitch angle during automatic takeoff.
+      </description>
+    </field>
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for maneuver.
+      </description>
+    </field>
+  </message>
+  
+  <message id="492" name="Land Maneuver" abbrev="Land">
+    <description>
+      Automatic landing on the ground, for UAVs.
+      This maneuver specifies the target touchdown location and sets the final approach based on the maneuver bearing and glide slope parameters.
+    </description>
+    <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude of touchdown waypoint.
+      </description>
+    </field>
+    <field name="Longitude WGS-84" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude of touchdown waypoint.
+      </description>
+    </field>
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        Target altitude or height for the automatic landing.
+      </description>
+    </field>
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the z reference and abort z reference.
+      </description>
+    </field>
+    <field name="Speed" abbrev="speed" type="fp32_t">
+      <description>
+        Maneuver speed reference.
+      </description>
+    </field>
+    <field name="Speed Units" abbrev="speed_units" type="uint8_t" value="0" unit="Enumerated" enum-def="SpeedUnits">
+      <description>
+        Speed units.
+      </description>
+    </field>
+    <field name="Abort Z Reference" abbrev="abort_z" type="fp32_t" unit="m">
+      <description>
+        Abort altitude or height. If landing is aborted while executing, the UAV will maintain its course and attempt to climb to the abort z reference.
+      </description>
+    </field>
+    <field name="Bearing" abbrev="bearing" type="fp64_t" unit="rad" min="0" max="6.283185307179586">
+      <description>
+        Land bearing angle.
+      </description>
+    </field>
+    <field name="Glide Slope" abbrev="glide_slope" type="uint8_t" unit="%" min="0" max="10">
+      <description>
+        Ratio of the distance from the last waypoint to the landing point (touchdown) and the height difference between them.
+      </description>
+    </field>
+    <field name="Glide Slope Altitude" abbrev="glide_slope_alt" type="fp32_t" unit="m">
+      <description>
+        Height difference between the last waypoint to the landing point (touchdown).
+      </description>
+    </field> 
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for maneuver.
+      </description>
+    </field>
   </message>
 
   <!-- Vehicle Supervision -->
