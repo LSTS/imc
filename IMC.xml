@@ -332,6 +332,7 @@
       <message-type abbrev="Sample"/>
       <message-type abbrev="ScheduledGoto"/>
       <message-type abbrev="RowsCoverage"/>
+      <message-type abbrev="ImageTracking"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -7026,6 +7027,13 @@
         Custom settings for maneuver.
       </description>
     </field>
+  </message>
+
+  <message id="490" name="Image Tracking" abbrev="ImageTracking" source="ccu">
+    <description>
+      A "ImageTracking" is a maneuver specifying a particular heading to the
+      detected object.
+    </description>
   </message>
 
   <!-- Vehicle Supervision -->
