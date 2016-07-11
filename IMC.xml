@@ -203,6 +203,7 @@
     <unit abbrev="%" name="Percent"/>
     <unit abbrev="PPM" name="Parts per million"/>
     <unit abbrev="PPB" name="Parts per billion"/>
+    <unit abbrev="1/m" name="Inverse Meter"/>
     <unit abbrev="px" name="Pixel"/>
     <unit abbrev="µg/L" name="Microgram per liter"/>
     <unit abbrev="µM" name="Micromolar"/>
@@ -9327,6 +9328,18 @@
     <field name="Accuracy" abbrev="accuracy" type="fp32_t" unit="m" min="0">
       <description>
         Accuracy of the position fix.
+      </description>
+    </field>
+  </message>
+
+  <message id="901" name="Optical Backscattering Coefficient" abbrev="OpticalBackscatter" source="vehicle" flags="periodic">
+    <description>
+      The optical backscattering coefficient refers to all the photons that have been redirected in the backward directions
+      when a photon of light propagates in water and interacts with a "particle" (varying from water molecules to fish).
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="1/m">
+      <description>
+        Optical Backscattering Coefficient.
       </description>
     </field>
   </message>
