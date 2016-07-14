@@ -271,7 +271,7 @@
       <value id="0" name="Decibel" abbrev="dB"/>
       <value id="1" name="Percentage" abbrev="PERCENTAGE"/>
     </def>
-    
+
     <def name="UAV Type" abbrev="UAVType" prefix="UAVTYPE">
       <value id="0" name="Fixed-Wing" abbrev="FIXEDWING"/>
       <value id="1" name="Copter" abbrev="COPTER"/>
@@ -570,7 +570,7 @@
     <description>
       Report of software CPU usage.
     </description>
-    <field name="Usage percentage" abbrev="value" type="uint8_t" min="0" max="100" unit="%">
+    <field name="Usage percentage" abbrev="value" type="uint8_t" max="100" unit="%">
       <description>
         The CPU usage, in percentage, of the sending software.
       </description>
@@ -1032,7 +1032,7 @@
         The available storage of the reporting device.
       </description>
     </field>
-    <field name="Usage" abbrev="value" type="uint8_t" min="0" max="100" unit="%">
+    <field name="Usage" abbrev="value" type="uint8_t" max="100" unit="%">
       <description>
         The percentage of storage used by the reporting device.
       </description>
@@ -3479,7 +3479,7 @@
         The name of the power channel.
       </description>
     </field>
-    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" min="0" max="6" prefix="PCC_OP">
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" max="6" prefix="PCC_OP">
       <description>
         Operation to perform.
       </description>
@@ -5141,7 +5141,7 @@
         Speed units.
       </description>
     </field>
-    <field name="Loiter Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="LT" min="0" max="4">
+    <field name="Loiter Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="LT" max="4">
       <description>
         Loiter maneuver type.
       </description>
@@ -5166,7 +5166,7 @@
         Bearing of the maneuver.
       </description>
     </field>
-    <field name="Direction" abbrev="direction" type="uint8_t" unit="Enumerated" prefix="LD" min="0" max="3">
+    <field name="Direction" abbrev="direction" type="uint8_t" unit="Enumerated" prefix="LD" max="3">
       <description>
         Desired direction.
       </description>
@@ -5286,12 +5286,12 @@
         Horizontal step.
       </description>
     </field>
-    <field name="Curve Offset" abbrev="coff" type="uint8_t" unit="m" min="0">
+    <field name="Curve Offset" abbrev="coff" type="uint8_t" unit="m">
       <description>
         Desired curve offset.
       </description>
     </field>
-    <field name="Alternation Parameter" abbrev="alternation" type="uint8_t" unit="%" min="0" max="100" value="50">
+    <field name="Alternation Parameter" abbrev="alternation" type="uint8_t" unit="%" max="100" value="50">
       <description>
         Alternation parameter.
       </description>
@@ -6052,7 +6052,7 @@
         Radius of the maneuver.
       </description>
     </field>
-    <field name="Direction" abbrev="direction" type="uint8_t" unit="Enumerated" prefix="LD" min="0" max="3">
+    <field name="Direction" abbrev="direction" type="uint8_t" unit="Enumerated" prefix="LD" max="3">
       <description>
         Direction of the maneuver.
       </description>
@@ -6897,7 +6897,7 @@
       </value>
     </field>
   </message>
-  
+
   <message id="488" name="Rows Coverage" abbrev="RowsCoverage" source="ccu">
     <description>Rows coverage (i.e: lawn mower type maneuver) but with adaptive cover</description>
     <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
@@ -7071,7 +7071,7 @@
     <description>
       Automatic takeoff for UAVs.
       This maneuver specifies a target waypoint where to takeoff.
-      
+
       Takeoff direction is set from the direction the plane is pointing when the auto takeoff command is started.
       It will remain that way until the vehicle reaches the target z reference. After that it will go to the target waypoint.
     </description>
@@ -7087,7 +7087,7 @@
     </field>
     <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
       <description>
-        Target altitude or height for the automatic takeoff. 
+        Target altitude or height for the automatic takeoff.
       </description>
     </field>
     <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
@@ -7116,7 +7116,7 @@
       </description>
     </field>
   </message>
-  
+
   <message id="492" name="Land Maneuver" abbrev="Land">
     <description>
       Automatic landing on the ground, for UAVs.
@@ -7162,7 +7162,7 @@
         Land bearing angle.
       </description>
     </field>
-    <field name="Glide Slope" abbrev="glide_slope" type="uint8_t" unit="%" min="0" max="10">
+    <field name="Glide Slope" abbrev="glide_slope" type="uint8_t" unit="%" max="10">
       <description>
         Ratio of the distance from the last waypoint to the landing point (touchdown) and the height difference between them.
       </description>
@@ -7171,7 +7171,7 @@
       <description>
         Height difference between the last waypoint to the landing point (touchdown).
       </description>
-    </field> 
+    </field>
     <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
       <description>
         Custom settings for maneuver.
@@ -7862,7 +7862,7 @@
       <value id="5" name="Stopping" abbrev="STOPPING"/>
     </field>
     <field name="Plan Id" abbrev="plan_id" type="plaintext"/>
-    <field name="Communications Level" abbrev="comm_level" type="uint8_t" unit="%" min="0" max="100"/>
+    <field name="Communications Level" abbrev="comm_level" type="uint8_t" unit="%" max="100"/>
   </message>
 
   <message id="556" name="Plan DB" abbrev="PlanDB">
