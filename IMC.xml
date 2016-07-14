@@ -1276,7 +1276,7 @@
 
   <message id="107" name="Historic CTD" abbrev="HistoricCTD" used-by="vehicle">
     <description>
-    	This message is used to store historic (transmitted afterwards) CTD data .
+      This message is used to store historic (transmitted afterwards) CTD data .
     </description>
     <field name="Conductivity" abbrev="conductivity" type="fp32_t" unit="S/m"/>
     <field name="Temperature" abbrev="temperature" type="fp32_t" unit="°C"/>
@@ -1285,56 +1285,56 @@
 
   <message id="108" name="Historic Telemetry" abbrev="HistoricTelemetry" used-by="vehicle">
     <description>
-    	This message is used to store historic (transmitted afterwards) telemetry information.
+      This message is used to store historic (transmitted afterwards) telemetry information.
     </description>
     <field name="Altitude" abbrev="altitude" type="fp32_t" unit="m"/>
     <field name="Roll" abbrev="roll" type="uint16_t">
-    	<description>
-    		Roll encoded as α.(65535/(2.π))
-    	</description>
+      <description>
+        Roll encoded as α.(65535/(2.π))
+      </description>
     </field>
     <field name="Pitch" abbrev="pitch" type="uint16_t">
-        <description>
-    		Pitch encoded as α.(65535/(2.π))
-    	</description>
+      <description>
+        Pitch encoded as α.(65535/(2.π))
+      </description>
     </field>
     <field name="Yaw" abbrev="yaw" type="uint16_t">
-    	<description>
-    		Yaw encoded as α.(65535/(2.π))
-    	</description>
+      <description>
+        Yaw encoded as α.(65535/(2.π))
+      </description>
     </field>
     <field name="Speed" abbrev="speed" type="int16_t" unit="dm"/>
   </message>
 
   <message id="109" name="Historic Sonar Data" abbrev="HistoricSonarData" used-by="vehicle">
     <description>
-    	This message is used to store historic (transmitted afterwards) sonar data.
+      This message is used to store historic (transmitted afterwards) sonar data.
     </description>
     <field name="Altitude" abbrev="altitude" type="fp32_t" unit="m"/>
     <field name="Width" abbrev="width" type="fp32_t" unit="m"/>
     <field name="Length" abbrev="length" type="fp32_t" unit="m"/>
     <field name="Bearing" abbrev="bearing" type="fp32_t"/>
     <field name="Pixels Per Line" abbrev="pxl" type="int16_t">
-    	<description>
-    		The number of pixels per line as the data in 'sonar_data' may
-    		correspond to more than one sequential sidescan lines.
-    	</description>
+      <description>
+        The number of pixels per line as the data in 'sonar_data' may
+        correspond to more than one sequential sidescan lines.
+      </description>
     </field>
     <field name="Encoding" abbrev="encoding" type="uint8_t" unit="Enumerated" prefix="ENC">
-    	<value abbrev="ONE_BYTE_PER_PIXEL" name="One Byte Per Pixel" id="0"/>
-    	<value abbrev="PNG" name="PNG compressed image" id="1"/>
-    	<value abbrev="JPEG" name="JPEG compressed image" id="2"/>
+      <value abbrev="ONE_BYTE_PER_PIXEL" name="One Byte Per Pixel" id="0"/>
+      <value abbrev="PNG" name="PNG compressed image" id="1"/>
+      <value abbrev="JPEG" name="JPEG compressed image" id="2"/>
     </field>
     <field name="SonarData" abbrev="sonar_data" type="rawdata">
-    	<description>
-    		Sonar data encoded as in 'encoding'.
-    	</description>
+      <description>
+        Sonar data encoded as in 'encoding'.
+      </description>
     </field>
   </message>
 
   <message id="110" name="Historic Event" abbrev="HistoricEvent" used-by="vehicle">
     <description>
-    	This message is used to store historic event log entries.
+      This message is used to store historic event log entries.
     </description>
     <field name="Event" abbrev="text" type="plaintext"/>
     <field name="Event Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="EVTYPE">
@@ -1682,8 +1682,8 @@
 
   <message id="184" abbrev="HistoricData" name="Historic Data Series">
     <description>
-	  This message holds a list of inline data samples produced by one or more vehicles in the past.
-	  It is used to transfer data over disruption tolerant networks.
+      This message holds a list of inline data samples produced by one or more vehicles in the past.
+      It is used to transfer data over disruption tolerant networks.
     </description>
     <field name="Base Latitude" abbrev="base_lat" type="fp32_t" unit="°">
       <description>
@@ -1696,8 +1696,8 @@
     </description>
     </field>
     <field name="Base Timestamp" abbrev="base_time" type="fp32_t" unit="s">
-	  <description>
-      	All data sent inside this message will use this time as the origin (0).
+      <description>
+        All data sent inside this message will use this time as the origin (0).
       </description>
     </field>
     <field name="Data" abbrev="data" type="message-list" message-type="RemoteData"/>
@@ -1705,8 +1705,8 @@
 
   <message id="185" abbrev="CompressedHistory" name="Compressed Historic Data Series">
     <description>
-	  This message holds a list of inline data samples produced by one or more vehicles in the past.
-	  It is used to transfer data over disruption tolerant networks.
+      This message holds a list of inline data samples produced by one or more vehicles in the past.
+      It is used to transfer data over disruption tolerant networks.
     </description>
     <field name="Base Latitude" abbrev="base_lat" type="fp32_t" unit="°">
       <description>
@@ -1719,15 +1719,15 @@
     </description>
     </field>
     <field name="Base Timestamp" abbrev="base_time" type="fp32_t" unit="s">
-	  <description>
-      	All data sent inside this message will use this time as the origin (0).
+      <description>
+        All data sent inside this message will use this time as the origin (0).
       </description>
     </field>
     <field name="Data" abbrev="data" type="rawdata">
       <description>
         A message-list of HistoricSample messages compressed with GZip algorithm.
       </description>
-	</field>
+    </field>
   </message>
 
   <message id="186" abbrev="HistoricSample" name="Historic Data Sample">
@@ -1746,18 +1746,18 @@
     </field>
     <field name="X offset" abbrev="x" type="int16_t" unit="m">
       <description>
-	    Northing offsets relative to base latitude / longitude expressed in the enclosing `HistoricData` message.
+        Northing offsets relative to base latitude / longitude expressed in the enclosing `HistoricData` message.
       </description>
     </field>
     <field name="Y offset" abbrev="y" type="int16_t" unit="m">
       <description>
-	    Easting offsets relative to base latitude / longitude expressed in the enclosing `HistoricData` message.
+        Easting offsets relative to base latitude / longitude expressed in the enclosing `HistoricData` message.
       </description>
     </field>
-	<field name="Z offset" abbrev="z" type="int16_t" unit="dm">
+    <field name="Z offset" abbrev="z" type="int16_t" unit="dm">
       <description>
-	    Altitude / depth offsets relative to sea level expressed in decimeters.
-	    Negative values mean depth and positive values mean altitude.
+        Altitude / depth offsets relative to sea level expressed in decimeters.
+        Negative values mean depth and positive values mean altitude.
       </description>
     </field>
     <field name="Time offset" abbrev="t" type="int16_t" unit="s">
@@ -1765,21 +1765,21 @@
         Time offset in seconds relative to the base time expressed in the enclosing `HistoricData` message.
       </description>
     </field>
-	  <field name="Data Sample" abbrev="sample" type="message"/>
+      <field name="Data Sample" abbrev="sample" type="message"/>
   </message>
 
   <message id="187" abbrev="HistoricDataQuery" name="Historic Data Query">
     <field name="Request Id" abbrev="req_id" type="uint16_t" />
     <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="HRTYPE">
-    	<value abbrev="QUERY" name="Query" id="1">
-    		<description>Request data from the Data Store</description>
-    	</value>
-    	<value abbrev="REPLY" name="Reply" id="2">
-    		<description>Data Store response with Data (using field 'data')</description>
-    	</value>
-    	<value abbrev="CLEAR" name="Clear" id="3">
-    		<description>Clear 'data' from the Data Store</description>
-    	</value>
+        <value abbrev="QUERY" name="Query" id="1">
+            <description>Request data from the Data Store</description>
+        </value>
+        <value abbrev="REPLY" name="Reply" id="2">
+            <description>Data Store response with Data (using field 'data')</description>
+        </value>
+        <value abbrev="CLEAR" name="Clear" id="3">
+            <description>Clear 'data' from the Data Store</description>
+        </value>
     </field>
     <field name="Maximum Size" abbrev="max_size" type="uint16_t"/>
     <field name="Data" abbrev="data" type="message" message-type="HistoricData"/>
@@ -6878,22 +6878,22 @@
         What to do if the vehicle fails to arrive before or at the requested time.
       </description>
       <value abbrev="RESUME" name="Resume" id="0">
-      	<description>
-      	  If the vehicle fails to arrive at the specified time, it will keep going to the destination
-      	  at top speed and only then consider this maneuver completed.
-      	</description>
+        <description>
+          If the vehicle fails to arrive at the specified time, it will keep going to the destination
+          at top speed and only then consider this maneuver completed.
+        </description>
       </value>
       <value abbrev="SKIP" name="Skip" id="1">
-      	<description>
-      	  If the vehicle fails to arrive at the specified time, it will stop the current maneuver and
-      	  advance to the next one (independently of how far it is from destination).
-      	</description>
+        <description>
+          If the vehicle fails to arrive at the specified time, it will stop the current maneuver and
+          advance to the next one (independently of how far it is from destination).
+        </description>
       </value>
       <value abbrev="FAIL" name="Fail" id="2">
-      	<description>
-      	  If the vehicle fails to arrive at the specified time, it will stop the execution of this
-      	  maneuver with a FAILED result (the entire plan will be stopped).
-      	</description>
+        <description>
+          If the vehicle fails to arrive at the specified time, it will stop the execution of this
+          maneuver with a FAILED result (the entire plan will be stopped).
+        </description>
       </value>
     </field>
   </message>
@@ -6976,14 +6976,14 @@
         Maneuver optional flags.
       </description>
       <value id="0x01" name="Square Curve" abbrev="SQUARE_CURVE">
-      	<description>
-      	  Whether to move between transects using an additional perpendicular transect.
-      	</description>
+        <description>
+          Whether to move between transects using an additional perpendicular transect.
+        </description>
       </value>
       <value id="0x02" name="First Curve Right" abbrev="CURVE_RIGHT">
-      	<description>
-      	  Shall the vehicle turn towards the right after the first transect (alternatively it will turn left).
-      	</description>
+        <description>
+          Shall the vehicle turn towards the right after the first transect (alternatively it will turn left).
+        </description>
       </value>
     </field>
     <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
@@ -9609,7 +9609,7 @@
     </field>
     <field name="Type of measurement" abbrev="type" type="uint8_t" unit="Enumerated" prefix="DT">
       <description>
-	Type of measurement.
+    Type of measurement.
       </description>
       <value id="0" abbrev="COLORED" name="Colored"/>
       <value id="1" abbrev="FLUORESCENT" name="Fluorescent"/>
