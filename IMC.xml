@@ -203,6 +203,7 @@
     <unit abbrev="%" name="Percent"/>
     <unit abbrev="PPM" name="Parts per million"/>
     <unit abbrev="PPB" name="Parts per billion"/>
+    <unit abbrev="1/m" name="Inverse Meter"/>
     <unit abbrev="px" name="Pixel"/>
     <unit abbrev="µg/L" name="Microgram per liter"/>
     <unit abbrev="µM" name="Micromolar"/>
@@ -9593,6 +9594,36 @@
     <field name="Modems" abbrev="modems" type="message-list" message-type="UsblModem">
       <description>
         A list of USBL modem configuration messages.
+      </description>
+    </field>
+  </message>
+
+  <message id="903" name="Dissolved Organic Matter" abbrev="DissolvedOrganicMatter" source="vehicle" flags="periodic">
+    <description>
+      Dissolved Organic Matter measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="PPB">
+      <description>
+        Dissolved Organic Matter reading.
+      </description>
+    </field>
+    <field name="Type of measurement" abbrev="type" type="uint8_t" unit="Enumerated" prefix="DT">
+      <description>
+	Type of measurement.
+      </description>
+      <value id="0" abbrev="COLORED" name="Colored"/>
+      <value id="1" abbrev="FLUORESCENT" name="Fluorescent"/>
+    </field>
+  </message>
+
+  <message id="904" name="Optical Backscattering Coefficient" abbrev="OpticalBackscatter" source="vehicle" flags="periodic">
+    <description>
+      The optical backscattering coefficient refers to all the photons that have been redirected in the backward directions
+      when a photon of light propagates in water and interacts with a "particle" (varying from water molecules to fish).
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="1/m">
+      <description>
+        Optical Backscattering Coefficient.
       </description>
     </field>
   </message>
