@@ -114,6 +114,7 @@
   <address id="0x6002" name="lauv-seacon-1-aux"/>
   <address id="0x6003" name="lauv-noptilus-3-aux"/>
   <address id="0x6004" name="lauv-xtreme-2-aux"/>
+  <address id="0x6005" name="caravela-aux"/>
   <!-- Sensors of LSTS (Self containing sensor systems) -->
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
