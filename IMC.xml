@@ -9693,7 +9693,7 @@
         The maximum RPM value recorded.
       </description>
     </field>
-    <field name="Recorded Depth - Maximum" abbrev="depth_max" type="float" unit="m">
+    <field name="Recorded Depth - Maximum" abbrev="depth_max" type="fp32_t" unit="m">
       <description>
         The maximum depth value recorded.
       </description>
