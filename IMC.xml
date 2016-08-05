@@ -9633,6 +9633,13 @@
       This messages is used to record system activity parameters that can
       be used for maintenance purposes.
     </description>
+    <field name="Last Service Timestamp" abbrev="service_timestamp" type="fp64_t" unit="s">
+      <description>
+        The time when the last service was performed. The number of
+        seconds is represented in Universal Coordinated Time (UCT) in
+        seconds since Jan 1, 1970.
+      </description>
+    </field>
     <field name="Time Idle - Ground" abbrev="time_idle_ground" type="fp32_t" unit="s">
       <description>
         Amount of time the device spent idle on the ground.
