@@ -9645,6 +9645,11 @@
         Amount of time until the next recommended service.
       </description>
     </field>
+    <field name="Time Motor - Next Service" abbrev="time_motor_next_service" type="fp32_t" unit="s">
+      <description>
+        Amount of time the motor can run until the next recommended service.
+      </description>
+    </field>
     <field name="Time Idle - Ground" abbrev="time_idle_ground" type="fp32_t" unit="s">
       <description>
         Amount of time the device spent idle on the ground.
@@ -9693,11 +9698,6 @@
     <field name="Time Motor - Unknown" abbrev="time_motor_unknown" type="fp32_t" unit="s">
       <description>
         Amount of time the device spent in an unknown medium with the motor running.
-      </description>
-    </field>
-    <field name="Time Motor - Next Service" abbrev="time_motor_next_service" type="fp32_t" unit="s">
-      <description>
-        Amount of time the motor can run until the next recommended service.
       </description>
     </field>
     <field name="Recorded RPMs - Minimum" abbrev="rpm_min" type="int16_t" unit="rpm">
