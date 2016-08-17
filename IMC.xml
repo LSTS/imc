@@ -9627,4 +9627,93 @@
       </description>
     </field>
   </message>
+
+  <message id="905" name="Tachograph" abbrev="Tachograph" source="vehicle" flags="periodic">
+    <description>
+      This messages is used to record system activity parameters. These
+      parameters are mainly used for used for maintenance purposes.
+    </description>
+    <field name="Last Service Timestamp" abbrev="timestamp_last_service" type="fp64_t" unit="s">
+      <description>
+        The time when the last service was performed. The number of
+        seconds is represented in Universal Coordinated Time (UCT) in
+        seconds since Jan 1, 1970.
+      </description>
+    </field>
+    <field name="Time - Next Service" abbrev="time_next_service" type="fp32_t" unit="s">
+      <description>
+        Amount of time until the next recommended service.
+      </description>
+    </field>
+    <field name="Time Motor - Next Service" abbrev="time_motor_next_service" type="fp32_t" unit="s">
+      <description>
+        Amount of time the motor can run until the next recommended service.
+      </description>
+    </field>
+    <field name="Time Idle - Ground" abbrev="time_idle_ground" type="fp32_t" unit="s">
+      <description>
+        Amount of time the system spent idle on the ground.
+      </description>
+    </field>
+    <field name="Time Idle - Air" abbrev="time_idle_air" type="fp32_t" unit="s">
+      <description>
+        Amount of time the system spent idle in the air.
+      </description>
+    </field>
+    <field name="Time Idle - Water" abbrev="time_idle_water" type="fp32_t" unit="s">
+      <description>
+        Amount of time the system spent idle on the water (not submerged).
+      </description>
+    </field>
+    <field name="Time Idle - Underwater" abbrev="time_idle_underwater" type="fp32_t" unit="s">
+      <description>
+        Amount of time the system spent idle underwater.
+      </description>
+    </field>
+    <field name="Time Idle - Unknown" abbrev="time_idle_unknown" type="fp32_t" unit="s">
+      <description>
+        Amount of time the system spent idle in an unknown medium.
+      </description>
+    </field>
+    <field name="Time Motor - Ground" abbrev="time_motor_ground" type="fp32_t" unit="s">
+      <description>
+        Amount of time the system spent on the ground with the motor running.
+      </description>
+    </field>
+    <field name="Time Motor - Air" abbrev="time_motor_air" type="fp32_t" unit="s">
+      <description>
+        Amount of time the system spent in the air with the motor running.
+      </description>
+    </field>
+    <field name="Time Motor - Water" abbrev="time_motor_water" type="fp32_t" unit="s">
+      <description>
+        Amount of time the system spent on the water (not submerged) with the motor running.
+      </description>
+    </field>
+    <field name="Time Motor - Underwater" abbrev="time_motor_underwater" type="fp32_t" unit="s">
+      <description>
+        Amount of time the system spent underwater with the motor running.
+      </description>
+    </field>
+    <field name="Time Motor - Unknown" abbrev="time_motor_unknown" type="fp32_t" unit="s">
+      <description>
+        Amount of time the system spent in an unknown medium with the motor running.
+      </description>
+    </field>
+    <field name="Recorded RPMs - Minimum" abbrev="rpm_min" type="int16_t" unit="rpm">
+      <description>
+        The minimum recorded RPM value.
+      </description>
+    </field>
+    <field name="Recorded RPMs - Maximum" abbrev="rpm_max" type="int16_t" unit="rpm">
+      <description>
+        The maximum recorded RPM value.
+      </description>
+    </field>
+    <field name="Recorded Depth - Maximum" abbrev="depth_max" type="fp32_t" unit="m">
+      <description>
+        The maximum recorded depth value.
+      </description>
+    </field>
+  </message>
 </messages>
