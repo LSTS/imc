@@ -7230,7 +7230,7 @@
         The time after which this maneuver should be stopped (if still active and TIMEOUT is enforced).
       </description>
     </field>
-    <field name="Area Limits" abbrev="area_limits" type="message" message-type="Polygon">
+    <field name="Area Limits" abbrev="area_limits" type="message-list" message-type="PolygonVertex">
       <description>
         The boundaries of the admissable area for this autonomous section.
       </description>
