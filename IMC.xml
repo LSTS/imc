@@ -7227,7 +7227,7 @@
     </field>
     <field name="Time Limit" abbrev="time_limit" type="fp64_t" unit="s">
       <description>
-        The boundaries of the admissable area for this autonomous section.
+        The time after which this maneuver should be stopped (if still active and TIMEOUT is enforced).
       </description>
     </field>
     <field name="Area Limits" abbrev="area_limits" type="message" message-type="Polygon">
@@ -7236,7 +7236,7 @@
       </description>
     </field>
     
-	<field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
       <description>
         Custom settings for maneuver.
       </description>
