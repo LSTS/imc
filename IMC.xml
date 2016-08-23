@@ -342,6 +342,7 @@
       <message-type abbrev="ImageTracking"/>
       <message-type abbrev="Takeoff"/>
       <message-type abbrev="Land"/>
+      <message-type abbrev="AutonomousSection"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -7177,6 +7178,75 @@
         Custom settings for maneuver.
       </description>
     </field>
+  </message>
+  
+  <message id="493" abbrev="AutonomousSection" name="Autonomous Section">
+    <description>
+      This maneuver triggers an external controller that will guide the vehicle during a specified duration 
+      of time or until it relinquishes control using (ManeuverDone). The external controller is allowed to 
+      drive the vehicle only inside the specified boundaries. 
+    </description>
+    
+    <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude of the initial location.
+      </description>
+    </field>
+    <field name="Longitude WGS-84" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude of the initial location.
+      </description>
+    </field>
+     <field name="Speed" abbrev="speed" type="fp32_t">
+      <description>
+        Maneuver speed reference.
+      </description>
+    </field>
+    <field name="Speed Units" abbrev="speed_units" type="uint8_t" value="0" unit="Enumerated" enum-def="SpeedUnits">
+      <description>
+        Speed units.
+      </description>
+    </field>
+
+    <!-- limits -->
+    <field name="Enforced Limits" abbrev="limits" type="uint8_t" unit="Bitfield" prefix="ENFORCE">
+    	<value abbrev="DEPTH" name="Maximum Depth Limit" id="0x01"/>
+    	<value abbrev="ALTITUDE" name="Minimum Altitude Limit" id="0x02"/>
+    	<value abbrev="TIMEOUT" name="Time Limit" id="0x04"/>
+    	<value abbrev="AREA2D" name="Polygonal Area Limits" id="0x08"/>    	
+    </field>
+    <field name="Maximum depth" abbrev="max_depth" type="fp64_t" unit="m">
+      <description>
+        Maximum depth the autonomous controller is allowed to drive to.
+      </description>
+    </field>
+    <field name="Minimum altitude" abbrev="min_alt" type="fp64_t" unit="m">
+      <description>
+        Minimum altitude the autonomous controller is allowed to drive to.
+      </description>
+    </field>
+    <field name="Time Limit" abbrev="time_limit" type="fp64_t" unit="s">
+      <description>
+        The time after which this maneuver should be stopped (if still active and TIMEOUT is enforced).
+      </description>
+    </field>
+    <field name="Area Limits" abbrev="area_limits" type="message-list" message-type="PolygonVertex">
+      <description>
+        The boundaries of the admissable area for this autonomous section.
+      </description>
+    </field>
+    <field name="Controller" abbrev="controller" type="plaintext">
+      <description>
+        The name of the controlling agent that will be allowed to guide the vehicle during the AutononousSection. 
+      </description>
+    </field>
+    
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for maneuver.
+      </description>
+    </field>
+
   </message>
 
   <!-- Vehicle Supervision -->
