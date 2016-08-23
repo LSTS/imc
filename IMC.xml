@@ -7235,6 +7235,11 @@
         The boundaries of the admissable area for this autonomous section.
       </description>
     </field>
+    <field name="Controller" abbrev="controller" type="plaintext">
+      <description>
+        The name of the controlling agent that will be allowed to guide the vehicle during the AutononousSection. 
+      </description>
+    </field>
     
     <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
       <description>
