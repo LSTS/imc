@@ -7252,9 +7252,9 @@
   
   <message id="494" name="Follow Point Maneuver" abbrev="FollowPoint">
   	<description>This maneuver behaves by following a point.</description>
-  	<field name="Id To Follow" abbrev="target" type="uint16_t">
+  	<field name="Source To Follow" abbrev="target" type="plaintext">
   	  <description>
-  	    The IMC id of the point source to follow (via RemoteSensorInfo or EstimatedState).
+  	    The identifier of the point source to follow (via RemoteSensorInfo or EstimatedState).
   	  </description>
   	</field>
   	<field name="Maximum Speed" abbrev="max_speed" type="fp32_t" unit="m/s" min="0">
