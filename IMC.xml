@@ -343,6 +343,7 @@
       <message-type abbrev="Takeoff"/>
       <message-type abbrev="Land"/>
       <message-type abbrev="AutonomousSection"/>
+      <message-type abbrev="FollowPoint"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -7247,6 +7248,35 @@
       </description>
     </field>
 
+  </message>
+  
+  <message id="494" name="Follow Point Maneuver" abbrev="FollowPoint">
+  	<description>This maneuver behaves by following a point.</description>
+  	<field name="Id To Follow" abbrev="target" type="uint16_t">
+  	  <description>
+  	    The IMC id of the point source to follow (via RemoteSensorInfo or EstimatedState).
+  	  </description>
+  	</field>
+  	<field name="Maximum Speed" abbrev="max_speed" type="fp32_t" unit="m/s" min="0">
+  	  <description>
+  	    Use this speed when travelling from afar.
+  	  </description>
+  	</field>
+  	<field name="Speed Units" abbrev="speed_units" type="uint8_t" unit="Enumerated" enum-def="SpeedUnits">
+      <description>
+        Indicates the units used for the maximum speed value.
+      </description>
+    </field>
+    <field name="Z" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        Use z_units to specify whether z represents depth, altitude or other.
+      </description>
+    </field>    
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the z reference.
+      </description>
+    </field>
   </message>
 
   <!-- Vehicle Supervision -->
