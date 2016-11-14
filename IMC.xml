@@ -6958,7 +6958,7 @@
         Desired curve offset.
       </description>
     </field>
-    <field name="Angular Aperture" abbrev="angAperture" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793" value="‪2.094395‬">
+    <field name="Angular Aperture" abbrev="angAperture" type="fp32_t" unit="rad" min="-3.141592653589793" max="3.141592653589793" value="2.094395">
       <description>
          Angular aperture of the sensor (looking downwards).
       </description>
