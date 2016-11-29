@@ -78,6 +78,8 @@
   <address id="0x0cf4" name="form-leader-04"/>
   <address id="0x0cf5" name="form-leader-05"/>
   <address id="0x0cf6" name="form-leader-06"/>
+  <!-- AUVs (Others) -->
+  <address id="0x2300" name="lrauv-sim"/>
   <!-- UAVs (Others) -->
   <address id="0x2c00" name="ntnu-hexa-testbed"/>
   <address id="0x2c01" name="ntnu-hexa-001"/>
