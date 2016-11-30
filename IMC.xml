@@ -344,6 +344,7 @@
       <message-type abbrev="Land"/>
       <message-type abbrev="AutonomousSection"/>
       <message-type abbrev="FollowPoint"/>
+      <message-type abbrev="BallastAndTrim"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -9828,6 +9829,25 @@
     <field name="Recorded Depth - Maximum" abbrev="depth_max" type="fp32_t" unit="m">
       <description>
         The maximum recorded depth value.
+      </description>
+    </field>
+  </message>
+
+  <!-- MBARI Msgs -->
+ <message id="1450" name="BallastAndTrim" abbrev="BallastAndTrim" source="ccu">
+    <description>
+    </description>
+   <field name="Depth" abbrev="depth" type="fp32_t" unit="m" min="0" value="35">
+      <description>
+      </description>
+    </field>
+   <field name="DepthDeadBand" abbrev="depth_band" type="fp32_t" unit="m" min="1" value="1">
+      <description>
+      </description>
+    </field>
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for maneuver.
       </description>
     </field>
   </message>
