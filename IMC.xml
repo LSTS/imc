@@ -9841,7 +9841,7 @@
       <description>
       </description>
     </field>
-   <field name="DepthDeadBand" abbrev="depth_band" type="fp32_t" unit="m" min="1" value="1">
+   <field name="DepthDeadBand" abbrev="depth_deadband" type="fp32_t" unit="m" min="1" value="1">
       <description>
       </description>
     </field>
