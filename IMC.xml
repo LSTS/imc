@@ -9831,4 +9831,28 @@
       </description>
     </field>
   </message>
+
+  <message id="906" name="APM Status" abbrev="ApmStatus" source="vehicle">
+    <description>
+      StatusText message from ardupilot.
+    </description>
+    <field name="Severity" abbrev="severity" type="uint8_t" unit="Enumerated" prefix="APM">
+      <description>
+        Severity of status.
+      </description>
+      <value id="0" name="Emergency" abbrev="EMERGENCY"/>
+      <value id="1" name="Alert" abbrev="ALERT"/>
+      <value id="2" name="Critical" abbrev="CRITICAL"/>
+      <value id="3" name="Error" abbrev="ERROR"/>
+      <value id="4" name="Warning" abbrev="WARNING"/>
+      <value id="5" name="Notice" abbrev="NOTICE"/>
+      <value id="6" name="Info" abbrev="INFO"/>
+      <value id="7" name="Debug" abbrev="DEBUG"/>
+    </field>
+    <field name="Text" abbrev="text" type="plaintext">
+      <description>
+        Status text message.
+      </description>
+    </field>
+  </message>
 </messages>
