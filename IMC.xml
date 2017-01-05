@@ -3676,8 +3676,7 @@
       next:
 
       .. figure:: ../images/euler-lauv.png
-
-      :align:  center
+         :align:  center
 
       Euler angles
     </description>
