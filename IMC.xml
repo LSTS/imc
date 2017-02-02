@@ -2708,7 +2708,7 @@
       *********
       
       +------+-------------------+-----------+
-      | Data | Label             | Size      |
+      | Data | Name              | Type      |
       +======+===================+===========+
       | A    | Ranges data       |   uint16_t|
       +------+-------------------+-----------+
@@ -2718,20 +2718,51 @@
       **********
       Multibeam:
       **********
-	 
-      +------+-------------------+-----------+
-      | Data | Label             | Size      |
-      +======+===================+===========+
-      | A    | Number of beams   |   uint16_t|
-      +------+-------------------+-----------+
-      | B    | Start angle (degs)|   int16_t |
-      +------+-------------------+-----------+
-      | C    | Ranges data       |   uintX_t |
-      +------+-------------------+-----------+
-      |D     | Intensities data  |   uintX_t |
-      +------+-------------------+-----------+
+	                                         
+      +------+--------+-------------------------+---------+----------------------------------------------------------------------+
+      | Index| Section| Name                    | Type    | Comments                                                             |
+      +======+========+=========================+=========+======================================================================+
+      | 1    | H1     | Number of points        | uint16_t| Number of data points                                                |
+      +------+--------+-------------------------+---------+----------------------------------------------------------------------+
+      | 2    | H2     | Start angle             | fp32    | In radians                                                           |
+      +------+--------+-------------------------+---------+----------------------------------------------------------------------+
+      | 3    | H3     | Angle scale factor      | fp32    | Used for angle steps                                                 |
+      +------+--------+-------------------------+---------+----------------------------------------------------------------------+
+      | 4    | H4     | Flags                   | u8      | Refer to next table                                                  |
+      +------+--------+-------------------------+---------+----------------------------------------------------------------------+
+      | 5    | H5 ?   | Intensities scale factor| fp32    |                                                                      |
+      +------+--------+-------------------------+---------+----------------------------------------------------------------------+
+      | 6    | D1 ?   | Angle steps[H1]         | u16     | Values in radians                                                    |
+      +------+--------+-------------------------+---------+----------------------------------------------------------------------+
+      | 7    | D2     | Ranges[H1]              | uintX_t | Ranges data points (scale factor from common field "Scaling Factor") |
+      +------+--------+-------------------------+---------+----------------------------------------------------------------------+
+      | 8    | D3 ?   | Intensities[H1]         | uintX_t | Intensities data points                                              |
+      +------+--------+-------------------------+---------+----------------------------------------------------------------------+
 
+      +--------+------------------+-----+
+      | Section| Flag Label       | Type|
+      +========+==================+=====+
+      | H4.1   | Intensities flag | u1  |
+      +--------+------------------+-----+
+      | H4.2   | Equi-distant flag| u1  |
+      +--------+------------------+-----+
+       
       .. figure:: ../images/imc_multibeam.png
+
+      #####
+      Notes
+      #####
+
+      * Each angle step is defined by:
+
+      .. code-block:: python
+
+         D1_angle_step[i] = H2_start_angle + (32-bit sum of D1_angle_step[0] through D1_angle_step[i]) * H3_scaling_factor
+      
+      * If bit H4.1 is not set then sections H5 and D3 won't exist.
+      * If bit H4.2 is not set then section D1 won't exist. In case this bit is set, then the angle step for equi-angle is read from field "Beam Width" from "Beam Configuration".
+      * The type *uintX_t* will depend on the number of bits per unit, and it should be a multiple of 8.
+      * Furthermore, for now, 32 bits is the highest value of bits per unit supported.
       
       *****************************************
       How to write ranges and intensities data:
@@ -2747,12 +2778,10 @@
 
 	 write(byte)
 
-      For multibeam's intensities data the scale factor should be 1.
-	       
-      The type *uintX_t* will depend on the number of bits per unit,
-      and this should be a multiple of 8. Furthermore, for now,
-      32 bits is the highest value of bits per unit supported.
-            
+      *******
+      Common:
+      *******
+      
     </description>
     <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="ST">
       <description>
@@ -2779,7 +2808,7 @@
     </field>
     <field name="Bits Per Data Point" abbrev="bits_per_point" type="uint8_t" unit="bit">
       <description>
-        Size of the data unit.
+        Size of the data unit. (Should be multiple of 8)
       </description>
     </field>
     <field name="Scaling Factor" abbrev="scale_factor" type="fp32_t">
