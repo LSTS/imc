@@ -67,7 +67,7 @@ for t in root.findall('types/type'):
         size = 'n/a'
     ttypes.add_row(t.attrib['name'], size, t.find('description').text)
 text += str(ttypes)
-open(os.path.join(src_dir, 'Message Format.rst'), 'w').write(text)
+open(os.path.join(src_dir, 'Message Format.rst'), 'w', encoding='utf-8').write(text)
 
 # Serialization.
 text = rst.h2('Serialization')
@@ -77,7 +77,7 @@ ttypes.add_row('Name', 'Serialization')
 for t in root.findall('serialization/type'):
     ttypes.add_row(t.attrib['name'], t.find('description').text)
 text += str(ttypes)
-open(os.path.join(src_dir, 'Message Format.rst'), 'a').write(text)
+open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # Header.
 text = rst.h2('Header')
@@ -92,7 +92,7 @@ for t in root.findall('header/field'):
     table.add_row(t.attrib['name'] + '\n(*' + t.attrib['abbrev'] + '*)', t.attrib['type'], value,
                   t.find('description').text)
 text += str(table)
-open(os.path.join(src_dir, 'Message Format.rst'), 'a').write(text)
+open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # Footer.
 text = rst.h2('Footer')
@@ -107,7 +107,7 @@ for t in root.findall('footer/field'):
     table.add_row(t.attrib['name'] + '\n(*' + t.attrib['abbrev'] + '*)', t.attrib['type'], value,
                   t.find('description').text)
 text += str(table)
-open(os.path.join(src_dir, 'Message Format.rst'), 'a').write(text)
+open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # Units.
 text = rst.h2('Reference of Units')
@@ -117,7 +117,7 @@ tunits.add_row('Abbreviation', 'Name')
 for u in root.findall('units/unit'):
     tunits.add_row(u.attrib['abbrev'], u.attrib['name'])
 text += str(tunits)
-open(os.path.join(src_dir, 'Message Format.rst'), 'a').write(text)
+open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # Messages by Group.
 groups = []
@@ -128,7 +128,7 @@ for group in root.findall('groups/group'):
     files.append(name + '.rst')
     groups.append({'name': name, 'min': min_id, 'max': max_id})
     text = rst.h1(name + ' Messages')
-    open(os.path.join(src_dir, name + '.rst'), 'w').write(text)
+    open(os.path.join(src_dir, name + '.rst'), 'w', encoding='utf-8').write(text)
 
 # Messages.
 for msg in root.findall('message'):
@@ -178,10 +178,10 @@ for msg in root.findall('message'):
         if id >= group['min'] and id <= group['max']:
             my_group = group['name']
 
-    open(os.path.join(src_dir, my_group + '.rst'), 'a').write(text)
+    open(os.path.join(src_dir, my_group + '.rst'), 'a', encoding='utf-8').write(text)
 
 # Master document.
-fd = open(os.path.join(src_dir, 'index.rst'), 'w')
+fd = open(os.path.join(src_dir, 'index.rst'), 'w', encoding='utf-8')
 fd.write(rst.h1('IMC v%s-%s' % (release, revision)))
 fd.write('\n')
 
