@@ -2700,7 +2700,7 @@
     <description>
       This message contains the data acquired by a single sonar
       measurement. The following describes the format used to
-      fill the data field used in this message. (Byte order is
+      fill the data field used in this message. (byte order is
       little endian)
 
       *********
@@ -2729,9 +2729,9 @@
       +------+--------+-------------------------+---------+----------------------------------------------------------------------+
       | 2    | H2     | Start angle             | fp32    | In radians                                                           |
       +------+--------+-------------------------+---------+----------------------------------------------------------------------+
-      | 3    | H3     | Angle scale factor      | fp32    | Used for angle steps                                                 |
+      | 3    | H3     | Flags                   | u8      | Refer to next table                                                  |
       +------+--------+-------------------------+---------+----------------------------------------------------------------------+
-      | 4    | H4     | Flags                   | u8      | Refer to next table                                                  |
+      | 4    | H4 ?   | Angle scale factor      | fp32    | Used for angle steps in radians                                      |
       +------+--------+-------------------------+---------+----------------------------------------------------------------------+
       | 5    | H5 ?   | Intensities scale factor| fp32    |                                                                      |
       +------+--------+-------------------------+---------+----------------------------------------------------------------------+
@@ -2747,7 +2747,7 @@
       +========+==================+=====+
       | H4.1   | Intensities flag | u1  |
       +--------+------------------+-----+
-      | H4.2   | Equi-distant flag| u1  |
+      | H4.2   | Angle step flag  | u1  |
       +--------+------------------+-----+
        
       .. figure:: ../images/imc_multibeam.png
@@ -2756,14 +2756,14 @@
       Notes
       #####
 
-      * Each angle step is defined by:
+      * Each angle at step i can be calculated is defined by:
 
       .. code-block:: python
 
-         D1_angle_step[i] = H2_start_angle + (32-bit sum of D1_angle_step[0] through D1_angle_step[i]) * H3_scaling_factor
+         angle[i] = H2_start_angle + (32-bit sum of D1_angle_step[0] through D1_angle_step[i]) * H4_scaling_factor
       
       * If bit H4.1 is not set then sections H5 and D3 won't exist.
-      * If bit H4.2 is not set then section D1 won't exist. In case this bit is set, then the angle step for equi-angle is read from field "Beam Width" from "Beam Configuration".
+      * If bit H4.2 is not set then sections H4 and D1 won't exist. In case this bit is set, then the angle steps is read from field "Beam Width" from "Beam Configuration".
       * The type *uintX_t* will depend on the number of bits per unit, and it should be a multiple of 8.
       * Furthermore, for now, 32 bits is the highest value of bits per unit supported.
       
@@ -2774,12 +2774,12 @@
          :linenos:
 
 	 
-         data_unit = (Integer) (data_value / scale_factor)
-	 bytes_per_unit = bits_per_unit / 8
+         data_unit = (Integer) (data_value / scale_factor);
+         bytes_per_unit = bits_per_unit / 8;
          LOOP: i = 0, until i = bytes_per_unit
-             byte[i] = (data_unit >> 8 * i) &amp; 0xFF)
+             byte[i] = (data_unit >> 8 * i) &amp; 0xFF);
 
-	 write(byte)
+         write(byte);
 
       *******
       Common:
