@@ -6,6 +6,7 @@
 # Rua Dr. Roberto Frias, 4200-465 Porto, Portugal                           #
 #############################################################################
 # Author: Ricardo Martins                                                   #
+# Author: Paulo Dias                                                        #
 #############################################################################
 
 import sys
@@ -16,6 +17,37 @@ import rst
 import message
 import argparse
 from subprocess import check_call
+
+def findDescriptionTagAndOutputTextBlock(elem, noDescriptionText = False):
+    text = ''
+    noDescTxt = 'No description'
+    if noDescriptionText:
+        noDescTxt = '*-*'
+    if elem.find('description') is None:
+        text += rst.block(noDescTxt)
+    elif elem.find('description').text is None:
+        text += rst.block(noDescTxt)
+    elif elem.find('description').text.strip() == '':
+        text += rst.block(noDescTxt)
+    elif elem.find('description').text.strip() != '':
+        text += rst.block(elem.find('description').text)
+
+    return text;
+
+def getEnumerationDescripion(elem, headerPrefix = '', refPrefix = ''):
+    text = '.. _%s%s:\n\n' % (refPrefix, elem.attrib['abbrev'])
+    text += '.. _%s%s%s:\n\n' % (refPrefix, 'prefix-', elem.attrib['prefix'])
+    text += rst.h3(headerPrefix + elem.attrib['name'])
+    text += findDescriptionTagAndOutputTextBlock(elem)
+    text += '- Abbreviation: ' + elem.attrib['abbrev'] + '\n'
+    text += '- Prefix: ' + elem.attrib['prefix'] + '\n'
+    tenums = rst.Table()
+    tenums.add_row('Value', 'Name', 'Abbreviation', 'Description')
+    for v in elem.findall('value'):
+        tenums.add_row(v.attrib['id'], v.attrib['name'], v.attrib['abbrev'], findDescriptionTagAndOutputTextBlock(v, True))
+    text += str(tenums)
+    
+    return text
 
 # Folder where this script is located.
 cod_dir = os.path.dirname(os.path.abspath(__file__))
@@ -109,6 +141,15 @@ for t in root.findall('footer/field'):
 text += str(table)
 open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
+# flags.
+text = rst.h2('Flags')
+tfls = rst.Table()
+tfls.add_row('Name', 'Abbreviation')
+for f in root.findall('flags/flag'):
+    tfls.add_row(f.attrib['name'], f.attrib['abbrev'])
+text += str(tfls)
+open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+
 # Units.
 text = rst.h2('Reference of Units')
 text += rst.block(root.find('units/description').text)
@@ -117,6 +158,32 @@ tunits.add_row('Abbreviation', 'Name')
 for u in root.findall('units/unit'):
     tunits.add_row(u.attrib['abbrev'], u.attrib['name'])
 text += str(tunits)
+open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+
+# enumerations.
+text = rst.h2('Reference of Global Enumerations')
+for e in root.findall('enumerations/def'):
+    text += getEnumerationDescripion(e, 'Enum ', 'enum-')
+open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+
+# bitfields.
+text = rst.h2('Reference of Global Bitfields')
+for b in root.findall('bitfields/def'):
+    text += getEnumerationDescripion(b, 'Bitfield ', 'bitfield-')
+open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+
+# message-groups.
+text = rst.h2('Reference of Message-Groups')
+for mg in root.findall('message-groups/message-group'):
+    text += '.. _%s:\n\n' % mg.attrib['abbrev']
+    text += rst.h3('Message-Group ' + mg.attrib['name'])
+    text += findDescriptionTagAndOutputTextBlock(mg)
+    text += '- Abbreviation: ' + mg.attrib['abbrev'] + '\n'
+    tmgs = rst.Table()
+    tmgs.add_row('Message')
+    for t in mg.findall('message-type'):
+        tmgs.add_row(rst.ref(t.attrib['abbrev']))
+    text += str(tmgs)
 open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # Messages by Group.
@@ -138,14 +205,7 @@ for msg in root.findall('message'):
     text = '.. _%s:\n\n' % msg.get('abbrev')
     text += rst.h2(msg.attrib['name'])
 
-    if msg.find('description') is None:
-        text += rst.block('No description')
-    elif msg.find('description').text is None:
-        text += rst.block('No description')
-    elif msg.find('description').text.strip() == '':
-        text += rst.block('No description')
-    elif msg.find('description').text.strip() != '':
-        text += rst.block(msg.find('description').text)
+    text += findDescriptionTagAndOutputTextBlock(msg)
 
     text += '- Abbreviation: ' + abbrev + '\n'
     text += '- Identification Number: ' + msg.attrib['id'] + '\n'
@@ -157,6 +217,7 @@ for msg in root.findall('message'):
     else:
         t = rst.Table()
         t.add_row('Name', 'Abbreviation', 'Unit', 'Type', 'Description', 'Range')
+        txtLocalEnumBitField = ''
         for f in msg.findall('field'):
             if f.find('description') is None:
                 desc = ''
@@ -170,8 +231,32 @@ for msg in root.findall('message'):
             frange = 'Same as field type'
 
             name = f.attrib['name'].strip()
-            t.add_row(name, f.attrib['abbrev'], '*' + unit + '*', f.attrib['type'], desc, frange)
+            txtType = ''
+            txtUnit = ''
+            if (f.attrib['type'].strip() == 'message' or f.attrib['type'].strip() == 'message-list') and f.find('[@message-type]') is not None:
+                txtType = '\n(' + rst.ref(f.attrib['message-type']) + ')'
+
+            if f.find('[@unit]') is not None and (f.attrib['unit'].strip() == 'Enumerated'):
+                if f.findall('value') == []:
+                    if ('enum-def' in f.attrib):
+                        prefixLk = f.attrib['enum-def']
+                        txtUnit = '\n(' + rst.ref('enum-' + prefixLk) + ')'
+                else:
+                    txtUnit = '\n(' + rst.ref(msg.attrib['abbrev'] + '-enum-' + f.attrib['abbrev']) + ')'
+                    txtLocalEnumBitField += getEnumerationDescripion(f, 'Enum ', msg.attrib['abbrev'] + '-enum-')
+            elif f.find('[@unit]') is not None and (f.attrib['unit'].strip() == 'Bitfield'):
+                if f.findall('value') == []:
+                    if ('bitfield-def' in f.attrib):
+                        prefixLk = f.attrib['bitfield-def']
+                        txtUnit = '\n(' + rst.ref('bitfield-' + prefixLk) + ')'
+                else:
+                    txtUnit = '\n(' + rst.ref(msg.attrib['abbrev'] + '-bitfield-' + f.attrib['abbrev']) + ')'
+                    txtLocalEnumBitField += getEnumerationDescripion(f, 'Bitfield ', msg.attrib['abbrev'] + '-bitfield-')
+
+            t.add_row(name, f.attrib['abbrev'], '*' + unit + '*' + txtUnit, f.attrib['type'] + txtType, desc, frange)
+        
         text += str(t)
+        text += txtLocalEnumBitField
 
     my_group = ''
     for group in groups:

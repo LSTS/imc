@@ -131,6 +131,10 @@ def h2(s):
     s = s.strip() + '\n'
     return s + ('-' * len(s)) + '\n\n'
 
+def h3(s):
+    s = s.strip() + '\n'
+    return s + ('^' * len(s)) + '\n\n'
+
 def block(s):
     s = s.expandtabs()
     if s.strip() == '':
@@ -156,3 +160,7 @@ def block(s):
         n = n + 1
 
     return '\n'.join([line[n:] for line in lines]) + '\n'
+
+def ref(s):
+    s = s.strip()
+    return ':ref:`' + s + '`'
