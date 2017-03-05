@@ -44,9 +44,10 @@ def getEnumerationDescripion(elem, headerPrefix = '', refPrefix = ''):
     tenums = rst.Table()
     tenums.add_row('Value', 'Name', 'Abbreviation', 'Description')
     for v in elem.findall('value'):
-        tenums.add_row(v.attrib['id'], v.attrib['name'], v.attrib['abbrev'], findDescriptionTagAndOutputTextBlock(v, True))
+        tenums.add_row(v.attrib['id'], v.attrib['name'], v.attrib['abbrev'], 
+            findDescriptionTagAndOutputTextBlock(v, True))
     text += str(tenums)
-    
+
     return text
 
 # Folder where this script is located.
@@ -120,7 +121,7 @@ for t in root.findall('header/field'):
     if 'value' in t.attrib:
         value = t.attrib['value']
     else:
-        value = '-'
+        value = '*-*'
     table.add_row(t.attrib['name'] + '\n(*' + t.attrib['abbrev'] + '*)', t.attrib['type'], value,
                   t.find('description').text)
 text += str(table)
@@ -135,7 +136,7 @@ for t in root.findall('footer/field'):
     if 'value' in t.attrib:
         value = t.attrib['value']
     else:
-        value = '-'
+        value = '*-*'
     table.add_row(t.attrib['name'] + '\n(*' + t.attrib['abbrev'] + '*)', t.attrib['type'], value,
                   t.find('description').text)
 text += str(table)
