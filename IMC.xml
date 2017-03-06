@@ -2757,7 +2757,7 @@
       Notes
       #####
 
-      * Each angle at step i can be calculated is defined by:
+      * Each angle at step *i* can be calculated is defined by:
 
       .. code-block:: python
 
