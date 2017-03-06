@@ -103,18 +103,22 @@ text += str(ttypes)
 open(os.path.join(src_dir, 'Message Format.rst'), 'w', encoding='utf-8').write(text)
 
 # Serialization.
-text = rst.h2('Serialization')
-text += rst.block(root.find('serialization/description').text)
-ttypes = rst.Table()
-ttypes.add_row('Name', 'Serialization')
-for t in root.findall('serialization/type'):
-    ttypes.add_row(t.attrib['name'], t.find('description').text)
-text += str(ttypes)
-open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+if root.find('serialization') is not None:
+    text = rst.h2('Serialization')
+    descElm = root.find('serialization/description')
+    if descElm is not None:
+        text += rst.block(descElm.text)
+    ttypes = rst.Table()
+    ttypes.add_row('Name', 'Serialization')
+    for t in root.findall('serialization/type'):
+        ttypes.add_row(t.attrib['name'], t.find('description').text)
+    text += str(ttypes)
+    open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # Header.
 text = rst.h2('Header')
-text += rst.block(root.find('header/description').text)
+if root.find('header/description') is not None:
+    text += rst.block(root.find('header/description').text)
 table = rst.Table()
 table.add_row('Name', 'Type', 'Fixed Value', 'Description')
 for t in root.findall('header/field'):
@@ -128,64 +132,93 @@ text += str(table)
 open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # Footer.
-text = rst.h2('Footer')
-text += rst.block(root.find('footer/description').text)
-table = rst.Table()
-table.add_row('Name', 'Type', 'Fixed Value', 'Description')
-for t in root.findall('footer/field'):
-    if 'value' in t.attrib:
-        value = t.attrib['value']
-    else:
-        value = '*-*'
-    table.add_row(t.attrib['name'] + '\n(*' + t.attrib['abbrev'] + '*)', t.attrib['type'], value,
-                  t.find('description').text)
-text += str(table)
-open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+if root.find('footer') is not None:
+    text = rst.h2('Footer')
+    if root.find('footer/description') is not None:
+        text += rst.block(root.find('footer/description').text)
+    table = rst.Table()
+    table.add_row('Name', 'Type', 'Fixed Value', 'Description')
+    for t in root.findall('footer/field'):
+        if 'value' in t.attrib:
+            value = t.attrib['value']
+        else:
+            value = '*-*'
+        table.add_row(t.attrib['name'] + '\n(*' + t.attrib['abbrev'] + '*)', t.attrib['type'], value,
+                      t.find('description').text)
+    text += str(table)
+    open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # flags.
-text = rst.h2('Flags')
-tfls = rst.Table()
-tfls.add_row('Name', 'Abbreviation')
-for f in root.findall('flags/flag'):
-    tfls.add_row(f.attrib['name'], f.attrib['abbrev'])
-text += str(tfls)
-open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+if root.find('flags') is not None:
+    text = rst.h2('Flags')
+    tfls = rst.Table()
+    tfls.add_row('Name', 'Abbreviation', 'Description')
+    for f in root.findall('flags/flag'):
+        noteAtt = f.find('[@note]')
+        noteTxt = '*-*'
+        if noteAtt is not None:
+            noteTxt = noteAtt.text
+        tfls.add_row(f.attrib['name'], f.attrib['abbrev'], noteTxt)
+    text += str(tfls)
+    open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # Units.
-text = rst.h2('Reference of Units')
-text += rst.block(root.find('units/description').text)
-tunits = rst.Table()
-tunits.add_row('Abbreviation', 'Name')
-for u in root.findall('units/unit'):
-    tunits.add_row(u.attrib['abbrev'], u.attrib['name'])
-text += str(tunits)
-open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+if root.find('units') is not None:
+    text = rst.h2('Reference of Units')
+    if root.find('units/description') is not None:
+        text += rst.block(root.find('units/description').text)
+    tunits = rst.Table()
+    descFlg = False
+    if root.find('units/unit/description') is not None:
+        tunits.add_row('Abbreviation', 'Name', 'Description')
+        descFlg = True
+    else:
+        tunits.add_row('Abbreviation', 'Name')
+    for u in root.findall('units/unit'):
+        if descFlg:
+            tunits.add_row(u.attrib['abbrev'], u.attrib['name'],
+                findDescriptionTagAndOutputTextBlock(u, True))
+        else:
+            tunits.add_row(u.attrib['abbrev'], u.attrib['name'])
+    text += str(tunits)
+    open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # enumerations.
-text = rst.h2('Reference of Global Enumerations')
-for e in root.findall('enumerations/def'):
-    text += getEnumerationDescripion(e, 'Enum ', 'enum-')
-open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+if root.find('enumerations/def') is not None:
+    text = rst.h2('Reference of Global Enumerations')
+    for e in root.findall('enumerations/def'):
+        text += getEnumerationDescripion(e, 'Enum ', 'enum-')
+    open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # bitfields.
-text = rst.h2('Reference of Global Bitfields')
-for b in root.findall('bitfields/def'):
-    text += getEnumerationDescripion(b, 'Bitfield ', 'bitfield-')
-open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+if root.find('bitfields/def') is not None:
+    text = rst.h2('Reference of Global Bitfields')
+    for b in root.findall('bitfields/def'):
+        text += getEnumerationDescripion(b, 'Bitfield ', 'bitfield-')
+    open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # message-groups.
-text = rst.h2('Reference of Message-Groups')
-for mg in root.findall('message-groups/message-group'):
-    text += '.. _%s:\n\n' % mg.attrib['abbrev']
-    text += rst.h3('Message-Group ' + mg.attrib['name'])
-    text += findDescriptionTagAndOutputTextBlock(mg)
-    text += '- Abbreviation: ' + mg.attrib['abbrev'] + '\n'
-    tmgs = rst.Table()
-    tmgs.add_row('Message')
-    for t in mg.findall('message-type'):
-        tmgs.add_row(rst.ref(t.attrib['abbrev']))
-    text += str(tmgs)
-open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
+if root.find('message-groups/message-group') is not None:
+    text = rst.h2('Reference of Message-Groups')
+    for mg in root.findall('message-groups/message-group'):
+        text += '.. _%s:\n\n' % mg.attrib['abbrev']
+        text += rst.h3('Message-Group ' + mg.attrib['name'])
+        text += findDescriptionTagAndOutputTextBlock(mg)
+        text += '- Abbreviation: ' + mg.attrib['abbrev'] + '\n'
+        tmgs = rst.Table()
+        descFlg = False
+        if root.find('message-groups/message-group/description') is not None:
+            tmgs.add_row('Message', 'Description')
+            descFlg = True
+        else:
+            tmgs.add_row('Message')
+        for t in mg.findall('message-type'):
+            if descFlg:
+                tmgs.add_row(rst.ref(t.attrib['abbrev']), findDescriptionTagAndOutputTextBlock(t, True))
+            else:
+                tmgs.add_row(rst.ref(t.attrib['abbrev']))
+        text += str(tmgs)
+    open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
 # Messages by Group.
 groups = []
@@ -229,7 +262,7 @@ for msg in root.findall('message'):
             if 'unit' in f.attrib:
                 unit = f.attrib['unit'].strip()
 
-            frange = 'Same as field type'
+            frange = message.get_range_txt(msg)
 
             name = f.attrib['name'].strip()
             txtType = ''
@@ -271,7 +304,9 @@ fd = open(os.path.join(src_dir, 'index.rst'), 'w', encoding='utf-8')
 fd.write(rst.h1('IMC v%s-%s' % (release, revision)))
 fd.write('\n')
 
-fd.write(rst.block(root.find('description').text))
+descElm = root.find('description')
+if descElm is not None:
+    fd.write(rst.block(descElm.text))
 
 fd.write('''
 .. toctree::
