@@ -2701,8 +2701,8 @@
     <description>
       This message contains the data acquired by a single sonar
       measurement. The following describes the format used to
-      fill the data field used in this message. (byte order is
-      little endian)
+      fill the data field used in this message. (Byte order is
+      little endian.)
 
       **Sidescan:**
       
