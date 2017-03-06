@@ -41,6 +41,7 @@ def getEnumerationDescripion(elem, headerPrefix = '', refPrefix = ''):
     text += findDescriptionTagAndOutputTextBlock(elem)
     text += '- Abbreviation: ' + elem.attrib['abbrev'] + '\n'
     text += '- Prefix: ' + elem.attrib['prefix'] + '\n'
+    text += '\n'
     tenums = rst.Table()
     tenums.add_row('Value', 'Name', 'Abbreviation', 'Description')
     for v in elem.findall('value'):
@@ -88,6 +89,8 @@ shutil.copytree(img_dir, os.path.join(bld_dir, 'images'))
 text = rst.h1('Message Format')
 files.append('Message Format.rst')
 
+headerFooterSize = 0
+
 # Field types.
 text += rst.h2('Field types')
 text += rst.block(root.find('types/description').text)
@@ -119,6 +122,13 @@ if root.find('serialization') is not None:
 text = rst.h2('Header')
 if root.find('header/description') is not None:
     text += rst.block(root.find('header/description').text)
+sz = message.get_fixed_size(root.find('header'), root)
+headerFooterSize += sz['size']
+text += '- Size: '+ str(sz['size']) 
+if not sz['fixed']:
+    text += '+ '
+text += ' bytes\n'
+text += '\n'
 table = rst.Table()
 table.add_row('Name', 'Type', 'Fixed Value', 'Description')
 for t in root.findall('header/field'):
@@ -136,6 +146,13 @@ if root.find('footer') is not None:
     text = rst.h2('Footer')
     if root.find('footer/description') is not None:
         text += rst.block(root.find('footer/description').text)
+    sz = message.get_fixed_size(root.find('footer'), root)
+    headerFooterSize += sz['size']
+    text += '- Size: '+ str(sz['size']) 
+    if not sz['fixed']:
+        text += '+ '
+    text += ' bytes\n'
+    text += '\n'
     table = rst.Table()
     table.add_row('Name', 'Type', 'Fixed Value', 'Description')
     for t in root.findall('footer/field'):
@@ -205,6 +222,7 @@ if root.find('message-groups/message-group') is not None:
         text += rst.h3('Message-Group ' + mg.attrib['name'])
         text += findDescriptionTagAndOutputTextBlock(mg)
         text += '- Abbreviation: ' + mg.attrib['abbrev'] + '\n'
+        text += '\n'
         tmgs = rst.Table()
         descFlg = False
         if root.find('message-groups/message-group/description') is not None:
@@ -243,7 +261,18 @@ for msg in root.findall('message'):
 
     text += '- Abbreviation: ' + abbrev + '\n'
     text += '- Identification Number: ' + msg.attrib['id'] + '\n'
-    text += '- Fixed Payload Size: ' + str(message.get_fixed_size(msg)) + '\n'
+    sz = message.get_fixed_size(msg, root)
+    text += '- Payload Size: ' + str(sz['size'])
+    if not sz['fixed']:
+        text += '+ '
+    text += ' bytes\n'
+    text += '- Message Size: ' + str(sz['size'] + headerFooterSize)
+    if not sz['fixed']:
+        text += '+ '
+    text += ' bytes\n'
+    flgsAtt = msg.find('[@flags]')
+    if flgsAtt is not None:
+        text += '- Flags: ' + msg.attrib['flags'] + '\n'
     text += '\n'
 
     if msg.findall('field') == []:
@@ -262,7 +291,7 @@ for msg in root.findall('message'):
             if 'unit' in f.attrib:
                 unit = f.attrib['unit'].strip()
 
-            frange = message.get_range_txt(msg)
+            frange = message.get_range_txt(f)
 
             name = f.attrib['name'].strip()
             txtType = ''
