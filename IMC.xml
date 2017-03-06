@@ -2704,9 +2704,7 @@
       fill the data field used in this message. (byte order is
       little endian)
 
-      *********
-      Sidescan:
-      *********
+      **Sidescan:**
       
       +------+-------------------+-----------+
       | Data | Name              | Type      |
@@ -2719,9 +2717,7 @@
       * The type *uintX_t* will depend on the number of bits per unit, and it should be a multiple of 8.
       * Furthermore, for now, 32 bits is the highest value of bits per unit supported.
 
-      **********
-      Multibeam:
-      **********
+      **Multibeam:**
 	                                         
       +------+--------+-------------------------+---------+----------------------------------------------------------------------+
       | Index| Section| Name                    | Type    | Comments                                                             |
@@ -2753,9 +2749,7 @@
        
       .. figure:: ../images/imc_multibeam.png
 
-      #####
-      Notes
-      #####
+      *Notes:*
 
       * Each angle at step *i* can be calculated is defined by:
 
@@ -2768,9 +2762,8 @@
       * The type *uintX_t* will depend on the number of bits per unit, and it should be a multiple of 8.
       * Furthermore, for now, 32 bits is the highest value of bits per unit supported.
       
-      *****************************************
-      How to write ranges and intensities data:
-      *****************************************
+      *How to write ranges and intensities data:*
+
       .. code-block:: python
          :linenos:
 
@@ -2782,9 +2775,7 @@
 
          write(byte);
 
-      *******
-      Common:
-      *******
+      **Common:**
       
     </description>
     <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="ST">
