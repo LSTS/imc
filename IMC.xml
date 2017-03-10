@@ -207,7 +207,6 @@
     <unit abbrev="px" name="Pixel"/>
     <unit abbrev="µg/L" name="Microgram per liter"/>
     <unit abbrev="µM" name="Micromolar"/>
-    <unit abbrev="PSU" name="Pratical Salinity Unit"/>
     <unit abbrev="rad" name="Radian"/>
     <unit abbrev="rad/s" name="Radian per second"/>
     <unit abbrev="rpm" name="Revolutions per minute"/>
@@ -2636,7 +2635,7 @@
     <description>
       Report of salinity.
     </description>
-    <field name="Measured Salinity" abbrev="value" type="fp32_t" unit="PSU">
+    <field name="Measured Salinity" abbrev="value" type="fp32_t">
       <description>
         The value of the salinity as measured by the sensor.
       </description>
