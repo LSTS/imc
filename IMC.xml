@@ -2016,6 +2016,11 @@
           is specified by the 'msg' field.
         </description>
       </value>
+      <value id="17" name="Initiate Reverse Range" abbrev="REVERSE_RANGE">
+        <description>
+          Request sending updated position to remote system so it can be ranged.
+        </description>
+      </value>
     </field>
     <field name="System" abbrev="system" type="plaintext">
       <description>
