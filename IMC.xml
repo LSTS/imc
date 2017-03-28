@@ -178,6 +178,7 @@
     <unit abbrev="bit" name="Bit"/>
     <unit abbrev="bps" name="Bits per second"/>
     <unit abbrev="byte" name="Byte"/>
+    <unit abbrev="cm/s" name="Centimeter per second"/>
     <unit abbrev="g" name="Gravity acceleration"/>
     <unit abbrev="dm" name="Decimeter"/>
     <unit abbrev="dB" name="Decibel"/>
@@ -2098,14 +2099,14 @@
   	</description>
   	<field name="Latitude" abbrev="lat" unit="°" type="fp32_t"/>
   	<field name="Longitude" abbrev="lon" unit="°" type="fp32_t"/>
-  	<field name="Depth" abbrev="depth" type="int16_t">
+  	<field name="Depth" abbrev="depth"  unit="cm" type="uint16_t">
   	  <description>
-  	    Depth value in meters, multiplied by 100. 0 means device is at surface and &lt; 0 means value unknown.  	    
+  	    Depth value in centimeters. 0 means device is at surface and 0xFFFF means value unknown.  	    
   	  </description>  	 
   	</field>
-  	<field name="Altitude" abbrev="alt" type="int16_t">
+  	<field name="Altitude" abbrev="alt" unit="cm" type="uint16_t">
   	  <description>
-  	    Altitude value in meters, multiplied by 100. 0 means device is at ground and &lt; 0 means value unknown.  	
+  	    Altitude value in centimeters, multiplied by 100. 0 means device is at ground and 0xFFFF means value unknown.  	
   	  </description>
   	</field>
   	<field name="Heading" abbrev="yaw" unit="°" type="int16_t">
@@ -2113,24 +2114,26 @@
   	    Heading value in degrees multiplied by 90. 0xFFFF means value is unknown.
   	  </description>
   	</field>
-  	<field name="Ground Velocity X (North)" abbrev="vx" type="int8_t">
+  	<field name="Ground Velocity X (North)" unit="cm/s" abbrev="vx" type="int8_t">
   	  <description>
-  	    Ground velocity in the north direction multiplied by 100. 0xFF means unknown / out-of-range.
+  	    Ground velocity in the north direction in centimeters per second. 0xFF means unknown / out-of-range.
   	  </description>
   	</field>
-  	<field name="Ground Velocity Y (East)" abbrev="vy" type="int8_t">
+  	<field name="Ground Velocity Y (East)" unit="cm/s" abbrev="vy" type="int8_t">
   	  <description>
-  	    Ground velocity in the east direction multiplied by 100. 0xFF means unknown / out-of-range.
+  	    Ground velocity in the east direction in centimeters per second. 0xFF means unknown / out-of-range.
   	  </description>
   	</field>
-  	<field name="State" abbrev="state" type="uint8_t">
+  	<field name="State" abbrev="state" type="int8_t">
   	  <description>
-  	    Current execution state.
+  	    Current execution state. Interpretation:
+  	     * [0 .. 100]:   Plan is being executed, value means progress.
+  	     * For all other values, meaning is -10 * :ref:`PlanControlState`.state - :ref:`PlanControlState`.last_outcome % 10.  	    
   	  </description>
   	</field>
   	<field name="Plan" abbrev="plan" type="uint16_t">
   	  <description>
-  	    Checksum of current plan identifier.
+  	    Checksum of current plan identifier. Value is calculated using CRC16 checksum of current plan identifier.
   	  </description>
   	</field>
   	<field name="Fuel" abbrev="fuel" type="int8_t">
