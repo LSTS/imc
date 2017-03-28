@@ -178,7 +178,7 @@
     <unit abbrev="bit" name="Bit"/>
     <unit abbrev="bps" name="Bits per second"/>
     <unit abbrev="byte" name="Byte"/>
-	<unit abbrev="cm" name="Centimeter"/>
+    <unit abbrev="cm" name="Centimeter"/>
     <unit abbrev="cm/s" name="Centimeter per second"/>
     <unit abbrev="g" name="Gravity acceleration"/>
     <unit abbrev="dm" name="Decimeter"/>
@@ -2177,7 +2177,19 @@
   	    Speed to use in meters per second multiplied by 10. 0xFF means undefined.
   	  </description>
   	</field>
-  	<field name="Duration" abbrev="duration" unit="s" type="uint16_t"/>  	
+  	<field name="Duration" abbrev="duration" unit="s" type="uint16_t"/>
+  	 <field name="Flags" abbrev="flags" type="uint8_t" prefix="FLG" unit="Bitfield">
+      <value id="0x01" name="Calibrate Vehicle" abbrev="CALIBRATE">
+        <description>
+          Perform vehicle calibration.
+        </description>
+      </value>
+      <value id="0x02" name="Ignore Errors" abbrev="IGNORE_ERRORS">
+        <description>
+          Execute current plan while ignoring some errors that might be active.
+        </description>
+      </value>
+    </field>
   </message>
   
   <!-- Sensors -->
