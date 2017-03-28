@@ -178,6 +178,7 @@
     <unit abbrev="bit" name="Bit"/>
     <unit abbrev="bps" name="Bits per second"/>
     <unit abbrev="byte" name="Byte"/>
+	<unit abbrev="cm" name="Centimeter"/>
     <unit abbrev="cm/s" name="Centimeter per second"/>
     <unit abbrev="g" name="Gravity acceleration"/>
     <unit abbrev="dm" name="Decimeter"/>
