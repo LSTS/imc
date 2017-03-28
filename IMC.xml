@@ -2091,7 +2091,91 @@
       </description>
     </field>
   </message>
+  
+  <message id="215" name="Acoustic Report" abbrev="AcousticReport">
+  	<description>
+  	  Compressed system state to be transmitted over acoustic modem.
+  	</description>
+  	<field name="Latitude" abbrev="lat" unit="°" type="fp32_t"/>
+  	<field name="Longitude" abbrev="lon" unit="°" type="fp32_t"/>
+  	<field name="Depth" abbrev="depth" type="int16_t">
+  	  <description>
+  	    Depth value in meters, multiplied by 100. 0 means device is at surface and &lt; 0 means value unknown.  	    
+  	  </description>  	 
+  	</field>
+  	<field name="Altitude" abbrev="alt" type="int16_t">
+  	  <description>
+  	    Altitude value in meters, multiplied by 100. 0 means device is at ground and &lt; 0 means value unknown.  	
+  	  </description>
+  	</field>
+  	<field name="Heading" abbrev="yaw" unit="°" type="int16_t">
+  	  <description>
+  	    Heading value in degrees multiplied by 90. 0xFFFF means value is unknown.
+  	  </description>
+  	</field>
+  	<field name="Ground Velocity X (North)" abbrev="vx" type="int8_t">
+  	  <description>
+  	    Ground velocity in the north direction multiplied by 100. 0xFF means unknown / out-of-range.
+  	  </description>
+  	</field>
+  	<field name="Ground Velocity Y (East)" abbrev="vy" type="int8_t">
+  	  <description>
+  	    Ground velocity in the east direction multiplied by 100. 0xFF means unknown / out-of-range.
+  	  </description>
+  	</field>
+  	<field name="State" abbrev="state" type="uint8_t">
+  	  <description>
+  	    Current execution state.
+  	  </description>
+  	</field>
+  	<field name="Plan" abbrev="plan" type="uint16_t">
+  	  <description>
+  	    Checksum of current plan identifier.
+  	  </description>
+  	</field>
+  	<field name="Fuel" abbrev="fuel" type="int8_t">
+  	  <description>
+  	    Fuel level. &lt; 0 means unknown or not applicable.
+  	  </description>
+  	</field>
+  </message>
 
+  <message id="216" name="Acoustic Command" abbrev="AcousticCommand">
+  	<description>
+  	  Compressed system state to be transmitted over acoustic modem.
+  	</description>
+  	<field name="Command Type" abbrev="cmd" type="uint8_t" unit="Enumerated" prefix="ACMD">
+  	  <value abbrev="IDLE" name="Do nothing" id="0"/>
+  	  <value abbrev="GOTO" name="Go to waypoint" id="1"/>
+  	  <value abbrev="LOITER" name="Loiter around waypoint" id="2"/>
+  	  <value abbrev="SKEEP" name="Keep station at waypoint" id="3"/>
+  	  <value abbrev="ELEVATOR" name="Elevator at waypoint" id="4"/>
+  	</field>
+  	<field name="Latitude" abbrev="lat" unit="°" type="fp32_t"/>
+  	<field name="Longitude" abbrev="lon" unit="°" type="fp32_t"/>
+  	<field name="Minimum Z" abbrev="min_z" type="int16_t">
+  	  <description>
+  	    Minimum z value in meters, multiplied by 10. &gt; 0 means depth, 0 means at surface and &lt; 0 means altitude.  	    
+  	  </description>  	 
+  	</field>  	  	
+  	<field name="Maximum Z" abbrev="max_z" type="int16_t">
+  	  <description>
+  	    Maximum z value in meters, multiplied by 10. &gt; 0 means depth, 0 means at surface and &lt; 0 means altitude.  	    
+  	  </description>  	 
+  	</field>
+  	<field name="Radius" abbrev="radius" unit="m" type="uint8_t">
+  	  <description>
+  	    Radius, in meters to use. 
+  	  </description>  	 
+  	</field>  	  	  	
+  	<field name="Speed" abbrev="speed" type="uint8_t">
+  	  <description>
+  	    Speed to use in meters per second multiplied by 10. 0xFF means undefined.
+  	  </description>
+  	</field>
+  	<field name="Duration" abbrev="duration" unit="s" type="uint16_t"/>  	
+  </message>
+  
   <!-- Sensors -->
   <message id="250" name="Revolutions Per Minute" abbrev="Rpm" source="vehicle">
     <description>
