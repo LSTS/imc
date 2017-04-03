@@ -108,6 +108,12 @@
   <address id="0x2c42" name="ntnu-penguin-002"/>
   <address id="0x2c43" name="ntnu-penguin-003"/>
   <address id="0x2c44" name="ntnu-penguin-004"/>
+  <address id="0x2c51" name="ntnu-cruisermini-001" />
+  <address id="0x2c52" name="ntnu-cruisermini-002" />
+  <address id="0x2c53" name="ntnu-cruisermini-003" />
+  <address id="0x2c54" name="ntnu-cruisermini-004" />
+  <address id="0x2c55" name="ntnu-cruisermini-005" />
+  <address id="0x2c56" name="ntnu-cruisermini-006" />
   <!-- CCUs (special IDs) -->
   <address id="0x4101" name="ccu-lsts-1-1"/>
   <address id="0x410E" name="ccu-lsts-1-14"/>
