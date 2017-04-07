@@ -9935,4 +9935,20 @@
       </description>
     </field>
   </message>
+
+  <message id="907" name="SADC Readings" abbrev="SadcReadings" source="vehicle">
+    <description>
+      Readings from SADC board.
+    </description>
+    <field name="Channel" abbrev="channel" type="uint8_t" min="0" max="3">
+      <description>
+        Channel of SADC to read.
+      </description>
+    </field>
+    <field name="Value" abbrev="value" type="int32_t">
+      <description>
+        Value raw of sadc channel.
+      </description>
+    </field>
+  </message>
 </messages>
