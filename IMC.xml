@@ -9940,7 +9940,7 @@
     <description>
       Readings from SADC board.
     </description>
-    <field name="Channel" abbrev="channel" type="uint8_t" min="0" max="3">
+    <field name="Channel" abbrev="channel" type="int8_t" min="0" max="3">
       <description>
         Channel of SADC to read.
       </description>
