@@ -41,29 +41,31 @@
   <address id="0x0c00" name="pixhawk-testbed"/>
   <address id="0x0c01" name="lusitania"/>
   <address id="0x0c02" name="sedona"/>
-  <address id="0x0c03" name="x8-00"/>
-  <address id="0x0c04" name="x8-01"/>
-  <address id="0x0c05" name="x8-02"/>
-  <address id="0x0c06" name="x8-03"/>
-  <address id="0x0c07" name="x8-04"/>
-  <address id="0x0c08" name="aero-01"/>
-  <address id="0x0c09" name="mariner-01"/>
-  <address id="0x0c10" name="mariner-02"/>
-  <address id="0x0c11" name="x2o-01"/>
-  <address id="0x0c12" name="x2o-02"/>
-  <address id="0x0c1a" name="x8-05"/>
-  <address id="0x0c1b" name="x8-06"/>
-  <address id="0x0c1c" name="vtol-01"/>
-  <address id="0x0c13" name="hexa-00"/>
-  <address id="0x0c22" name="alfa-02"/>
-  <address id="0x0c23" name="alfa-03"/>
-  <address id="0x0c24" name="alfa-04"/>
-  <address id="0x0c25" name="alfa-05"/>
-  <address id="0x0c26" name="alfa-06"/>
-  <address id="0x0c27" name="alfa-07"/>
-  <address id="0x0c28" name="alfa-08"/>
-  <address id="0x0c29" name="alfa-09"/>
-  <address id="0x0c30" name="piccolo-testbed"/>
+  <address id="0x0c03" name="aero-01"/>
+  <address id="0x0c0a" name="x8-00"/>
+  <address id="0x0c0b" name="x8-01"/>
+  <address id="0x0c0c" name="x8-02"/>
+  <address id="0x0c0d" name="x8-03"/>
+  <address id="0x0c0e" name="x8-04"/>
+  <address id="0x0c0f" name="x8-05"/>
+  <address id="0x0c10" name="x8-06"/>
+  <address id="0x0c11" name="x8-07"/>
+  <address id="0x0c12" name="x8-08"/>
+  <address id="0x0c20" name="mariner-01"/>
+  <address id="0x0c21" name="mariner-02"/>
+  <address id="0x0c22" name="x2o-01"/>
+  <address id="0x0c23" name="x2o-02"/>
+  <address id="0x0c2a" name="vtol-01"/>
+  <address id="0x0c30" name="hexa-00"/>
+  <address id="0x0c32" name="alfa-02"/>
+  <address id="0x0c33" name="alfa-03"/>
+  <address id="0x0c34" name="alfa-04"/>
+  <address id="0x0c35" name="alfa-05"/>
+  <address id="0x0c36" name="alfa-06"/>
+  <address id="0x0c37" name="alfa-07"/>
+  <address id="0x0c38" name="alfa-08"/>
+  <address id="0x0c39" name="alfa-09"/>
+  <address id="0x0c40" name="piccolo-testbed"/>
   <address id="0x0c53" name="cularis-03"/>
   <address id="0x0c54" name="cularis-04"/>
   <address id="0x0c55" name="cularis-05"/>
