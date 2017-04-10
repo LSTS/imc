@@ -7405,6 +7405,7 @@
         WGS-84 Longitude of maneuver in the map. Ignored during execution.
       </description>
     </field>
+  </message>
 
   <!-- Vehicle Supervision -->
   <message id="500" name="Vehicle State" abbrev="VehicleState" source="vehicle">
