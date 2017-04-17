@@ -7380,9 +7380,14 @@
       This maneuver does docking between a LAUV and an ASV.
     </description>
 
-    <field name="Source To Follow" abbrev="target" type="plaintext">
+    <field name="Docking Target" abbrev="target" type="plaintext">
       <description>
-        LAUV identifier.
+        Target name.
+      </description>
+    </field>
+    <field name="Docking Station" abbrev="station" type="plaintext">
+      <description>
+        Docking station name.
       </description>
     </field>
      <field name="Speed" abbrev="speed" type="fp32_t">
