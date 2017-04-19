@@ -9950,5 +9950,13 @@
         Value raw of sadc channel.
       </description>
     </field>
+    <field name="Gain" abbrev="gain" type="uint8_t" unit="Enumerated" prefix="GAIN">
+      <description>
+        Gain value of readings.
+      </description>
+      <value id="0" name="x1" abbrev="X1"/>
+      <value id="1" name="x10" abbrev="X10"/>
+      <value id="2" name="x100" abbrev="X100"/>
+    </field>
   </message>
 </messages>
