@@ -7385,7 +7385,7 @@
         Target name.
       </description>
     </field>
-  <field name="Maximum Speed" abbrev="max_speed" type="fp32_t" unit="m/s" min="0">
+    <field name="Maximum Speed" abbrev="max_speed" type="fp32_t" unit="m/s" min="0">
       <description>
         Maximum speed of the vehicle
       </description>
@@ -7405,7 +7405,7 @@
         WGS-84 Longitude of maneuver in the map. 
       </description>
     </field>
-    <field name="Vehicle Function" abbrev="vehiclefunction" type="uint8_t" unit="Enumerated" max="4">
+    <field name="Vehicle Function" abbrev="vehiclefunction" type="uint8_t" unit="Enumerated" max="4" prefix="DOCK">
       <description>
         Vehicle function.
       </description>
@@ -9019,13 +9019,13 @@
           Abort docking.
         </description>
       </value>
+    </field>
     <field name="Vehicle Function" abbrev="vehiclefunction" type="uint8_t" unit="Enumerated" prefix="DS">
       <description>
         Vehicle function.
       </description>
       <value id="0" name="Station" abbrev="STATION"/>
       <value id="1" name="Target" abbrev="TARGET"/>
-    </field>
     </field>
   </message>
 
