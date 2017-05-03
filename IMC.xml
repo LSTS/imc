@@ -9002,21 +9002,43 @@
       <description>
         Describes the docking state
       </description>
-      <value id="0" name="Default" abbrev="DEFAULT"/>
-      <value id="1" name="Docked -- Sucess" abbrev="SUCCESS"/>
-      <value id="2" name="Docked -- Failure" abbrev="FAILURE"/>
+
+      <value id="0" name="Default" abbrev="DEFAULT">
+       <description>
+        Default.
+       </description>
+       </value>
+      <value id="1" name="Docked -- Sucess" abbrev="SUCCESS">
+       <description>
+        Docked with sucess.
+       </description>
+       </value>
+      <value id="2" name="Docked -- Failure" abbrev="FAILURE">
+       <description>
+        Failed docking.
+       </description>
+       </value>
     </field>
     <field name="Availability" abbrev="availability" type="uint8_t" unit="Enumerated" prefix="DS_A">
       <description>
         Docking availability
       </description>
-      <value id="0" name="Default" abbrev="DEFAULT"/>
+      <value id="0" name="Default" abbrev="DEFAULT">
+       <description>
+        Default.
+       </description>
+       </value>
       <value id="1" abbrev="READY" name="Ready to dock">
         <description>
         Vehicle ready to dock.
         </description>
       </value>
-      <value id="2" abbrev="ABORT" name="Abort docking">
+      <value id="2" abbrev="PERFOMING" name="Perfoming Docking">
+        <description>
+        Perfoming Docking.
+        </description>
+      </value>
+      <value id="3" abbrev="ABORT" name="Abort docking">
         <description>
           Abort docking.
         </description>
@@ -9026,9 +9048,21 @@
       <description>
         Vehicle function.
       </description>
-      <value id="0" name="Default" abbrev="DEFAULT"/>
-      <value id="1" name="Station" abbrev="STATION"/>
-      <value id="2" name="Target" abbrev="TARGET"/>
+      <value id="0" name="Default" abbrev="DEFAULT">
+       <description>
+        Default.
+       </description>
+       </value>
+      <value id="1" name="Station" abbrev="STATION">
+       <description>
+        Msg sender vehicle is the station.
+       </description>
+       </value>
+      <value id="2" name="Target" abbrev="TARGET">
+       <description>
+        Msg sender vehicle is the target.
+       </description>
+       </value>
     </field>
   </message>
 
