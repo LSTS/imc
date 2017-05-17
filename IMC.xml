@@ -9935,4 +9935,28 @@
       </description>
     </field>
   </message>
+
+  <message id="907" name="SADC Readings" abbrev="SadcReadings" source="vehicle">
+    <description>
+      Readings from SADC board.
+    </description>
+    <field name="Channel" abbrev="channel" type="int8_t" min="1" max="4">
+      <description>
+        Channel of SADC to read.
+      </description>
+    </field>
+    <field name="Value" abbrev="value" type="int32_t">
+      <description>
+        Value raw of sadc channel.
+      </description>
+    </field>
+    <field name="Gain" abbrev="gain" type="uint8_t" unit="Enumerated" prefix="GAIN">
+      <description>
+        Gain value of readings.
+      </description>
+      <value id="0" name="x1" abbrev="X1"/>
+      <value id="1" name="x10" abbrev="X10"/>
+      <value id="2" name="x100" abbrev="X100"/>
+    </field>
+  </message>
 </messages>
