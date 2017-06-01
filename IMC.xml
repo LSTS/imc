@@ -9959,4 +9959,42 @@
       <value id="2" name="x100" abbrev="X100"/>
     </field>
   </message>
+  
+  <message abbrev="TemporalPlan" name="Temporal Plan" id="910" source="ccu">
+  	<description>
+	  This message will hold a set of plans that need to be executed at specified times.
+  	</description>
+  	
+  	<field name="Actions" abbrev="actions" type="message-list" message-type="TemporalAction">
+  	</field>
+  </message>
+  
+  <message abbrev="TemporalAction" name="Temporal Action" id="911">
+  	<description>
+	  This message will hold an action that needs to be executed at specified time interval.
+  	</description>
+  	<field name="Start Time" abbrev="start_time" type="fp64_t"/>
+  	<field name="Duration" abbrev="duration" type="fp64_t"/>
+  	<field name="Action" abbrev="action" type="message" message-type="PlanSpecification"/>
+  	<field name="System Identifier" abbrev="system_id" type="uint16_t"/>
+	<field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="ASTAT">
+	  <value abbrev="IGNORED" name="Ignored" id="1"/>
+	  <value abbrev="SCHEDULED" name="Scheduled" id="2"/>
+	  <value abbrev="FAILED" name="Failed" id="3"/>
+	  <value abbrev="CANCELLED" name="Cancelled" id="4"/>
+	  <value abbrev="FINISHED" name="Finished" id="5"/>	  
+	</field>
+  </message>
+  
+  <message abbrev="TemporalPlanStatus" name="Temporal Plan Status" id="912" source="vehicle">
+  	<description>
+	  Status of a temporal plan execution.
+  	</description>
+  	<field name="Actions" abbrev="actions" type="message-list" message-type="TemporalAction">
+      <description>
+        List of action states (without inline specifications).
+      </description>
+  	</field>
+  </message>
+  
 </messages>
