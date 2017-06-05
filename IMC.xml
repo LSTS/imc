@@ -9977,8 +9977,11 @@
   	<description>
 	  This message will hold an action that needs to be executed at specified time interval.
   	</description>
+  	<field name="Action Identifier" abbrev="action_id" type="plaintext">
+  	  <description>Unique actio identifier.</description>
+  	</field>
   	<field name="System Identifier" abbrev="system_id" type="uint16_t">
-  	  <description>The system to which this action is addressed.</description>
+  	  <description>The system to which this action is addressed (IMC ID).</description>
   	</field>
   	<field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="ASTAT">
   	  <description>The status of execution for the task.</description>
