@@ -9964,35 +9964,53 @@
   	<description>
 	  This message will hold a set of plans that need to be executed at specified times.
   	</description>
-  	
-  	<field name="Actions" abbrev="actions" type="message-list" message-type="TemporalAction">
+  	<field name="Plan Identifier" abbrev="plan_id" type="plaintext">
+  	  <description>The unique identifier for this plan.</description>
   	</field>
+  	<field name="Actions" abbrev="actions" type="message-list" message-type="TemporalAction">
+  	  <description>Temporal actions contained in the plan.</description>
+  	</field>
+  	
   </message>
   
   <message abbrev="TemporalAction" name="Temporal Action" id="911">
   	<description>
 	  This message will hold an action that needs to be executed at specified time interval.
   	</description>
-  	<field name="Start Time" abbrev="start_time" type="fp64_t"/>
-  	<field name="Duration" abbrev="duration" type="fp64_t"/>
-  	<field name="Action" abbrev="action" type="message" message-type="PlanSpecification"/>
-  	<field name="System Identifier" abbrev="system_id" type="uint16_t"/>
-	<field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="ASTAT">
+  	<field name="System Identifier" abbrev="system_id" type="uint16_t">
+  	  <description>The system to which this action is addressed.</description>
+  	</field>
+  	<field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="ASTAT">
+  	  <description>The status of execution for the task.</description>
+	  <value abbrev="UKNOWN" name="Unknown" id="0"/>
 	  <value abbrev="IGNORED" name="Ignored" id="1"/>
 	  <value abbrev="SCHEDULED" name="Scheduled" id="2"/>
 	  <value abbrev="FAILED" name="Failed" id="3"/>
 	  <value abbrev="CANCELLED" name="Cancelled" id="4"/>
 	  <value abbrev="FINISHED" name="Finished" id="5"/>	  
 	</field>
+  	<field name="Start Time" abbrev="start_time" type="fp64_t">
+  	  <description>Time, in seconds since Jan 1st 1970, when this task should start.</description>
+  	</field>
+  	<field name="Duration" abbrev="duration" type="fp64_t">
+  	  <description>Time, in seconds, for how long this task is estimated to run.</description>
+  	</field>
+  	<field name="Action" abbrev="action" type="message" message-type="PlanSpecification">
+  	  <description>The action to be executed, represented as an IMC plan specification</description>
+  	</field>
+	
   </message>
   
   <message abbrev="TemporalPlanStatus" name="Temporal Plan Status" id="912" source="vehicle">
   	<description>
 	  Status of a temporal plan execution.
   	</description>
+  	<field name="Plan Identifier" abbrev="plan_id" type="plaintext">
+  	  <description>The unique identifier for this plan.</description>
+  	</field>
   	<field name="Actions" abbrev="actions" type="message-list" message-type="TemporalAction">
       <description>
-        List of action states (without inline specifications).
+        List of action states (without its inline plan specifications).
       </description>
   	</field>
   </message>
