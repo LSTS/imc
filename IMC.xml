@@ -10029,9 +10029,18 @@
   </message>
   
   <message abbrev="VehicleDepot" name="Vehicle Depot" id="913">
-  	<field name="vehicle" abbrev="vehicle" type="uint16_t"/>
-  	<field name="Latitude" abbrev="lat" type="fp64_t" unit="rad"/>
-  	<field name="Longitude" abbrev="lon" type="fp64_t" unit="rad"/>
+  	<field name="vehicle" abbrev="vehicle" type="uint16_t">
+		<description>IMC Id of the vehicle that this depot belongs to.</description>
+  	</field>
+  	<field name="Latitude" abbrev="lat" type="fp64_t" unit="rad">
+  	  	<description>Latitude of the depot location.</description>
+  	</field>
+  	<field name="Longitude" abbrev="lon" type="fp64_t" unit="rad">
+  	  	<description>Longitude of the depot location.</description>
+  	</field>
+  	<field name="Deadline" abbrev="deadline" type="fp64_t" unit="s">
+  		<description>Time in seconds, when the vehicle must have returned to the depot.</description>
+  	</field>
   </message>  
   
 </messages>
