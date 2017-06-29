@@ -9970,7 +9970,9 @@
   	<field name="Actions" abbrev="actions" type="message-list" message-type="TemporalAction">
   	  <description>Temporal actions contained in the plan.</description>
   	</field>
-  	
+  	<field name="Depots" abbrev="depots" type="message-list" message-type="VehicleDepot">
+  	  <description>The unique identifier for this plan.</description>
+  	</field>
   </message>
   
   <message abbrev="TemporalAction" name="Temporal Action" id="911">
@@ -10001,7 +10003,15 @@
   	<field name="Action" abbrev="action" type="message" message-type="PlanSpecification">
   	  <description>The action to be executed, represented as an IMC plan specification</description>
   	</field>
-	
+  	<field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="ATYPE">
+  	  <description>The type of action</description>
+  	  <value abbrev="MOVE" name="Move" id="1"/>
+  	  <value abbrev="SURFACE" name="Surface" id="2"/>
+  	  <value abbrev="COMMUNICATE" name="Communicate" id="3"/>
+  	  <value abbrev="SAMPLE" name="Sample" id="4"/>
+  	  <value abbrev="SURVEY" name="Survey" id="5"/>
+  	  <value abbrev="LOCATE" name="Locate" id="6"/>
+  	</field>
   </message>
   
   <message abbrev="TemporalPlanStatus" name="Temporal Plan Status" id="912" source="vehicle">
@@ -10017,5 +10027,11 @@
       </description>
   	</field>
   </message>
+  
+  <message abbrev="VehicleDepot" name="Vehicle Depot" id="913">
+  	<field name="vehicle" abbrev="vehicle" type="uint16_t"/>
+  	<field name="Latitude" abbrev="lat" type="fp64_t" unit="rad"/>
+  	<field name="Longitude" abbrev="lon" type="fp64_t" unit="rad"/>
+  </message>  
   
 </messages>
