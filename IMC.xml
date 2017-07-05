@@ -343,6 +343,7 @@
       <message-type abbrev="Land"/>
       <message-type abbrev="AutonomousSection"/>
       <message-type abbrev="FollowPoint"/>
+      <message-type abbrev="Handover"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
