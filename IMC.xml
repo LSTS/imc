@@ -7377,8 +7377,8 @@
 
   <message id="495" name="Handover Maneuver" abbrev="Handover" source="ccu">
     <description>
-      The Handover maneuver makes the vehicle circle around a specific
-      waypoint with fixed .
+      The Handover maneuver allows the vehicle to go to a "remote" location, where the control of the vehicle is handed
+      over to another basestation and/or safety pilot.
     </description>
     <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
       <description>
