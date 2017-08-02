@@ -2701,6 +2701,17 @@
     </field>
   </message>
 
+  <message id="275" name="Force" abbrev="Force" source="vehicle">
+    <description>
+      Force measurement.
+    </description>
+    <field name="Measured Force" abbrev="value" type="fp32_t" unit="N">
+      <description>
+        Force magnitude.
+      </description>
+    </field>
+  </message>
+
   <message id="276" name="Sonar Data" abbrev="SonarData" source="vehicle" flags="periodic">
     <description>
       This message contains the data acquired by a single sonar
