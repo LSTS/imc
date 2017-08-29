@@ -179,6 +179,8 @@
     <unit abbrev="bps" name="Bits per second"/>
     <unit abbrev="byte" name="Byte"/>
     <unit abbrev="g" name="Gravity acceleration"/>
+    <unit abbrev="cm" name="Centimeter"/>
+    <unit abbrev="cm/s" name="Centimeter per second"/>    
     <unit abbrev="dm" name="Decimeter"/>
     <unit abbrev="dB" name="Decibel"/>
     <unit abbrev="dB/m" name="Decibel per meter"/>
@@ -190,7 +192,7 @@
     <unit abbrev="Hz" name="Hertz"/>
     <unit abbrev="kg/m/m/m" name="Kilogram per cubic metre"/>
     <unit abbrev="MiB" name="Mebibyte"/>
-    <unit abbrev="m" name="Meter"/>
+    <unit abbrev="m" name="Meter"/>    
     <unit abbrev="m/s" name="Meter per second"/>
     <unit abbrev="m/s/s" name="Meter per square second"/>
     <unit abbrev="ms" name="Millisecond"/>
@@ -210,7 +212,7 @@
     <unit abbrev="rad" name="Radian"/>
     <unit abbrev="rad/s" name="Radian per second"/>
     <unit abbrev="rpm" name="Revolutions per minute"/>
-    <unit abbrev="rpm/s" name="Revolutions per minute per second"/>
+    <unit abbrev="rpm/s" name="Revolutions per minute per second"/>    
     <unit abbrev="s" name="Second"/>
     <unit abbrev="V" name="Volt"/>
     <unit abbrev="Enumerated" name="Enumeration of integer values"/>
@@ -7911,6 +7913,60 @@
         interpreted differently depending on communication interface.
       </description>
     </field>
+  </message>
+  
+  <message id="514" name="State Report" abbrev="StateReport">
+  	<description>
+  	  Concise representation of entire system state.
+  	</description>
+  	<field name="Time Stamp" abbrev="stime" type="uint32_t" unit="s">
+  	  <description>Time, in seconds, since January 1st 1970.</description>
+  	</field>
+	<field name="Latitude" abbrev="latitude" type="fp32_t" unit="°">
+	  <description>Latitude of the system, in degrees.</description>
+	</field>
+	<field name="Longitude" abbrev="longitude" type="fp32_t" unit="°">
+	  <description>Longitude of the system, in degrees.</description>
+	</field>
+	<field name="Altitude" abbrev="altitude" type="uint16_t" unit="dm">
+	  <description>Altitude of the system, in decimeters. 
+      * *0xFFFF* used for unknown / not applicable value.
+	  </description>
+	  <value abbrev="ALT_UNKNOWN" name="Unknown Altitude" id="0xFFFF"/>
+	</field>
+	<field name="Depth" abbrev="depth" type="uint16_t" unit="dm">
+	  <description>Depth of the system, in decimeters. 
+      * *0xFFFF* used for unknown / not applicable value.
+	  </description>
+	  <value abbrev="DEP_UNKNOWN" name="Unknown Depth" id="0xFFFF"/>
+	</field>
+	<field name="Heading" abbrev="heading" type="uint16_t">
+	  <description>Calculated as `(rads * (0xFFFF / (2 * PI))`</description>
+	</field>
+	<field name="Speed" abbrev="speed" type="int16_t" unit="cm/s">
+	  <description>Speed of the system in centimeters per second.</description>
+	</field>
+	<field name="Fuel" abbrev="fuel" type="int8_t" unit="%">
+	  <description>System fuel gauge. 
+      * *-1* means unknown fuel level.
+	  </description>
+	  <value abbrev="FUEL_UNKNOWN" name="Unknown Fuel Level" id="-1"/>
+	</field>
+	<field name="Execution State" abbrev="exec_state" type="int8_t" unit="%">
+	  <description>Progress of execution or idle state.
+      * *-1* means Service mode
+      * *-2* means Boot mode
+      * *-3* means Calibration mode
+      * *-4* means Error mode
+	  </description>
+	  <value abbrev="STATE_SERVICE" name="Service Mode" id="-1"/>
+	  <value abbrev="STATE_BOOT" name="Boot Mode" id="-2"/>
+      <value abbrev="STATE_CALIBRATION" name="Calibration Mode" id="-3"/>
+	  <value abbrev="STATE_ERROR" name="Error Mode" id="-4"/>	  
+	</field>
+	<field name="Plan Checksum" abbrev="plan_checksum" type="uint16_t">
+	  <description>Checksum of the plan being executed.</description>	  	 
+	</field>
   </message>
 
   <!-- Plan Supervision -->
