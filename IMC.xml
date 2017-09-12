@@ -2790,6 +2790,21 @@
 
          write(byte);
 
+      **XYZAQ:**
+
+      This type represents multibeam data in the form of XYZ-points (meters), with an amplitude/backscatter field (A) and a quality field (Q). This is similar to the BeamXYZA structure in the extended triton format (XTF). The number of points can be calculated by dividing the size of the data field by sizeof(uintX_t)*4 + sizeof(uint8_t). If a C/C++ struct is used to represent the structure, ensure that no padding is present (#pragma pack(0)).
+      
+      +------+-------------------+----------------------+
+      | Data | Name              | Type                 |
+      +======+===================+======================+
+      | A    | XYZAQ data        | uintX_t[4] + uint8_t |
+      +------+-------------------+----------------------+
+
+      .. figure:: ../images/imc_sidescan.png
+
+      * The type *uintX_t* will depend on the number of bits per unit, and it should be a multiple of 8.
+      * Furthermore, for now, 32 bits is the highest value of bits per unit supported.
+
       **Common:**
       
     </description>
@@ -2800,6 +2815,7 @@
       <value id="0" name="Sidescan" abbrev="SIDESCAN"/>
       <value id="1" name="Echo Sounder" abbrev="ECHOSOUNDER"/>
       <value id="2" name="Multibeam" abbrev="MULTIBEAM"/>
+      <value id="3" name="XYZAQ" abbrev="XYZAQ"/>
     </field>
     <field name="Frequency" abbrev="frequency" type="uint32_t" unit="Hz">
       <description>
