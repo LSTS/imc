@@ -7968,6 +7968,75 @@
 	  <description>Checksum of the plan being executed.</description>	  	 
 	</field>
   </message>
+  
+  <message id="515" name="Transmission Request" abbrev="TransmissionRequest">
+    <description>
+      Request data to be sent over one or more communication means.
+    </description>
+    <field name="Request Identifier" abbrev="req_id" type="uint16_t">
+      <description>
+        The unique identifier for this request.
+      </description>
+    </field>
+    <field name="Communication Means" abbrev="comm_means" type="uint8_t" unit="Bitfield" prefix="CMEAN">
+      <description>
+		Combination of 1 or more communication means to be used to transfer these data.
+      </description>
+      <value id="0x01" abbrev="WIFI" name="WiFi"/>
+      <value id="0x02" abbrev="ACOUSTIC" name="Acoustic"/>
+      <value id="0x04" abbrev="SATELLITE" name="Satellite"/>
+      <value id="0x08" abbrev="GSM" name="GSM"/>
+    </field>
+    <field name="Destination System" abbrev="destination" type="plaintext">
+	  <description>
+        The name of the system where to send this message.
+      </description>
+    </field>
+    <field name="Deadline" abbrev="deadline" type="fp64_t">
+      <description>
+        Deadline for message transmission (seconds since epoch).
+      </description>
+    </field>
+    <field name="Data Mode" abbrev="data_mode" type="uint8_t" unit="Enumerated" prefix="DMODE">
+      <description>
+    	Type of data to be transmitted.
+      </description>
+      <value id="0" abbrev="INLINEMSG" name="Inline Message"/>
+      <value id="1" abbrev="TEXT" name="Text"/>
+      <value id="2" abbrev="RAW" name="Raw Data"/>
+    </field>
+    <field name="Message Data" abbrev="msg_data" type="message">
+      <description>
+      	Data to be transmitted if selected *data_mode* is *INLINEMSG*.
+      </description>
+    </field>
+    <field name="Text Data" abbrev="txt_data" type="plaintext">
+      <description>
+      	Data to be transmitted if selected *data_mode* is *TEXT*.
+      </description>    
+    </field>
+    <field name="Raw Data" abbrev="raw_data" type="rawdata">
+      <description>
+      	Data to be transmitted if selected *data_mode* is *RAW*.
+      </description>    
+    </field>
+  </message>
+  
+  <message id="516" name="Transmission Status" abbrev="TransmissionStatus">
+    <description>
+      Reply sent in response to a communications request.
+    </description>
+    <field name="Request Identifier" abbrev="req_id" type="uint16_t"/>
+    <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="TSTAT">
+      <value id="0" abbrev="IN_PROGRESS" name="In progress"/>
+      <value id="1" abbrev="SENT" name="Sent"/>
+      <value id="51" abbrev="DELIVERED" name="Delivered"/>
+      <value id="52" abbrev="MAYBE_DELIVERED" name="Delivery is unknown"/>
+      <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
+      <value id="102" abbrev="TEMPORARY_FAILURE" name="Temporary Error"/>
+      <value id="103" abbrev="PERMANENT_FAILURE" name="Permanent Failure"/>      
+    </field>
+  </message>
 
   <!-- Plan Supervision -->
   <message id="550" name="Abort" abbrev="Abort" source="ccu">
