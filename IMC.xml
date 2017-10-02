@@ -7971,21 +7971,21 @@
   
   <message id="515" name="Transmission Request" abbrev="TransmissionRequest">
     <description>
-      Request data to be sent over one or more communication means.
+      Request data to be sent over a specified communication mean.
     </description>
     <field name="Request Identifier" abbrev="req_id" type="uint16_t">
       <description>
         The unique identifier for this request.
       </description>
     </field>
-    <field name="Communication Means" abbrev="comm_means" type="uint8_t" unit="Bitfield" prefix="CMEAN">
+    <field name="Communication Mean" abbrev="comm_mean" type="uint8_t" unit="Enumerated" prefix="CMEAN">
       <description>
-		Combination of 1 or more communication means to be used to transfer these data.
+		Communication mean to be used to transfer these data.
       </description>
-      <value id="0x01" abbrev="WIFI" name="WiFi"/>
-      <value id="0x02" abbrev="ACOUSTIC" name="Acoustic"/>
-      <value id="0x04" abbrev="SATELLITE" name="Satellite"/>
-      <value id="0x08" abbrev="GSM" name="GSM"/>
+      <value id="0" abbrev="WIFI" name="WiFi"/>
+      <value id="1" abbrev="ACOUSTIC" name="Acoustic"/>
+      <value id="2" abbrev="SATELLITE" name="Satellite"/>
+      <value id="3" abbrev="GSM" name="GSM"/>
     </field>
     <field name="Destination System" abbrev="destination" type="plaintext">
 	  <description>
@@ -8036,6 +8036,7 @@
       <value id="102" abbrev="TEMPORARY_FAILURE" name="Temporary Error"/>
       <value id="103" abbrev="PERMANENT_FAILURE" name="Permanent Failure"/>      
     </field>
+    <field name="Information" abbrev="info" type="plaintext"/>
   </message>
 
   <!-- Plan Supervision -->
