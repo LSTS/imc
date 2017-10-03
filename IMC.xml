@@ -9521,7 +9521,19 @@
       </description>
     </field>
   </message>
+  
+  <message abbrev="SoiWaypoint" name="SOI Waypoint" id="850">
+  	<field name="Latitude" abbrev="lat" type="fp32_t" unit="°"/>
+  	<field name="Longitude" abbrev="lon" type="fp32_t" unit="°"/>
+  	<field name="Time Of Arrival" abbrev="eta" type="uint32_t"/>
+  	<field name="Duration" abbrev="duration" type="uint16_t" unit="s"/>  
+  </message>
 
+  <message abbrev="SoiPlan" name="SOI Plan" id="851">
+  	<field name="Plan Identifier" abbrev="plan_id" type="uint16_t"/>
+  	<field name="Waypoints" abbrev="waypoints" type="message-list" message-type="SoiWaypoint"/>
+  </message>
+  
   <message id="877" abbrev="MessagePart" name="Message Fragment">
     <field name="Transmission Unique Id" abbrev="uid" type="uint8_t"/>
     <field name="Fragment Number" abbrev="frag_number" type="uint8_t"/>
