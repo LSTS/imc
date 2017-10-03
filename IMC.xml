@@ -9534,6 +9534,35 @@
   	<field name="Waypoints" abbrev="waypoints" type="message-list" message-type="SoiWaypoint"/>
   </message>
   
+  <message abbrev="SoiCommand" name="SOI Command" id="852">
+  	<field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="SOITYPE">
+  	  <value abbrev="REQUEST" name="Request" id="1"/>
+  	  <value abbrev="SUCCESS" name="Success" id="2"/>
+  	  <value abbrev="ERROR" name="Error" id="3"/>
+  	</field>
+  	<field name="Command" abbrev="command" type="uint8_t" unit="Enumerated" prefix="SOICMD">
+  	  <value abbrev="EXEC" name="Execute Plan" id="1"/>
+  	  <value abbrev="STOP" name="Stop Execution" id="2"/>
+  	  <value abbrev="SET_PARAMS" name="Set Parameters" id="3"/>
+  	  <value abbrev="GET_PARAMS" name="Get Parameters" id="4"/>
+  	  <value abbrev="GET_PLAN" name="Get Plan" id="5"/>
+  	</field>
+  	<field name="Settings" abbrev="settings" type="plaintext" unit="TupleList"/>
+  	<field name="Plan" abbrev="plan" type="message" message-type="SoiPlan"/>
+  	<field name="Extra Information" abbrev="info" type="plaintext"/>  	
+  </message>
+  
+  <message abbrev="SoiState" name="SOI State" id="853">
+    <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="SOISTATE">
+     <value abbrev="EXEC" name="Executing" id="1"/>
+     <value abbrev="IDLE" name="Idle" id="2"/>
+     <value abbrev="INACTIVE" name="Inactive" id="3"/>     
+    </field>
+    <field name="Plan Identifier" abbrev="plan_id" type="uint16_t"/>
+    <field name="Waypoint Identifier" abbrev="wpt_id" type="uint8_t"/>
+    <field name="Settings Checksum" abbrev="settings_chk" type="uint16_t"/>
+  </message>
+  
   <message id="877" abbrev="MessagePart" name="Message Fragment">
     <field name="Transmission Unique Id" abbrev="uid" type="uint8_t"/>
     <field name="Fragment Number" abbrev="frag_number" type="uint8_t"/>
