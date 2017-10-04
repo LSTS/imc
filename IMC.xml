@@ -8053,7 +8053,7 @@
     <field name="Timeout" abbrev="timeout" type="fp64_t" unit="s">
     <description> Period of time to send message (in seconds). </description> 
     </field>
-    <field name="SMS Text" abbrev="SmsText" type="plaintext">
+    <field name="SMS Text" abbrev="sms_text" type="plaintext">
     </field>
   </message>
   
@@ -8062,7 +8062,7 @@
       Reply sent in response to a SMS sending request.
     </description>
     <field name="Request Identifier" abbrev="req_id" type="uint16_t"/>
-    <field name="Modem Request Identifier" abbrev="modemReq_id" type="uint16_t">
+    <field name="Modem Request Identifier" abbrev="modem_req_id" type="uint16_t">
     <description>Modem reference number allocated to the SMS text message.</description>
     </field>
     <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="SMSSTAT">
