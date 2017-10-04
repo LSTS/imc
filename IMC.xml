@@ -9546,6 +9546,7 @@
   	  <value abbrev="SET_PARAMS" name="Set Parameters" id="3"/>
   	  <value abbrev="GET_PARAMS" name="Get Parameters" id="4"/>
   	  <value abbrev="GET_PLAN" name="Get Plan" id="5"/>
+  	  <value abbrev="RESUME" name="Resume Execution" id="6"/>  	  
   	</field>
   	<field name="Settings" abbrev="settings" type="plaintext" unit="TupleList"/>
   	<field name="Plan" abbrev="plan" type="message" message-type="SoiPlan"/>
