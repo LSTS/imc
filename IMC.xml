@@ -8038,6 +8038,44 @@
     </field>
     <field name="Information" abbrev="info" type="plaintext"/>
   </message>
+  
+    <message id="517" name="SMS Transmission Request" abbrev="SmsRequest">
+    <description>
+      Request SMS Text sending.
+    </description>
+    <field name="Request Identifier" abbrev="req_id" type="uint16_t">
+    </field>
+    <field name="Destination" abbrev="destination" type="plaintext">
+      <description>
+        Recipient identifier (number or name).
+      </description>
+    </field>
+    <field name="Timeout" abbrev="timeout" type="fp64_t" unit="s">
+    <description> Period of time to send message (in seconds). </description> 
+    </field>
+    <field name="SMS Text" abbrev="SmsText" type="plaintext">
+    </field>
+  </message>
+  
+    <message id="518" name="SMS Transmission Status" abbrev="SmsStatus">
+    <description>
+      Reply sent in response to a SMS sending request.
+    </description>
+    <field name="Request Identifier" abbrev="req_id" type="uint16_t"/>
+    <field name="Modem Request Identifier" abbrev="modemReq_id" type="uint16_t">
+    <description>Modem reference number allocated to the SMS text message.</description>
+    </field>
+    <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="SMSSTAT">
+      <value id="0" abbrev="IN_PROGRESS" name="In progress"/>
+      <value id="1" abbrev="SENT" name="Sent"/>
+      <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
+      <value id="102" abbrev="TEMPORARY_FAILURE" name="Temporary Error"/>
+      <value id="103" abbrev="PERMANENT_FAILURE" name="Permanent Failure"/>      
+    </field>
+    <field name="Information" abbrev="info" type="plaintext">
+    <description> Error description.</description>
+    </field>
+  </message>
 
   <!-- Plan Supervision -->
   <message id="550" name="Abort" abbrev="Abort" source="ccu">
