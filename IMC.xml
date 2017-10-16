@@ -8062,11 +8062,8 @@
       Reply sent in response to a SMS sending request.
     </description>
     <field name="Request Identifier" abbrev="req_id" type="uint16_t"/>
-    <field name="Modem Request Identifier" abbrev="modem_req_id" type="uint16_t">
-    <description>Modem reference number allocated to the SMS text message.</description>
-    </field>
     <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="SMSSTAT">
-      <value id="0" abbrev="IN_PROGRESS" name="In progress"/>
+      <value id="0" abbrev="QUEUED" name="Queued"/>
       <value id="1" abbrev="SENT" name="Sent"/>
       <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
       <value id="102" abbrev="TEMPORARY_FAILURE" name="Temporary Error"/>
