@@ -5584,6 +5584,29 @@
     <field name="Speed Units" abbrev="speed_units" type="uint8_t" unit="Enumerated" enum-def="SpeedUnits">
       <description>Indicates the units used for the speed value.</description>
     </field>
+    <field name="PopUp Period" abbrev="popup_period" type="uint16_t" unit="s">
+      <description>
+        The period at which the vehicle will popup to report its position.
+        Only used if flag KEEP_SAFE is on.
+      </description>
+    </field>
+    <field name="PopUp Duration" abbrev="popup_duration" type="uint16_t" unit="s">
+      <description>
+        The duration of the station keeping at surface level when it pops up.
+        Only used if flag KEEP_SAFE is on.
+      </description>
+    </field>
+    <field name="Flags" abbrev="flags" prefix="FLG" type="uint8_t" unit="Bitfield">
+      <description>
+        Flags of the maneuver.
+      </description>
+      <value id="0x01" abbrev="KEEP_SAFE" name="Keep safe behaviour">
+        <description>
+          If this flag is set, the vehicle will hold position underwater, loitering at z reference.
+          It will popup periodically to report position. When it pops up, it will stay at surface in "normal" station keeping behaviour for a certain time (popup_duration).
+        </description>
+      </value>
+    </field>    
     <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
       <description>
         Custom settings for maneuver.
