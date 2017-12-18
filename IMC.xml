@@ -8089,8 +8089,7 @@
       <value id="0" abbrev="QUEUED" name="Queued"/>
       <value id="1" abbrev="SENT" name="Sent"/>
       <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
-      <value id="102" abbrev="TEMPORARY_FAILURE" name="Temporary Error"/>
-      <value id="103" abbrev="PERMANENT_FAILURE" name="Permanent Failure"/>      
+      <value id="102" abbrev="ERROR" name="Error trying to send sms"/>    
     </field>
     <field name="Information" abbrev="info" type="plaintext">
     <description> Error description.</description>
