@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+ Copyright (C) 2007-2016 Laboratório de Sistemas e Tecnologia Subaquática   +
++ Copyright (C) 2007-2018 Laboratório de Sistemas e Tecnologia Subaquática   +
 + Departamento de Engenharia Electrotécnica e de Computadores                +
 + Rua Dr. Roberto Frias, 4200-465 Porto, Portugal                            +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -87,6 +87,9 @@
   <address id="0x0cf5" name="form-leader-05"/>
   <address id="0x0cf6" name="form-leader-06"/>
   <!-- AUVs (Others) -->
+  <address id="0x2000" name="turbot"/>
+  <address id="0x2001" name="sparus2"/>
+  <address id="0x2002" name="eqe"/>
   <address id="0x2300" name="lrauv-sim"/>
   <!-- UAVs (Others) -->
   <address id="0x2c00" name="ntnu-hexa-testbed"/>
