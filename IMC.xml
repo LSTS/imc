@@ -4258,6 +4258,8 @@
       <value id="0" name="Not Aligned" abbrev="NOT_ALIGNED"/>
       <value id="1" name="Aligned" abbrev="ALIGNED"/>
       <value id="2" name="Not Supported" abbrev="NOT_SUPPORTED"/>
+      <value id="3" name="Aligning" abbrev="ALIGNING"/>
+      <value id="4" name="Wrong Medium" abbrev="WRONG_MEDIUM"/>
     </field>
   </message>
 
