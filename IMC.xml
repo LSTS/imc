@@ -4898,6 +4898,11 @@
           Start braking procedures.
         </description>
       </value>
+      <value id="2" abbrev="REVERT" name="Revert Actuation">
+        <description>
+          Revert Actuation.
+        </description>
+      </value>
     </field>
   </message>
 
