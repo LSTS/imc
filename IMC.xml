@@ -601,6 +601,14 @@
     <description>
       Request the destination system to restart itself.
     </description>
+    <field name="Restart Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="RSTYPE">
+      <value abbrev="DUNE" name="Dune" id="1">
+        <description>Request a DUNE restart</description>
+      </value>
+      <value abbrev="SYSTEM" name="System" id="2">
+        <description>Request a system restart.</description>
+      </value>
+    </field>
   </message>
 
   <message id="12" name="Device Calibration Control" abbrev="DevCalibrationControl" source="vehicle,ccu">
