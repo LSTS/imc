@@ -3627,6 +3627,11 @@
           storage.
         </description>
       </value>
+      <value id="7" name="Restart" abbrev="RESTART">
+        <description>
+          Restart power channel specified in field 'id'.
+        </description>
+      </value>
     </field>
     <field name="Scheduled Time" abbrev="sched_time" type="fp64_t" unit="s">
       <description>
