@@ -8048,6 +8048,7 @@
       <value id="1" abbrev="ACOUSTIC" name="Acoustic"/>
       <value id="2" abbrev="SATELLITE" name="Satellite"/>
       <value id="3" abbrev="GSM" name="GSM"/>
+      <value id="4" abbrev="ANY" name="Any"/>
     </field>
     <field name="Destination System" abbrev="destination" type="plaintext">
 	  <description>
@@ -8059,13 +8060,23 @@
         Deadline for message transmission (seconds since epoch).
       </description>
     </field>
+    <field name="Range" abbrev="range" type="fp32_t" unit="m">
+      <description>
+        The meaning of this field depends on the operation and is
+        explained in the operation's description.
+      </description>
+    </field>
     <field name="Data Mode" abbrev="data_mode" type="uint8_t" unit="Enumerated" prefix="DMODE">
       <description>
     	Type of data to be transmitted.
+    	Abort and Range mode can only be used with comm_mean=ACOUSTIC
       </description>
       <value id="0" abbrev="INLINEMSG" name="Inline Message"/>
       <value id="1" abbrev="TEXT" name="Text"/>
       <value id="2" abbrev="RAW" name="Raw Data"/>
+      <value id="3" abbrev="ABORT" name="Abort"/>
+      <value id="4" abbrev="RANGE" name="Range"/>
+      <value id="5" abbrev="REVERSE_RANGE" name="Reverse Range"/>
     </field>
     <field name="Message Data" abbrev="msg_data" type="message">
       <description>
