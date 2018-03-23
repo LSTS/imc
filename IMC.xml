@@ -2134,6 +2134,72 @@
   </message>
 
   <!-- Sensors -->
+  <message id="215" name="Acoustic Transmission Request" abbrev="AcousticRequest">
+    <description>
+      Request Acoustic sending.
+    </description>
+    <field name="Request Identifier" abbrev="req_id" type="uint16_t">
+    </field>
+    <field name="Destination System" abbrev="destination" type="plaintext">
+      <description>
+        The name of the system where to send this message.
+      </description>
+    </field>
+    <field name="Timeout" abbrev="timeout" type="fp64_t" unit="s">
+      <description> Period of time to send message (in seconds). </description>
+    </field>
+    <field name="Range" abbrev="range" type="fp32_t" unit="m">
+      <description>
+        The meaning of this field depends on the operation and is
+        explained in the operation's description.
+      </description>
+    </field>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TYPE">
+      <value id="0" abbrev="ABORT" name="Abort"/>
+      <value id="1" abbrev="RANGE" name="Range"/>
+      <value id="2" abbrev="REVERSE_RANGE" name="Reverse Range"/>
+      <value id="3" abbrev="MSG" name="Message"/>
+    </field>
+    <field name="Message To Send" abbrev="msg" type="message">
+      <description>
+        Argument for message send ('MSG') requests.
+      </description>
+    </field>
+  </message>
+
+  <message id="216" name="Acoustic Transmission Status" abbrev="AcousticStatus">
+    <description>
+      Reply sent in response to a Acoustic Text sending request.
+    </description>
+    <field name="Request Identifier" abbrev="req_id" type="uint16_t">
+    </field>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TYPE">
+      <value id="0" abbrev="ABORT" name="Abort"/>
+      <value id="1" abbrev="RANGE" name="Range"/>
+      <value id="2" abbrev="REVERSE_RANGE" name="Reverse Range"/>
+      <value id="3" abbrev="MSG" name="Message"/>
+    </field>
+    <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="STATUS">
+      <value id="0" abbrev="QUEUED" name="Queued"/>
+      <value id="1" abbrev="IN_PROGRESS" name="In Progress"/>
+      <value id="2" abbrev="SENT" name="Sent"/>
+      <value id="3" abbrev="RANGE_RECEIVED" name="Range Received"/>
+      <value id="100" abbrev="BUSY" name="Busy"/>
+      <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
+      <value id="102" abbrev="ERROR" name="Error trying to send acoustic text"/>
+      <value id="666" abbrev="UNSUPPORTED" name="Message Type is not defined or is unsupported"/>
+    </field>
+    <field name="Information" abbrev="info" type="plaintext">
+      <description> Status description.</description>
+    </field>
+    <field name="Range" abbrev="range" type="fp32_t" unit="m">
+      <description>
+	        The meaning of this field depends on the operation and is
+	        explained in the operation's description.
+	      </description>
+    </field>
+  </message>
+
   <message id="250" name="Revolutions Per Minute" abbrev="Rpm" source="vehicle">
     <description>
       Number of revolutions per minute.
@@ -10246,63 +10312,5 @@
     </field>
   </message>
 
-  <message id="908" name="Acoustic Transmission Request" abbrev="AcousticRequest">
-    <description>
-      Request Acoustic sending.
-    </description>
-    <field name="Request Identifier" abbrev="req_id" type="uint16_t">
-    </field>
-    <field name="Destination System" abbrev="destination" type="plaintext">
-      <description>
-        The name of the system where to send this message.
-      </description>
-    </field>
-    <field name="Timeout" abbrev="timeout" type="fp64_t" unit="s">
-    	<description> Period of time to send message (in seconds). </description>
-    </field>
-    <field name="Range" abbrev="range" type="fp32_t" unit="m">
-      <description>
-        The meaning of this field depends on the operation and is
-        explained in the operation's description.
-      </description>
-    </field>
-    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TYPE">
-      <value id="0" abbrev="ABORT" name="Abort"/>
-      <value id="1" abbrev="RANGE" name="Range"/>
-      <value id="2" abbrev="REVERSE_RANGE" name="Reverse Range"/>
-      <value id="3" abbrev="MSG" name="Message"/>
-    </field>
-    <field name="Message To Send" abbrev="msg" type="message">
-      <description>
-        Argument for message send ('MSG') requests.
-      </description>
-    </field>
-  </message>
-
-  <message id="909" name="Acoustic Transmission Status" abbrev="AcousticStatus">
-    <description>
-      Reply sent in response to a Acoustic Text sending request.
-    </description>
-    <field name="Request Identifier" abbrev="req_id" type="uint16_t">
-    </field>
-     <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TYPE">
-      <value id="0" abbrev="ABORT" name="Abort"/>
-      <value id="1" abbrev="RANGE" name="Range"/>
-      <value id="2" abbrev="REVERSE_RANGE" name="Reverse Range"/>
-      <value id="3" abbrev="MSG" name="Message"/>
-    </field>
-    <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated"  prefix="STATUS">
-      <value id="0" abbrev="QUEUED" name="Queued"/>
-      <value id="1" abbrev="IN_PROGRESS" name="In Progress"/>
-      <value id="2" abbrev="SENT" name="Sent"/>
-      <value id="100" abbrev="BUSY" name="Busy"/>
-      <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
-      <value id="102" abbrev="ERROR" name="Error trying to send acoustic text"/>
-      <value id="666" abbrev="UNSUPPORTED" name="Message Type is not defined or is unsupported"/>
-    </field>
-    <field name="Information" abbrev="info" type="plaintext">
-    	<description> Status description.</description>
-    </field>
-  </message>
 
 </messages>
