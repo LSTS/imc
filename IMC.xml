@@ -8171,9 +8171,16 @@
       <value id="1" abbrev="SENT" name="Sent"/>
       <value id="51" abbrev="DELIVERED" name="Delivered"/>
       <value id="52" abbrev="MAYBE_DELIVERED" name="Delivery is unknown"/>
+      <value id="60" abbrev="RANGE_RECEIVED" name="Range received"/>
       <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
       <value id="102" abbrev="TEMPORARY_FAILURE" name="Temporary Error"/>
       <value id="103" abbrev="PERMANENT_FAILURE" name="Permanent Failure"/>
+    </field>
+    <field name="Range" abbrev="range" type="fp32_t" unit="m">
+      <description>
+	        The meaning of this field depends on the operation and is
+	        explained in the operation's description.
+	      </description>
     </field>
     <field name="Information" abbrev="info" type="plaintext"/>
   </message>
