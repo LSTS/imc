@@ -90,6 +90,7 @@
   <address id="0x2000" name="turbot"/>
   <address id="0x2001" name="sparus2"/>
   <address id="0x2002" name="eqe"/>
+  <address id="0x200d" name="lauv-harald"/>
   <address id="0x2300" name="lrauv-sim"/>
   <!-- UAVs (Others) -->
   <address id="0x2c00" name="ntnu-hexa-testbed"/>
