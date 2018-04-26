@@ -61,6 +61,8 @@
   <address id="0x0c23" name="x2o-02"/>
   <address id="0x0c24" name="firefly"/>
   <address id="0x0c2a" name="vtol-01"/>
+  <address id="0x0c2b" name="vtol-02"/>
+  <address id="0x0c2c" name="vtol-03"/>
   <address id="0x0c30" name="hexa-00"/>
   <address id="0x0c32" name="alfa-02"/>
   <address id="0x0c33" name="alfa-03"/>
