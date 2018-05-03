@@ -10333,4 +10333,27 @@
       <value id="2" name="x100" abbrev="X100"/>
     </field>
   </message>
+
+  <message id="908" name="DMS Detection" abbrev="DmsDetection" source="vehicle">
+    <description>
+      Presence of DMS (Dimethyl Sulphide).
+      If the value of the channel is greater than zero, it means DMS was detected.
+    </description>
+    <field name="Channel 1" abbrev="ch01" type="fp32_t"/>
+    <field name="Channel 2" abbrev="ch02" type="fp32_t"/>
+    <field name="Channel 3" abbrev="ch03" type="fp32_t"/>
+    <field name="Channel 4" abbrev="ch04" type="fp32_t"/>
+    <field name="Channel 5" abbrev="ch05" type="fp32_t"/>
+    <field name="Channel 6" abbrev="ch06" type="fp32_t"/>
+    <field name="Channel 7" abbrev="ch07" type="fp32_t"/>
+    <field name="Channel 8" abbrev="ch08" type="fp32_t"/>
+    <field name="Channel 9" abbrev="ch09" type="fp32_t"/>
+    <field name="Channel 10" abbrev="ch10" type="fp32_t"/>
+    <field name="Channel 11" abbrev="ch11" type="fp32_t"/>
+    <field name="Channel 12" abbrev="ch12" type="fp32_t"/>
+    <field name="Channel 13" abbrev="ch13" type="fp32_t"/>
+    <field name="Channel 14" abbrev="ch14" type="fp32_t"/>
+    <field name="Channel 15" abbrev="ch15" type="fp32_t"/>
+    <field name="Channel 16" abbrev="ch16" type="fp32_t"/>
+  </message>
 </messages>
