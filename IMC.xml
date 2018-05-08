@@ -10346,7 +10346,6 @@
       <value id="2" name="x100" abbrev="X100"/>
     </field>
   </message>
-
   <message id="908" name="DMS Detection" abbrev="DmsDetection" source="vehicle">
     <description>
       Presence of DMS (Dimethyl Sulphide).
@@ -10368,5 +10367,19 @@
     <field name="Channel 14" abbrev="ch14" type="fp32_t"/>
     <field name="Channel 15" abbrev="ch15" type="fp32_t"/>
     <field name="Channel 16" abbrev="ch16" type="fp32_t"/>
+  </message>
+  <message id="909" name="Underway Data" abbrev="UnderwayData" source="vehicle">
+    <field name="Type" abbrev="type" type="plaintext">
+      <description>
+        Type of data contained in this message.
+        Example: Seabird SBE-45
+      </description>
+    </field>
+    <field name="list" abbrev="list" type="plaintext" unit="TupleList">
+      <description>
+        Example for Seabird SBE-45 data:
+        t1= 29.1354, c1= 5.75068, s= 35.0498, sv=1543.378, t2= 28.9180
+      </description>
+    </field>
   </message>
 </messages>
