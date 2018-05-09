@@ -92,6 +92,7 @@
   <address id="0x2002" name="eqe"/>
   <address id="0x200d" name="lauv-harald"/>
   <address id="0x2300" name="lrauv-sim"/>
+  <address id="0x5001" name="wg-sv3-127"/>
   <!-- UAVs (Others) -->
   <address id="0x2c00" name="ntnu-hexa-testbed"/>
   <address id="0x2c01" name="ntnu-hexa-001"/>
