@@ -8244,6 +8244,39 @@
     <description> Error description.</description>
     </field>
   </message>
+  
+  <message id="519" name="VTOL State" abbrev="VtolState">
+  <description>
+    Reports VTOL current state.
+  </description>
+  <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="VTOL_STATE">
+    <value id="0" name="Undefined" abbrev="UNDEFINED">
+      <description>Vehicle is not configured as VTOL.</description>
+    </value>
+    <value id="1" name="Transition to Fixed-Wing" abbrev="TRANSITION_TO_FW">
+      <description>Vehicle is in transition from multicopter to fixed-wing.</description>
+    </value>
+    <value id="2" name="Transition to MultiCopter" abbrev="TRANSITION_TO_MC">
+      <description>Vehicle is in transition from fixed-wing to multicopter.</description>
+    </value>
+    <value id="3" name="MutiCopter" abbrev="MC">
+      <description>Vehicle is in multicopter state.</description>
+    </value>
+    <value id="4" name="Fixed-Wing" abbrev="FW">
+      <description>Vehicle is in fixed-wing state.</description>
+    </value>
+  </field>
+  </message>
+  
+  <message id="520" name="Arming State" abbrev="ArmingState">
+  <description>
+    Reports if motors are currently armed or disarmed.
+  </description>
+  <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="MOTORS">
+    <value id="0" name="Armed" abbrev="ARMED"/>
+    <value id="1" name="Disarmed" abbrev="DISARMED"/>
+  </field>
+  </message>
 
   <!-- Plan Supervision -->
   <message id="550" name="Abort" abbrev="Abort" source="ccu">
