@@ -8215,7 +8215,9 @@
       <value id="102" abbrev="ERROR" name="Error trying to send sms"/>
     </field>
     <field name="Information" abbrev="info" type="plaintext">
-    <description> Error description.</description>
+      <description> Error description.</description>
+    </field>
+  </message>
 
   <message id="519" name="TCP Transmission Request" abbrev="TCPRequest">
     <description>
@@ -8238,6 +8240,22 @@
     </field>
   </message>
 
+  <message id="520" name="TCP Transmission Status" abbrev="TCPStatus">
+    <description>
+      Reply sent in response to a TCP sending request.
+    </description>
+    <field name="Request Identifier" abbrev="req_id" type="uint16_t">
+    </field>
+    <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="TCPSTAT">
+      <value id="0" abbrev="QUEUED" name="Queued"/>
+      <value id="1" abbrev="SENT" name="Sent"/>
+      <value id="100" abbrev="INPUT_FAILURE" name="Input Error"/>
+      <value id="101" abbrev="HOST_UNKNOWN" name="Host Unknown"/>
+      <value id="102" abbrev="CANT_CONNECT" name="Can't Connect"/>
+      <value id="103" abbrev="ERROR" name="Error trying to send sms"/>
+    </field>
+    <field name="Information" abbrev="info" type="plaintext">
+      <description> Error description.</description>
     </field>
   </message>
 
