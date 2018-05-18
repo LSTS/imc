@@ -8216,6 +8216,28 @@
     </field>
     <field name="Information" abbrev="info" type="plaintext">
     <description> Error description.</description>
+
+  <message id="519" name="TCP Transmission Request" abbrev="TCPRequest">
+    <description>
+      Request data to be sent over a TCP connection
+    </description>
+    <field name="Request Identifier" abbrev="req_id" type="uint16_t">
+    </field>
+    <field name="Destination" abbrev="destination" type="plaintext">
+      <description>
+        Recipient identifier (number or name).
+      </description>
+    </field>
+    <field name="Timeout" abbrev="timeout" type="fp64_t" unit="s">
+      <description> Period of time to send message (in seconds). </description>
+    </field>
+    <field name="Message Data" abbrev="msg_data" type="message">
+      <description>
+      	IMC message to be transmitted .
+      </description>
+    </field>
+  </message>
+
     </field>
   </message>
 
