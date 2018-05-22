@@ -1866,6 +1866,125 @@
     </field>
   </message>
 
+  <message id="189" name="Communication Systems Query" abbrev="CommSystemsQuery" source="ccu,vehicle">
+    <description>
+      Presence of Communication Interfaces query. 
+    </description>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Bitfield" prefix="CIQ">
+      <value id="0x01" name="Query Systems" abbrev="QUERY">
+        <description>Query systems about communication capability</description>
+      </value>
+      <value id="0x02" name="Reply" abbrev="REPLY">
+       <description>Reply systems about communication capability</description>
+      </value>        
+      </field>       
+    <field name="Communication Interface" abbrev="comm_interface" type="uint16_t" unit="Bitfield" prefix="CIQ">
+     <description>
+       Communication interface to be used for reports.
+     </description>
+     <value id="0x01" name="Acoustic" abbrev="ACOUSTIC">
+       <description>Use acoustic communications</description>
+     </value>
+     <value id="0x02" name="Satellite" abbrev="SATELLITE">
+       <description>Use satellite communications</description>
+     </value>
+     <value id="0x04" name="GSM" abbrev="GSM">
+       <description>Use Global System for Mobile Communications</description>
+     </value>
+     <value id="0x08" name="Mobile" abbrev="MOBILE">
+       <description>Use mobile networks</description>
+     </value>
+     <value id="0x10" name="Radio" abbrev="RADIO">
+       <description>Use Radio telemetry</description>
+       </value>    
+      </field>
+     <field name="Model" abbrev="model" type="uint16_t" unit="Enumerated" prefix="CIQ">
+        <value id="0x00" name="unknown" abbrev="UNKNOWN">
+         <description>Model is not defined</description>
+       </value>
+       <value id="0x01" name="3DR" abbrev="3DR">
+         <description>Radio Model 3DR</description>
+       </value>
+       <value id="0x02" name="RDFXXXxPtP" abbrev="RDFXXXXPTP">
+         <description>Radio Model RDFXXXx point to point</description>
+       </value>        
+       </field>   
+    <field name="System List" abbrev="list" type="plaintext" unit="List">
+      <description>
+        Comma separated list of known Radio system names.
+      </description>
+    </field>
+  </message>
+
+  <message id="190" name="Telemetry Message"  abbrev="TelemetryMsg" source="ccu,vehicle">
+    <description>
+      Message to handle telemetry transmissions.
+    </description>
+      <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TM">
+        <description>Type of telemetry transmissions.</description>
+        <value id="0x01" name="Tx" abbrev="TX">
+         <description>Send telemetry data.</description>
+        </value>
+        <value id="0x02" name="Rx" abbrev="RX">
+         <description>Received telemetry data.</description>
+        </value>   
+        <value id="0x03" name="TxStatus" abbrev="TXSTATUS">  
+          <description>Status of transmitted data.</description>
+        </value>     
+       </field> 
+      <field name="Request Identifier" abbrev="req_id" type="uint32_t">
+       <description>The request identifier used to receive transmission updates.</description>
+       </field>
+      <field name="Time to live" abbrev="ttl" type="uint16_t" unit="s">
+       <description>Time, in seconds, which will be considered a non-transmitted message.</description>
+       </field>
+      <field name="Code" abbrev="code" type="uint8_t" unit="Enumerated" prefix="TM">
+        <description>Type of telemetry transmissions.</description>
+        <value id="0x00" name="Code unknown" abbrev="CODE_UNK">
+         <description>Unknown code type</description>
+        </value>
+        <value id="0x01" name="Code Report" abbrev="CODE_REPORT">
+           <description> 
+          Concise representation of entire system state message.
+          Payload message is a MessageList.
+          </description>
+        </value>   
+        <value id="0x02" name="Code IMC" abbrev="CODE_IMC">  
+         <description>Payload message is INLINEMSG</description>
+        </value>
+        <value id="0x03" name="Code raw" abbrev="CODE_RAW">  
+         <description>Payload message is in raw </description> 
+        </value>    
+        </field> 
+      <field name="Destination Identifier" abbrev="destination" type="plaintext">
+        <description>The unique identifier of this message's destination (e.g. lauv-xtreme-2, manta-0).</description>
+       </field>
+      <field name="Source Identifier" abbrev="Source" type="plaintext">
+        <description>The unique identifier of this message's destination (e.g. lauv-xtreme-2, manta-0).</description>
+       </field>
+      <field name="Acknowledge" abbrev="acknowledge" type="uint8_t" unit="Bitfield" prefix="TM">
+        <description>Type of telemetry transmissions.</description>
+        <value id="0x00" name="Not acknowledge" abbrev="NAK">
+          <description>Message transmitted without acknowledged reception response</description>
+        </value>
+        <value id="0x01" name="acknowledge" abbrev="AK">
+         <description>Message transmitted with acknowledged reception response</description>
+        </value> 
+        </field> 
+      <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="TM"> 
+        <description>State of the transmitted message.</description>
+        <value id="0x00" name="Does not apply" abbrev="NONE"/>
+        <value abbrev="DONE" name="Successfull transmission" id="1"/>
+        <value abbrev="FAILED" name="Error while trying to transmit message" id="2"/>
+        <value abbrev="QUEUED" name="Message has been queued for transmission" id="3"/>
+        <value abbrev="TRANSMIT" name="Message is currently being transmitted" id="4"/>
+        <value abbrev="EXPIRED" name="Message's TTL has expired. Transmition cancelled" id="5"/>
+        <value abbrev="EMPTY" name="No more messages to be transmitted or received" id="6"/>
+        <value abbrev="INV_ADDR" name="Invalid address" id="7"/>
+        <value abbrev="INV_SIZE" name="Invalid transmission size" id="8"/>
+       </field>
+   </message>
+
   <!-- Acoustic Networking -->
   <message id="200" name="LBL Range" abbrev="LblRange" source="vehicle" flags="periodic">
     <description>
@@ -8072,6 +8191,9 @@
       </value>
       <value id="0x08" name="Mobile" abbrev="MOBILE">
         <description>Use mobile networks</description>
+      </value>
+      <value id="0x10" name="Radio" abbrev="RADIO">
+        <description>Use Radio telemetry</description>
       </value>
     </field>
     <field name="Period" abbrev="period" type="uint16_t" unit="s">
