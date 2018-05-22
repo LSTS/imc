@@ -1983,6 +1983,8 @@
         <value abbrev="INV_ADDR" name="Invalid address" id="7"/>
         <value abbrev="INV_SIZE" name="Invalid transmission size" id="8"/>
        </field>
+      <field name="Data" abbrev="data" type="rawdata">
+      </field>
    </message>
 
   <!-- Acoustic Networking -->
