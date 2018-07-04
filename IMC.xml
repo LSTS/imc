@@ -185,6 +185,7 @@
     <unit abbrev="dB" name="Decibel"/>
     <unit abbrev="dB/m" name="Decibel per meter"/>
     <unit abbrev="dBHz" name="Decibel hertz"/>
+    <unit abbrev="dBm" name="Decibel milliwatts."/>
     <unit abbrev="°" name="Degree"/>
     <unit abbrev="°C" name="Degree Celsius"/>
     <unit abbrev="G" name="Gauss"/>
@@ -197,7 +198,9 @@
     <unit abbrev="m/s/s" name="Meter per square second"/>
     <unit abbrev="ms" name="Millisecond"/>
     <unit abbrev="µs" name="Microsecond"/>
+    <unit abbrev="ns" name="Nanosecond"/>
     <unit abbrev="S/m" name="Siemens per meter"/>
+    <unit abbrev="kg" name="Kilogram"/>
     <unit abbrev="Nm" name="Newton meter"/>
     <unit abbrev="NTU" name="Nephelometric Turbidity Unit"/>
     <unit abbrev="N" name="Newton"/>
