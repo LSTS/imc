@@ -1161,6 +1161,7 @@
       <value id="2" abbrev="ERROR" name="Error"/>
       <value id="3" abbrev="CRITICAL" name="Critical"/>
       <value id="4" abbrev="DEBUG" name="Debug"/>
+      <value id="5" abbrev="SUCCESS" name="Success"/>
     </field>
     <field name="Timestamp" abbrev="htime" type="fp64_t" unit="s">
       <description>
