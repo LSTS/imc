@@ -29,6 +29,7 @@
   <address id="0x0020" name="lauv-xplore-3"/>
   <address id="0x0021" name="lauv-xplore-4"/>
   <address id="0x0022" name="lauv-xplore-5"/>
+  <address id="0x0023" name="lauv-nemo-1"/>
   <address id="0x00D1" name="lauv-simulator-1"/>
   <!-- ROVs (LSTS) -->
   <address id="0x0401" name="rov-ies"/>
@@ -58,7 +59,11 @@
   <address id="0x0c21" name="mariner-02"/>
   <address id="0x0c22" name="x2o-01"/>
   <address id="0x0c23" name="x2o-02"/>
+  <address id="0x0c24" name="firefly"/>
+  <address id="0x0c25" name="titan"/>
   <address id="0x0c2a" name="vtol-01"/>
+  <address id="0x0c2b" name="vtol-02"/>
+  <address id="0x0c2c" name="vtol-03"/>
   <address id="0x0c30" name="hexa-00"/>
   <address id="0x0c32" name="alfa-02"/>
   <address id="0x0c33" name="alfa-03"/>
@@ -90,7 +95,9 @@
   <address id="0x2000" name="turbot"/>
   <address id="0x2001" name="sparus2"/>
   <address id="0x2002" name="eqe"/>
+  <address id="0x200d" name="lauv-harald"/>
   <address id="0x2300" name="lrauv-sim"/>
+  <address id="0x2400" name="buv-petinga-1"/>
   <!-- UAVs (Others) -->
   <address id="0x2c00" name="ntnu-hexa-testbed"/>
   <address id="0x2c01" name="ntnu-hexa-001"/>
@@ -123,6 +130,8 @@
   <address id="0x2c54" name="ntnu-cruisermini-004" />
   <address id="0x2c55" name="ntnu-cruisermini-005" />
   <address id="0x2c56" name="ntnu-cruisermini-006" />
+  <!-- ASVs (Others) -->
+  <address id="0x2801" name="wg-sv3-127"/>
   <!-- CCUs (special IDs) -->
   <address id="0x4101" name="ccu-lsts-1-1"/>
   <address id="0x410E" name="ccu-lsts-1-14"/>
@@ -137,6 +146,7 @@
   <address id="0x6003" name="lauv-noptilus-3-aux"/>
   <address id="0x6004" name="lauv-xtreme-2-aux"/>
   <address id="0x6005" name="caravela-aux"/>
+  <address id="0x6006" name="lauv-xtreme-2-cam"/>
   <!-- Sensors of LSTS (Self containing sensor systems) -->
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
@@ -154,6 +164,7 @@
   <address id="0x8027" name="manta-dmsmw-02"/>
   <address id="0x8028" name="manta-dmsmw-03"/>
   <address id="0x8029" name="manta-rugged"/>
+  <address id="0x802a" name="manta-rugged-2"/>
   <address id="0x8030" name="nest-1"/>
   <address id="0x8040" name="piccolo-gs1"/>
   <address id="0x8041" name="piccolo-gs2"/>
