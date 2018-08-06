@@ -8115,6 +8115,7 @@
       <value id="2" abbrev="SATELLITE" name="Satellite"/>
       <value id="3" abbrev="GSM" name="GSM"/>
       <value id="4" abbrev="ANY" name="Any"/>
+      <value id="5" abbrev="ALL" name="All"/>
     </field>
     <field name="Destination System" abbrev="destination" type="plaintext">
 	  <description>
