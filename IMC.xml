@@ -10595,4 +10595,11 @@
     <field name="Channel 15" abbrev="ch15" type="fp32_t"/>
     <field name="Channel 16" abbrev="ch16" type="fp32_t"/>
   </message>
+  
+  <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle">
+    <field name="Value" abbrev="value" type="fp64_t">
+      <description>Total Magnetic Field Intensity (TMI)</description>
+    </field>
+  </message>
+  
 </messages>
