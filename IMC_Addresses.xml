@@ -209,6 +209,7 @@
   <!-- Other Sensors (Self containing sensor systems) -->
   <address id="0x9001" name="ntnu-nest-01"/>
   <address id="0x9002" name="ntnu-nest-02"/>
+  <address id="0x9501" name="manta-sabuvis"/>
   <!-- Special IDs -->
   <address id="0xFFF0" name="broadcast"/>
   <address id="0xFFFF" name="null"/>
