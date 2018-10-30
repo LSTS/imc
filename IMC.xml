@@ -350,6 +350,7 @@
       <message-type abbrev="FollowPoint"/>
       <message-type abbrev="Alignment"/>
       <message-type abbrev="StationKeepingExtended"/>
+      <message-type abbrev="Magnetometer"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -7683,6 +7684,71 @@
     </field>
   </message>
 
+  <message id="499" name="Magnetometer Maneuver" abbrev="Magnetometer" source="ccu">
+    <description>
+      Magnetometer calibration maneuver (i.e: one square pattern
+      in one direction, a second square in the opposite direction)
+    </description>
+    <field name="Timeout" abbrev="timeout" type="uint16_t" unit="s">
+      <description>
+        The amount of time the maneuver is allowed to run.
+      </description>
+    </field>
+    <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude of target waypoint.
+      </description>
+    </field>
+    <field name="Longitude WGS-84" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude of target waypoint.
+      </description>
+    </field>
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        Maneuver reference in the z axis. Use z_units to specify
+        whether z represents depth, altitude or other.
+      </description>
+    </field>
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the z reference.
+      </description>
+    </field>
+    <field name="Speed" abbrev="speed" type="fp32_t">
+      <description>
+        Maneuver speed reference.
+      </description>
+    </field>
+    <field name="Speed Units" abbrev="speed_units" type="uint8_t" value="0" unit="Enumerated" enum-def="SpeedUnits">
+      <description>
+        Speed units.
+      </description>
+    </field>
+    <field name="Bearing" abbrev="bearing" type="fp64_t" unit="rad" min="0" max="6.283185307179586">
+      <description>
+        Rows bearing angle.
+      </description>
+    </field>
+    <field name="Width" abbrev="width" min="50" type="fp32_t" unit="m">
+      <description>
+        Width of the maneuver.
+      </description>
+    </field>
+    <field name="Direction" abbrev="direction" type="uint8_t" unit="Enumerated" prefix="MD" max="1">
+      <description>
+        Desired direction.
+      </description>
+      <value id="0" name="Clockwise First" abbrev="CLOCKW_FIRST"/>
+      <value id="1" name="Counter Clockwise First" abbrev="CCLOCKW_FIRST"/>
+    </field>
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for maneuver.
+      </description>
+    </field>
+  </message>
+
   <!-- Vehicle Supervision -->
   <message id="500" name="Vehicle State" abbrev="VehicleState" source="vehicle">
     <description>
@@ -10529,4 +10595,11 @@
     <field name="Channel 15" abbrev="ch15" type="fp32_t"/>
     <field name="Channel 16" abbrev="ch16" type="fp32_t"/>
   </message>
+  
+  <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle">
+    <field name="Value" abbrev="value" type="fp64_t">
+      <description>Total Magnetic Field Intensity (TMI)</description>
+    </field>
+  </message>
+  
 </messages>
