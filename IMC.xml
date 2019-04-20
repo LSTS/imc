@@ -2268,7 +2268,6 @@
     </field>
   </message>
 
-  <!-- Sensors -->
   <message id="215" name="Acoustic Transmission Request" abbrev="AcousticRequest">
     <description>
       Request Acoustic sending.
@@ -2294,10 +2293,11 @@
       <value id="1" abbrev="RANGE" name="Range"/>
       <value id="2" abbrev="REVERSE_RANGE" name="Reverse Range"/>
       <value id="3" abbrev="MSG" name="Message"/>
+      <value id="4" abbrev="RAW" name="Raw"/>
     </field>
     <field name="Message To Send" abbrev="msg" type="message">
       <description>
-        Argument for message send ('MSG') requests.
+        Argument for message send ('MSG') or ('RAW') but in this case expects DevDataBinary message requests.
       </description>
     </field>
   </message>
@@ -2313,6 +2313,7 @@
       <value id="1" abbrev="RANGE" name="Range"/>
       <value id="2" abbrev="REVERSE_RANGE" name="Reverse Range"/>
       <value id="3" abbrev="MSG" name="Message"/>
+      <value id="4" abbrev="RAW" name="Raw"/>
     </field>
     <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="STATUS">
       <value id="0" abbrev="QUEUED" name="Queued"/>
@@ -2335,6 +2336,7 @@
     </field>
   </message>
 
+  <!-- Sensors -->
   <message id="250" name="Revolutions Per Minute" abbrev="Rpm" source="vehicle">
     <description>
       Number of revolutions per minute.
