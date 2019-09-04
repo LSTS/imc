@@ -10728,5 +10728,44 @@
       <description>Total Magnetic Field Intensity (TMI)</description>
     </field>
   </message>
+
+   <message id="909" name="Home Position" abbrev="HomePosition" source="vehicle,ccu">
+    <description>
+      Vehicle Home Position.
+    </description>
+    <field name="Action on the vehicle home position" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Action on the vehicle home
+      </description>
+      <value id="1" name="Set" abbrev="SET"/>
+      <value id="2" name="Report" abbrev="REPORT"/>
+    </field>
+    <field name="Latitude (WGS-84)" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude.
+      </description>
+    </field>
+    <field name="Longitude (WGS-84)" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude.
+      </description>
+    </field>
+    <field name="Height (WGS-84)" abbrev="height" type="fp32_t" unit="m">
+      <description>
+        Height above the WGS-84 ellipsoid.
+      </description>
+    </field>
+    <field name="Depth" abbrev="depth" type="fp32_t" unit="m">
+      <description>
+        Depth, in meters. To be used by underwater vehicles. Negative
+        values denote invalid estimates.
+      </description>
+    </field>
+    <field name="Altitude" abbrev="alt" type="fp32_t" unit="m">
+      <description>
+        Altitude, in meters. Negative values denote invalid estimates.
+      </description>
+    </field>
+   </message>
   
 </messages>
