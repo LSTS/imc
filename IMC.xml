@@ -2111,7 +2111,7 @@
         Transmission time.
       </description>
     </field>
-    <field name="Modem Type" abbrev="mtype" type="plaintext">
+    <field name="Modem Type" abbrev="modem_type" type="plaintext">
       <description>
        The modem being used.
       </description>
@@ -2126,6 +2126,7 @@
     <field name="Flags" abbrev="flags" type="uint8_t" unit="Bitfield" prefix="SAM">
       <value abbrev="ACK" name="Acknowledgement" id="0x01"/>
       <value abbrev="DELAYED" name="Delayed" id="0x02"/>
+      <value abbrev="REPLY" name="Reply" id="0x03"/>
     </field>
     <field name="Data" abbrev="data" type="rawdata"/>
   </message>
