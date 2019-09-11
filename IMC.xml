@@ -2106,6 +2106,11 @@
        Depth of sending vehicle.
       </description>
     </field>
+    <field name="Sentence" abbrev="sentence" type="plaintext">
+      <description>
+      Sentence string sent/received by the modem
+      </description>
+    </field>
     <field name="Transmission Time" abbrev="txtime" unit="s" type="fp64_t">
       <description>
         Transmission time.
