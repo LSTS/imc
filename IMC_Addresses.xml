@@ -34,6 +34,7 @@
   <!-- ROVs (LSTS) -->
   <address id="0x0401" name="rov-ies"/>
   <address id="0x0402" name="adamastor"/>
+  <address id="0x0403" name="squirtle"/>
   <!-- ASVs (LSTS) -->
   <address id="0x0801" name="swordfish"/>
   <address id="0x0802" name="caravela"/>
