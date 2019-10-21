@@ -167,6 +167,8 @@
   <address id="0x8028" name="manta-dmsmw-03"/>
   <address id="0x8029" name="manta-rugged"/>
   <address id="0x802a" name="manta-rugged-2"/>
+  <address id="0x802b" name="manta-uk-01"/>
+  <address id="0x802c" name="manta-uk-02"/>
   <address id="0x8030" name="nest-1"/>
   <address id="0x8040" name="piccolo-gs1"/>
   <address id="0x8041" name="piccolo-gs2"/>
