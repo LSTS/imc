@@ -2369,6 +2369,7 @@
       <value id="1" abbrev="IN_PROGRESS" name="In Progress"/>
       <value id="2" abbrev="SENT" name="Sent"/>
       <value id="3" abbrev="RANGE_RECEIVED" name="Range Received"/>
+      <value id="4" abbrev="DELIVERED" name="Delivered"/>
       <value id="100" abbrev="BUSY" name="Busy"/>
       <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
       <value id="102" abbrev="ERROR" name="Error trying to send acoustic text"/>
@@ -9920,6 +9921,8 @@
       <value abbrev="IP" name="In Progress" id="5"/>
       <value abbrev="UNSUPPORTED" name="Unsupported operation" id="6"/>
       <value abbrev="INV_SIZE" name="Invalid transmission size" id="7"/>
+      <value abbrev="SENT" name="Message has been sent" id="8"/>
+      <value abbrev="DELIVERED" name="Message has been acknowledged by the destination" id="9"/>
     </field>
     <field name="Error Message" abbrev="error" type="plaintext"/>
   </message>
