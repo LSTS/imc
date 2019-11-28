@@ -9933,6 +9933,29 @@
     <field name="Value" abbrev="value" type="fp32_t"/>
   </message>
 
+  <message id="818" name="UamTxRange" abbrev="UamTxRange" source="ccu,vehicle">
+    <description>
+      Request an acoustic modem driver to measure the distance to another system.
+    </description>
+    <field name="Sequence Id" abbrev="seq" type="uint16_t">
+      <description>
+        A sequence identifier that should be incremented for each
+        request. This number will then be used to issue transmission
+        status updates via the message UamTxStatus.
+      </description>
+    </field>
+    <field name="Destination System" abbrev="sys_dst" type="plaintext">
+      <description>
+        The canonical name of the target system.
+      </description>
+    </field>
+    <field name="Timeout" abbrev="timeout" type="fp32_t" unit="s">
+      <description>
+        Maximum amount of time to wait for a reply.
+      </description>
+    </field>
+  </message>
+
   <message id="820" name="Formation Control Parameters" abbrev="FormCtrlParam" source="ccu,vehicle">
     <description>
       Formation controller paramenters, as: trajectory gains, control boundary layer thickness, and formation shape gains.
