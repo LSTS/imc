@@ -1,7 +1,7 @@
 #############################################################################
 # This Python file uses the following encoding: utf-8                       #
 #############################################################################
-# Copyright (C) 2016 Laboratório de Sistemas e Tecnologia Subaquática       #
+# Copyright (C) 2016-2020 Laboratório de Sistemas e Tecnologia Subaquática  #
 # Departamento de Engenharia Electrotécnica e de Computadores               #
 # Rua Dr. Roberto Frias, 4200-465 Porto, Portugal                           #
 #############################################################################
@@ -238,16 +238,25 @@ if root.find('message-groups/message-group') is not None:
         text += str(tmgs)
     open(os.path.join(src_dir, 'Message Format.rst'), 'a', encoding='utf-8').write(text)
 
-# Messages by Group.
-groups = []
-for group in root.findall('groups/group'):
-    name = group.attrib['name']
-    min_id = int(group.attrib['min'])
-    max_id = int(group.attrib['max'])
+## Messages by Group.
+#groups = []
+#for group in root.findall('groups/group'):
+#    name = group.attrib['name']
+#    min_id = int(group.attrib['min'])
+#    max_id = int(group.attrib['max'])
+#    files.append(name + '.rst')
+#    groups.append({'name': name, 'min': min_id, 'max': max_id})
+#    text = rst.h1(name + ' Messages')
+#    open(os.path.join(src_dir, name + '.rst'), 'w', encoding='utf-8').write(text)
+
+# Messages by Category.
+categories = [g.attrib['category'] for g in root.findall('message')]
+categories = sorted(set(categories), key=lambda x: categories.index(x))
+
+for name in categories:
     files.append(name + '.rst')
-    groups.append({'name': name, 'min': min_id, 'max': max_id})
     text = rst.h1(name + ' Messages')
-    open(os.path.join(src_dir, name + '.rst'), 'w', encoding='utf-8').write(text)
+    open(os.path.join(src_dir, name + '.rst'), 'w').write(text)
 
 # Messages.
 for msg in root.findall('message'):
@@ -321,12 +330,14 @@ for msg in root.findall('message'):
         text += str(t)
         text += txtLocalEnumBitField
 
-    my_group = ''
-    for group in groups:
-        if id >= group['min'] and id <= group['max']:
-            my_group = group['name']
+    category = msg.attrib['category']
+#    my_group = ''
+#    for group in groups:
+#        if id >= group['min'] and id <= group['max']:
+#            my_group = group['name']
 
-    open(os.path.join(src_dir, my_group + '.rst'), 'a', encoding='utf-8').write(text)
+#    open(os.path.join(src_dir, my_group + '.rst'), 'a', encoding='utf-8').write(text)
+    open(os.path.join(src_dir, category + '.rst'), 'a', encoding='utf-8').write(text)
 
 # Master document.
 fd = open(os.path.join(src_dir, 'index.rst'), 'w', encoding='utf-8')
