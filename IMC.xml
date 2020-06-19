@@ -7990,6 +7990,9 @@
       <value id="3" name="Stop Calibration" abbrev="STOP_CALIBRATION">
         <description>Stop calibrating vehicle.</description>
       </value>
+      <value id="4" name="Pause Maneuver" abbrev="PAUSE_MANEUVER">
+        <description>Pause the currently executing maneuver.</description>
+      </value>
     </field>
     <field name="Maneuver" abbrev="maneuver" type="message" message-type="Maneuver">
       <description>Maneuver to be executed (for 'EXEC_MANEUVER' command)</description>
