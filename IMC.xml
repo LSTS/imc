@@ -9048,6 +9048,16 @@
           corresponds to the currently loaded plan.
         </description>
       </value>
+      <value id="4" abbrev="PAUSE" name="Pause Plan">
+        <description>
+          Pause the current plan.
+        </description>
+      </value>
+      <value id="5" abbrev="RESUME" name="Resume Plan">
+        <description>
+          Resume the execution of a paused plan.
+        </description>
+      </value>
     </field>
     <field name="Request ID" abbrev="request_id" type="uint16_t">
       <description>
