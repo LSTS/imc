@@ -6172,6 +6172,21 @@
     <description>
       Command used to stop currently executing maneuver.
     </description>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Reason why the maneuver is being stopped.
+      </description>
+      <value id="0" name="Stop maneuver" abbrev="STOP">
+        <description>
+          Stop the maneuver.
+        </description>
+      </value>
+      <value id="1" name="Pause maneuver" abbrev="PAUSE">
+        <description>
+          Stop the maneuver, saving the maneuver state.
+        </description>
+      </value>
+    </field>
   </message>
 
   <message id="469" name="Register Maneuver" abbrev="RegisterManeuver" source="vehicle">
