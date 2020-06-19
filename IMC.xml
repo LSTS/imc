@@ -9131,6 +9131,11 @@
           Executing plan.
         </description>
       </value>
+      <value id="4" name="Paused" abbrev="PAUSED">
+        <description>
+          Plan execution is paused.
+        </description>
+      </value>
     </field>
     <field name="Plan -- ID" abbrev="plan_id" type="plaintext">
       <description>
