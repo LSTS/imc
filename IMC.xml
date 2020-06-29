@@ -7817,6 +7817,12 @@
     </field>
   </message>
 
+  <message id="497" name="Clear Maneuver State" abbrev="ClearManeuverState">
+    <description>
+      Requests that maneuvers clear any state they saved after a pause request.
+    </description>
+  </message>
+
   <message id="499" name="Magnetometer Maneuver" abbrev="Magnetometer" source="ccu">
     <description>
       Magnetometer calibration maneuver (i.e: one square pattern
