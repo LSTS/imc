@@ -7808,6 +7808,12 @@
     </description>
   </message>
 
+  <message id="498" name="Pause Maneuver" abbrev="PauseManeuver">
+    <description>
+      Command used to pause the currently executing maneuver.
+    </description>
+  </message>
+
   <message id="499" name="Magnetometer Maneuver" abbrev="Magnetometer" source="ccu">
     <description>
       Magnetometer calibration maneuver (i.e: one square pattern
