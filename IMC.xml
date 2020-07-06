@@ -9099,6 +9099,11 @@
           Execute current plan while ignoring some errors that might be active.
         </description>
       </value>
+      <value id="0x0004" name="Don't Clear Maneuver State" abbrev="NO_CLEAR_MANEUVERS">
+        <description>
+          Don't clear maneuver states before starting the plan.
+        </description>
+      </value>
       <!-- Response flags -->
     </field>
     <field name="Request/Reply Argument" abbrev="arg" type="message">
