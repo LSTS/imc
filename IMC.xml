@@ -5314,6 +5314,17 @@
     </field>
   </message>
 
+  <message id="420" name="Peeked DesiredPath" abbrev="PeekDesiredPath">
+    <description>
+     A peek into the upcoming DesiredPath, to allow better decisions when completing maneuvers
+    </description>
+    <field name="DesiredPath" abbrev="dpath" type="message" message-type="DesiredPath">
+      <description>
+        The upcoming DesiredPath.
+      </description>
+    </field>
+  </message>
+
   <!-- Maneuvering -->
   <message id="450" name="Goto Maneuver" abbrev="Goto" source="ccu">
     <description>
@@ -7798,6 +7809,17 @@
     <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
       <description>
         Custom settings for maneuver.
+      </description>
+    </field>
+  </message>
+
+  <message id="497" name="Peeked Maneuver" abbrev="PeekManeuver">
+    <description>
+     A peek into the upcoming maneuver, to allow better decisions when completing maneuvers
+    </description>
+    <field name="Maneuver" abbrev="man" type="message" message-type="PlanManeuver">
+      <description>
+        The upcoming maneuver.
       </description>
     </field>
   </message>
