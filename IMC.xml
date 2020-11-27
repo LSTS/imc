@@ -2371,6 +2371,7 @@
       <value id="1" abbrev="IN_PROGRESS" name="In Progress"/>
       <value id="2" abbrev="SENT" name="Sent"/>
       <value id="3" abbrev="RANGE_RECEIVED" name="Range Received"/>
+      <value id="4" abbrev="DELIVERED" name="Delivered"/>
       <value id="100" abbrev="BUSY" name="Busy"/>
       <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
       <value id="102" abbrev="ERROR" name="Error trying to send acoustic text"/>
@@ -10038,9 +10039,19 @@
           modem.
         </description>
       </value>
-      <value abbrev="NO_TRANSDUCER" name="No transducer" id="8">
+      <value abbrev="SENT" name="Message has been sent" id="8">
         <description>
-          transducer not connected to the acoustic modem.
+          The message has been sent out.
+        </description>
+      </value>
+      <value abbrev="DELIVERED" name="Message has been acknowledged by the destination" id="9">
+        <description>
+          Message has been acknowledged by the destination.
+        </description>
+      </value>
+      <value abbrev="NO_TRANSDUCER" name="No transducer" id="10">
+        <description>
+          Transducer not connected to the acoustic modem.
         </description>
       </value>
     </field>
