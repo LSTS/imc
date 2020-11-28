@@ -7802,6 +7802,12 @@
     </field>
   </message>
 
+  <message id="497" name="Maneuver Done" abbrev="ManeuverDone" source="ccu">
+    <description>
+      Notification of completion of a maneuver (optional use).
+    </description>
+  </message>
+
   <message id="499" name="Magnetometer Maneuver" abbrev="Magnetometer" source="ccu">
     <description>
       Magnetometer calibration maneuver (i.e: one square pattern
