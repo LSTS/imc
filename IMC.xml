@@ -319,39 +319,39 @@
 
   <message-groups>
     <message-group name="Maneuver" abbrev="Maneuver">
-      <message-type abbrev="Goto"/>
-      <message-type abbrev="PopUp"/>
-      <message-type abbrev="Teleoperation"/>
-      <message-type abbrev="Launch"/>
-      <message-type abbrev="Loiter"/>
-      <message-type abbrev="IdleManeuver"/>
-      <message-type abbrev="LowLevelControl"/>
-      <message-type abbrev="Rows"/>
-      <message-type abbrev="FollowPath"/>
-      <message-type abbrev="YoYo"/>
-      <message-type abbrev="StationKeeping"/>
-      <message-type abbrev="Elevator"/>
-      <message-type abbrev="FollowTrajectory"/>
-      <message-type abbrev="CustomManeuver"/>
-      <message-type abbrev="VehicleFormation"/>
+      <message-type abbrev="Alignment"/>
+      <message-type abbrev="AutonomousSection"/>
+      <message-type abbrev="CommsRelay"/>
       <message-type abbrev="CompassCalibration"/>
       <message-type abbrev="CoverArea"/>
-      <message-type abbrev="FollowReference"/>
-      <message-type abbrev="CommsRelay"/>
-      <message-type abbrev="FormationPlanExecution"/>
+      <message-type abbrev="CustomManeuver"/>
       <message-type abbrev="Dislodge"/>
       <message-type abbrev="Drop"/>
+      <message-type abbrev="IdleManeuver"/>
+      <message-type abbrev="ImageTracking"/>
+      <message-type abbrev="Elevator"/>
+      <message-type abbrev="FollowPath"/>
+      <message-type abbrev="FollowPoint"/>
+      <message-type abbrev="FollowReference"/>
+      <message-type abbrev="FollowTrajectory"/>
+      <message-type abbrev="FormationPlanExecution"/>
+      <message-type abbrev="Goto"/>
+      <message-type abbrev="Land"/>
+      <message-type abbrev="Launch"/>
+      <message-type abbrev="Loiter"/>
+      <message-type abbrev="LowLevelControl"/>
+      <message-type abbrev="Magnetometer"/>
+      <message-type abbrev="PopUp"/>
+      <message-type abbrev="Rows"/>
+      <message-type abbrev="RowsCoverage"/>
       <message-type abbrev="Sample"/>
       <message-type abbrev="ScheduledGoto"/>
-      <message-type abbrev="RowsCoverage"/>
-      <message-type abbrev="ImageTracking"/>
-      <message-type abbrev="Takeoff"/>
-      <message-type abbrev="Land"/>
-      <message-type abbrev="AutonomousSection"/>
-      <message-type abbrev="FollowPoint"/>
-      <message-type abbrev="Alignment"/>
+      <message-type abbrev="StationKeeping"/>
       <message-type abbrev="StationKeepingExtended"/>
-      <message-type abbrev="Magnetometer"/>
+      <message-type abbrev="Takeoff"/>
+      <message-type abbrev="Teleoperation"/>
+      <message-type abbrev="VehicleFormation"/>
+      <message-type abbrev="YoYo"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
