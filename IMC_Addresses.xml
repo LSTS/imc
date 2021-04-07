@@ -148,7 +148,7 @@
   <address id="0x6003" name="lauv-noptilus-3-aux"/>
   <address id="0x6004" name="lauv-xtreme-2-aux"/>
   <address id="0x6005" name="caravela-aux"/>
-  <address id="0x6006" name="lauv-xtreme-2-cam"/>
+  <address id="0x6006" name="lauv-xtreme-2-cpu-cam"/>
   <address id="0x6007" name="x8-06-aux"/>
   <!-- Sensors of LSTS (Self containing sensor systems) -->
   <address id="0x8000" name="star"/>
