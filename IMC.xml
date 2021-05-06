@@ -367,6 +367,11 @@
       <message-type abbrev="RemoteCommand"/>
       <message-type abbrev="HistoricSample"/>
     </message-group>
+
+    <message-group name="FileData" abbrev="FileData">
+      <message-type abbrev="FileFragment"/>
+      <message-type abbrev="FileListInfo"/>
+    </message-group>    
   </message-groups>
 
   <flags>
@@ -10845,6 +10850,54 @@
     <field name="Altitude" abbrev="alt" type="fp32_t" unit="m">
       <description>
         Altitude, in meters. Negative values denote invalid estimates.
+      </description>
+    </field>
+   </message>
+
+    <message id="910" name="Log Files Query" abbrev="LogFilesQuery" source="vehicle,ccu">
+    <description>
+      Files Query Operations.
+    </description>
+    <field name="Request Id" abbrev="req_id" type="uint16_t" />
+    <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="LFQTYPE">
+    	<value abbrev="FETCH" name="Fetch" id="1">
+            <description>Request file listing</description>
+        </value>
+        <value abbrev="QUERY" name="Query" id="2">
+            <description>Request file data</description>
+        </value>
+        <value abbrev="REPLY" name="Reply" id="3">
+            <description>Returns file data</description>
+        </value>
+        <value abbrev="CLEAR" name="Clear" id="4">
+            <description>Clear files</description>
+        </value>
+        <value abbrev="ERROR" name="Error" id="5">
+            <description>Error on request</description>
+        </value>        
+    </field>
+    <field name="Interval Beginning" abbrev="init" type="uint32_t" />
+    <field name="Interval End" abbrev="end" type="uint32_t" />
+    <field name="Data" abbrev="data" type="message" message-type="FileData"/>
+   </message>
+
+   <message id="911" name="File Fragment" abbrev="FileFragment" source="vehicle,ccu">
+    <description>
+      Files data fragment.
+    </description>
+    <field name="File Name" abbrev="name" type="plaintext" />
+    <field name="Fragment Number" abbrev="frag_number" type="uint16_t"/>
+    <field name="Total Number of fragments" abbrev="num_frags" type="uint16_t"/>
+    <field name="Fragment Data" abbrev="data" type="rawdata"/>
+   </message>
+
+    <message id="912" name="File List Info" abbrev="FileListInfo" source="vehicle,ccu">
+    <description>
+      Tuplelist with listed files.
+    </description>
+    <field name="File List" abbrev="list" type="plaintext" unit="TupleList">
+      <description>
+        Example: "Path1=Size;Path2=Size"
       </description>
     </field>
    </message>
