@@ -10866,22 +10866,28 @@
         <value abbrev="QUERY" name="Query" id="2">
             <description>Request file data</description>
         </value>
-        <value abbrev="REPLY" name="Reply" id="3">
-            <description>Returns file data</description>
-        </value>
-        <value abbrev="CLEAR" name="Clear" id="4">
+        <value abbrev="CLEAR" name="Clear" id="3">
             <description>Clear files</description>
         </value>
-        <value abbrev="ERROR" name="Error" id="5">
-            <description>Error on request</description>
+        <value abbrev="CANCEL" name="Cancel" id="4">
+            <description>Cancel current transaction</description>
         </value>        
     </field>
     <field name="Interval Beginning" abbrev="init" type="uint32_t" />
     <field name="Interval End" abbrev="end" type="uint32_t" />
+   </message>
+
+   <message id="911" name="Log Files Reply" abbrev="LogFilesReply" source="vehicle,ccu">
+    <description>
+      Files Reply Data.
+    </description>
+    <field name="Request Id" abbrev="req_id" type="uint16_t" />
     <field name="Data" abbrev="data" type="message" message-type="FileData"/>
    </message>
 
-   <message id="911" name="File Fragment" abbrev="FileFragment" source="vehicle,ccu">
+
+
+   <message id="912" name="File Fragment" abbrev="FileFragment" source="vehicle,ccu">
     <description>
       Files data fragment.
     </description>
@@ -10891,7 +10897,7 @@
     <field name="Fragment Data" abbrev="data" type="rawdata"/>
    </message>
 
-    <message id="912" name="File List Info" abbrev="FileListInfo" source="vehicle,ccu">
+    <message id="913" name="File List Info" abbrev="FileListInfo" source="vehicle,ccu">
     <description>
       Tuplelist with listed files.
     </description>
