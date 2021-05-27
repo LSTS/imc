@@ -10885,8 +10885,6 @@
     <field name="Data" abbrev="data" type="message" message-type="FileData"/>
    </message>
 
-
-
    <message id="912" name="File Fragment" abbrev="FileFragment" source="vehicle,ccu">
     <description>
       Files data fragment.
