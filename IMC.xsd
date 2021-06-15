@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="5.0.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="5.1.0">
     <xs:annotation>
         <xs:documentation>
    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -310,6 +310,7 @@
         </xs:attribute>
         <xs:attributeGroup ref="enumBitmaskRefAttributes"/>
         <xs:attributeGroup ref="messageTypeRefAttributes"/>
+        <xs:attributeGroup ref="vectorTypeRefAttributes"/>
     </xs:complexType>
     <xs:complexType name="headerType">
         <xs:sequence>
@@ -494,5 +495,8 @@
     </xs:attributeGroup>
     <xs:attributeGroup name="messageTypeRefAttributes">
         <xs:attribute name="message-type" type="xs:string" use="optional" default=""/>
+    </xs:attributeGroup>
+        <xs:attributeGroup name="vectorTypeRefAttributes">
+        <xs:attribute name="vector-type" type="xs:string" use="optional" default=""/>
     </xs:attributeGroup>
 </xs:schema>
