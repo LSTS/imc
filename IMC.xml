@@ -10860,21 +10860,23 @@
     </description>
     <field name="Request Id" abbrev="req_id" type="uint16_t" />
     <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="LFQTYPE">
-    	<value abbrev="FETCH" name="Fetch" id="1">
+    	<value id="0" abbrev="FETCH" name="Fetch">
             <description>Request file listing</description>
         </value>
-        <value abbrev="QUERY" name="Query" id="2">
+        <value id="1" abbrev="QUERY" name="Query">
             <description>Request file data</description>
         </value>
-        <value abbrev="CLEAR" name="Clear" id="3">
+        <value id="2" abbrev="CLEAR" name="Clear">
             <description>Clear files</description>
         </value>
-        <value abbrev="CANCEL" name="Cancel" id="4">
+        <value id="3" abbrev="CANCEL" name="Cancel">
             <description>Cancel current transaction</description>
         </value>        
     </field>
     <field name="Interval Beginning" abbrev="init" type="uint32_t" />
+        <description>Interval Beginning in UTC</description>
     <field name="Interval End" abbrev="end" type="uint32_t" />
+        <description>Interval End in UTC</description>
    </message>
 
    <message id="911" name="Log Files Reply" abbrev="LogFilesReply" source="vehicle,ccu">
