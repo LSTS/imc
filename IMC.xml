@@ -10848,5 +10848,29 @@
       </description>
     </field>
    </message>
+
+   <!-- COMAP Messages -->
+   <message id="3001" name="Vehicle Capabilities" abbrev="VehicleCapabilities">    
   
+   </message>
+
+   <message id="3002" name="Survey Status Request" abbrev="SurveyStatusRequest">
+     
+   </message>
+
+   <message id="3003" name="Vehicle Survey State" abbrev="VehicleSurveyState">
+     
+   </message>
+
+   <message id="3004" name="Vehicle Status Request" abbrev="VehicleStatusRequest">
+
+   </message>
+   
+   <message id="3005" name="Vehicle Status" abbrev="VehicleStatus">
+
+   </message>
+
+   <message id="3006" name="Survey Image Quality" abbrev="SurveyImageQuality">
+     
+   </message>
 </messages>
