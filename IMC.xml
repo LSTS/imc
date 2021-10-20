@@ -10850,27 +10850,124 @@
    </message>
 
    <!-- COMAP Messages -->
-   <message id="3001" name="Vehicle Capabilities" abbrev="VehicleCapabilities">    
+   <message id="3001" name="World Model" abbrev="WorldModel">
+     <description>
+       This message represents a world model.
+     </description>
+    <field name="GeoFeatures" abbrev="geo_features" type="message-list" message-type="GeoFeature">
+      <description>
+        This field holds a series of geographical features present in the world.
+      </description>
+    </field>
+    <field name="CoverageStates" abbrev="cov_states" type="message-list" message-type="CoverageState">
+      <description>
+        This field holds the coverage states of the features in the world.
+      </description>
+    </field>
+   </message>
+
+   <message id="3002" name="Geographical Feature" abbrev="GeoFeature">
+     <description>
+       This message holds a geographical that, according to the number of vertices, may correspond to a point, a line or polygon.
+     </description>
+     <field name="Identifier" abbrev="feature_id" type="uint16_t">
+       <description>
+         The unique identifier for this feature.
+       </description>
+     </field>     
+     <field name="Points" abbrev="points" type="message-list" message-type="MapPoint">
+       <description>
+         The vertices of the feature. 
+         If the feature has just one vertex, it is a point.
+         If the feature has exactly two vertices, it is a line.
+         Features with more than two points, correspond to polygons.
+       </description>
+     </field>
+    </message>
+
+    <message id="3003" name="Feature Coverage State" abbrev="CoverageState">
+      <description>
+        This message is used to report the coverage state of a geographical feature.
+        It is reported by the UxVs performing the surveys.
+      </description>
+     <field name="Identifier" abbrev="feature_id" type="uint16_t">
+       <description>
+         The unique feature identifier. Feature IDs are managed by the C2.
+       </description>
+     </field>
+     <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="COV">
+      <value id="1" name="Completed" abbrev="COMPLETED">
+        <description>
+          The coverage is completed for this feature.
+        </description>
+      </value>
+      <value id="2" name="Partial" abbrev="PARTIAL">
+        <description>
+          The feature is partially complete.
+        </description>
+      </value>
+      <value id="3" name="None" abbrev="NONE">
+        <description>
+          The coverage has not been started for this feature.
+        </description>
+      </value>
+     </field>
+    </message>
+
+    <message id="3004" name="Task Administration" abbrev="TaskAdim">
+      <field name="Task Identifier" abbrev="tid" type="uint16_t">
+        <description>
+          The unique task identifier. Task ids are managed by the C2.
+        </description>
+      </field>
+      <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="TAOP">
+        <description>
+          The purpose of this message.
+        </description>
+        <value id="1" name="Accept" abbrev="ACCEPT">
+          <description>Accept the execution of this task.</description>
+        </value>
+        <value id="2" name="Reject" abbrev="REJECT">
+          <description>Reject the execution of this task.</description>
+        </value>
+        <value id="3" name="Assign" abbrev="ASSIGN">
+          <description>Request this task to be assigned to the destination of the message.</description>
+        </value>
+        <value id="4" name="Unassign" abbrev="UNASSIGN">
+          <description>Request this task to be unassigned from the destination of the message.</description>
+        </value>
+        <value id="5" name="Status" abbrev="STATUS">
+          <description>Report the state of execution of this task.</description>
+        </value>
+        <value id="6" name="Status Request" abbrev="STATUS_REQUEST">
+          <description>Request this task completion status.</description>
+        </value>
+      </field>
+      
+      <field name="Argument" abbrev="arg" type="message" message-type="TaskAdminArgs">
+        <description>
+          This field will be empty or hold an inline message whose type varies with the operation.
+        </description>
+      </field>
+    </message>
+
+    <message id="3005" name="Synchronization Administration" abbrev="SynchAdmin">
+      <description>
+        This message is used to control the state of execution for the entire system.
+      </description>
+      <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="SYNCOP">
+        <value id="1" name="Hold Execution" abbrev="HOLD"/>
+        <value id="2" name="Resume Execution" abbrev="RESUME"/>
+        <value id="3" name="Interrupt Execution" abbrev="INTERRUPT"/>
+      </field>
+    </message>
+
+   <message id="3006" name="Vehicle Capabilities" abbrev="VehicleCapabilities">    
   
    </message>
 
-   <message id="3002" name="Survey Status Request" abbrev="SurveyStatusRequest">
-     
+   <message id="3101" name="Multibeam Survey Task" abbrev="TaskMultibeamSurvey">    
+    
    </message>
-
-   <message id="3003" name="Vehicle Survey State" abbrev="VehicleSurveyState">
-     
-   </message>
-
-   <message id="3004" name="Vehicle Status Request" abbrev="VehicleStatusRequest">
-
-   </message>
-   
-   <message id="3005" name="Vehicle Status" abbrev="VehicleStatus">
-
-   </message>
-
-   <message id="3006" name="Survey Image Quality" abbrev="SurveyImageQuality">
-     
-   </message>
+  
 </messages>
