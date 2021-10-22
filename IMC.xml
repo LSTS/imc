@@ -200,6 +200,8 @@
     <unit abbrev="ms" name="Millisecond"/>
     <unit abbrev="µs" name="Microsecond"/>
     <unit abbrev="ns" name="Nanosecond"/>
+    <unit abbrev="px/m²" name="Pixels per square meter"/>
+    <unit abbrev="m²/s" name="Square meters per second"/>
     <unit abbrev="S/m" name="Siemens per meter"/>
     <unit abbrev="kg" name="Kilogram"/>
     <unit abbrev="Nm" name="Newton meter"/>
@@ -282,6 +284,13 @@
       <value id="0" name="Fixed-Wing" abbrev="FIXEDWING"/>
       <value id="1" name="Copter" abbrev="COPTER"/>
       <value id="2" name="Vtol" abbrev="VTOL"/>
+    </def>
+
+    <def name="Sensor Type" abbrev="SensorType" prefix="SENSORTYPE">
+      <value id="1" name="Multibeam Sonar" abbrev="MULTIBEAM"/>
+      <value id="2" name="Sidescan Sonar" abbrev="SIDESCAN"/>
+      <value id="3" name="Video Camera" abbrev="CAMERA"/>
+      <value id="4" name="Magnetometer" abbrev="MAGNETOMETER"/>
     </def>
   </enumerations>
 
@@ -368,6 +377,18 @@
     <message-group name="RemoteData" abbrev="RemoteData">
       <message-type abbrev="RemoteCommand"/>
       <message-type abbrev="HistoricSample"/>
+    </message-group>
+
+    <message-group name="VehicleCapability" abbrev="VehicleCapability">
+      <message-type abbrev="CapabilityAreaSurvey"/>
+      <message-type abbrev="CapabilityPointSurvey"/>
+      <message-type abbrev="CapabilityMove"/>
+    </message-group>
+
+    <message-group name="TaskAdminArgs" abbrev="TaskAdminArgs">
+      <message-type abbrev="SurveyTask"/>
+      <message-type abbrev="MoveTask"/>
+      <message-type abbrev="TaskStatus"/>
     </message-group>
   </message-groups>
 
@@ -11649,12 +11670,81 @@
       </field>
     </message>
 
-   <message id="3006" name="Vehicle Capabilities" abbrev="VehicleCapabilities">    
+    <message id="3006" name="Vehicle Capabilities" abbrev="VehicleCapabilities">
+      <description>
+        This message describes the capabilities provided by an UxV.
+      </description>
+      <field name="Capabilities" abbrev="capabilities" type="message-list" message-type="VehicleCapability" />
+    </message>
   
-   </message>
+    <message id="3010" name="Area Survey Capability" abbrev="CapabilityAreaSurvey">
+      <description>This message describes an area surveying capability.</description>
+      <field name="Sensor" abbrev="sensor" type="uint8_t" unit="Enumerated" prefix="CAPSENSOR" enum-def="SensorType" />
+      <field name="Resolution" abbrev="resolution" type="fp32_t" unit="px/m²" />
+      <field name="Resolution Bathymetry Factor" abbrev="res_bathym_factor" type="fp32_t" />
+      <field name="Coverage Rate" abbrev="cov_rate" type="fp32_t" unit="m²/s" />
+      <field name="Coverage Bathymetry Factor" abbrev="cov_bathym_factor" type="fp32_t" />
+    </message>
+  
+    <message id="3011" name="Point Survey Capability" abbrev="CapabilityPointSurvey">
+      <description>This message describes an area surveying capability.</description>
+      <field name="Sensor" abbrev="Sensor" type="uint8_t" unit="Enumerated" prefix="CAPSENSOR" enum-def="SensorType" />
+      <field name="Resolution" abbrev="resolution" type="fp32_t" unit="px/m²" />
+      <field name="Duration" abbrev="duration" type="fp32_t" unit="s" />
+    </message>
+  
+    <message id="3012" name="Move Capability" abbrev="CapabilityMove">
+      <description>This message describes a moving capability.</description>
+      <field name="Speed" abbrev="speed" type="fp32_t" unit="m/s"></field>
+    </message>
+  
+    <message id="3101" name="Survey Task" abbrev="SurveyTask">
+      <description>This message is used to describe an area surveying task.</description>
+      <field name="Task Identifier" abbrev="task_id" type="uint16_t">
+        <description>The identifier for this task.</description>
+      </field>
+      <field name="Geo Feature Identifier" abbrev="feature_id" type="uint16_t">
+        <description>The identifier of the feature to be surveyed.</description>
+      </field>
+      <field name="Sensor" abbrev="sensor" type="uint8_t" unit="Enumerated" enum-def="SensorType" />
+      <field name="Resolution" abbrev="resolution" type="fp32_t" unit="px/m²" />
+      <field name="Deadline" abbrev="deadline" type="fp64_t" unit="s">
+        <description>
+          The deadline until when the task must be finished. The number of seconds is represented 
+          in Universal Coordinated Time (UCT) in seconds since Jan 1, 1970 using IEEE double precision 
+          floating point numbers.
+        </description>
+      </field>
+    </message>
 
-   <message id="3101" name="Multibeam Survey Task" abbrev="TaskMultibeamSurvey">    
+    <message id="3102" name="Move Task" abbrev="MoveTask">
+      <description>This message is used to describe an area surveying task.</description>
+      <field name="Task Identifier" abbrev="task_id" type="uint16_t">
+        <description>The identifier for this task.</description>
+      </field>
+      <field name="Destination" abbrev="destination" type="message" message-type="MapPoint">
+        <description>The destination where to go.</description>
+      </field>
+      <field name="Deadline" abbrev="deadline" type="fp64_t" unit="s">
+        <description>
+          The deadline until when the task must be finished. The number of seconds is represented 
+          in Universal Coordinated Time (UCT) in seconds since Jan 1, 1970 using IEEE double precision 
+          floating point numbers.
+        </description>
+      </field>
+    </message>
     
-   </message>
-  
+    <message id="3103" name="Task Status" abbrev="TaskStatus">
+      <field name="Task Identifier" abbrev="task_id" type="uint16_t">
+        <description>The identifier for this task.</description>
+      </field>
+      <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="SSTATUS">
+        <value id="1" name="Completed" abbrev="COMPLETED" />
+        <value id="2" name="In Progress" abbrev="IN_PROGRESS" />
+        <value id="3" name="Error" abbrev="ERROR" />
+        <value id="4" name="Assigned" abbrev="ASSIGNED" />
+      </field>
+      <field name="Progress" abbrev="progress" type="uint8_t" unit="%" max="100" />
+      <field name="Quality" abbrev="quality" type="uint8_t" unit="%" max="100" />
+    </message>
 </messages>
