@@ -11098,6 +11098,27 @@
     </field>
   </message>
 
+  <message id="2003" name="Colored Dissolved Organic Matter" abbrev="ColoredDissolvedOrganicMatter" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Colored Dissolved Organic Matter measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="PPB">
+      <description>
+        Colored Dissolved Organic Matter reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="2004" name="Fluorescent Dissolved Organic Matter" abbrev="FluorescentDissolvedOrganicMatter" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Fluorescent Dissolved Organic Matter measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="PPB">
+      <description>
+        Fluorescent Dissolved Organic Matter reading.
+      </description>
+    </field>
+  </message>
   <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
     <field name="Value" abbrev="value" type="fp64_t">
       <description>Total Magnetic Field Intensity (TMI)</description>
