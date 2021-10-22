@@ -8677,6 +8677,35 @@
     </field>
   </message>
 
+  <message id="525" name="Asset Report " abbrev="AssetReport" source="ccu,vehicle" category="Vehicle Supervision">
+    <description>
+      This message is represents an Asset position / status.
+    </description>
+    <field name="Asset Name" abbrev="name" type="plaintext">
+      <description>
+        The human readable name of the asset.
+      </description>
+    </field>
+    <field name="Report Timestamp" abbrev="report_time" type="fp64_t" unit="s">
+      <description>
+        Time in seconds since epoch, for the generation instant.
+      </description>
+    </field>
+    <field name="Medium" abbrev="medium" type="uint8_t" unit="Enumerated" prefix="RM">
+      <value id="1" name="WiFi" abbrev="WIFI"/>
+      <value id="2" name="Satellite" abbrev="SATELLITE"/>
+      <value id="3" name="Acoustic" abbrev="ACOUSTIC"/>
+      <value id="4" name="SMS" abbrev="SMS"/>
+    </field>
+    <field name="Latitude" abbrev="lat" type="fp64_t" unit="rad" />
+    <field name="Longitude" abbrev="lon" type="fp64_t" unit="rad" />
+    <field name="Depth" abbrev="depth" type="fp32_t" unit="m" />
+    <field name="Altitude" abbrev="alt" type="fp32_t" unit="m" />
+    <field name="Speed Over Ground" abbrev="sog" type="fp32_t" unit="m/s" />
+    <field name="Course Over Ground" abbrev="cog" type="fp32_t" unit="rad" />
+    <field name="Additional Info" abbrev="msgs" type="message-list" />
+  </message>
+
   <!-- Plan Supervision -->
   <message id="550" name="Abort" abbrev="Abort" source="ccu" category="Plan Supervision">
     <description>
