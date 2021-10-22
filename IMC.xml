@@ -9938,6 +9938,11 @@
           data (e.g., acknowledgment of reception, etc).
         </description>
       </value>
+      <value abbrev="FORCED" name="Forced" id="0x04">
+        <description>
+          Ignore safety checks such as "transducer not connected".
+        </description>
+      </value>
     </field>
     <field name="Data" abbrev="data" type="rawdata">
       <description>
