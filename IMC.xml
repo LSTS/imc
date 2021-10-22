@@ -7740,7 +7740,142 @@
     </field>
   </message>
 
-<message id="496" name="Station Keeping Extended" abbrev="StationKeepingExtended" source="ccu" category="Maneuvering">
+  <!--message id="496" name="Follow Command Maneuver" abbrev="FollowCommand" source="ccu" category="Maneuvering">
+    <description>
+      This maneuver follows a direct command given by an external entity.
+    </description>
+    <field name="Controlling Source" abbrev="control_src" type="uint16_t">
+      <description>
+        The IMC identifier of the source system that is allowed to provide command to this maneuver.
+	If the value ''0xFFFF'' is used, any system is allowed to command references.
+      </description>
+    </field>
+    <field name="Controlling Entity" abbrev="control_ent" type="uint8_t">
+      <description>
+        The entity identifier of the entity that is allowed to provide commands to this maneuver.
+        If the value ''0xFF'' is used, any entity is allowed to command references.
+      </description>
+    </field>
+    <field name="Reference Update Timeout" abbrev="timeout" type="fp32_t">
+      <description>
+        The ammount of time, in seconds, after which the maneuver will be terminated if no new command has
+        been received. In other words, the controlling entity should send command updates in shorter periods than
+        'timeout'.
+      </description>
+    </field>
+  </message>
+
+  <message id="497" name="Command To Follow" abbrev="Command" source="ccu,vehicle" category="Maneuvering">
+    <description>
+      This message must be sent by an external entity to provide command references to a system
+      running a "Follow Command Maneuver". If no Command messages are transmitted, the system
+      will terminate maneuver.
+    </description>
+    <field name="Flags" abbrev="flags" type="uint8_t" unit="Bitfield" prefix="FLAG">
+      <value abbrev="SPEED_METERS_PS" name="Use Speed Reference in meters per second" id="0x01">
+	<description>
+	  Command system to move at speed reference provided in "speed" field in meters per second.
+	</description>
+      </value>
+      <value abbrev="SPEED_RPM" name="Use Speed Reference in revolutions per minute" id="0x02">
+	<description>
+	  Command system to move at speed reference provided in "speed" field in revolutions per minute.
+	</description>
+      </value>
+      <value abbrev="DEPTH" name="Use Z Reference as depth" id="0x04">
+	<description>
+	  Command system to move at z reference provided in "z" field in depth.
+	</description>
+      </value>
+      <value abbrev="ALTITUDE" name="Use Z Reference as altitude" id="0x08">
+	<description>
+	  Command system to move at z reference provided in "z" field in altitude.
+	</description>
+      </value>
+      <value abbrev="HEADING" name="Use Heading Reference" id="0x10">
+	<description>
+	  Command system to move at a heading reference provided in "heading" field in radians.
+	</description>
+      </value>
+      <value abbrev="HEADING_RATE" name="Use Heading Rate Reference" id="0x20">
+	<description>
+	  Command system to move at a heading rate reference provided in "heading" field in radians/s.
+	</description>
+      </value>
+      <value abbrev="MANDONE" name="Flag Maneuver Completion" id="0x80">
+	<description>
+	  Command system to exit maneuver's execution.
+	</description>
+      </value>
+    </field>
+    <field name="Speed Reference" abbrev="speed" type="fp32_t">
+      <description>
+        The value of the desired speed, in the scale specified by the
+        "flags" field.
+      </description>
+    </field>
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        The value of the desired z reference in meters.
+      </description>
+    </field>
+    <field name="Heading Reference" abbrev="heading" type="fp32_t" unit="rad">
+      <description>
+        The value of the desired heading angle, relative to true  north, in radians,
+	or, the value of the desired heading rate angle, in radians.
+      </description>
+    </field>
+  </message>
+
+  <message id="498" name="Follow Command State" abbrev="FollowCommandState" source="vehicle" category="Maneuvering">
+    <field name="Controlling Source" abbrev="control_src" type="uint16_t">
+      <description>
+        The IMC identifier of the source system that is allowed to control the vehicle.
+        If the value ''0xFFFF'' is used, any system is allowed to command references.
+      </description>
+    </field>
+    <field name="Controlling Entity" abbrev="control_ent" type="uint8_t">
+      <description>
+        The entity identifier of the entity that is allowed to control the vehicle.
+        If the value ''0xFF'' is used, any entity is allowed to command references.
+      </description>
+    </field>
+    <field name="Command" abbrev="command" type="message" message-type="Command">
+      <description>Command currently being followed.</description>
+    </field>
+    <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="FC">
+      <description>
+	Current state of execution.
+      </description>
+      <value abbrev="WAIT" name="Waiting for first command" id="1">
+	<description>
+	  System is waiting for first command.
+	</description>
+      </value>
+      <value abbrev="MOVING" name="Moving towards received command" id="2">
+	<description>
+	  System is moving according with command provided.
+	</description>
+      </value>
+      <value abbrev="STOPPED" name="Speed command is zero" id="3">
+	<description>
+	  System is stopped. Speed reference is zero.
+	</description>
+      </value>
+      <value abbrev="BAD_COMMAND" name="Command is out of safe bounds" id="4">
+	<description>
+	  Command provided breaks system's physical limitations.
+	</description>
+      </value>
+      <value abbrev="TIMEOUT" name="Controlling system timed out" id="5">
+	<description>
+	  Maneuver will be terminated since timeout was exceeded.
+	</description>
+      </value>
+    </field>
+  </message-->
+
+  <message id="496" name="Station Keeping Extended" abbrev="StationKeepingExtended" source="ccu" category="Maneuvering">
     <description>
       The Station Keeping Extended maneuver makes the vehicle come to the surface
       and then enter a given circular perimeter around a waypoint coordinate
