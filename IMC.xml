@@ -11233,6 +11233,51 @@
     </field>
   </message>
 
+  <message id="2000" name="GPIO State" abbrev="GpioState" source="vehicle" category="Actuation">
+    <description>
+      Current state of a GPIO.
+    </description>
+    <field name="Name" abbrev="name" type="plaintext">
+      <description>
+        GPIO Name.
+      </description>
+    </field>
+    <field name="Value" abbrev="value" type="uint8_t">
+      <description>
+        Logical level of the GPIO.
+      </description>
+    </field>
+  </message>
+
+  <message id="2001" name="Get GPIO State" abbrev="GpioStateGet" source="vehicle" category="Actuation">
+    <description>
+      Request the state of a given GPIO. The receiving entity shall reply
+      with a GpioState message.
+    </description>
+    <field name="Name" abbrev="name" type="plaintext">
+      <description>
+        GPIO Name.
+      </description>
+    </field>
+  </message>
+
+  <message id="2002" name="Set GPIO State" abbrev="GpioStateSet" source="vehicle" category="Actuation">
+    <description>
+      Set the state of a given GPIO. The receiving entity shall reply
+      with a GpioState message.
+    </description>
+    <field name="Name" abbrev="name" type="plaintext">
+      <description>
+        GPIO Name.
+      </description>
+    </field>
+    <field name="Value" abbrev="value" type="uint8_t">
+      <description>
+        Logical level of the GPIO.
+      </description>
+    </field>
+  </message>
+
   <message id="2003" name="Colored Dissolved Organic Matter" abbrev="ColoredDissolvedOrganicMatter" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Colored Dissolved Organic Matter measurement.
