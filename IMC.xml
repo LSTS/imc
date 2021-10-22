@@ -11164,6 +11164,53 @@
       </description>
     </field>
   </message>
+
+  <!--message id="2005" name="Transmit Iridium Message (Extended)" abbrev="IridiumMsgTxExtended" source="vehicle,ccu" category="Networking">
+    <field name="Request Identifier" abbrev="req_id" type="uint16_t">
+      <description>The request identifier used to receive transmission updates.</description>
+    </field>
+    <field name="Time to live" abbrev="ttl" type="uint16_t" unit="s">
+      <description>Time, in seconds, after which there will be no more atempts to transmit the message.</description>
+    </field>
+    <field name="Expiration Time" abbrev="expiration" type="uint32_t" unit="s">
+      <description>Time in seconds since the Unix Epoch after which the recipient shall discard the message.</description>
+    </field>
+    <field name="Destination Identifier" abbrev="destination" type="plaintext">
+      <description>The unique identifier of this message's destination (e.g. lauv-xtreme-2, manta-0).</description>
+    </field>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        Message data.
+      </description>
+    </field>
+  </message-->
+
+  <!--message id="2006" name="Sonar Pulse" abbrev="SonarPulse" source="vehicle" category="Sensors">
+    <description>
+      Information regarding a sent/received Sonar pulse.
+    </description>
+    <field name="Frequency" abbrev="frequency" type="int32_t" unit="Hz">
+      <description>
+        Frequency of the sent/received sonar pulse.
+      </description>
+    </field>
+    <field name="Pulse Length" abbrev="pulse_length" type="int32_t" unit="ms">
+      <description>
+        Pulse Length of the sonar pulse.
+      </description>
+    </field>
+    <field name="Time Delay" abbrev="time_delay" type="int32_t" unit="ms">
+      <description>
+        Time Delay of the sonar pulse.
+      </description>
+    </field>
+    <field name="Simulated Speed" abbrev="simulated_speed" type="int32_t" unit="m/s">
+      <description>
+        Doppler shift added to the sonar pulse in retransmission
+      </description>
+    </field>
+  </message-->
+
   <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
     <field name="Value" abbrev="value" type="fp64_t">
       <description>Total Magnetic Field Intensity (TMI)</description>
