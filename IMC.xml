@@ -10051,19 +10051,19 @@
           modem.
         </description>
       </value>
-      <value abbrev="SENT" name="Message has been sent" id="8">
+      <value abbrev="NOT_TRANSDUCER" name="No transducer" id="8">
+        <description>
+          Transducer not connected to the acoustic modem.
+        </description>
+      </value>
+      <value abbrev="SENT" name="Message has been sent" id="9">
         <description>
           The message has been sent out.
         </description>
       </value>
-      <value abbrev="DELIVERED" name="Message has been acknowledged by the destination" id="9">
+      <value abbrev="DELIVERED" name="Message has been acknowledged by the destination" id="10">
         <description>
           Message has been acknowledged by the destination.
-        </description>
-      </value>
-      <value abbrev="NO_TRANSDUCER" name="No transducer" id="10">
-        <description>
-          Transducer not connected to the acoustic modem.
         </description>
       </value>
     </field>
