@@ -2248,6 +2248,13 @@
           Request sending updated position to remote system so it can be ranged.
         </description>
       </value>
+      <value id="18" name="Forced Abort" abbrev="FORCED_ABORT">
+        <description>
+          Send an abort through the acoustic channel to the system
+          specified in the field 'system', ignoring safety checks such
+          as "transducer not connected".
+        </description>
+      </value>
     </field>
     <field name="System" abbrev="system" type="plaintext">
       <description>
