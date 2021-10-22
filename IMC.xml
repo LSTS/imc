@@ -11164,7 +11164,76 @@
     </field>
    </message>
   
-    <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
+  <message id="1014" name="Current Profile" abbrev="CurrentProfile" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Contains a profile of water velocities measured relative to the vehicle
+      velocity, represented in the specified coordinate system.
+    </description>
+    <field name="Number of Beams" abbrev="nbeams" type="uint8_t">
+      <description>
+        Number of ADCP beams.
+      </description>
+    </field>
+    <field name="Number of Cells" abbrev="ncells" type="uint8_t">
+      <description>
+        Number of ADCP cells.
+      </description>
+    </field>
+    <field name="Coordinate System" abbrev="coord_sys" type="uint8_t" unit="Bitfield" prefix="UTF">
+      <description>
+        Coordinate system of the velocity measurement.
+      </description>
+      <value abbrev="XYZ" name="xyz" id="0x01"/>
+      <value abbrev="NED" name="ned" id="0x02"/>
+      <value abbrev="BEAMS" name="beams" id="0x04"/>
+    </field>
+    <field name="Profile" abbrev="profile" type="message-list" message-type="CurrentProfileCell">
+      <description>
+        List of current profile measurement cells.
+      </description>
+    </field>
+  </message>
+
+  <message id="1015" name="Current Profile Cell" abbrev="CurrentProfileCell" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      One Current measurement at a specific CellPosition.
+    </description>
+    <field name="Cell Position" abbrev="cell_position" type="fp32_t" unit="m">
+      <description>
+        Distance of each measurment cell along the Z-axis in the coordintate frame.
+      </description>
+    </field>
+    <field name="Beams Measurements" abbrev="beams" type="message-list" message-type="ADCPBeam">
+      <description>
+        List of beams measurements at the current cell level.
+      </description>
+    </field>
+  </message>
+
+  <message id="1016" name="ADCP Beam Measurements" abbrev="ADCPBeam" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Measurement from one specific beam at the given CellPosition.
+      Water Velocity is provided in the chosen Coordinate system.
+      Amplitude and Correlation are always in the BEAM coordinate system.
+    </description>
+    <field name="Water Velocity" abbrev="vel" type="fp32_t" unit="m/s">
+      <description>
+        Water velocity measured in the chosen coordinate system.
+      </description>
+    </field>
+    <field name="Amplitude" abbrev="amp" type="fp32_t" unit="dB">
+      <description>
+        Amplitude of returning ping for the beam.
+      </description>
+    </field>
+    <field name="Correlation" abbrev="cor" type="uint8_t" unit="%" max="100" min="0">
+      <description>
+        Autocorrelation of returning ping for the beam.
+      </description>
+    </field>
+  </message>
+
+  <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
     <field name="Value" abbrev="value" type="fp64_t">
       <description>Total Magnetic Field Intensity (TMI)</description>
     </field>
