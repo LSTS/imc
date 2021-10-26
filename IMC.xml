@@ -11320,7 +11320,7 @@
     </field>
   </message>
 
-  <!--message id="2006" name="Sonar Pulse" abbrev="SonarPulse" source="vehicle" category="Sensors">
+  <message id="2006" name="Sonar Pulse" abbrev="SonarPulse" source="vehicle" category="Sensors">
     <description>
       Information regarding a sent/received Sonar pulse.
     </description>
@@ -11344,9 +11344,9 @@
         Doppler shift added to the sonar pulse in retransmission
       </description>
     </field>
-  </message-->
+  </message>
 
-  <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
+  <message id="2007" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
     <field name="Value" abbrev="value" type="fp64_t">
       <description>Total Magnetic Field Intensity (TMI)</description>
     </field>
