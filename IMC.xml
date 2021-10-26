@@ -7740,7 +7740,7 @@
     </field>
   </message>
 
-  <!--message id="496" name="Follow Command Maneuver" abbrev="FollowCommand" source="ccu" category="Maneuvering">
+  <message id="496" name="Follow Command Maneuver" abbrev="FollowCommand" source="ccu" category="Maneuvering">
     <description>
       This maneuver follows a direct command given by an external entity.
     </description>
@@ -7873,7 +7873,7 @@
 	</description>
       </value>
     </field>
-  </message-->
+  </message>
 
   <message id="499" name="Magnetometer Maneuver" abbrev="Magnetometer" source="ccu" category="Maneuvering">
     <description>
