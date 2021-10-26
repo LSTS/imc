@@ -11165,7 +11165,7 @@
     </field>
   </message>
 
-  <!--message id="2005" name="Transmit Iridium Message (Extended)" abbrev="IridiumMsgTxExtended" source="vehicle,ccu" category="Networking">
+  <message id="2005" name="Transmit Iridium Message (Extended)" abbrev="IridiumMsgTxExtended" source="vehicle,ccu" category="Networking">
     <field name="Request Identifier" abbrev="req_id" type="uint16_t">
       <description>The request identifier used to receive transmission updates.</description>
     </field>
@@ -11183,7 +11183,7 @@
         Message data.
       </description>
     </field>
-  </message-->
+  </message>
 
   <!--message id="2006" name="Sonar Pulse" abbrev="SonarPulse" source="vehicle" category="Sensors">
     <description>
