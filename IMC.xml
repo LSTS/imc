@@ -2365,6 +2365,7 @@
       <value id="2" abbrev="REVERSE_RANGE" name="Reverse Range"/>
       <value id="3" abbrev="MSG" name="Message"/>
       <value id="4" abbrev="RAW" name="Raw"/>
+      <value id="5" abbrev="POSITION_REQUEST" name="Position Request"/>
     </field>
     <field name="Message To Send" abbrev="msg" type="message">
       <description>
