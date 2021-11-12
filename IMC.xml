@@ -11748,4 +11748,26 @@
       <field name="Progress" abbrev="progress" type="uint8_t" unit="%" max="100" />
       <field name="Quality" abbrev="quality" type="uint8_t" unit="%" max="100" />
     </message>
+
+    <message id="3104" name="Synchronization Task" abbrev="SynchTask">
+      <description>This message is used to describe an area synchronization task.</description>
+      <field name="Task Identifier" abbrev="task_id" type="uint16_t">
+        <description>The identifier for this task.</description>
+      </field>
+      <field name="Geo Feature Identifier" abbrev="feature_id" type="uint16_t">
+        <description>The identifier of the feature where vehicles synchronize.</description>
+      </field>
+      <field name="Synchronization Time Window" abbrev="time_window" type="uint16_t" unit="s">
+        <description>
+          Time window for synchronization task execution, in seconds.
+        </description>
+      </field>
+      <field name="Deadline" abbrev="deadline" type="fp64_t" unit="s">
+        <description>
+          The deadline until when the task must be finished. The number of seconds is represented 
+          in Universal Coordinated Time (UCT) in seconds since Jan 1, 1970 using IEEE double precision 
+          floating point numbers.
+        </description>
+      </field>
+    </message>
 </messages>
