@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="5.0.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="5.1.0">
     <xs:annotation>
         <xs:documentation>
    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   + Copyright (C) 2007-2018 Laboratório de Sistemas e Tecnologia Subaquática
+   + Copyright (C) 2007-2020 Laboratório de Sistemas e Tecnologia Subaquática
    + Departamento de Engenharia Electrotécnica e de Computadores
    + Rua Dr. Roberto Frias, 4200-465 Porto, Portugal
    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -132,16 +132,16 @@
                 </xs:element>
                 <xs:element name="payload-header" type="headerType" minOccurs="0">
                     <xs:annotation>
-                        <xs:documentation>This is a placehold for helping to define fields that apear allways in the begining of the message payload.</xs:documentation>
+                        <xs:documentation>This is a placeholder for helping to define fields that appear always in the beginning of the message payload.</xs:documentation>
                     </xs:annotation>
                     <xs:unique name="uniquePayloadHeaderFieldAbbrev">
                         <xs:selector xpath="field"/>
                         <xs:field xpath="@abbrev"/>
                     </xs:unique>
                 </xs:element>
-                <xs:element name="groups" minOccurs="0">
+                <xs:element name="groups" minOccurs="0" maxOccurs="0">
                     <xs:annotation>
-                        <xs:documentation>It's a facility to group messages. The grouping is made using windows of 'id' values.</xs:documentation>
+                        <xs:documentation>DEPRECATED. It's a facility to group messages. The grouping is made using windows of 'id' values.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                         <xs:sequence>
@@ -162,6 +162,28 @@
                     <xs:unique name="keyGroupAbbrev">
                         <xs:selector xpath="group"/>
                         <xs:field xpath="@abbrev"/>
+                    </xs:unique>
+                </xs:element>
+                <xs:element name="categories" minOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>It's a facility to categorise messages. It's purpose is for documentation, not for coding.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="description" type="documentationType" minOccurs="0"/>
+                            <xs:element name="category" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence minOccurs="1">
+                                        <xs:element name="description" type="documentationType" minOccurs="0"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="name" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                    <xs:unique name="uniqueCategoryAbbrev">
+                        <xs:selector xpath="category"/>
+                        <xs:field xpath="@name"/>
                     </xs:unique>
                 </xs:element>
                 <xs:element name="message" type="messageType" maxOccurs="unbounded">
@@ -244,6 +266,14 @@
         <xs:keyref name="keyMessageFieldSubTypeRef" refer="uniqueMessageOrSubTypeAbbrev">
             <xs:selector xpath="message/field"/>
             <xs:field xpath="@subtype"/>
+        </xs:keyref>
+        <xs:key name="categoryType">
+            <xs:selector xpath="categories/category"/>
+            <xs:field xpath="@name"/>
+        </xs:key>
+        <xs:keyref name="keyrefCategoryType" refer="categoryType">
+            <xs:selector xpath="message"/>
+            <xs:field xpath="@category"/>
         </xs:keyref>
     </xs:element>
     <xs:element name="field" type="fieldType">
@@ -344,7 +374,7 @@
                 <xs:documentation>This flags should be indicated in the 'flags' child element of 'messages'.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attributeGroup ref="controlAttibutes"/>
+        <xs:attributeGroup ref="controlAttributes"/>
     </xs:complexType>
     <xs:complexType name="typeType">
         <xs:sequence>
@@ -468,23 +498,24 @@
         <xs:attribute name="min" type="xs:string" use="optional"/>
         <xs:attribute name="max" type="xs:string" use="optional"/>
     </xs:attributeGroup>
-    <xs:attributeGroup name="controlAttibutes">
+    <xs:attributeGroup name="controlAttributes">
         <xs:attribute name="source" use="optional">
             <xs:annotation>
-                <xs:documentation>Use coma separeted values: ccu, vehicle, simulated.</xs:documentation>
+                <xs:documentation>Use comma separated values: ccu, vehicle, simulated.</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
                 <xs:restriction base="xs:string"/>
             </xs:simpleType>
         </xs:attribute>
         <xs:attribute name="used-by" type="xs:string" use="optional"/>
+        <xs:attribute name="category" type="xs:string" use="required"/>
         <xs:attribute name="stable" type="xs:boolean" use="optional" default="true"/>
         <xs:attribute name="deprecated" type="xs:boolean" use="optional" default="false"/>
     </xs:attributeGroup>
-    <xs:attributeGroup name="enumBitmaskAttibutes">
+    <xs:attributeGroup name="enumBitmaskAttributes">
         <xs:attribute name="prefix" type="xs:ID" use="optional">
             <xs:annotation>
-                <xs:documentation>Use coma separeted values: ccu, vehicle, simulated.</xs:documentation>
+                <xs:documentation>Use coma separated values: ccu, vehicle, simulated.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
     </xs:attributeGroup>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+ Copyright (C) 2007-2018 Laboratório de Sistemas e Tecnologia Subaquática   +
++ Copyright (C) 2007-2020 Laboratório de Sistemas e Tecnologia Subaquática   +
 + Departamento de Engenharia Electrotécnica e de Computadores                +
 + Rua Dr. Roberto Frias, 4200-465 Porto, Portugal                            +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -10,7 +10,7 @@
           xsi:noNamespaceSchemaLocation="IMC.xsd"
           name="IMC"
           long-name="Inter Module Communication"
-          version="5.4.11">
+          version="5.4.30">
 
   <description>
     This document describes the communications protocol associated
@@ -208,6 +208,7 @@
     <unit abbrev="%" name="Percent"/>
     <unit abbrev="PPM" name="Parts per million"/>
     <unit abbrev="PPB" name="Parts per billion"/>
+    <unit abbrev="PSU" name="Pratical Salinity Unit"/>
     <unit abbrev="1/m" name="Inverse Meter"/>
     <unit abbrev="px" name="Pixel"/>
     <unit abbrev="µg/L" name="Microgram per liter"/>
@@ -318,39 +319,39 @@
 
   <message-groups>
     <message-group name="Maneuver" abbrev="Maneuver">
-      <message-type abbrev="Goto"/>
-      <message-type abbrev="PopUp"/>
-      <message-type abbrev="Teleoperation"/>
-      <message-type abbrev="Launch"/>
-      <message-type abbrev="Loiter"/>
-      <message-type abbrev="IdleManeuver"/>
-      <message-type abbrev="LowLevelControl"/>
-      <message-type abbrev="Rows"/>
-      <message-type abbrev="FollowPath"/>
-      <message-type abbrev="YoYo"/>
-      <message-type abbrev="StationKeeping"/>
-      <message-type abbrev="Elevator"/>
-      <message-type abbrev="FollowTrajectory"/>
-      <message-type abbrev="CustomManeuver"/>
-      <message-type abbrev="VehicleFormation"/>
+      <message-type abbrev="Alignment"/>
+      <message-type abbrev="AutonomousSection"/>
+      <message-type abbrev="CommsRelay"/>
       <message-type abbrev="CompassCalibration"/>
       <message-type abbrev="CoverArea"/>
-      <message-type abbrev="FollowReference"/>
-      <message-type abbrev="CommsRelay"/>
-      <message-type abbrev="FormationPlanExecution"/>
+      <message-type abbrev="CustomManeuver"/>
       <message-type abbrev="Dislodge"/>
       <message-type abbrev="Drop"/>
+      <message-type abbrev="IdleManeuver"/>
+      <message-type abbrev="ImageTracking"/>
+      <message-type abbrev="Elevator"/>
+      <message-type abbrev="FollowPath"/>
+      <message-type abbrev="FollowPoint"/>
+      <message-type abbrev="FollowReference"/>
+      <message-type abbrev="FollowTrajectory"/>
+      <message-type abbrev="FormationPlanExecution"/>
+      <message-type abbrev="Goto"/>
+      <message-type abbrev="Land"/>
+      <message-type abbrev="Launch"/>
+      <message-type abbrev="Loiter"/>
+      <message-type abbrev="LowLevelControl"/>
+      <message-type abbrev="Magnetometer"/>
+      <message-type abbrev="PopUp"/>
+      <message-type abbrev="Rows"/>
+      <message-type abbrev="RowsCoverage"/>
       <message-type abbrev="Sample"/>
       <message-type abbrev="ScheduledGoto"/>
-      <message-type abbrev="RowsCoverage"/>
-      <message-type abbrev="ImageTracking"/>
-      <message-type abbrev="Takeoff"/>
-      <message-type abbrev="Land"/>
-      <message-type abbrev="AutonomousSection"/>
-      <message-type abbrev="FollowPoint"/>
-      <message-type abbrev="Alignment"/>
+      <message-type abbrev="StationKeeping"/>
       <message-type abbrev="StationKeepingExtended"/>
-      <message-type abbrev="Magnetometer"/>
+      <message-type abbrev="Takeoff"/>
+      <message-type abbrev="Teleoperation"/>
+      <message-type abbrev="VehicleFormation"/>
+      <message-type abbrev="YoYo"/>
     </message-group>
 
     <message-group name="Control Command" abbrev="ControlCommand">
@@ -454,29 +455,30 @@
     </field>
   </footer>
 
-  <groups>
-    <group name="Core" abbrev="GroupCore" min="0" max="49"/>
-    <group name="Simulation" abbrev="GroupSimulation" min="50" max="99"/>
-    <group name="Storage" abbrev="GroupStorage" min="100" max="149"/>
-    <group name="Networking" abbrev="GroupNetworking" min="150" max="199"/>
-    <group name="Acoustic Networking" abbrev="GroupAcousticNetworking" min="200" max="249"/>
-    <group name="Sensors" abbrev="GroupSensors" min="250" max="299"/>
-    <group name="Actuation" abbrev="GroupActuation" min="300" max="349"/>
-    <group name="Navigation" abbrev="GroupNavigation" min="350" max="399"/>
-    <group name="Guidance" abbrev="GroupGuidance" min="400" max="449"/>
-    <group name="Maneuvering" abbrev="GroupManeuvering" min="450" max="499"/>
-    <group name="Vehicle Supervision" abbrev="GroupVehicleSupervision" min="500" max="549"/>
-    <group name="Plan Supervision" abbrev="GroupPlanSupervision" min="550" max="599"/>
-    <group name="CCU" abbrev="GroupCcu" min="600" max="649"/>
-    <group name="Autonomy" abbrev="GroupAutonomy" min="650" max="699"/>
-    <group name="Vision" abbrev="GroupVision" min="700" max="749"/>
-    <group name="External" abbrev="GroupExternal" min="750" max="799"/>
-    <group name="Development" abbrev="GroupDevelopment" min="800" max="900"/>
-    <group name="Custom" abbrev="GroupCustom" min="1000" max="65534"/>
-  </groups>
+  <categories>
+    <category name="Core"/>
+    <category name="Acoustic Communication"/>
+    <category name="Acoustic Networking"/>
+    <category name="Actuation"/>
+    <category name="Autonomy"/>
+    <category name="CCU"/>
+    <category name="Development"/>
+    <category name="Guidance"/>
+    <category name="Maneuvering"/>
+    <category name="Navigation"/>
+    <category name="Networking"/>
+    <category name="Plan Supervision"/>
+    <category name="Sensors"/>
+    <category name="Simulation"/>
+    <category name="Storage"/>
+    <category name="Vehicle Supervision"/>
+    <category name="Vision"/>
+    <category name="Custom"/>
+    <category name="External"/>
+  </categories>
 
   <!-- Core -->
-  <message id="1" name="Entity State" abbrev="EntityState" source="vehicle">
+  <message id="1" name="Entity State" abbrev="EntityState" source="vehicle" category="Core">
     <description>
       State reported by an entity in the vehicle. The source entity is
       identified in the message header.
@@ -504,14 +506,14 @@
     </field>
   </message>
 
-  <message id="2" name="Query Entity State" abbrev="QueryEntityState" flags="periodic">
+  <message id="2" name="Query Entity State" abbrev="QueryEntityState" flags="periodic" category="Core">
     <description>
       Request entities to report their state. Entities should respond
       by issuing an appropriate EntityState message.
     </description>
   </message>
 
-  <message id="3" name="Entity Information" abbrev="EntityInfo" source="vehicle">
+  <message id="3" name="Entity Information" abbrev="EntityInfo" source="vehicle" category="Core">
     <description>
       This message describes an entity.
     </description>
@@ -543,7 +545,7 @@
     </field>
   </message>
 
-  <message id="4" name="Query Entity Information" abbrev="QueryEntityInfo" source="ccu">
+  <message id="4" name="Query Entity Information" abbrev="QueryEntityInfo" source="ccu" category="Core">
     <description>
       Request information about an entity identifier. The receiving
       system shall reply with an EntityInfo message with the details
@@ -556,7 +558,7 @@
     </field>
   </message>
 
-  <message id="5" name="Entity List" abbrev="EntityList" source="vehicle">
+  <message id="5" name="Entity List" abbrev="EntityList" source="vehicle" category="Core">
     <description>
       This message describes the names and identification numbers of
       all entities in the system.
@@ -575,7 +577,7 @@
     </field>
   </message>
 
-  <message id="7" name="CPU Usage" abbrev="CpuUsage" source="vehicle" flags="periodic">
+  <message id="7" name="CPU Usage" abbrev="CpuUsage" source="vehicle" flags="periodic" category="Core">
     <description>
       Report of software CPU usage.
     </description>
@@ -586,7 +588,7 @@
     </field>
   </message>
 
-  <message id="8" name="Transport Bindings" abbrev="TransportBindings" source="vehicle">
+  <message id="8" name="Transport Bindings" abbrev="TransportBindings" source="vehicle" category="Core">
     <description>
       Message generated when tasks bind to messages.
     </description>
@@ -602,7 +604,7 @@
     </field>
   </message>
 
-  <message id="9" name="Restart System" abbrev="RestartSystem" source="ccu">
+  <message id="9" name="Restart System" abbrev="RestartSystem" source="ccu" category="Core">
     <description>
       Request the destination system to restart itself.
     </description>
@@ -616,7 +618,7 @@
     </field>
   </message>
 
-  <message id="12" name="Device Calibration Control" abbrev="DevCalibrationControl" source="vehicle,ccu">
+  <message id="12" name="Device Calibration Control" abbrev="DevCalibrationControl" source="vehicle,ccu" category="Core">
     <description>
       This message controls the calibration procedure of a given
       device. The destination device is selected using the destination
@@ -649,7 +651,7 @@
     </field>
   </message>
 
-  <message id="13" name="Device Calibration State" abbrev="DevCalibrationState" source="vehicle,ccu">
+  <message id="13" name="Device Calibration State" abbrev="DevCalibrationState" source="vehicle,ccu" category="Core">
     <description>
       State of the calibration procedure.
     </description>
@@ -703,7 +705,7 @@
     </field>
   </message>
 
-  <message id="14" name="Entity Activation State" abbrev="EntityActivationState" source="vehicle,ccu">
+  <message id="14" name="Entity Activation State" abbrev="EntityActivationState" source="vehicle,ccu" category="Core">
     <description>
       State of entity activation/deactivation.
     </description>
@@ -759,14 +761,14 @@
     </field>
   </message>
 
-  <message id="15" name="Query Entity Activation State" abbrev="QueryEntityActivationState" source="vehicle,ccu">
+  <message id="15" name="Query Entity Activation State" abbrev="QueryEntityActivationState" source="vehicle,ccu" category="Core">
     <description>
       Query the activation/deactivation state of an entity. The
       recipient shall reply with an EntityActivationState message.
     </description>
   </message>
 
-  <message id="16" name="Vehicle Operational Limits" abbrev="VehicleOperationalLimits" source="vehicle,ccu">
+  <message id="16" name="Vehicle Operational Limits" abbrev="VehicleOperationalLimits" source="vehicle,ccu" category="Core">
     <description>
       Vehicle opertional limits.
       For aircraft this should represent the flight envelope and the dynamic contraints.
@@ -871,12 +873,12 @@
     </field>
   </message>
 
-  <message id="20" name="Message List" abbrev="MsgList" >
+  <message id="20" name="Message List" abbrev="MsgList" category="Core">
     <field name="Messages" abbrev="msgs" type="message-list"/>
   </message>
 
   <!-- Simulation -->
-  <message id="50" name="Simulated State" abbrev="SimulatedState" source="vehicle">
+  <message id="50" name="Simulated State" abbrev="SimulatedState" source="vehicle" category="Simulation">
     <description>
       This message presents the simulated state of the vehicle. The simulated
       state attempts to provide a realistic state interpretation of operating
@@ -974,7 +976,7 @@
     </field>
   </message>
 
-  <message id="51" name="Leak Simulation" abbrev="LeakSimulation">
+  <message id="51" name="Leak Simulation" abbrev="LeakSimulation" category="Simulation">
     <description>
       Simulate leak behavior.
     </description>
@@ -993,7 +995,7 @@
     </field>
   </message>
 
-  <message id="52" name="Underwater Acoustics Simulation" abbrev="UASimulation">
+  <message id="52" name="Underwater Acoustics Simulation" abbrev="UASimulation" category="Simulation">
     <description>
       Underwater acoustics simulation request.
     </description>
@@ -1015,7 +1017,7 @@
     </field>
   </message>
 
-  <message id="53" name="Dynamics Simulation Parameters" abbrev="DynamicsSimParam">
+  <message id="53" name="Dynamics Simulation Parameters" abbrev="DynamicsSimParam" category="Simulation">
     <description>
       Vehicle dynamics parameters for 3DOF, 4DOF or 5DOF simulations.
     </description>
@@ -1040,7 +1042,7 @@
   </message>
 
   <!-- Storage -->
-  <message id="100" name="Storage Usage" abbrev="StorageUsage" source="vehicle" flags="periodic">
+  <message id="100" name="Storage Usage" abbrev="StorageUsage" source="vehicle" flags="periodic" category="Storage">
     <description>
       Report of storage usage.
     </description>
@@ -1056,7 +1058,7 @@
     </field>
   </message>
 
-  <message id="101" name="Cache Control" abbrev="CacheControl" source="vehicle,ccu">
+  <message id="101" name="Cache Control" abbrev="CacheControl" source="vehicle,ccu" category="Storage">
     <description>
       Control caching of messages to persistent storage.
     </description>
@@ -1082,7 +1084,7 @@
     </field>
   </message>
 
-  <message id="102" name="Logging Control" abbrev="LoggingControl" source="vehicle,ccu">
+  <message id="102" name="Logging Control" abbrev="LoggingControl" source="vehicle,ccu" category="Storage">
     <description>
       Control logging of messages to persistent storage.
     </description>
@@ -1149,7 +1151,7 @@
     </field>
   </message>
 
-  <message id="103" name="Log Book Entry" abbrev="LogBookEntry" source="vehicle,ccu">
+  <message id="103" name="Log Book Entry" abbrev="LogBookEntry" source="vehicle,ccu" category="Storage">
     <description>
       Human readable message reporting an event of interest.
     </description>
@@ -1180,7 +1182,7 @@
     </field>
   </message>
 
-  <message id="104" name="Log Book Control" abbrev="LogBookControl" source="ccu,vehicle">
+  <message id="104" name="Log Book Control" abbrev="LogBookControl" source="ccu,vehicle" category="Storage">
     <description>
       Control history log.
     </description>
@@ -1222,7 +1224,7 @@
     </field>
   </message>
 
-  <message id="105" name="Replay Control" abbrev="ReplayControl">
+  <message id="105" name="Replay Control" abbrev="ReplayControl" category="Storage">
     <description>Control replay of LSF logged data.</description>
     <field name="Operation" abbrev="op" prefix="ROP" type="uint8_t" unit="Enumerated">
       <description>
@@ -1240,7 +1242,7 @@
     </field>
   </message>
 
-  <message id="106" name="Clock Control" abbrev="ClockControl" used-by="vehicle,ccu">
+  <message id="106" name="Clock Control" abbrev="ClockControl" used-by="vehicle,ccu" category="Storage">
     <description>
       Clock control.
     </description>
@@ -1291,7 +1293,7 @@
     </field>
   </message>
 
-  <message id="107" name="Historic CTD" abbrev="HistoricCTD" used-by="vehicle">
+  <message id="107" name="Historic CTD" abbrev="HistoricCTD" used-by="vehicle" category="Storage">
     <description>
       This message is used to store historic (transmitted afterwards) CTD data .
     </description>
@@ -1300,7 +1302,7 @@
     <field name="Depth" abbrev="depth" type="fp32_t" unit="m"/>
   </message>
 
-  <message id="108" name="Historic Telemetry" abbrev="HistoricTelemetry" used-by="vehicle">
+  <message id="108" name="Historic Telemetry" abbrev="HistoricTelemetry" used-by="vehicle" category="Storage">
     <description>
       This message is used to store historic (transmitted afterwards) telemetry information.
     </description>
@@ -1323,7 +1325,7 @@
     <field name="Speed" abbrev="speed" type="int16_t" unit="dm"/>
   </message>
 
-  <message id="109" name="Historic Sonar Data" abbrev="HistoricSonarData" used-by="vehicle">
+  <message id="109" name="Historic Sonar Data" abbrev="HistoricSonarData" used-by="vehicle" category="Storage">
     <description>
       This message is used to store historic (transmitted afterwards) sonar data.
     </description>
@@ -1349,7 +1351,7 @@
     </field>
   </message>
 
-  <message id="110" name="Historic Event" abbrev="HistoricEvent" used-by="vehicle">
+  <message id="110" name="Historic Event" abbrev="HistoricEvent" used-by="vehicle" category="Storage">
     <description>
       This message is used to store historic event log entries.
     </description>
@@ -1363,7 +1365,7 @@
     </field>
   </message>
 
-  <message id="111" name="Vertical Profile" abbrev="VerticalProfile" used-by="vehicle">
+  <message id="111" name="Vertical Profile" abbrev="VerticalProfile" used-by="vehicle" category="Storage">
     <description>
       This message is used to store historic profiles for water parameters: Temperature, Salinity, Chlorophyll...
     </description>
@@ -1393,7 +1395,7 @@
     </field>
   </message>
   
-  <message abbrev="ProfileSample" name="Profile Sample" id="112">
+  <message abbrev="ProfileSample" name="Profile Sample" id="112" category="Storage">
       <description>
         Samples to calculate a vertical profile.
       </description>
@@ -1402,7 +1404,7 @@
   </message>
 
   <!--  Networking Messages -->
-  <message id="150" name="Heartbeat" abbrev="Heartbeat" source="vehicle,ccu" flags="periodic">
+  <message id="150" name="Heartbeat" abbrev="Heartbeat" source="vehicle,ccu" flags="periodic" category="Networking">
     <description>
       The Heartbeat message is used to inform other modules that the
       sending entity's system is running normally and communications
@@ -1410,7 +1412,7 @@
     </description>
   </message>
 
-  <message id="151" name="Announce" abbrev="Announce" source="vehicle,ccu">
+  <message id="151" name="Announce" abbrev="Announce" source="vehicle,ccu" category="Networking">
     <description>
       A system description that is to be broadcasted to other systems.
     </description>
@@ -1455,7 +1457,7 @@
     </field>
   </message>
 
-  <message id="152" name="Announce Service" abbrev="AnnounceService" source="vehicle">
+  <message id="152" name="Announce Service" abbrev="AnnounceService" source="vehicle" category="Networking">
     <description>
       Announcement about the existence of a service.
     </description>
@@ -1474,7 +1476,7 @@
     </field>
   </message>
 
-  <message id="153" name="Receive Signal Strength Information" abbrev="RSSI" source="vehicle">
+  <message id="153" name="Receive Signal Strength Information" abbrev="RSSI" source="vehicle" category="Networking">
     <description>
       Measure of the RSSI by a networking device.
       Indicates the gain or loss in the signal strength due to the transmission and reception equipment and the transmission medium and distance.
@@ -1486,7 +1488,7 @@
     </field>
   </message>
 
-  <message id="154" name="Voltage Standing Wave Ratio" abbrev="VSWR" source="vehicle">
+  <message id="154" name="Voltage Standing Wave Ratio" abbrev="VSWR" source="vehicle" category="Networking">
     <description>
       Measure of the VSWR by a networking device.
     </description>
@@ -1497,7 +1499,7 @@
     </field>
   </message>
 
-  <message id="155" name="Link Level" abbrev="LinkLevel" source="vehicle">
+  <message id="155" name="Link Level" abbrev="LinkLevel" source="vehicle" category="Networking">
     <description>
       Measurement of link level quality. For instance, this may
       correspond to the acknowledgment ratio of a link. But,
@@ -1510,7 +1512,7 @@
     </field>
   </message>
 
-  <message id="156" name="SMS" abbrev="Sms" source="vehicle" flags="deprecated">
+  <message id="156" name="SMS" abbrev="Sms" source="vehicle" flags="deprecated" category="Networking">
     <description>
       Send a SMS message.
     </description>
@@ -1531,7 +1533,7 @@
     </field>
   </message>
 
-  <message id="157" name="SMS Transmit" abbrev="SmsTx" source="vehicle,ccu">
+  <message id="157" name="SMS Transmit" abbrev="SmsTx" source="vehicle,ccu" category="Networking">
     <description>
       Request to send SMS.
     </description>
@@ -1557,7 +1559,7 @@
     </field>
   </message>
 
-  <message id="158" name="SMS Receive" abbrev="SmsRx" source="vehicle">
+  <message id="158" name="SMS Receive" abbrev="SmsRx" source="vehicle" category="Networking">
     <description>
       Received SMS data.
     </description>
@@ -1573,7 +1575,7 @@
     </field>
   </message>
 
-  <message id="159" name="SMS State" abbrev="SmsState" source="vehicle">
+  <message id="159" name="SMS State" abbrev="SmsState" source="vehicle" category="Networking">
     <field name="Sequence Number" abbrev="seq" type="uint32_t">
       <description>
         Sequence number.
@@ -1594,7 +1596,7 @@
     <field name="Error Message" abbrev="error" type="plaintext"/>
   </message>
 
-  <message id="160" name="Text Message" abbrev="TextMessage" source="vehicle">
+  <message id="160" name="Text Message" abbrev="TextMessage" source="vehicle" category="Networking">
     <description>
       A text message has been received.
     </description>
@@ -1610,7 +1612,7 @@
     </field>
   </message>
 
-  <message id="170" name="Received Iridium Message" abbrev="IridiumMsgRx" source="vehicle,ccu">
+  <message id="170" name="Received Iridium Message" abbrev="IridiumMsgRx" source="vehicle,ccu" category="Networking">
     <field name="Origin Identifier" abbrev="origin" type="plaintext">
       <description>The unique identifier of this message's origin device (e.g. lauv-xtreme-2, manta-0).</description>
     </field>
@@ -1626,7 +1628,7 @@
     </field>
   </message>
 
-  <message id="171" name="Transmit Iridium Message" abbrev="IridiumMsgTx" source="vehicle,ccu">
+  <message id="171" name="Transmit Iridium Message" abbrev="IridiumMsgTx" source="vehicle,ccu" category="Networking">
     <field name="Request Identifier" abbrev="req_id" type="uint16_t">
       <description>The request identifier used to receive transmission updates.</description>
     </field>
@@ -1643,7 +1645,7 @@
     </field>
   </message>
 
-  <message id="172" name="Iridium Transmission Status" abbrev="IridiumTxStatus" source="vehicle,ccu">
+  <message id="172" name="Iridium Transmission Status" abbrev="IridiumTxStatus" source="vehicle,ccu" category="Networking">
     <field name="Request Identifier" abbrev="req_id" type="uint16_t">
       <description>The request identifier used to receive transmission updates</description>
     </field>
@@ -1658,7 +1660,7 @@
     <field name="Status Text" abbrev="text" type="plaintext"/>
   </message>
 
-  <message id="180" name="Group Membership State" abbrev="GroupMembershipState" source="ccu,vehicle" flags="periodic">
+  <message id="180" name="Group Membership State" abbrev="GroupMembershipState" source="ccu,vehicle" flags="periodic" category="Networking">
     <description>
       Group communication link assertion.
     </description>
@@ -1675,7 +1677,7 @@
     </field>
   </message>
 
-  <message id="181" name="System Group" abbrev="SystemGroup">
+  <message id="181" name="System Group" abbrev="SystemGroup" category="Networking">
     <description>
       Group of systems configuration.
     </description>
@@ -1702,7 +1704,7 @@
     </field>
   </message>
 
-  <message id="182" name="Link Latency" abbrev="LinkLatency">
+  <message id="182" name="Link Latency" abbrev="LinkLatency" category="Networking">
     <description>
       Communications latency between two systems.
     </description>
@@ -1719,7 +1721,7 @@
     </field>
   </message>
 
-  <message id="183" name="Extended Receive Signal Strength Information" abbrev="ExtendedRSSI" source="vehicle">
+  <message id="183" name="Extended Receive Signal Strength Information" abbrev="ExtendedRSSI" source="vehicle" category="Networking">
     <description>
       Measure of the RSSI by a networking device.
       Indicates the gain or loss in the signal strenght due to the transmission
@@ -1737,7 +1739,7 @@
     </field>
   </message>
 
-  <message id="184" abbrev="HistoricData" name="Historic Data Series">
+  <message id="184" abbrev="HistoricData" name="Historic Data Series" category="Networking">
     <description>
       This message holds a list of inline data samples produced by one or more vehicles in the past.
       It is used to transfer data over disruption tolerant networks.
@@ -1760,7 +1762,7 @@
     <field name="Data" abbrev="data" type="message-list" message-type="RemoteData"/>
   </message>
 
-  <message id="185" abbrev="CompressedHistory" name="Compressed Historic Data Series">
+  <message id="185" abbrev="CompressedHistory" name="Compressed Historic Data Series" category="Networking">
     <description>
       This message holds a list of inline data samples produced by one or more vehicles in the past.
       It is used to transfer data over disruption tolerant networks.
@@ -1787,7 +1789,7 @@
     </field>
   </message>
 
-  <message id="186" abbrev="HistoricSample" name="Historic Data Sample">
+  <message id="186" abbrev="HistoricSample" name="Historic Data Sample" category="Networking">
     <field name="Original System Id" abbrev="sys_id" type="uint16_t">
       <description>
         The IMC identifier of the system that produced this sample.
@@ -1825,7 +1827,7 @@
       <field name="Data Sample" abbrev="sample" type="message"/>
   </message>
 
-  <message id="187" abbrev="HistoricDataQuery" name="Historic Data Query">
+  <message id="187" abbrev="HistoricDataQuery" name="Historic Data Query" category="Networking">
     <field name="Request Id" abbrev="req_id" type="uint16_t" />
     <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="HRTYPE">
         <value abbrev="QUERY" name="Query" id="1">
@@ -1842,7 +1844,7 @@
     <field name="Data" abbrev="data" type="message" message-type="HistoricData"/>
   </message>
 
-  <message id="188" abbrev="RemoteCommand" name="Remote Command" source="ccu,vehicle">
+  <message id="188" abbrev="RemoteCommand" name="Remote Command" source="ccu,vehicle" category="Networking">
     <description>
       Command to remote system. If a system receives a RemoteCommand and it isn't the intended recipient, then it should
       resend it.
@@ -1870,7 +1872,7 @@
     </field>
   </message>
 
-  <message id="189" name="Communication Systems Query" abbrev="CommSystemsQuery" source="ccu,vehicle">
+  <message id="189" name="Communication Systems Query" abbrev="CommSystemsQuery" source="ccu,vehicle" category="Networking">
     <description>
       Presence of Communication Interfaces query. 
     </description>
@@ -1920,7 +1922,7 @@
     </field>
   </message>
 
-  <message id="190" name="Telemetry Message"  abbrev="TelemetryMsg" source="ccu,vehicle">
+  <message id="190" name="Telemetry Message"  abbrev="TelemetryMsg" source="ccu,vehicle" category="Networking">
     <description>
       Message to handle telemetry transmissions.
     </description>
@@ -1992,7 +1994,7 @@
    </message>
 
   <!-- Acoustic Networking -->
-  <message id="200" name="LBL Range" abbrev="LblRange" source="vehicle" flags="periodic">
+  <message id="200" name="LBL Range" abbrev="LblRange" source="vehicle" flags="periodic" category="Acoustic Communication">
     <description>
       When the vehicle uses Long Base Line navigation, this message
       notifies that a new range was received from one of the acoustics
@@ -2012,7 +2014,7 @@
     </field>
   </message>
 
-  <message id="202" name="LBL Beacon Configuration" abbrev="LblBeacon" source="ccu,vehicle">
+  <message id="202" name="LBL Beacon Configuration" abbrev="LblBeacon" source="ccu,vehicle" category="Acoustic Communication">
     <description>
       Position and configuration of an LBL transponder (beacon).
     </description>
@@ -2053,7 +2055,7 @@
     </field>
   </message>
 
-  <message id="203" name="LBL Configuration" abbrev="LblConfig" source="ccu,vehicle">
+  <message id="203" name="LBL Configuration" abbrev="LblConfig" source="ccu,vehicle" category="Acoustic Communication">
     <description>
       Long Base Line configuration.
     </description>
@@ -2076,7 +2078,7 @@
     </field>
   </message>
 
-  <message id="206" name="Acoustic Message" abbrev="AcousticMessage" source="vehicle">
+  <message id="206" name="Acoustic Message" abbrev="AcousticMessage" source="vehicle" category="Acoustic Communication">
     <description>
       Send an acoustic message.
     </description>
@@ -2087,7 +2089,7 @@
     </field>
   </message>
 
-  <message id="207" name="Simulated Acoustic Message" abbrev="SimAcousticMessage" source="vehicle">
+  <message id="207" name="Simulated Acoustic Message" abbrev="SimAcousticMessage" source="vehicle" category="Acoustic Communication">
     <description>
       Send an acoustic message.
     </description>
@@ -2136,7 +2138,7 @@
     <field name="Data" abbrev="data" type="rawdata"/>
   </message>
   
-  <message id="211" name="Acoustic Operation" abbrev="AcousticOperation">
+  <message id="211" name="Acoustic Operation" abbrev="AcousticOperation" category="Acoustic Communication">
     <description>
       Acoustic operation.
     </description>
@@ -2246,6 +2248,13 @@
           Request sending updated position to remote system so it can be ranged.
         </description>
       </value>
+      <value id="18" name="Forced Abort" abbrev="FORCED_ABORT">
+        <description>
+          Send an abort through the acoustic channel to the system
+          specified in the field 'system', ignoring safety checks such
+          as "transducer not connected".
+        </description>
+      </value>
     </field>
     <field name="System" abbrev="system" type="plaintext">
       <description>
@@ -2266,7 +2275,7 @@
     </field>
   </message>
 
-  <message id="212" name="Acoustic Systems Query" abbrev="AcousticSystemsQuery" source="ccu,vehicle">
+  <message id="212" name="Acoustic Systems Query" abbrev="AcousticSystemsQuery" source="ccu,vehicle" category="Acoustic Communication">
     <description>
       Request a list of known underwater acoustic systems. The
       recipient of this message shall reply with an AcousticSystems
@@ -2274,7 +2283,7 @@
     </description>
   </message>
 
-  <message id="213" name="Acoustic Systems" abbrev="AcousticSystems" source="ccu,vehicle">
+  <message id="213" name="Acoustic Systems" abbrev="AcousticSystems" source="ccu,vehicle" category="Acoustic Communication">
     <description>
       This message is sent in reply to an AcousticSystemsQuery message
       and lists all known underwater acoustic systems (modems, narrow
@@ -2287,7 +2296,7 @@
     </field>
   </message>
 
-  <message id="214" name="Acoustic Link Quality" abbrev="AcousticLink">
+  <message id="214" name="Acoustic Link Quality" abbrev="AcousticLink" category="Acoustic Communication">
     <description>
       This message is used to report the perceived link quality to other
       acoustic peers.
@@ -2317,7 +2326,7 @@
     </field>
   </message>
 
-  <message id="215" name="Acoustic Transmission Request" abbrev="AcousticRequest">
+  <message id="215" name="Acoustic Transmission Request" abbrev="AcousticRequest" category="Acoustic Communication">
     <description>
       Request Acoustic sending.
     </description>
@@ -2351,7 +2360,7 @@
     </field>
   </message>
 
-  <message id="216" name="Acoustic Transmission Status" abbrev="AcousticStatus">
+  <message id="216" name="Acoustic Transmission Status" abbrev="AcousticStatus" category="Acoustic Communication">
     <description>
       Reply sent in response to a Acoustic Text sending request.
     </description>
@@ -2387,7 +2396,7 @@
   </message>
 
   <!-- Sensors -->
-  <message id="250" name="Revolutions Per Minute" abbrev="Rpm" source="vehicle">
+  <message id="250" name="Revolutions Per Minute" abbrev="Rpm" source="vehicle" category="Sensors">
     <description>
       Number of revolutions per minute.
     </description>
@@ -2398,7 +2407,7 @@
     </field>
   </message>
 
-  <message id="251" name="Voltage" abbrev="Voltage" source="vehicle" flags="periodic">
+  <message id="251" name="Voltage" abbrev="Voltage" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of electrical voltage.
     </description>
@@ -2410,7 +2419,7 @@
     </field>
   </message>
 
-  <message id="252" name="Current" abbrev="Current" source="vehicle" flags="periodic">
+  <message id="252" name="Current" abbrev="Current" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of electrical current.
     </description>
@@ -2422,7 +2431,7 @@
     </field>
   </message>
 
-  <message id="253" name="GPS Fix" abbrev="GpsFix" source="vehicle" flags="periodic">
+  <message id="253" name="GPS Fix" abbrev="GpsFix" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of a GPS fix.
     </description>
@@ -2579,7 +2588,7 @@
     </field>
   </message>
 
-  <message id="254" name="Euler Angles" abbrev="EulerAngles" source="vehicle" flags="periodic">
+  <message id="254" name="Euler Angles" abbrev="EulerAngles" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of spatial orientation according to SNAME's notation
       (1950).
@@ -2617,7 +2626,7 @@
     </field>
   </message>
 
-  <message id="255" name="Euler Angles Delta" abbrev="EulerAnglesDelta" source="vehicle" flags="periodic">
+  <message id="255" name="Euler Angles Delta" abbrev="EulerAnglesDelta" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Component of incremetal orientation vector over a period of time.
     </description>
@@ -2648,7 +2657,7 @@
     </field>
   </message>
 
-  <message id="256" name="Angular Velocity" abbrev="AngularVelocity" source="vehicle" flags="periodic">
+  <message id="256" name="Angular Velocity" abbrev="AngularVelocity" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Vector quantifying the direction and magnitude of the measured
       angular velocity that a device is exposed to.
@@ -2675,7 +2684,7 @@
     </field>
   </message>
 
-  <message id="257" name="Acceleration" abbrev="Acceleration" source="vehicle" flags="periodic">
+  <message id="257" name="Acceleration" abbrev="Acceleration" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Vector quantifying the direction and magnitude of the measured
       acceleration that a device is exposed to.
@@ -2702,7 +2711,7 @@
     </field>
   </message>
 
-  <message id="258" name="Magnetic Field" abbrev="MagneticField" source="vehicle" flags="periodic">
+  <message id="258" name="Magnetic Field" abbrev="MagneticField" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Vector quantifying the direction and magnitude of the measured
       magnetic field that a device is exposed to.
@@ -2729,7 +2738,7 @@
     </field>
   </message>
 
-  <message id="259" name="Ground Velocity" abbrev="GroundVelocity" source="vehicle" flags="periodic">
+  <message id="259" name="Ground Velocity" abbrev="GroundVelocity" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Vector quantifying the direction and magnitude of the measured
       velocity relative to the ground that a device is exposed to.
@@ -2760,7 +2769,7 @@
     </field>
   </message>
 
-  <message id="260" name="Water Velocity" abbrev="WaterVelocity" source="vehicle" flags="periodic">
+  <message id="260" name="Water Velocity" abbrev="WaterVelocity" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Vector quantifying the direction and magnitude of the measured
       velocity relative to the water that a device is exposed to.
@@ -2791,7 +2800,7 @@
     </field>
   </message>
 
-  <message id="261" name="Velocity Delta" abbrev="VelocityDelta" source="vehicle" flags="periodic">
+  <message id="261" name="Velocity Delta" abbrev="VelocityDelta" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Component of incremetal velocity vector.
     </description>
@@ -2817,7 +2826,7 @@
     </field>
   </message>
 
-  <message id="262" name="Distance" abbrev="Distance" source="vehicle" flags="periodic">
+  <message id="262" name="Distance" abbrev="Distance" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Distance measurement detected by the device.
     </description>
@@ -2853,7 +2862,7 @@
     </field>
   </message>
 
-  <message id="263" name="Temperature" abbrev="Temperature" source="vehicle" flags="periodic">
+  <message id="263" name="Temperature" abbrev="Temperature" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of temperature.
     </description>
@@ -2864,7 +2873,7 @@
     </field>
   </message>
 
-  <message id="264" name="Pressure" abbrev="Pressure" source="vehicle" flags="periodic">
+  <message id="264" name="Pressure" abbrev="Pressure" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of external pressure.
     </description>
@@ -2875,7 +2884,7 @@
     </field>
   </message>
 
-  <message id="265" name="Depth" abbrev="Depth" source="vehicle" flags="periodic">
+  <message id="265" name="Depth" abbrev="Depth" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Depth report.
     </description>
@@ -2886,7 +2895,7 @@
     </field>
   </message>
 
-  <message id="266" name="Depth Offset" abbrev="DepthOffset" source="vehicle">
+  <message id="266" name="Depth Offset" abbrev="DepthOffset" source="vehicle" category="Sensors">
     <description>
       Report of Depth Offset.
     </description>
@@ -2897,7 +2906,7 @@
     </field>
   </message>
 
-  <message id="267" name="Sound Speed" abbrev="SoundSpeed" source="vehicle" flags="periodic">
+  <message id="267" name="Sound Speed" abbrev="SoundSpeed" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Sound Speed report.
     </description>
@@ -2908,7 +2917,7 @@
     </field>
   </message>
 
-  <message id="268" name="Water Density" abbrev="WaterDensity" source="vehicle" flags="periodic">
+  <message id="268" name="Water Density" abbrev="WaterDensity" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Water Density report.
     </description>
@@ -2919,7 +2928,7 @@
     </field>
   </message>
 
-  <message id="269" name="Conductivity" abbrev="Conductivity" source="vehicle" flags="periodic">
+  <message id="269" name="Conductivity" abbrev="Conductivity" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of conductivity.
     </description>
@@ -2930,18 +2939,18 @@
     </field>
   </message>
 
-  <message id="270" name="Salinity" abbrev="Salinity" source="vehicle" flags="periodic">
+  <message id="270" name="Salinity" abbrev="Salinity" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of salinity.
     </description>
-    <field name="Measured Salinity" abbrev="value" type="fp32_t">
+    <field name="Measured Salinity" abbrev="value" type="fp32_t" unit="PSU">
       <description>
         The value of the salinity as measured by the sensor.
       </description>
     </field>
   </message>
 
-  <message id="271" name="Wind Speed" abbrev="WindSpeed" source="vehicle" flags="periodic">
+  <message id="271" name="Wind Speed" abbrev="WindSpeed" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Measurement of wind speed.
     </description>
@@ -2962,7 +2971,7 @@
     </field>
   </message>
 
-  <message id="272" name="Relative Humidity" abbrev="RelativeHumidity" source="vehicle" flags="periodic">
+  <message id="272" name="Relative Humidity" abbrev="RelativeHumidity" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Measurement of relative humidity.
     </description>
@@ -2973,7 +2982,7 @@
     </field>
   </message>
 
-  <message id="273" name="Device Data (Text)" abbrev="DevDataText" source="vehicle">
+  <message id="273" name="Device Data (Text)" abbrev="DevDataText" source="vehicle" category="Sensors">
     <description>
       Verbatim representation of device data in plain text format.
     </description>
@@ -2984,7 +2993,7 @@
     </field>
   </message>
 
-  <message id="274" name="Device Data (Binary)" abbrev="DevDataBinary" source="vehicle">
+  <message id="274" name="Device Data (Binary)" abbrev="DevDataBinary" source="vehicle" category="Sensors">
     <description>
       Verbatim representation of device data in binary format.
     </description>
@@ -2995,7 +3004,7 @@
     </field>
   </message>
 
-  <message id="275" name="Force" abbrev="Force" source="vehicle">
+  <message id="275" name="Force" abbrev="Force" source="vehicle" category="Sensors">
     <description>
       Force measurement.
     </description>
@@ -3006,7 +3015,7 @@
     </field>
   </message>
 
-  <message id="276" name="Sonar Data" abbrev="SonarData" source="vehicle" flags="periodic">
+  <message id="276" name="Sonar Data" abbrev="SonarData" source="vehicle" flags="periodic" category="Sensors">
     <description>
       This message contains the data acquired by a single sonar
       measurement. The following describes the format used to
@@ -3133,13 +3142,13 @@
     </field>
   </message>
 
-  <message id="277" name="Pulse" abbrev="Pulse" source="vehicle,ccu" flags="periodic">
+  <message id="277" name="Pulse" abbrev="Pulse" source="vehicle,ccu" flags="periodic" category="Sensors">
     <description>
       Hardware pulse detection.
     </description>
   </message>
 
-  <message id="278" name="Pulse Detection Control" abbrev="PulseDetectionControl" source="vehicle,ccu">
+  <message id="278" name="Pulse Detection Control" abbrev="PulseDetectionControl" source="vehicle,ccu" category="Sensors">
     <description>
       Control of hardware pulse detection.
     </description>
@@ -3152,7 +3161,7 @@
     </field>
   </message>
 
-  <message id="279" name="Fuel Level" abbrev="FuelLevel" source="vehicle" flags="periodic">
+  <message id="279" name="Fuel Level" abbrev="FuelLevel" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of fuel level.
     </description>
@@ -3175,7 +3184,7 @@
     </field>
   </message>
 
-  <message id="280" name="GPS Navigation Data" abbrev="GpsNavData">
+  <message id="280" name="GPS Navigation Data" abbrev="GpsNavData" category="Sensors">
     <description>
       Report of GPS navigation data.
     </description>
@@ -3256,7 +3265,7 @@
     </field>
   </message>
 
-  <message id="281" name="Servo Position" abbrev="ServoPosition" source="vehicle">
+  <message id="281" name="Servo Position" abbrev="ServoPosition" source="vehicle" category="Sensors">
     <description>
       Actual position of a servo.
     </description>
@@ -3272,7 +3281,7 @@
     </field>
   </message>
 
-  <message id="282" name="Device State" abbrev="DeviceState" source="vehicle">
+  <message id="282" name="Device State" abbrev="DeviceState" source="vehicle" category="Sensors">
     <description>
       Location of a specific device in the system infrastructure.
     </description>
@@ -3308,7 +3317,7 @@
     </field>
   </message>
 
-  <message id="283" name="Beam Configuration" abbrev="BeamConfig" source="vehicle">
+  <message id="283" name="Beam Configuration" abbrev="BeamConfig" source="vehicle" category="Sensors">
     <description>
       Beam configuration of the device.
     </description>
@@ -3326,7 +3335,7 @@
     </field>
   </message>
 
-  <message id="284" name="Data Sanity" abbrev="DataSanity">
+  <message id="284" name="Data Sanity" abbrev="DataSanity" category="Sensors">
     <description>
       Report sanity or lack of it in the data output by a sensor.
     </description>
@@ -3347,7 +3356,7 @@
     </field>
   </message>
 
-  <message id="285" name="Rhodamine Dye" abbrev="RhodamineDye" source="vehicle" flags="periodic">
+  <message id="285" name="Rhodamine Dye" abbrev="RhodamineDye" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Rhodamine Dye measurement.
     </description>
@@ -3358,7 +3367,7 @@
     </field>
   </message>
 
-  <message id="286" name="Crude Oil" abbrev="CrudeOil" source="vehicle" flags="periodic">
+  <message id="286" name="Crude Oil" abbrev="CrudeOil" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Crude oil measurement.
     </description>
@@ -3369,7 +3378,7 @@
     </field>
   </message>
 
-  <message id="287" name="Fine Oil" abbrev="FineOil" source="vehicle" flags="periodic">
+  <message id="287" name="Fine Oil" abbrev="FineOil" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Fine oil measurement.
     </description>
@@ -3380,7 +3389,7 @@
     </field>
   </message>
 
-  <message id="288" name="Turbidity" abbrev="Turbidity" source="vehicle" flags="periodic">
+  <message id="288" name="Turbidity" abbrev="Turbidity" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Turbidity measurement.
     </description>
@@ -3391,7 +3400,7 @@
     </field>
   </message>
 
-  <message id="289" name="Chlorophyll" abbrev="Chlorophyll" source="vehicle" flags="periodic">
+  <message id="289" name="Chlorophyll" abbrev="Chlorophyll" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Chlorophyll measurement.
     </description>
@@ -3402,7 +3411,7 @@
     </field>
   </message>
 
-  <message id="290" name="Fluorescein" abbrev="Fluorescein" source="vehicle" flags="periodic">
+  <message id="290" name="Fluorescein" abbrev="Fluorescein" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Fluorescein measurement.
     </description>
@@ -3413,7 +3422,7 @@
     </field>
   </message>
 
-  <message id="291" name="Phycocyanin" abbrev="Phycocyanin" source="vehicle" flags="periodic">
+  <message id="291" name="Phycocyanin" abbrev="Phycocyanin" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Phycocyanin measurement.
     </description>
@@ -3424,7 +3433,7 @@
     </field>
   </message>
 
-  <message id="292" name="Phycoerythrin" abbrev="Phycoerythrin" source="vehicle" flags="periodic">
+  <message id="292" name="Phycoerythrin" abbrev="Phycoerythrin" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Phycoerythrin measurement.
     </description>
@@ -3435,7 +3444,7 @@
     </field>
   </message>
 
-  <message id="293" name="GPS Fix RTK" abbrev="GpsFixRtk" source="vehicle" flags="periodic">
+  <message id="293" name="GPS Fix RTK" abbrev="GpsFixRtk" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of an RTK-GPS fix.
     </description>
@@ -3556,7 +3565,7 @@
     </field>
   </message>
 
-  <message id="294" name="External Navigation Data" abbrev="ExternalNavData" source="vehicle" flags="periodic">
+  <message id="294" name="External Navigation Data" abbrev="ExternalNavData" source="vehicle" flags="periodic" category="Sensors">
       <description>
           This message is a representation of the state of the vehicle,
           as seen by an external navigation computer.
@@ -3590,7 +3599,7 @@
       </field>
   </message>
 
-  <message id="295" name="Dissolved Oxygen" abbrev="DissolvedOxygen" source="vehicle" flags="periodic">
+  <message id="295" name="Dissolved Oxygen" abbrev="DissolvedOxygen" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Dissolved Oxygen measurement.
     </description>
@@ -3601,7 +3610,7 @@
     </field>
   </message>
 
-  <message id="296" name="Air Saturation" abbrev="AirSaturation" source="vehicle" flags="periodic">
+  <message id="296" name="Air Saturation" abbrev="AirSaturation" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Air Saturation measurement.
     </description>
@@ -3612,7 +3621,7 @@
     </field>
   </message>
 
-  <message id="297" name="Throttle" abbrev="Throttle" source="vehicle">
+  <message id="297" name="Throttle" abbrev="Throttle" source="vehicle" category="Sensors">
     <description>
       Throttle e.g. for Plane/Copter .
     </description>
@@ -3623,7 +3632,7 @@
     </field>
   </message>
 
-  <message id="298" name="pH" abbrev="PH" source="vehicle" flags="periodic">
+  <message id="298" name="pH" abbrev="PH" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of pH.
     </description>
@@ -3634,7 +3643,7 @@
     </field>
   </message>
 
-  <message id="299" name="Redox Potential" abbrev="Redox" source="vehicle" flags="periodic">
+  <message id="299" name="Redox Potential" abbrev="Redox" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Report of Redox Potential.
     </description>
@@ -3646,7 +3655,7 @@
   </message>
 
   <!-- Actuation -->
-  <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle">
+  <message id="300" name="Camera Zoom" abbrev="CameraZoom" source="vehicle" category="Actuation">
     <description>
       Camera Zoom.
     </description>
@@ -3671,7 +3680,7 @@
     </field>
   </message>
 
-  <message id="301" name="Set Thruster Actuation" abbrev="SetThrusterActuation" source="vehicle">
+  <message id="301" name="Set Thruster Actuation" abbrev="SetThrusterActuation" source="vehicle" category="Actuation">
     <description>
       Actuate directly on a thruster.
     </description>
@@ -3687,7 +3696,7 @@
     </field>
   </message>
 
-  <message id="302" name="Set Servo Position" abbrev="SetServoPosition" source="vehicle">
+  <message id="302" name="Set Servo Position" abbrev="SetServoPosition" source="vehicle" category="Actuation">
     <description>
       Set the position of a servo.
     </description>
@@ -3703,7 +3712,7 @@
     </field>
   </message>
 
-  <message id="303" name="Set Control Surface Deflection" abbrev="SetControlSurfaceDeflection" source="vehicle">
+  <message id="303" name="Set Control Surface Deflection" abbrev="SetControlSurfaceDeflection" source="vehicle" category="Actuation">
     <description>
       Set the deflection angle of a control surface.
     </description>
@@ -3719,7 +3728,7 @@
     </field>
   </message>
 
-  <message id="304" name="Remote Actions Request" abbrev="RemoteActionsRequest" source="vehicle,ccu">
+  <message id="304" name="Remote Actions Request" abbrev="RemoteActionsRequest" source="vehicle,ccu" category="Actuation">
     <description>
       This message is used as query to request for the possible remote
       actions (operation=QUERY and the list is empty in this
@@ -3742,7 +3751,7 @@
     </field>
   </message>
 
-  <message id="305" name="Remote Actions" abbrev="RemoteActions" source="ccu" flags="periodic">
+  <message id="305" name="Remote Actions" abbrev="RemoteActions" source="ccu" flags="periodic" category="Actuation">
     <description>
       This message is used to send a periodic update of values for
       each remote action. If the action is not on the list the assumed
@@ -3755,7 +3764,7 @@
     </field>
   </message>
 
-  <message id="306" name="Button Event" abbrev="ButtonEvent" source="vehicle">
+  <message id="306" name="Button Event" abbrev="ButtonEvent" source="vehicle" category="Actuation">
     <description>
       Event of a specific hardware button.
     </description>
@@ -3771,7 +3780,7 @@
     </field>
   </message>
 
-  <message id="307" name="LCD Control" abbrev="LcdControl" source="vehicle">
+  <message id="307" name="LCD Control" abbrev="LcdControl" source="vehicle" category="Actuation">
     <description>
       Control LCD.
     </description>
@@ -3792,7 +3801,7 @@
     </field>
   </message>
 
-  <message id="308" name="Power Operation" abbrev="PowerOperation" source="vehicle">
+  <message id="308" name="Power Operation" abbrev="PowerOperation" source="vehicle" category="Actuation">
     <description>
       This message allows controlling the system's power lines.
     </description>
@@ -3858,7 +3867,7 @@
     </field>
   </message>
 
-  <message id="309" name="Power Channel Control" abbrev="PowerChannelControl" source="vehicle,ccu">
+  <message id="309" name="Power Channel Control" abbrev="PowerChannelControl" source="vehicle,ccu" category="Actuation">
     <description>
       This message allows controlling power channels.
     </description>
@@ -3923,13 +3932,13 @@
     </field>
   </message>
 
-  <message id="310" name="Query Power Channel State" abbrev="QueryPowerChannelState" source="vehicle,ccu">
+  <message id="310" name="Query Power Channel State" abbrev="QueryPowerChannelState" source="vehicle,ccu" category="Actuation">
     <description>
       Request the state of power channels.
     </description>
   </message>
 
-  <message id="311" name="Power Channel State" abbrev="PowerChannelState" source="vehicle,ccu">
+  <message id="311" name="Power Channel State" abbrev="PowerChannelState" source="vehicle,ccu" category="Actuation">
     <description>
       Message conveying the state of a power channel.
     </description>
@@ -3955,7 +3964,7 @@
     </field>
   </message>
 
-  <message id="312" name="LED Brightness" abbrev="LedBrightness" source="vehicle">
+  <message id="312" name="LED Brightness" abbrev="LedBrightness" source="vehicle" category="Actuation">
     <description>
       Brightness value of an LED (Light-Emitting Diode).
     </description>
@@ -3971,7 +3980,7 @@
     </field>
   </message>
 
-  <message id="313" name="Query LED Brightness" abbrev="QueryLedBrightness" source="vehicle">
+  <message id="313" name="Query LED Brightness" abbrev="QueryLedBrightness" source="vehicle" category="Actuation">
     <description>
       Query the brightness of an LED (Light-Emitting Diode). The
       recipient of this message shall reply with 'LedBrightness'.
@@ -3983,7 +3992,7 @@
     </field>
   </message>
 
-  <message id="314" name="Set LED Brightness" abbrev="SetLedBrightness" source="vehicle">
+  <message id="314" name="Set LED Brightness" abbrev="SetLedBrightness" source="vehicle" category="Actuation">
     <description>
       Control the brightness of an LED (Light-Emitting Diode). The
       recipient of this message shall set the intensity of the LED to
@@ -4001,7 +4010,7 @@
     </field>
   </message>
 
-  <message id="315" name="Set PWM" abbrev="SetPWM" source="vehicle">
+  <message id="315" name="Set PWM" abbrev="SetPWM" source="vehicle" category="Actuation">
     <description>
       Set properties of a PWM signal channel.
     </description>
@@ -4024,7 +4033,7 @@
     </field>
   </message>
 
-  <message id="316" name="PWM" abbrev="PWM" source="vehicle">
+  <message id="316" name="PWM" abbrev="PWM" source="vehicle" category="Actuation">
     <description>
       Properties of a PWM signal channel.
     </description>
@@ -4048,7 +4057,7 @@
   </message>
 
   <!-- Navigation -->
-  <message id="350" name="Estimated State" abbrev="EstimatedState" source="vehicle" flags="periodic">
+  <message id="350" name="Estimated State" abbrev="EstimatedState" source="vehicle" flags="periodic" category="Navigation">
     <description>
       This message presents the estimated state of the vehicle.
 
@@ -4177,7 +4186,7 @@
     </field>
   </message>
 
-  <message id="351" name="Estimated Stream Velocity" abbrev="EstimatedStreamVelocity" source="vehicle" flags="periodic">
+  <message id="351" name="Estimated Stream Velocity" abbrev="EstimatedStreamVelocity" source="vehicle" flags="periodic" category="Navigation">
     <description>
       The estimated stream velocity, typically for water or air
       streams.
@@ -4199,21 +4208,21 @@
     </field>
   </message>
 
-  <message id="352" name="Indicated Speed" abbrev="IndicatedSpeed" source="vehicle">
+  <message id="352" name="Indicated Speed" abbrev="IndicatedSpeed" source="vehicle" category="Navigation">
     <description>
       Speed measured by the navigation filter.
     </description>
     <field name="Measured speed" abbrev="value" unit="m/s" type="fp64_t"/>
   </message>
 
-  <message id="353" name="True Speed" abbrev="TrueSpeed" source="vehicle">
+  <message id="353" name="True Speed" abbrev="TrueSpeed" source="vehicle" category="Navigation">
     <description>
       Ground true speed.
     </description>
     <field name="Estimated value" abbrev="value" unit="m/s" type="fp64_t"/>
   </message>
 
-  <message id="354" name="Navigation Uncertainty" abbrev="NavigationUncertainty">
+  <message id="354" name="Navigation Uncertainty" abbrev="NavigationUncertainty" category="Navigation">
     <description>
       Report of navigation uncertainty.
       This is usually given by the output of the state
@@ -4288,7 +4297,7 @@
     </field>
   </message>
 
-  <message id="355" name="Navigation Data" abbrev="NavigationData">
+  <message id="355" name="Navigation Data" abbrev="NavigationData" category="Navigation">
     <description>
       Report of navigation data.
       This is constituted by data which is not
@@ -4336,7 +4345,7 @@
     </field>
   </message>
 
-  <message id="356" name="GPS Fix Rejection" abbrev="GpsFixRejection" source="vehicle">
+  <message id="356" name="GPS Fix Rejection" abbrev="GpsFixRejection" source="vehicle" category="Navigation">
     <field name="UTC Time of Fix" abbrev="utc_time" type="fp32_t" unit="s">
       <description>
         UTC time of the rejected GPS fix measured in seconds since
@@ -4375,7 +4384,7 @@
     </field>
   </message>
 
-  <message id="357" name="LBL Range Acceptance" abbrev="LblRangeAcceptance" source="vehicle">
+  <message id="357" name="LBL Range Acceptance" abbrev="LblRangeAcceptance" source="vehicle" category="Navigation">
     <description>
       When the vehicle uses Long Base Line navigation, this message
       notifies that a new range was received from one of the acoustics
@@ -4427,7 +4436,7 @@
     </field>
   </message>
 
-  <message id="358" name="DVL Rejection" abbrev="DvlRejection" source="vehicle">
+  <message id="358" name="DVL Rejection" abbrev="DvlRejection" source="vehicle" category="Navigation">
     <description>
       When the vehicle uses Doppler Velocity Log sensor, this message
       notifies that a new measurement was locally rejected by the
@@ -4505,7 +4514,7 @@
     </field>
   </message>
 
-  <message id="360" name="LBL Beacon Position Estimate" abbrev="LblEstimate">
+  <message id="360" name="LBL Beacon Position Estimate" abbrev="LblEstimate" category="Navigation">
     <description>
       LBL Beacon position estimate.
     </description>
@@ -4543,7 +4552,7 @@
     </field>
   </message>
 
-  <message id="361" name="Alignment State" abbrev="AlignmentState" source="vehicle">
+  <message id="361" name="Alignment State" abbrev="AlignmentState" source="vehicle" category="Navigation">
     <description>
       This message notifies the vehicle is ready for dead-reckoning missions.
     </description>
@@ -4556,10 +4565,13 @@
       <value id="2" name="Not Supported" abbrev="NOT_SUPPORTED"/>
       <value id="3" name="Aligning" abbrev="ALIGNING"/>
       <value id="4" name="Wrong Medium" abbrev="WRONG_MEDIUM"/>
+      <value id="5" name="Coarse Alignment" abbrev="COARSE_ALIGNMENT"/>
+      <value id="6" name="Fine Alignment" abbrev="FINE_ALIGNMENT"/>
+      <value id="7" name="System Ready" abbrev="SYSTEM_READY"/>
     </field>
   </message>
 
-  <message id="362" name="GroupStreamVelocity" abbrev="GroupStreamVelocity" flags="periodic">
+  <message id="362" name="GroupStreamVelocity" abbrev="GroupStreamVelocity" flags="periodic" category="Navigation">
     <description>
       The stream velocity estimated by a group of systems.
       Typically for water or air streams.
@@ -4581,7 +4593,7 @@
     </field>
   </message>
 
-  <message id="363" name="Airflow" abbrev="Airflow" source="vehicle">
+  <message id="363" name="Airflow" abbrev="Airflow" source="vehicle" category="Navigation">
     <description>
       Airspeed along with airflow angles.
     </description>
@@ -4603,7 +4615,7 @@
   </message>
 
   <!-- Guidance -->
-  <message id="400" name="Desired Heading" abbrev="DesiredHeading"  source="vehicle">
+  <message id="400" name="Desired Heading" abbrev="DesiredHeading"  source="vehicle" category="Guidance">
     <description>
       Desired Heading angle reference value for the control layer.
     </description>
@@ -4615,7 +4627,7 @@
     </field>
   </message>
 
-  <message id="401" name="Desired Z" abbrev="DesiredZ"  source="vehicle">
+  <message id="401" name="Desired Z" abbrev="DesiredZ"  source="vehicle" category="Guidance">
     <description>
       Desired Z reference value for the control layer.
     </description>
@@ -4631,7 +4643,7 @@
     </field>
   </message>
 
-  <message id="402" name="Desired Speed" abbrev="DesiredSpeed"  source="vehicle">
+  <message id="402" name="Desired Speed" abbrev="DesiredSpeed"  source="vehicle" category="Guidance">
     <description>
       Desired Speed reference value for the control layer.
     </description>
@@ -4648,7 +4660,7 @@
     </field>
   </message>
 
-  <message id="403" name="Desired Roll" abbrev="DesiredRoll" source="vehicle">
+  <message id="403" name="Desired Roll" abbrev="DesiredRoll" source="vehicle" category="Guidance">
     <description>
       Desired Roll angle reference value for the control layer.
     </description>
@@ -4659,7 +4671,7 @@
     </field>
   </message>
 
-  <message id="404" name="Desired Pitch" abbrev="DesiredPitch" source="vehicle">
+  <message id="404" name="Desired Pitch" abbrev="DesiredPitch" source="vehicle" category="Guidance">
     <description>
       Desired Pitch angle reference value for the control layer.
     </description>
@@ -4670,7 +4682,7 @@
     </field>
   </message>
 
-  <message id="405" name="Desired Vertical Rate" abbrev="DesiredVerticalRate" source="vehicle">
+  <message id="405" name="Desired Vertical Rate" abbrev="DesiredVerticalRate" source="vehicle" category="Guidance">
     <description>
       Desired Vertical Rate speed reference value for the control layer.
     </description>
@@ -4682,7 +4694,7 @@
     </field>
   </message>
 
-  <message id="406" name="Desired Path" abbrev="DesiredPath" source="vehicle">
+  <message id="406" name="Desired Path" abbrev="DesiredPath" source="vehicle" category="Guidance">
     <description>
       Perform path control.
 
@@ -4838,7 +4850,7 @@
     </field>
   </message>
 
-  <message id="407" name="Desired Control" abbrev="DesiredControl" source="vehicle">
+  <message id="407" name="Desired Control" abbrev="DesiredControl" source="vehicle" category="Guidance">
     <description>
       Set the desired virtual forces and torques to be applied to the
       vehicle.
@@ -4910,7 +4922,7 @@
     </field>
   </message>
 
-  <message id="408" name="Desired Heading Rate" abbrev="DesiredHeadingRate" source="vehicle">
+  <message id="408" name="Desired Heading Rate" abbrev="DesiredHeadingRate" source="vehicle" category="Guidance">
     <description>
       Desired Heading Rate speed reference value for the control layer.
     </description>
@@ -4922,7 +4934,7 @@
     </field>
   </message>
 
-  <message id="409" name="Desired Velocity" abbrev="DesiredVelocity" source="Vehicle">
+  <message id="409" name="Desired Velocity" abbrev="DesiredVelocity" source="Vehicle" category="Guidance">
     <description>
       Desired value for each linear and angular speeds.
     </description>
@@ -4993,7 +5005,7 @@
     </field>
   </message>
 
-  <message id="410" name="Path Control State" abbrev="PathControlState" source="vehicle">
+  <message id="410" name="Path Control State" abbrev="PathControlState" source="vehicle" category="Guidance">
     <description>
       Path control state issued by Path Controller.
     </description>
@@ -5129,7 +5141,7 @@
     </field>
   </message>
 
-  <message id="411" name="Allocated Control Torques" abbrev="AllocatedControlTorques" source="vehicle">
+  <message id="411" name="Allocated Control Torques" abbrev="AllocatedControlTorques" source="vehicle" category="Guidance">
     <description>
       Control torques allocated to the actuators.
     </description>
@@ -5150,7 +5162,7 @@
     </field>
   </message>
 
-  <message id="412" name="Control Parcel" abbrev="ControlParcel">
+  <message id="412" name="Control Parcel" abbrev="ControlParcel" category="Guidance">
     <description>
       Report of PID control parcels.
     </description>
@@ -5176,7 +5188,7 @@
     </field>
   </message>
 
-  <message id="413" name="Brake" abbrev="Brake">
+  <message id="413" name="Brake" abbrev="Brake" category="Guidance">
     <description>
       Brake the vehicle in some way, i. e., reduce forward speed.
     </description>
@@ -5202,7 +5214,7 @@
     </field>
   </message>
 
-  <message id="414" name="Desired Linear State" abbrev="DesiredLinearState">
+  <message id="414" name="Desired Linear State" abbrev="DesiredLinearState" category="Guidance">
     <description>
       Position, velocity and acceleration setpoints in NED
     </description>
@@ -5303,7 +5315,7 @@
     </field>
   </message>
 
-  <message id="415" name="Desired Throttle" abbrev="DesiredThrottle" source="vehicle">
+  <message id="415" name="Desired Throttle" abbrev="DesiredThrottle" source="vehicle" category="Guidance">
     <description>
       Desired throttle e.g. for Plane in FBWA-mode.
     </description>
@@ -5315,7 +5327,7 @@
   </message>
 
   <!-- Maneuvering -->
-  <message id="450" name="Goto Maneuver" abbrev="Goto" source="ccu">
+  <message id="450" name="Goto Maneuver" abbrev="Goto" source="ccu" category="Maneuvering">
     <description>
       A "Goto" is a maneuver specifying a movement of the vehicle to a
       target waypoint. The waypoint is described by the WGS-84
@@ -5393,7 +5405,7 @@
     </field>
   </message>
 
-  <message id="451" name="PopUp Maneuver" abbrev="PopUp" source="ccu">
+  <message id="451" name="PopUp Maneuver" abbrev="PopUp" source="ccu" category="Maneuvering">
     <description>
       The Pop Up maneuver makes the vehicle come to the surface at a
       specific waypoint. This maneuver is restricted to underwater vehicles.
@@ -5480,7 +5492,7 @@
     </field>
   </message>
 
-  <message id="452" name="Teleoperation Maneuver" abbrev="Teleoperation" source="ccu">
+  <message id="452" name="Teleoperation Maneuver" abbrev="Teleoperation" source="ccu" category="Maneuvering">
     <description>
       The Teleoperation Maneuver lets the vehicle be controlled by an
       external human operator.
@@ -5492,7 +5504,7 @@
     </field>
   </message>
 
-  <message id="453" name="Loiter Maneuver" abbrev="Loiter" source="ccu">
+  <message id="453" name="Loiter Maneuver" abbrev="Loiter" source="ccu" category="Maneuvering">
     <description>
       The Loiter maneuver makes the vehicle circle around a specific
       waypoint with fixed depth reference.
@@ -5581,7 +5593,7 @@
     </field>
   </message>
 
-  <message id="454" name="Idle Maneuver" abbrev="IdleManeuver" source="">
+  <message id="454" name="Idle Maneuver" abbrev="IdleManeuver" source="" category="Maneuvering">
     <description>
       Causes the vehicle to stay idle for some time.
     </description>
@@ -5598,7 +5610,7 @@
     </field>
   </message>
 
-  <message id="455" name="Low Level Control Maneuver" abbrev="LowLevelControl" source="ccu">
+  <message id="455" name="Low Level Control Maneuver" abbrev="LowLevelControl" source="ccu" category="Maneuvering">
     <description>
       Low level maneuver that sends a (heading, roll, speed, ...)
       reference to a controller of the vehicle and then optionally
@@ -5622,7 +5634,7 @@
     </field>
   </message>
 
-  <message id="456" name="Rows Maneuver" abbrev="Rows" source="ccu">
+  <message id="456" name="Rows Maneuver" abbrev="Rows" source="ccu" category="Maneuvering">
     <description>Rows maneuver (i.e: lawn mower type maneuver)</description>
     <field name="Timeout" abbrev="timeout" type="uint16_t" unit="s">
       <description>
@@ -5709,7 +5721,7 @@
     </field>
   </message>
 
-  <message id="457" name="Follow Path Maneuver" abbrev="FollowPath" source="ccu">
+  <message id="457" name="Follow Path Maneuver" abbrev="FollowPath" source="ccu" category="Maneuvering">
     <description>
       Maneuver constituted by a list of Path Points.
     </description>
@@ -5757,7 +5769,7 @@
     </field>
   </message>
 
-  <message id="458" name="Path Point" abbrev="PathPoint">
+  <message id="458" name="Path Point" abbrev="PathPoint" category="Maneuvering">
     <description>
       Waypoint coordinate of a Follow Path maneuver.
     </description>
@@ -5781,7 +5793,7 @@
     </field>
   </message>
 
-  <message id="459" name="Yo-Yo Maneuver" abbrev="YoYo" source="ccu">
+  <message id="459" name="Yo-Yo Maneuver" abbrev="YoYo" source="ccu" category="Maneuvering">
     <description>
       A "yo-yo" is a maneuver specifying a vehicle movement to a
       target waypoint in which depth/altitude varies along the way
@@ -5840,13 +5852,13 @@
     </field>
   </message>
 
-  <message id="460" name="Teleoperation Done" abbrev="TeleoperationDone" source="ccu">
+  <message id="460" name="Teleoperation Done" abbrev="TeleoperationDone" source="ccu" category="Maneuvering">
     <description>
       Notification of completion of a Teleoperation maneuver.
     </description>
   </message>
 
-  <message id="461" name="Station Keeping" abbrev="StationKeeping" source="ccu">
+  <message id="461" name="Station Keeping" abbrev="StationKeeping" source="ccu" category="Maneuvering">
     <description>
       The Station Keeping maneuver makes the vehicle come to the surface
       and then enter a given circular perimeter around a waypoint coordinate
@@ -5895,7 +5907,7 @@
     </field>
   </message>
 
-  <message id="462" name="Elevator Maneuver" abbrev="Elevator" source="ccu">
+  <message id="462" name="Elevator Maneuver" abbrev="Elevator" source="ccu" category="Maneuvering">
     <description>
       The Elevator maneuver specifies a vehicle to reach a target
       waypoint using a cruise altitude/depth and then ascend or
@@ -5977,7 +5989,7 @@
     </field>
   </message>
 
-  <message id="463" name="Follow Trajectory" abbrev="FollowTrajectory" source="ccu">
+  <message id="463" name="Follow Trajectory" abbrev="FollowTrajectory" source="ccu" category="Maneuvering">
     <description>
       Maneuver constituted by a list of Trajectory Points.
     </description>
@@ -6029,7 +6041,7 @@
     </field>
   </message>
 
-  <message id="464" name="Trajectory Point" abbrev="TrajectoryPoint">
+  <message id="464" name="Trajectory Point" abbrev="TrajectoryPoint" category="Maneuvering">
     <description>
       Waypoint coordinate of a Follow Trajectory maneuver.
     </description>
@@ -6058,7 +6070,7 @@
     </field>
   </message>
 
-  <message id="465" name="Custom Maneuver" abbrev="CustomManeuver" source="ccu">
+  <message id="465" name="Custom Maneuver" abbrev="CustomManeuver" source="ccu" category="Maneuvering">
     <description>
       The Custom Maneuver message may be used as specification of a
       very specific maneuver not covered by the IMC scope. The
@@ -6085,7 +6097,7 @@
     </field>
   </message>
 
-  <message id="466" name="Vehicle Formation" abbrev="VehicleFormation" source="ccu">
+  <message id="466" name="Vehicle Formation" abbrev="VehicleFormation" source="ccu" category="Maneuvering">
     <description>
       Coordinate maneuver using two or more cooperating systems.
     </description>
@@ -6142,7 +6154,7 @@
     </field>
   </message>
 
-  <message id="467" name="Vehicle Formation Participant" abbrev="VehicleFormationParticipant">
+  <message id="467" name="Vehicle Formation Participant" abbrev="VehicleFormationParticipant" category="Maneuvering">
     <description>
       Definition of a vehicle participant in a VehicleFormation maneuver.
     </description>
@@ -6168,13 +6180,13 @@
     </field>
   </message>
 
-  <message id="468" name="Stop Maneuver" abbrev="StopManeuver" source="vehicle">
+  <message id="468" name="Stop Maneuver" abbrev="StopManeuver" source="vehicle" category="Maneuvering">
     <description>
       Command used to stop currently executing maneuver.
     </description>
   </message>
 
-  <message id="469" name="Register Maneuver" abbrev="RegisterManeuver" source="vehicle">
+  <message id="469" name="Register Maneuver" abbrev="RegisterManeuver" source="vehicle" category="Maneuvering">
     <description>
       Command used to indicate maneuver can be executed in the
       vehicle.
@@ -6186,7 +6198,7 @@
     </field>
   </message>
 
-  <message id="470" name="Maneuver Control State" abbrev="ManeuverControlState" source="vehicle">
+  <message id="470" name="Maneuver Control State" abbrev="ManeuverControlState" source="vehicle" category="Maneuvering">
     <description>
       Maneuver control state.
     </description>
@@ -6228,7 +6240,7 @@
     </field>
   </message>
 
-  <message id="471" name="Follow System" abbrev="FollowSystem" source="ccu,vehicle">
+  <message id="471" name="Follow System" abbrev="FollowSystem" source="ccu,vehicle" category="Maneuvering">
     <description>
       System-following maneuver.
     </description>
@@ -6275,7 +6287,7 @@
     </field>
   </message>
 
-  <message id="472" abbrev="CommsRelay" name="Communications Relay" >
+  <message id="472" abbrev="CommsRelay" name="Communications Relay" category="Maneuvering">
     <description>
       In this maneuver, a vehicle drives to the center of two other
       systems (a, b) in order to be used as a communications relay.
@@ -6323,7 +6335,7 @@
     </field>
   </message>
 
-  <message id="473" abbrev="CoverArea" name="Cover Area">
+  <message id="473" abbrev="CoverArea" name="Cover Area" category="Maneuvering">
     <description>
       Given a polygonal area, generates trajectories to cover the
       area.
@@ -6371,7 +6383,7 @@
     </field>
   </message>
 
-  <message id="474" abbrev="PolygonVertex" name="Polygon Vertex">
+  <message id="474" abbrev="PolygonVertex" name="Polygon Vertex" category="Maneuvering">
     <description>
       This message is used to store the various polygon vertices for
       CoverArea maneuvers.
@@ -6388,7 +6400,7 @@
     </field>
   </message>
 
-  <message id="475" name="Compass Calibration Maneuver" abbrev="CompassCalibration" source="ccu">
+  <message id="475" name="Compass Calibration Maneuver" abbrev="CompassCalibration" source="ccu" category="Maneuvering">
     <description>
       This maneuver is a mix between the Loiter maneuver and the YoYo maneuver.
       The vehicle cirlcles around a specific waypoint with a variable Z
@@ -6467,7 +6479,7 @@
     </field>
   </message>
 
-  <message id="476" name="Formation Parameters" abbrev="FormationParameters" source="ccu">
+  <message id="476" name="Formation Parameters" abbrev="FormationParameters" source="ccu" category="Maneuvering">
     <description>
       A "Formation" is defined by the relative positions of the vehicles
       inside the formation, and the reference frame where this positions are defined.
@@ -6509,7 +6521,7 @@
     </field>
   </message>
 
-  <message id="477" name="Formation Plan Execution" abbrev="FormationPlanExecution" source="ccu">
+  <message id="477" name="Formation Plan Execution" abbrev="FormationPlanExecution" source="ccu" category="Maneuvering">
     <description>
       A "Formation Plan" is a maneuver specifying a plan for a team of vehicles.
       The maneuver defines:
@@ -6595,7 +6607,7 @@
     </field>
   </message>
 
-  <message id="478" name="Follow Reference Maneuver" abbrev="FollowReference" source="ccu">
+  <message id="478" name="Follow Reference Maneuver" abbrev="FollowReference" source="ccu" category="Maneuvering">
     <description>
       This maneuver follows a reference given by an external entity.
     </description>
@@ -6633,7 +6645,7 @@
     </field>
   </message>
 
-  <message id="479" name="Reference To Follow" abbrev="Reference" source="ccu,vehicle">
+  <message id="479" name="Reference To Follow" abbrev="Reference" source="ccu,vehicle" category="Maneuvering">
     <field name="Flags" abbrev="flags" type="uint8_t" unit="Bitfield" prefix="FLAG">
       <value abbrev="LOCATION" name="Use Location Reference" id="0x01"/>
       <value abbrev="SPEED" name="Use Speed Reference" id="0x02"/>
@@ -6650,7 +6662,7 @@
     <field name="Radius" abbrev="radius" type="fp32_t"/>
   </message>
 
-  <message id="480" name="Follow Reference State" abbrev="FollowRefState" source="vehicle">
+  <message id="480" name="Follow Reference State" abbrev="FollowRefState" source="vehicle" category="Maneuvering">
     <field name="Controlling Source" abbrev="control_src" type="uint16_t">
       <description>
         The IMC identifier of the source system that is allowed to control the vehicle.
@@ -6683,7 +6695,7 @@
     </field>
   </message>
 
-  <message id="481" name="Formation Monitoring Data" abbrev="FormationMonitor">
+  <message id="481" name="Formation Monitoring Data" abbrev="FormationMonitor" category="Maneuvering">
     <description>
       Monitoring variables for the formation state and performance.
     </description>
@@ -6808,7 +6820,7 @@
     </field>
   </message>
 
-  <message id="482" name="Relative State" abbrev="RelativeState">
+  <message id="482" name="Relative State" abbrev="RelativeState" category="Maneuvering">
     <description>
       Inter-vehicle formation state.
     </description>
@@ -6927,7 +6939,7 @@
     </field>
   </message>
 
-  <message id="483" name="Dislodge Maneuver" abbrev="Dislodge" source="ccu">
+  <message id="483" name="Dislodge Maneuver" abbrev="Dislodge" source="ccu" category="Maneuvering">
     <description>
       A "Dislodge" is a maneuver ordering the vehicle to attempt a
       series of thruster operations that will hopefully get it
@@ -6962,7 +6974,7 @@
     </field>
   </message>
 
-  <message id="484" name="Formation" abbrev="Formation" source="ccu,vehicle">
+  <message id="484" name="Formation" abbrev="Formation" source="ccu,vehicle" category="Maneuvering">
     <description>
       The "Formation" is a controller to execute a maneuver with a team of vehicles.
       It defines the:
@@ -7126,7 +7138,7 @@
     </field>
   </message>
 
-  <message id="485" name="Launch Maneuver" abbrev="Launch" source="ccu">
+  <message id="485" name="Launch Maneuver" abbrev="Launch" source="ccu" category="Maneuvering">
     <description>
       A "Launch" is a maneuver specifying a movement of the vehicle to a
       target waypoint after being launched from a ship or pier.
@@ -7179,7 +7191,7 @@
     </field>
   </message>
 
-  <message id="486" name="Drop Maneuver" abbrev="Drop" source="ccu">
+  <message id="486" name="Drop Maneuver" abbrev="Drop" source="ccu" category="Maneuvering">
     <description>
       A "Drop" is a maneuver specifying a movement of the vehicle to a
       target waypoint. The waypoint is described by the WGS-84
@@ -7231,7 +7243,7 @@
     </field>
   </message>
 
-  <message id="487" name="Scheduled Goto" abbrev="ScheduledGoto" source="ccu">
+  <message id="487" name="Scheduled Goto" abbrev="ScheduledGoto" source="ccu" category="Maneuvering">
     <description>
       This maneuver is used to command the vehicle to arrive at some destination at
       a specified absolute time.
@@ -7299,7 +7311,7 @@
     </field>
   </message>
 
-  <message id="488" name="Rows Coverage" abbrev="RowsCoverage" source="ccu">
+  <message id="488" name="Rows Coverage" abbrev="RowsCoverage" source="ccu" category="Maneuvering">
     <description>Rows coverage (i.e: lawn mower type maneuver) but with adaptive cover</description>
     <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
       <description>
@@ -7394,7 +7406,7 @@
     </field>
   </message>
 
-   <message id="489" name="Sample Maneuver" abbrev="Sample" source="ccu">
+   <message id="489" name="Sample Maneuver" abbrev="Sample" source="ccu" category="Maneuvering">
     <description>
       A "Sample" is a maneuver specifying a movement of the vehicle to a
       target waypoint. The waypoint is described by the WGS-84
@@ -7461,14 +7473,14 @@
     </field>
   </message>
 
-  <message id="490" name="Image Tracking" abbrev="ImageTracking" source="ccu">
+  <message id="490" name="Image Tracking" abbrev="ImageTracking" source="ccu" category="Maneuvering">
     <description>
       A "ImageTracking" is a maneuver specifying a particular heading to the
       detected object.
     </description>
   </message>
 
-  <message id="491" name="Takeoff Maneuver" abbrev="Takeoff" source="ccu">
+  <message id="491" name="Takeoff Maneuver" abbrev="Takeoff" source="ccu" category="Maneuvering">
     <description>
       Automatic takeoff for UAVs.
       This maneuver specifies a target waypoint where to takeoff.
@@ -7518,7 +7530,7 @@
     </field>
   </message>
 
-  <message id="492" name="Land Maneuver" abbrev="Land">
+  <message id="492" name="Land Maneuver" abbrev="Land" category="Maneuvering">
     <description>
       Automatic landing on the ground, for UAVs.
       This maneuver specifies the target touchdown location and sets the final approach based on the maneuver bearing and glide slope parameters.
@@ -7580,7 +7592,7 @@
     </field>
   </message>
 
-  <message id="493" abbrev="AutonomousSection" name="Autonomous Section">
+  <message id="493" abbrev="AutonomousSection" name="Autonomous Section" category="Maneuvering">
     <description>
       This maneuver triggers an external controller that will guide the vehicle during a specified duration
       of time or until it relinquishes control using (ManeuverDone). The external controller is allowed to
@@ -7646,7 +7658,7 @@
     </field>
   </message>
 
-  <message id="494" name="Follow Point Maneuver" abbrev="FollowPoint">
+  <message id="494" name="Follow Point Maneuver" abbrev="FollowPoint" category="Maneuvering">
     <description>This maneuver behaves by following a point.</description>
     <field name="Source To Follow" abbrev="target" type="plaintext">
       <description>
@@ -7690,7 +7702,7 @@
     </field>
   </message>
 
-  <message id="495" name="Alignment Maneuver" abbrev="Alignment" source="ccu">
+  <message id="495" name="Alignment Maneuver" abbrev="Alignment" source="ccu" category="Maneuvering">
       <description>
       An "Alignment" is a maneuver specifying a movement of the vehicle to a
       target waypoint intended to control activation of an IMU/INS in order
@@ -7728,7 +7740,7 @@
     </field>
   </message>
 
-<message id="496" name="Station Keeping Extended" abbrev="StationKeepingExtended" source="ccu">
+<message id="496" name="Station Keeping Extended" abbrev="StationKeepingExtended" source="ccu" category="Maneuvering">
     <description>
       The Station Keeping Extended maneuver makes the vehicle come to the surface
       and then enter a given circular perimeter around a waypoint coordinate
@@ -7802,13 +7814,13 @@
     </field>
   </message>
 
-  <message id="497" name="Maneuver Done" abbrev="ManeuverDone" source="ccu">
+  <message id="497" name="Maneuver Done" abbrev="ManeuverDone" source="ccu, vehicle" category="Maneuvering">
     <description>
       Notification of completion of a maneuver (optional use).
     </description>
   </message>
 
-  <message id="499" name="Magnetometer Maneuver" abbrev="Magnetometer" source="ccu">
+  <message id="499" name="Magnetometer Maneuver" abbrev="Magnetometer" source="ccu" category="Maneuvering">
     <description>
       Magnetometer calibration maneuver (i.e: one square pattern
       in one direction, a second square in the opposite direction)
@@ -7874,7 +7886,7 @@
   </message>
 
   <!-- Vehicle Supervision -->
-  <message id="500" name="Vehicle State" abbrev="VehicleState" source="vehicle">
+  <message id="500" name="Vehicle State" abbrev="VehicleState" source="vehicle" category="Vehicle Supervision">
     <description>
       This message summarizes the overall state of the vehicle. It can
       contains information regarding:
@@ -7969,7 +7981,7 @@
     </field>
   </message>
 
-  <message id="501" name="Vehicle Command" abbrev="VehicleCommand" source="ccu,vehicle">
+  <message id="501" name="Vehicle Command" abbrev="VehicleCommand" source="ccu,vehicle" category="Vehicle Supervision">
     <description>
       Vehicle command.
     </description>
@@ -8008,7 +8020,7 @@
     </field>
   </message>
 
-  <message id="502" name="Monitor Entity State" abbrev="MonitorEntityState" source="vehicle">
+  <message id="502" name="Monitor Entity State" abbrev="MonitorEntityState" source="vehicle" category="Vehicle Supervision">
     <description>Controls monitoring of entity states in the vehicle.</description>
     <field name="Command" abbrev="command" type="uint8_t" unit="Enumerated" prefix="MES">
       <description>Command.</description>
@@ -8023,7 +8035,7 @@
     </field>
   </message>
 
-  <message id="503" name="Entity Monitoring State" abbrev="EntityMonitoringState" source="vehicle">
+  <message id="503" name="Entity Monitoring State" abbrev="EntityMonitoringState" source="vehicle" category="Vehicle Supervision">
     <field name="Entities monitored - Count" abbrev="mcount" type="uint8_t">
       <description>
         Number of entitities being monitored.
@@ -8067,7 +8079,7 @@
     </field>
   </message>
 
-  <message id="504" name="Operational Limits" abbrev="OperationalLimits" source="ccu,vehicle">
+  <message id="504" name="Operational Limits" abbrev="OperationalLimits" source="ccu,vehicle" category="Vehicle Supervision">
     <description>
       Definition of operational limits.
     </description>
@@ -8085,13 +8097,13 @@
     <field name="Area -- Length" abbrev="length" type="fp32_t" unit="m"/>
   </message>
 
-  <message id="505" name="Get Operational Limits" abbrev="GetOperationalLimits" source="ccu">
+  <message id="505" name="Get Operational Limits" abbrev="GetOperationalLimits" source="ccu" category="Vehicle Supervision">
     <description>
       Command to obtain the operational limits in use by the vehicle.
     </description>
   </message>
 
-  <message id="506" name="Calibration" abbrev="Calibration" source="vehicle">
+  <message id="506" name="Calibration" abbrev="Calibration" source="vehicle" category="Vehicle Supervision">
     <description>
       Initiate overall calibration of a vehicle.
     </description>
@@ -8102,7 +8114,7 @@
     </field>
   </message>
 
-  <message id="507" name="Control Loops" abbrev="ControlLoops" source="vehicle">
+  <message id="507" name="Control Loops" abbrev="ControlLoops" source="vehicle" category="Vehicle Supervision">
     <description>
       Enable or disable control loops.
     </description>
@@ -8126,7 +8138,7 @@
     </field>
   </message>
 
-  <message id="508" name="Vehicle Medium" abbrev="VehicleMedium" source="vehicle">
+  <message id="508" name="Vehicle Medium" abbrev="VehicleMedium" source="vehicle" category="Vehicle Supervision">
     <description>
       Detect current vehicle medium.
     </description>
@@ -8152,7 +8164,7 @@
     </field>
   </message>
 
-  <message id="509" name="Collision" abbrev="Collision" source="vehicle">
+  <message id="509" name="Collision" abbrev="Collision" source="vehicle" category="Vehicle Supervision">
     <description>
       Detected collision.
     </description>
@@ -8180,7 +8192,7 @@
     </field>
   </message>
 
-  <message id="510" name="Formation Tracking State" abbrev="FormState" source="vehicle">
+  <message id="510" name="Formation Tracking State" abbrev="FormState" source="vehicle" category="Vehicle Supervision">
     <description>
       Monitoring variables to assert the formation tracking state, i.e., the mismatch between the real and the simulated aircraft position, the convergence state, etc.
     </description>
@@ -8224,7 +8236,7 @@
     </field>
   </message>
 
-  <message id="511" name="Autopilot Mode" abbrev="AutopilotMode" source="vehicle">
+  <message id="511" name="Autopilot Mode" abbrev="AutopilotMode" source="vehicle" category="Vehicle Supervision">
     <description>
       Reports autopilot mode.
     </description>
@@ -8249,7 +8261,7 @@
     </field>
   </message>
 
-  <message id="512" name="Formation Tracking State" abbrev="FormationState" source="vehicle">
+  <message id="512" name="Formation Tracking State" abbrev="FormationState" source="vehicle" category="Vehicle Supervision">
     <description>
       Monitoring variables to assert the formation tracking state, i.e., the mismatch between the real and the simulated aircraft position, the convergence state, etc.
     </description>
@@ -8315,7 +8327,7 @@
     </field>
   </message>
 
-  <message id="513" name="Report Control" abbrev="ReportControl" source="ccu,vehicle">
+  <message id="513" name="Report Control" abbrev="ReportControl" source="ccu,vehicle" category="Vehicle Supervision">
     <description>
       This message is sent to trigger reports to a destination system.
     </description>
@@ -8404,7 +8416,7 @@
     </field>
   </message>
 
-  <message id="514" name="State Report" abbrev="StateReport">
+  <message id="514" name="State Report" abbrev="StateReport" category="Vehicle Supervision">
   	<description>
   	  Concise representation of entire system state.
   	</description>
@@ -8458,7 +8470,7 @@
     </field>
   </message>
 
-  <message id="515" name="Transmission Request" abbrev="TransmissionRequest">
+  <message id="515" name="Transmission Request" abbrev="TransmissionRequest" category="Networking">
     <description>
       Request data to be sent over a specified communication mean.
     </description>
@@ -8523,7 +8535,7 @@
     </field>
   </message>
 
-  <message id="516" name="Transmission Status" abbrev="TransmissionStatus">
+  <message id="516" name="Transmission Status" abbrev="TransmissionStatus" category="Networking">
     <description>
       Reply sent in response to a communications request.
     </description>
@@ -8547,7 +8559,7 @@
     <field name="Information" abbrev="info" type="plaintext"/>
   </message>
 
-    <message id="517" name="SMS Transmission Request" abbrev="SmsRequest">
+    <message id="517" name="SMS Transmission Request" abbrev="SmsRequest" category="Networking">
     <description>
       Request SMS Text sending.
     </description>
@@ -8565,7 +8577,7 @@
     </field>
   </message>
 
-    <message id="518" name="SMS Transmission Status" abbrev="SmsStatus">
+    <message id="518" name="SMS Transmission Status" abbrev="SmsStatus" category="Networking">
     <description>
       Reply sent in response to a SMS sending request.
     </description>
@@ -8581,7 +8593,7 @@
     </field>
   </message>
   
-  <message id="519" name="VTOL State" abbrev="VtolState">
+  <message id="519" name="VTOL State" abbrev="VtolState" category="Vehicle Supervision">
   <description>
     Reports VTOL current state.
   </description>
@@ -8604,7 +8616,7 @@
   </field>
   </message>
   
-  <message id="520" name="Arming State" abbrev="ArmingState">
+  <message id="520" name="Arming State" abbrev="ArmingState" category="Vehicle Supervision">
   <description>
     Reports if motors are currently armed or disarmed.
   </description>
@@ -8614,7 +8626,7 @@
   </field>
   </message>
   
-   <message id="521" name="TCP Transmission Request" abbrev="TCPRequest">
+   <message id="521" name="TCP Transmission Request" abbrev="TCPRequest" category="Networking">
     <description>
       Request data to be sent over a TCP connection
     </description>
@@ -8635,7 +8647,7 @@
     </field>
   </message>
 
-  <message id="522" name="TCP Transmission Status" abbrev="TCPStatus">
+  <message id="522" name="TCP Transmission Status" abbrev="TCPStatus" category="Networking">
     <description>
       Reply sent in response to a TCP sending request.
     </description>
@@ -8655,13 +8667,13 @@
   </message>
 
   <!-- Plan Supervision -->
-  <message id="550" name="Abort" abbrev="Abort" source="ccu">
+  <message id="550" name="Abort" abbrev="Abort" source="ccu" category="Plan Supervision">
     <description>
       Stops any executing actions and put the system in a standby mode.
     </description>
   </message>
 
-  <message id="551" name="Plan Specification" abbrev="PlanSpecification" source="ccu,vehicle">
+  <message id="551" name="Plan Specification" abbrev="PlanSpecification" source="ccu,vehicle" category="Plan Supervision">
     <description>
       Identity and description of a plan's general parameters,
       associated with plan loading (i.e. load plan command in
@@ -8722,7 +8734,7 @@
     </field>
   </message>
 
-  <message id="552" name="Plan Maneuver" abbrev="PlanManeuver" source="ccu">
+  <message id="552" name="Plan Maneuver" abbrev="PlanManeuver" source="ccu" category="Plan Supervision">
     <description>
       Named plan maneuver.
     </description>
@@ -8750,7 +8762,7 @@
     </field>
   </message>
 
-  <message id="553" name="Plan Transition" abbrev="PlanTransition" source="ccu">
+  <message id="553" name="Plan Transition" abbrev="PlanTransition" source="ccu" category="Plan Supervision">
     <description>
       Describes a plan transition within a plan specification. A
       transition states the vehicle conditions that must be met to
@@ -8787,7 +8799,7 @@
     </field>
   </message>
 
-  <message id="554" name="Emergency Control" abbrev="EmergencyControl" source="ccu">
+  <message id="554" name="Emergency Control" abbrev="EmergencyControl" source="ccu" category="Plan Supervision">
     <field name="Command" abbrev="command" type="uint8_t" prefix="ECTL" unit="Enumerated">
       <value id="0" name="Enable" abbrev="ENABLE"/>
       <value id="1" name="Disable" abbrev="DISABLE"/>
@@ -8799,7 +8811,7 @@
     <field name="Plan Specification" abbrev="plan" type="message" message-type="PlanSpecification"/>
   </message>
 
-  <message id="555" name="Emergency Control State" abbrev="EmergencyControlState" source="vehicle">
+  <message id="555" name="Emergency Control State" abbrev="EmergencyControlState" source="vehicle" category="Plan Supervision">
     <field name="State" abbrev="state" type="uint8_t" prefix="ECS" unit="Enumerated">
       <value id="0" name="Not Configured" abbrev="NOT_CONFIGURED"/>
       <value id="1" name="Disabled" abbrev="DISABLED"/>
@@ -8812,7 +8824,7 @@
     <field name="Communications Level" abbrev="comm_level" type="uint8_t" unit="%" max="100"/>
   </message>
 
-  <message id="556" name="Plan DB" abbrev="PlanDB">
+  <message id="556" name="Plan DB" abbrev="PlanDB" category="Plan Supervision">
     <description>
       Request/reply to plan database.
     </description>
@@ -8921,7 +8933,7 @@
     </field>
   </message>
 
-  <message id="557" name="Plan DB State" abbrev="PlanDBState">
+  <message id="557" name="Plan DB State" abbrev="PlanDBState" category="Plan Supervision">
     <description>
       Characterizes the state of the entire plan database.
     </description>
@@ -8965,7 +8977,7 @@
     </field>
   </message>
 
-  <message id="558" name="Plan DB Information" abbrev="PlanDBInformation">
+  <message id="558" name="Plan DB Information" abbrev="PlanDBInformation" category="Plan Supervision">
     <field name="Plan ID" abbrev="plan_id" type="plaintext">
       <description>
         Plan identifier.
@@ -9001,7 +9013,7 @@
     </field>
   </message>
 
-  <message id="559" abbrev="PlanControl" name="Plan Control" source="ccu,vehicle">
+  <message id="559" name="Plan Control" abbrev="PlanControl" source="ccu,vehicle" category="Plan Supervision">
     <description>
       Plan control request/reply.
     </description>
@@ -9095,7 +9107,7 @@
     </field>
   </message>
 
-  <message id="560" name="Plan Control State" flags="periodic" abbrev="PlanControlState" source="vehicle">
+  <message id="560" name="Plan Control State" flags="periodic" abbrev="PlanControlState" source="vehicle" category="Plan Supervision">
     <description>
       State of plan control.
     </description>
@@ -9181,7 +9193,7 @@
     </field>
   </message>
 
-  <message id="561" name="Plan Variable" abbrev="PlanVariable" source="vehicle,ccu">
+  <message id="561" name="Plan Variable" abbrev="PlanVariable" source="vehicle,ccu" category="Plan Supervision">
     <description>A plan variable.</description>
     <field name="Name" abbrev="name" type="plaintext"/>
     <field name="Value" abbrev="value" type="plaintext"/>
@@ -9198,7 +9210,7 @@
     </field>
   </message>
 
-  <message id="562" name="Plan Generation" abbrev="PlanGeneration" source="vehicle,ccu">
+  <message id="562" name="Plan Generation" abbrev="PlanGeneration" source="vehicle,ccu" category="Plan Supervision">
     <description>
       This message is used to order the generation of plans based on
       id and set of parameters.
@@ -9247,7 +9259,7 @@
     </field>
   </message>
 
-  <message id="563" name="Leader State" abbrev="LeaderState" source="vehicle" flags="periodic">
+  <message id="563" name="Leader State" abbrev="LeaderState" source="vehicle" flags="periodic" category="Plan Supervision">
     <description>
       This message defines the formation leader state.
 
@@ -9379,7 +9391,7 @@
     </field>
   </message>
 
-  <message id="564" name="Plan Statistics" abbrev="PlanStatistics" source="vehicle">
+  <message id="564" name="Plan Statistics" abbrev="PlanStatistics" source="vehicle" category="Plan Supervision">
     <field name="Plan Identifier" abbrev="plan_id" type="plaintext">
       <description>
         The name of the plan to be generated.
@@ -9422,28 +9434,28 @@
     </field>
     <field name="Durations" abbrev="durations" type="plaintext" unit="TupleList">
       <description>
-        Maneuver and plan duration statistics in seconds, for example: “Total=1000,Goto1=20,Rows=980”
+        Maneuver and plan duration statistics in seconds, for example: Total=1000,Goto1=20,Rows=980
       </description>
     </field>
     <field name="Distances" abbrev="distances" type="plaintext" unit="TupleList">
       <description>
-        Distances travelled in meters in each maneuver and/or total: “Total=2000,Rows=1800,Elevator=200”
+        Distances travelled in meters in each maneuver and/or total: Total=2000,Rows=1800,Elevator=200
       </description>
     </field>
     <field name="Actions" abbrev="actions" type="plaintext" unit="TupleList">
       <description>
-        List of components active by plan actions during the plan and time active in seconds: “Sidescan=100,Camera Module=150”
+        List of components active by plan actions during the plan and time active in seconds: Sidescan=100,Camera Module=150
       </description>
     </field>
     <field name="Fuel" abbrev="fuel" type="plaintext" unit="TupleList">
       <description>
-        Amount of fuel spent, in battery percentage, by different parcels (if applicable): “Total=35,Hotel=5,Payload=10,Motion=20,IMU=0”
+        Amount of fuel spent, in battery percentage, by different parcels (if applicable): Total=35,Hotel=5,Payload=10,Motion=20,IMU=0
       </description>
     </field>
   </message>
 
   <!-- CCU Messages (Internal and between CCUs) -->
-  <message id="600" name="Reported State" abbrev="ReportedState" source="vehicle,ccu">
+  <message id="600" name="Reported State" abbrev="ReportedState" source="vehicle,ccu" category="CCU">
     <description>
       A vehicle state that is reported to other consoles (including PDAConsole). Source can be acoustic tracker, SMS, Wi-Fi, etc...
     </description>
@@ -9487,7 +9499,7 @@
     </field>
   </message>
 
-  <message id="601" name="Remote Sensor Info" abbrev="RemoteSensorInfo" source="ccu">
+  <message id="601" name="Remote Sensor Info" abbrev="RemoteSensorInfo" source="ccu" category="CCU">
     <description>
       Whenever the CUCS receives a message from one of the existing sensors (through SMS, ZigBee, Acoustic Comms, ...) it disseminates that info recurring to this message.
     </description>
@@ -9505,7 +9517,7 @@
   </message>
 
   <!-- messages used to send maps to the Android Command and Control Unit (ACCU) -->
-  <message id="602" name="Map" abbrev="Map" source="ccu">
+  <message id="602" name="Map" abbrev="Map" source="ccu" category="CCU">
     <description>This message represents a simple map that is transferred between CCU consoles (from Neptus to ACCU)</description>
     <field name="Identifier" abbrev="id" type="plaintext">
       <description>The id of the map</description>
@@ -9515,7 +9527,7 @@
     </field>
   </message>
 
-  <message id="603" name="Map Feature" abbrev="MapFeature" source="ccu">
+  <message id="603" name="Map Feature" abbrev="MapFeature" source="ccu" category="CCU">
     <description>A feature to appear on the map</description>
     <field name="Identifier" abbrev="id" type="plaintext">
       <description>The unique identifier for this feature (used as the name for points of interest)</description>
@@ -9558,14 +9570,14 @@
     </field>
   </message>
 
-  <message id="604" name="MapPoint" abbrev="MapPoint" source="ccu">
+  <message id="604" name="MapPoint" abbrev="MapPoint" source="ccu" category="CCU">
     <description>This message represents a point in the world.</description>
     <field name="Latitude" abbrev="lat" type="fp64_t" unit="rad"/>
     <field name="Longitude" abbrev="lon" type="fp64_t" unit="rad"/>
     <field name="Altitude" abbrev="alt" type="fp32_t" unit="m"/>
   </message>
 
-  <message id="606" name="CCU Event" abbrev="CcuEvent" source="ccu">
+  <message id="606" name="CCU Event" abbrev="CcuEvent" source="ccu" category="CCU">
     <description>
       This message is used to signal events among running CCUs.
     </description>
@@ -9586,7 +9598,7 @@
   </message>
 
   <!-- Autonomy -->
-  <message id="650" name="Vehicle Links" abbrev="VehicleLinks" source="vehicle">
+  <message id="650" name="Vehicle Links" abbrev="VehicleLinks" source="vehicle" category="Autonomy">
     <description>
       This message is sent by the TREX task which gives further information to a TREX instance about connected IMC nodes
     </description>
@@ -9598,7 +9610,7 @@
     </field>
   </message>
 
-  <message id="651" name="TREX Observation" abbrev="TrexObservation" source="vehicle,ccu" flags="deprecated">
+  <message id="651" name="TREX Observation" abbrev="TrexObservation" source="vehicle,ccu" flags="deprecated" category="Autonomy">
     <description>
       This message is sent to TREX to post timeline observations
     </description>
@@ -9607,7 +9619,7 @@
     <field name="Attributes" abbrev="attributes" type="plaintext" unit="TupleList" />
   </message>
 
-  <message id="652" name="TREX Command" abbrev="TrexCommand" source="vehicle,ccu" flags="deprecated">
+  <message id="652" name="TREX Command" abbrev="TrexCommand" source="vehicle,ccu" flags="deprecated" category="Autonomy">
     <description>
       This message is used to control TREX execution
     </description>
@@ -9628,7 +9640,7 @@
     </field>
   </message>
 
-  <message id="655" abbrev="TrexOperation" name="TREX Operation" source="vehicle,ccu">
+  <message id="655" name="TREX Operation" abbrev="TrexOperation" source="vehicle,ccu" category="Autonomy">
     <description>
       This message is used to control TREX execution
     </description>
@@ -9650,7 +9662,7 @@
     </field>
   </message>
 
-  <message id="656" abbrev="TrexAttribute" name="TREX Attribute" source="vehicle,ccu">
+  <message id="656" name="TREX Attribute" abbrev="TrexAttribute" source="vehicle,ccu" category="Autonomy">
 
     <field name="Attribute Name" abbrev="name" type="plaintext">
       <description>Name of this attribute.</description>
@@ -9673,18 +9685,18 @@
     </field>
   </message>
 
-  <message id="657" abbrev="TrexToken" name="TREX Token" source="vehicle,ccu">
+  <message id="657" name="TREX Token" abbrev="TrexToken" source="vehicle,ccu" category="Autonomy">
     <field name="Timeline" abbrev="timeline" type="plaintext" />
     <field name="Predicate" abbrev="predicate" type="plaintext" />
     <field name="Attributes" abbrev="attributes" type="message-list" message-type="TrexAttribute" />
   </message>
 
-  <message id="658" abbrev="TrexPlan" name="TREX Plan" source="vehicle,ccu">
+  <message id="658" abbrev="TrexPlan" name="TREX Plan" source="vehicle,ccu" category="Autonomy">
     <field name="Reactor name" abbrev="reactor" type="plaintext" />
     <field name="Tokens" abbrev="tokens" type="message-list" message-type="TrexToken" />
   </message>
 
-  <message id="660" abbrev="Event" name="Event" source="vehicle,ccu">
+  <message id="660" abbrev="Event" name="Event" source="vehicle,ccu" category="Autonomy">
     <description>
       This message is used for signaling asynchronous events between different (sub) systems.
     </description>
@@ -9697,13 +9709,13 @@
   </message>
 
   <!-- Vision -->
-  <message id="702" name="Compressed Image" abbrev="CompressedImage" source="ccu, vehicle">
+  <message id="702" name="Compressed Image" abbrev="CompressedImage" source="ccu, vehicle" category="Vision">
     <description/>
     <field name="Frame Id" abbrev="frameid" type="uint8_t"/>
     <field name="Data" abbrev="data" type="rawdata"/>
   </message>
 
-  <message id="703" name="Image Transmission Settings" abbrev="ImageTxSettings" source="ccu, vehicle">
+  <message id="703" name="Image Transmission Settings" abbrev="ImageTxSettings" source="ccu, vehicle" category="Vision">
     <description/>
     <field name="Frames Per Second" abbrev="fps" type="uint8_t"/>
     <field name="Quality" abbrev="quality" type="uint8_t"/>
@@ -9712,7 +9724,7 @@
   </message>
 
   <!-- External -->
-  <message id="750" name="Remote State" abbrev="RemoteState" source="vehicle">
+  <message id="750" name="Remote State" abbrev="RemoteState" source="vehicle" category="CCU">
     <description>State summary for a remote vehicle.</description>
     <field name="Latitude WGS-84" abbrev="lat" type="fp32_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
       <description>WGS-84 Latitude.</description>
@@ -9732,7 +9744,7 @@
   </message>
 
   <!-- Development -->
-  <message id="800" name="Target" abbrev="Target">
+  <message id="800" name="Target" abbrev="Target" category="Maneuvering">
     <description>
       Target.
     </description>
@@ -9774,7 +9786,7 @@
     </field>
   </message>
 
-  <message id="801" name="EntityParameter" abbrev="EntityParameter" source="ccu,vehicle">
+  <message id="801" name="EntityParameter" abbrev="EntityParameter" source="ccu,vehicle" category="Core">
     <description>
       Entity parameter.
     </description>
@@ -9790,7 +9802,7 @@
     </field>
   </message>
 
-  <message id="802" name="EntityParameters" abbrev="EntityParameters" source="ccu,vehicle">
+  <message id="802" name="EntityParameters" abbrev="EntityParameters" source="ccu,vehicle" category="Core">
     <description>
       List of entity parameters.
     </description>
@@ -9806,22 +9818,22 @@
     </field>
   </message>
 
-  <message id="803" name="QueryEntityParameters" abbrev="QueryEntityParameters" source="ccu,vehicle">
+  <message id="803" name="QueryEntityParameters" abbrev="QueryEntityParameters" source="ccu,vehicle" category="Core">
     <field name="Entity Name" abbrev="name" type="plaintext"/>
     <field name="Visibility" abbrev="visibility" type="plaintext"/>
     <field name="Scope" abbrev="scope" type="plaintext"/>
   </message>
 
-  <message id="804" name="SetEntityParameters" abbrev="SetEntityParameters" source="ccu,vehicle">
+  <message id="804" name="SetEntityParameters" abbrev="SetEntityParameters" source="ccu,vehicle" category="Core">
     <field name="Entity Name" abbrev="name" type="plaintext"/>
     <field name="Parameters" abbrev="params" type="message-list" message-type="EntityParameter"/>
   </message>
 
-  <message id="805" name="SaveEntityParameters" abbrev="SaveEntityParameters" source="ccu,vehicle">
+  <message id="805" name="SaveEntityParameters" abbrev="SaveEntityParameters" source="ccu,vehicle" category="Core">
     <field name="Entity Name" abbrev="name" type="plaintext"/>
   </message>
 
-  <message id="806" name="Create Session" abbrev="CreateSession" source="ccu,vehicle">
+  <message id="806" name="Create Session" abbrev="CreateSession" source="ccu,vehicle" stable="false" category="Networking">
     <description>
       Request creating a new session with this remote peer. Example
       session sequence is shown in the following diagram.
@@ -9839,14 +9851,14 @@
     </field>
   </message>
 
-  <message id="807" name="Close Session" abbrev="CloseSession" source="ccu,vehicle">
+  <message id="807" name="Close Session" abbrev="CloseSession" source="ccu,vehicle" stable="false" category="Networking">
     <description>
       Request closing of an ongoing session
     </description>
     <field name="Session Identifier" abbrev="sessid" type="uint32_t"/>
   </message>
 
-  <message id="808" name="Session Subscription" abbrev="SessionSubscription" source="ccu,vehicle">
+  <message id="808" name="Session Subscription" abbrev="SessionSubscription" source="ccu,vehicle" stable="false" category="Networking">
     <field name="Session Identifier" abbrev="sessid" type="uint32_t"/>
     <field name="Messages to subscribe" abbrev="messages" type="plaintext">
       <description>
@@ -9856,12 +9868,12 @@
     </field>
   </message>
 
-  <message id="809" name="Session Keep-Alive" abbrev="SessionKeepAlive" source="ccu,vehicle">
+  <message id="809" name="Session Keep-Alive" abbrev="SessionKeepAlive" source="ccu,vehicle" stable="false" category="Networking">
     <description>Message exchanged to prevent a session from timing out</description>
     <field name="Session Identifier" abbrev="sessid" type="uint32_t"/>
   </message>
 
-  <message id="810" name="Session Status" abbrev="SessionStatus" source="ccu,vehicle" flags="periodic">
+  <message id="810" name="Session Status" abbrev="SessionStatus" source="ccu,vehicle" flags="periodic" stable="false" category="Networking">
     <description>Message transmitted periodically to inform the state of a communication session</description>
     <field name="Session Identifier" abbrev="sessid" type="uint32_t"/>
     <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="STATUS">
@@ -9870,15 +9882,15 @@
     </field>
   </message>
 
-  <message id="811" name="Push Entity Parameters" abbrev="PushEntityParameters" source="ccu,vehicle">
+  <message id="811" name="Push Entity Parameters" abbrev="PushEntityParameters" source="ccu,vehicle" category="Core">
     <field name="Entity Name" abbrev="name" type="plaintext"/>
   </message>
 
-  <message id="812" name="Pop Entity Parameters" abbrev="PopEntityParameters" source="ccu,vehicle">
+  <message id="812" name="Pop Entity Parameters" abbrev="PopEntityParameters" source="ccu,vehicle" category="Core">
     <field name="Entity Name" abbrev="name" type="plaintext"/>
   </message>
 
-  <message id="813" name="I/O Event" abbrev="IoEvent" source="ccu,vehicle">
+  <message id="813" name="I/O Event" abbrev="IoEvent" source="ccu,vehicle" category="Core">
     <description>
       Notification of an I/O event.
     </description>
@@ -9896,50 +9908,196 @@
     </field>
   </message>
 
-  <message id="814" name="UamTxFrame" abbrev="UamTxFrame" source="ccu,vehicle">
-    <field name="Sequence Id" abbrev="seq" type="uint16_t"/>
-    <field name="Destination System" abbrev="sys_dst" type="plaintext"/>
+  <message id="814" name="UamTxFrame" abbrev="UamTxFrame" source="ccu,vehicle" category="Acoustic Communication">
+    <description>
+      This message shall be sent to acoustic modem drivers to request
+      transmission of a data frame via the acoustic channel.
+    </description>
+    <field name="Sequence Id" abbrev="seq" type="uint16_t">
+      <description>
+        A sequence identifier that should be incremented for each
+        request. This number will then be used to issue transmission
+        status updates via the message UamTxStatus.
+      </description>
+    </field>
+    <field name="Destination System" abbrev="sys_dst" type="plaintext">
+      <description>
+        The canonical name of the destination system. If supported, the
+        special destination 'broadcast' shall be used to dispatch messages
+        to all nodes.
+      </description>
+    </field>
     <field name="Flags" abbrev="flags" type="uint8_t" unit="Bitfield" prefix="UTF">
-      <value abbrev="ACK" name="Acknowledgement" id="0x01"/>
-      <value abbrev="DELAYED" name="Delayed" id="0x02"/>
+      <description>
+        Transmission flags.
+      </description>
+      <value abbrev="ACK" name="Acknowledgement" id="0x01">
+        <description>
+          On modems that support it, this flag shall be used to request an
+          acknowledgment of reception from the receiving node.
+        </description>
+      </value>
+      <value abbrev="DELAYED" name="Delayed" id="0x02">
+        <description>
+          On modems that support it, this flag shall be used to delay the
+          frame transmission until the modem needs to transmit control
+          data (e.g., acknowledgment of reception, etc).
+        </description>
+      </value>
+      <value abbrev="FORCED" name="Forced" id="0x04">
+        <description>
+          Ignore safety checks such as "transducer not connected".
+        </description>
+      </value>
     </field>
-    <field name="Data" abbrev="data" type="rawdata"/>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        The actual data frame to transmit. The data size shall not exceed
+        the MTU of the acoustic modem.
+      </description>
+    </field>
   </message>
 
-  <message id="815" name="UamRxFrame" abbrev="UamRxFrame" source="ccu,vehicle">
-    <field name="Source System" abbrev="sys_src" type="plaintext"/>
-    <field name="Destination System" abbrev="sys_dst" type="plaintext"/>
+  <message id="815" name="UamRxFrame" abbrev="UamRxFrame" source="ccu,vehicle" category="Acoustic Communication">
+    <description>
+      This message shall be dispatched by acoustic modem drivers each time
+      a data frame is received over the acoustic channel.
+    </description>
+    <field name="Source System" abbrev="sys_src" type="plaintext">
+      <description>
+        The canonical name of the node that transmitted the data frame. If
+        this name cannot be resolved the string 'unknown' shall be used.
+      </description>
+    </field>
+    <field name="Destination System" abbrev="sys_dst" type="plaintext">
+      <description>
+        The canonical name of the destination node of the data frame. If
+        this name cannot be resolved the string 'unknown' shall be used.
+      </description>
+    </field>
     <field name="Flags" abbrev="flags" type="uint8_t" unit="Bitfield" prefix="URF">
-      <value abbrev="PROMISCUOUS" name="Promiscuous" id="0x01"/>
-      <value abbrev="DELAYED" name="Delayed" id="0x02"/>
+      <description>
+        Reception flags.
+      </description>
+      <value abbrev="PROMISCUOUS" name="Promiscuous" id="0x01">
+        <description>
+          The data frame was transmitted to an acoustic modem other than
+          the one the acoustic modem driver is controlling.
+        </description>
+      </value>
+      <value abbrev="DELAYED" name="Delayed" id="0x02">
+        <description>
+          The data frame was transmitted using the DELAYED flag.
+        </description>
+      </value>
     </field>
-    <field name="Data" abbrev="data" type="rawdata"/>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        The actual received data frame.
+      </description>
+    </field>
   </message>
 
-  <message id="816" name="UamTxStatus" abbrev="UamTxStatus" source="ccu,vehicle">
-    <field name="Sequence Id" abbrev="seq" type="uint16_t"/>
+  <message id="816" name="UamTxStatus" abbrev="UamTxStatus" source="ccu,vehicle" category="Acoustic Communication">
+    <description>
+      This message shall be used by acoustic modem drivers to send updates
+      on the transmission status of data frames.
+    </description>
+    <field name="Sequence Id" abbrev="seq" type="uint16_t">
+      <description>
+        The sequence identifier of the frame transmission request.
+      </description>
+    </field>
     <field name="Value" abbrev="value" type="uint8_t" unit="Enumerated" prefix="UTS">
-      <value abbrev="DONE" name="Transmission Completed" id="0"/>
-      <value abbrev="FAILED" name="Transmission Failed" id="1"/>
-      <value abbrev="CANCELED" name="Transmission Canceled" id="2"/>
-      <value abbrev="BUSY" name="Modem is busy" id="3"/>
-      <value abbrev="INV_ADDR" name="Invalid address" id="4"/>
-      <value abbrev="IP" name="In Progress" id="5"/>
-      <value abbrev="UNSUPPORTED" name="Unsupported operation" id="6"/>
-      <value abbrev="INV_SIZE" name="Invalid transmission size" id="7"/>
-      <value abbrev="SENT" name="Message has been sent" id="8"/>
-      <value abbrev="DELIVERED" name="Message has been acknowledged by the destination" id="9"/>
+      <description>
+        Frame transmission status.
+      </description>
+      <value abbrev="DONE" name="Transmission Completed" id="0">
+        <description>
+          The frame transmission was completed.
+        </description>
+      </value>
+      <value abbrev="FAILED" name="Transmission Failed" id="1">
+        <description>
+          The frame transmission failed. The reason for the failure is given in
+          the field 'error'.
+        </description>
+      </value>
+      <value abbrev="CANCELED" name="Transmission Canceled" id="2">
+        <description>
+          The frame transmission was canceled.
+        </description>
+      </value>
+      <value abbrev="BUSY" name="Modem is busy" id="3">
+        <description>
+          The acoustic modem driver is busy and could not honor the
+          frame transmission request at the moment.
+        </description>
+      </value>
+      <value abbrev="INV_ADDR" name="Invalid address" id="4">
+        <description>
+          The canonical name of the destination node could not be
+          resolved.
+        </description>
+      </value>
+      <value abbrev="IP" name="In Progress" id="5">
+        <description>
+          The frame transmission is in progress.
+        </description>
+      </value>
+      <value abbrev="UNSUPPORTED" name="Unsupported operation" id="6">
+        <description>
+          The frame transmission request is not valid for this acoustic
+          modem driver.
+        </description>
+      </value>
+      <value abbrev="INV_SIZE" name="Invalid transmission size" id="7">
+        <description>
+          The frame transmission request exceeds the MTU of the acoustic
+          modem.
+        </description>
+      </value>
+      <value abbrev="SENT" name="Message has been sent" id="8">
+        <description>
+          The message has been sent out.
+        </description>
+      </value>
+      <value abbrev="DELIVERED" name="Message has been acknowledged by the destination" id="9">
+        <description>
+          Message has been acknowledged by the destination.
+        </description>
+      </value>
     </field>
-    <field name="Error Message" abbrev="error" type="plaintext"/>
+    <field name="Error Message" abbrev="error" type="plaintext">
+      <description>
+        Where applicable this field shall contain a human-readable message
+        explaining the error.
+      </description>
+    </field>
   </message>
 
-  <message id="817" name="UamRxRange" abbrev="UamRxRange" source="ccu,vehicle">
-    <field name="Sequence Id" abbrev="seq" type="uint16_t"/>
-    <field name="System" abbrev="sys" type="plaintext"/>
-    <field name="Value" abbrev="value" type="fp32_t"/>
+  <message id="817" name="UamRxRange" abbrev="UamRxRange" source="ccu,vehicle" category="Acoustic Communication">
+    <description>
+      Acoustic range measurement.
+    </description>
+    <field name="Sequence Id" abbrev="seq" type="uint16_t">
+      <description>
+        The sequence identifier of the ranging request.
+      </description>
+    </field>
+    <field name="System" abbrev="sys" type="plaintext">
+      <description>
+        The canonical name of the ranged system.
+      </description>
+    </field>
+    <field name="Value" abbrev="value" type="fp32_t" unit="m">
+      <description>
+        The actual range. Negative values denote invalid measurements.
+      </description>
+    </field>
   </message>
 
-  <message id="818" name="UamTxRange" abbrev="UamTxRange" source="ccu,vehicle">
+  <message id="818" name="UamTxRange" abbrev="UamTxRange" source="ccu,vehicle" category="Acoustic Communication">
     <description>
       Request an acoustic modem driver to measure the distance to another system.
     </description>
@@ -9962,7 +10120,7 @@
     </field>
   </message>
 
-  <message id="820" name="Formation Control Parameters" abbrev="FormCtrlParam" source="ccu,vehicle">
+  <message id="820" name="Formation Control Parameters" abbrev="FormCtrlParam" source="ccu,vehicle" category="Maneuvering">
     <description>
       Formation controller paramenters, as: trajectory gains, control boundary layer thickness, and formation shape gains.
     </description>
@@ -10003,7 +10161,7 @@
     </field>
   </message>
 
-  <message id="821" name="Formation Evaluation Data" abbrev="FormationEval">
+  <message id="821" name="Formation Evaluation Data" abbrev="FormationEval" category="Maneuvering">
     <description>
       Formation control performance evaluation variables.
     </description>
@@ -10024,7 +10182,7 @@
     </field>
   </message>
 
-  <message id="822" name="Formation Control Parameters" abbrev="FormationControlParams" source="ccu,vehicle">
+  <message id="822" name="Formation Control Parameters" abbrev="FormationControlParams" source="ccu,vehicle" category="Maneuvering">
     <description>
       Formation controller paramenters, as: trajectory gains,
       control boundary layer thickness, and formation shape gains.
@@ -10091,7 +10249,7 @@
     </field>
   </message>
 
-  <message id="823" name="Formation Evaluation Data" abbrev="FormationEvaluation">
+  <message id="823" name="Formation Evaluation Data" abbrev="FormationEvaluation" category="Maneuvering">
     <description>
       Formation control performance evaluation variables.
     </description>
@@ -10164,19 +10322,19 @@
     </field>
   </message>
 
-  <message abbrev="SoiWaypoint" name="SOI Waypoint" id="850">
+  <message abbrev="SoiWaypoint" name="SOI Waypoint" id="850" category="Plan Supervision">
   	<field name="Latitude" abbrev="lat" type="fp32_t" unit="°"/>
   	<field name="Longitude" abbrev="lon" type="fp32_t" unit="°"/>
   	<field name="Time Of Arrival" abbrev="eta" type="uint32_t"/>
   	<field name="Duration" abbrev="duration" type="uint16_t" unit="s"/>
   </message>
 
-  <message abbrev="SoiPlan" name="SOI Plan" id="851">
+  <message abbrev="SoiPlan" name="SOI Plan" id="851" category="Plan Supervision">
   	<field name="Plan Identifier" abbrev="plan_id" type="uint16_t"/>
   	<field name="Waypoints" abbrev="waypoints" type="message-list" message-type="SoiWaypoint"/>
   </message>
 
-  <message abbrev="SoiCommand" name="SOI Command" id="852">
+  <message abbrev="SoiCommand" name="SOI Command" id="852" category="Plan Supervision">
   	<field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="SOITYPE">
   	  <value abbrev="REQUEST" name="Request" id="1"/>
   	  <value abbrev="SUCCESS" name="Success" id="2"/>
@@ -10195,7 +10353,7 @@
   	<field name="Extra Information" abbrev="info" type="plaintext"/>
   </message>
 
-  <message abbrev="SoiState" name="SOI State" id="853">
+  <message abbrev="SoiState" name="SOI State" id="853" category="Plan Supervision">
     <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="SOISTATE">
      <value abbrev="EXEC" name="Executing" id="1"/>
      <value abbrev="IDLE" name="Idle" id="2"/>
@@ -10206,25 +10364,25 @@
     <field name="Settings Checksum" abbrev="settings_chk" type="uint16_t"/>
   </message>
 
-  <message id="877" abbrev="MessagePart" name="Message Fragment">
+  <message id="877" abbrev="MessagePart" name="Message Fragment" category="Networking">
     <field name="Transmission Unique Id" abbrev="uid" type="uint8_t"/>
     <field name="Fragment Number" abbrev="frag_number" type="uint8_t"/>
     <field name="Total Number of fragments" abbrev="num_frags" type="uint8_t"/>
     <field name="Fragment Data" abbrev="data" type="rawdata"/>
   </message>
 
-  <message id="888" abbrev="NeptusBlob" name="Neptus Blob">
+  <message id="888" abbrev="NeptusBlob" name="Neptus Blob" category="CCU">
     <field name="ContentType" abbrev="content_type" type="plaintext"/>
     <field name="Content" abbrev="content" type="rawdata"/>
   </message>
 
-  <message id="889" abbrev="Aborted" name="Aborted">
+  <message id="889" name="Aborted" abbrev="Aborted" category="Plan Supervision">
     <description>
       This message signals that an :ref:`Abort` message was received and acted upon.
     </description>
   </message>
 
-  <message id="890" name="USBL Angles" abbrev="UsblAngles">
+  <message id="890" name="USBL Angles" abbrev="UsblAngles" category="Acoustic Communication">
     <description>
       This message contains information, collected using USBL, about the
       bearing and elevation of a target.
@@ -10246,7 +10404,7 @@
     </field>
   </message>
 
-  <message id="891" name="USBL Position" abbrev="UsblPosition">
+  <message id="891" name="USBL Position" abbrev="UsblPosition" category="Acoustic Communication">
     <description>
       This message contains information, collected using USBL, about a
       target's position.
@@ -10273,7 +10431,7 @@
     </field>
   </message>
 
-  <message id="892" name="USBL Fix" abbrev="UsblFix">
+  <message id="892" name="USBL Fix" abbrev="UsblFix" category="Acoustic Communication">
     <description>
       This message contains the WGS-84 position of a target computed using
       USBL.
@@ -10306,7 +10464,7 @@
     </field>
   </message>
 
-  <message id="893" abbrev="ParametersXml" name="Parameters XML">
+  <message id="893" name="Parameters XML" abbrev="ParametersXml" stable="false" category="Vehicle Supervision">
     <description>
       Message containing the parameters XML of the source system.
     </description>
@@ -10322,14 +10480,14 @@
     </field>
   </message>
 
-  <message id="894" name="Get Parameters XML" abbrev="GetParametersXml">
+  <message id="894" name="Get Parameters XML" abbrev="GetParametersXml" stable="false" category="Vehicle Supervision">
     <description>
       Request the destination system to send its parameters XML file via a
       :ref:`ParametersXml` message.
     </description>
   </message>
 
-  <message id="895" abbrev="SetImageCoords" name="Set Image Coordinates">
+  <message id="895" abbrev="SetImageCoords" name="Set Image Coordinates" category="Vision">
     <description>
       Message containing the x and y coordinates of object to track in remote peer.
     </description>
@@ -10350,7 +10508,7 @@
     </field>
   </message>
 
-  <message id="896" abbrev="GetImageCoords" name="Get Image Coordinates">
+  <message id="896" abbrev="GetImageCoords" name="Get Image Coordinates" category="Vision">
     <description>
       Message containing the x and y coordinates of object to track in image slave.
     </description>
@@ -10371,7 +10529,7 @@
     </field>
   </message>
 
-  <message id="897" abbrev="GetWorldCoordinates" name="Get World Coordinates">
+  <message id="897" abbrev="GetWorldCoordinates" name="Get World Coordinates" category="Vision">
     <description>
       Message containing the x, y and z coordinates of object in the real world.
     </description>
@@ -10407,7 +10565,7 @@
     </field>
   </message>
 
-  <message id="898" name="USBL Angles Extended" abbrev="UsblAnglesExtended">
+  <message id="898" name="USBL Angles Extended" abbrev="UsblAnglesExtended" category="Acoustic Communication">
     <description>
       This message contains information, collected using USBL, about the
       bearing and elevation of a target.
@@ -10459,7 +10617,7 @@
     </field>
   </message>
 
-  <message id="899" name="USBL Position Extended" abbrev="UsblPositionExtended">
+  <message id="899" name="USBL Position Extended" abbrev="UsblPositionExtended" category="Acoustic Communication">
     <description>
       This message contains information, collected using USBL, about a
       target's position.
@@ -10521,7 +10679,7 @@
     </field>
   </message>
 
-  <message id="900" name="USBL Fix Extended" abbrev="UsblFixExtended">
+  <message id="900" name="USBL Fix Extended" abbrev="UsblFixExtended" category="Acoustic Communication">
     <description>
       This message contains the WGS-84 position of a target computed using
       USBL.
@@ -10559,7 +10717,7 @@
     </field>
   </message>
 
-  <message id="901" name="USBL Modem Configuration" abbrev="UsblModem" source="ccu,vehicle">
+  <message id="901" name="USBL Modem Configuration" abbrev="UsblModem" source="ccu,vehicle" category="Acoustic Communication">
     <description>
       Position and configuration of an Ultra-Short Base Line modem.
     </description>
@@ -10591,7 +10749,7 @@
     </field>
   </message>
 
-  <message id="902" name="USBL Configuration" abbrev="UsblConfig" source="ccu,vehicle">
+  <message id="902" name="USBL Configuration" abbrev="UsblConfig" source="ccu,vehicle" category="Acoustic Communication">
     <description>
       Ultra-Short Base Line configuration.
     </description>
@@ -10614,7 +10772,7 @@
     </field>
   </message>
 
-  <message id="903" name="Dissolved Organic Matter" abbrev="DissolvedOrganicMatter" source="vehicle" flags="periodic">
+  <message id="903" name="Dissolved Organic Matter" abbrev="DissolvedOrganicMatter" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Dissolved Organic Matter measurement.
     </description>
@@ -10632,7 +10790,7 @@
     </field>
   </message>
 
-  <message id="904" name="Optical Backscattering Coefficient" abbrev="OpticalBackscatter" source="vehicle" flags="periodic">
+  <message id="904" name="Optical Backscattering Coefficient" abbrev="OpticalBackscatter" source="vehicle" flags="periodic" category="Sensors">
     <description>
       The optical backscattering coefficient refers to all the photons that have been redirected in the backward directions
       when a photon of light propagates in water and interacts with a "particle" (varying from water molecules to fish).
@@ -10644,7 +10802,7 @@
     </field>
   </message>
 
-  <message id="905" name="Tachograph" abbrev="Tachograph" source="vehicle" flags="periodic">
+  <message id="905" name="Tachograph" abbrev="Tachograph" source="vehicle" flags="periodic"  category="Vehicle Supervision">
     <description>
       This messages is used to record system activity parameters. These
       parameters are mainly used for used for maintenance purposes.
@@ -10733,7 +10891,7 @@
     </field>
   </message>
 
-  <message id="906" name="APM Status" abbrev="ApmStatus" source="vehicle">
+  <message id="906" name="APM Status" abbrev="ApmStatus" source="vehicle" category="Vehicle Supervision">
     <description>
       StatusText message from ardupilot.
     </description>
@@ -10757,7 +10915,7 @@
     </field>
   </message>
 
-  <message id="907" name="SADC Readings" abbrev="SadcReadings" source="vehicle">
+  <message id="907" name="SADC Readings" abbrev="SadcReadings" source="vehicle" category="Sensors">
     <description>
       Readings from SADC board.
     </description>
@@ -10781,7 +10939,7 @@
     </field>
   </message>
 
-  <message id="908" name="DMS Detection" abbrev="DmsDetection" source="vehicle">
+  <message id="908" name="DMS Detection" abbrev="DmsDetection" source="vehicle" category="Sensors">
     <description>
       Presence of DMS (Dimethyl Sulphide).
       If the value of the channel is greater than zero, it means DMS was detected.
@@ -10804,13 +10962,7 @@
     <field name="Channel 16" abbrev="ch16" type="fp32_t"/>
   </message>
   
-  <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle">
-    <field name="Value" abbrev="value" type="fp64_t">
-      <description>Total Magnetic Field Intensity (TMI)</description>
-    </field>
-  </message>
-
-   <message id="909" name="Home Position" abbrev="HomePosition" source="vehicle,ccu">
+  <message id="909" name="Home Position" abbrev="HomePosition" source="vehicle,ccu" category="Core">
     <description>
       Vehicle Home Position.
     </description>
@@ -10849,4 +11001,10 @@
     </field>
    </message>
   
+    <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
+    <field name="Value" abbrev="value" type="fp64_t">
+      <description>Total Magnetic Field Intensity (TMI)</description>
+    </field>
+  </message>
+
 </messages>

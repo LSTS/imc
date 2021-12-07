@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+ Copyright (C) 2007-2018 Laboratório de Sistemas e Tecnologia Subaquática   +
++ Copyright (C) 2007-2021 Laboratório de Sistemas e Tecnologia Subaquática   +
 + Departamento de Engenharia Electrotécnica e de Computadores                +
 + Rua Dr. Roberto Frias, 4200-465 Porto, Portugal                            +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -152,6 +152,8 @@
   <address id="0x6007" name="x8-06-aux"/>
   <address id="0x6008" name="lauv-noptilus-2-cpu-cam"/>
   <address id="0x6009" name="lauv-noptilus-3-cpu-cam"/>
+  <address id="0x6010" name="lauv-seacon-3-aux"/>
+  <address id="0x6011" name="lauv-seacon-3-cpu-cam"/>
   <!-- Sensors of LSTS (Self containing sensor systems) -->
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
