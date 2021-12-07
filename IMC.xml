@@ -10,7 +10,7 @@
           xsi:noNamespaceSchemaLocation="IMC.xsd"
           name="IMC"
           long-name="Inter Module Communication"
-          version="5.4.11">
+          version="5.5.0">
 
   <description>
     This document describes the communications protocol associated
@@ -105,6 +105,11 @@
         Variable length ASCII character stream.
       </description>
     </type>
+    <type name="vector">
+      <description>
+        Variable length numerical container.
+      </description>
+    </type>
     <type name="message">
       <description>
         An inline message. Useful for encapsulating other messages.
@@ -144,6 +149,18 @@
         deserialization the prepended value is used to retrieve the
         correct ASCII character sequence size. The *plaintext* type
         length is limited only by the communication protocol in use.
+      </description>
+    </type>
+    <type name="vector">
+      <description>
+        A sequence of type *vector* is serialized by prepending a
+        value of type *uint16_t*, representing the number of elements
+        in the vector. On deserialization the prepended value is used 
+        to retrieve the number of bytes according to the specified
+        data type. The valid data types are integers and floating
+        point numbers, and specified using the *vector-type* attribute.
+        The *vector* type length is limited only by the communication 
+        protocol in use.
       </description>
     </type>
     <type name="message">
