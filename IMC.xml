@@ -11232,4 +11232,66 @@
     </field>
   </message>
 
+  <message id="2011" name="WiFi Statistics" abbrev="WifiStats" source="ccu,vehicle" category="Networking">
+    <description>This message is used to log wifi connection statistics, heavily influenced by the stats available in ubiquiti radios.</description>
+    <field name="MAC Address" abbrev="mac" type="plaintext">
+      <description>MAC address of the associated radio.</description>
+    </field>
+    <field name="IP Address" abbrev="ip" type="plaintext">
+      <description>Last IP address of the associated radio.</description>
+    </field>
+    <field name="Client Connection Quality" abbrev="ccq" type="uint8_t" unit="%">
+      <description>Client Connection Quality indicator</description>
+    </field>
+    <field name="Noise Floor" abbrev="noise_floor" type="int16_t" unit="dB">
+      <description>Noise Floor (measure of the signal created from the sum of all the noise sources
+         and unwanted signals within a measurement system, where noise is defined as any signal other
+         than the one being monitored).
+      </description>
+    </field>
+    <field name="Signal" abbrev="signal" type="int16_t" unit="dB">
+      <description>Measure of the signal of the associated radio.</description>
+    </field>
+    <field name="RSSI" abbrev="rssi" type="uint16_t">
+      <description>Received Signal Strength Indicator, in arbitraty units. The bigger the RSSI, the better
+        the connection quality.</description>
+    </field>
+    <field name="Reception Data Rate" abbrev="rx_rate" type="int16_t" unit="Mbps">
+      <description>Reception data rate for the associated radio, -1 if not available.</description>
+    </field>
+    <field name="Transmission Data Rate" abbrev="tx_rate" type="int16_t" unit="Mbps">
+      <description>Transmission data rate for the associated radio, -1 if not available.</description>
+    </field>
+    <field name="Transmission Latency" abbrev="tx_latency" type="int16_t" unit="s">
+      <description>Latency of transmission to the associated radio, -1 if not available.</description>
+    </field>
+    <field name="Transmission Power" abbrev="tx_power" type="int16_t" unit="s">
+      <description>Power of transmission to the associated radio, -1 if not available.</description>
+    </field>
+    <field name="Reception Counter" abbrev="rx_count" type="uint32_t" unit="byte">
+      <description>Amount of bytes already received from the associated radio.</description>
+    </field>
+    <field name="Transmission Counter" abbrev="tx_count" type="uint32_t" unit="byte">
+      <description>Amount of bytes already transmitted to the associated radio.</description>
+    </field>
+    <field name="Distance" abbrev="distance" type="int16_t" unit="m">
+      <description>Distance for the associated radio, -1 if not available.</description>
+    </field>
+  </message>
+
+  <message id="2012" name="WiFi Network" abbrev="WifiNetwork" source="ccu,vehicle" category="Networking">
+    <description>This message is used to log wifi networks in the surroundings.</description>
+    <field name="ESSID" abbrev="essid" type="plaintext">
+      <description>Extended Service Set Identifier of the network</description>
+    </field>
+    <field name="MAC Address" abbrev="mac" type="plaintext">
+      <description>MAC Address of the network.</description>
+    </field>
+    <field name="Signal Level" abbrev="signal" type="int16_t" unit="dB"/>
+    <field name="Noise Level" abbrev="noise" type="int16_t" unit="dB"/>
+    <field name="CCQ" abbrev="ccq" type="int8_t" unit="%"/>
+    <field name="Wifi Channel" abbrev="channel" type="uint8_t"/>
+    <field name="Wifi Frequency" abbrev="freq" type="fp32_t"/>
+    <field name="Security" abbrev="security" type="plaintext"/>
+  </message>
 </messages>
