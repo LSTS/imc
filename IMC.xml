@@ -11218,4 +11218,18 @@
     </field>
   </message>
 
+  <message id="2010" name="Communication Restriction" abbrev="CommRestriction" source="ccu,vehicle" category="Networking">
+    <description>This message is used to restrict the vehicle from using some communication means.</description>
+    <field name="Restricted Communication Means" abbrev="restriction" type="uint8_t" unit="Bitfield" prefix="MEAN">
+      <description>The restricted communication means.</description>
+      <value abbrev="SATELLITE" name="Satellite" id="0x01" />
+      <value abbrev="ACOUSTIC" name="Acoustic" id="0x02" />
+      <value abbrev="WIFI" name="WiFi" id="0x04" />
+      <value abbrev="GSM" name="GSM" id="0x08" />
+    </field>
+    <field name="Reason" abbrev="reason" type="plaintext">
+      <description>Textual description for why this restriction is needed.</description>
+    </field>
+  </message>
+
 </messages>
