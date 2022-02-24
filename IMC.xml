@@ -1656,7 +1656,7 @@
       <value abbrev="QUEUED" name="Message has been queued for transmission" id="3"/>
       <value abbrev="TRANSMIT" name="Message is currently being transmitted" id="4"/>
       <value abbrev="EXPIRED" name="Message's TTL has expired. Transmition cancelled." id="5"/>
-       <value abbrev="EMPTY" name="No more messages to be transmitted or received." id="6"/>
+      <value abbrev="EMPTY" name="No more messages to be transmitted or received." id="6"/>
     </field>
     <field name="Status Text" abbrev="text" type="plaintext"/>
   </message>
