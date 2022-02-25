@@ -11373,4 +11373,30 @@
     <field name="Wifi Frequency" abbrev="freq" type="fp32_t"/>
     <field name="Security" abbrev="security" type="plaintext"/>
   </message>
+
+  <message id="2013" name="Sonar Pulse" abbrev="SonarPulse" source="vehicle" category="Sensors">
+    <description>
+      Information regarding a sent/received Sonar pulse.
+    </description>
+    <field name="Frequency" abbrev="frequency" type="int32_t" unit="Hz">
+      <description>
+        Frequency of the sent/received sonar pulse.
+      </description>
+    </field>
+    <field name="Pulse Length" abbrev="pulse_length" type="int32_t" unit="ms">
+      <description>
+        Pulse Length of the sonar pulse.
+      </description>
+    </field>
+    <field name="Time Delay" abbrev="time_delay" type="int32_t" unit="ms">
+      <description>
+        Time Delay of the sonar pulse.
+      </description>
+    </field>
+    <field name="Simulated Speed" abbrev="simulated_speed" type="int32_t" unit="m/s">
+      <description>
+        Doppler shift added to the sonar pulse in retransmission
+      </description>
+    </field>
+  </message>
 </messages>
