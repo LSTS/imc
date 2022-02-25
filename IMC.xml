@@ -11186,35 +11186,114 @@
     </field>
   </message>
 
-  <!--message id="2006" name="Sonar Pulse" abbrev="SonarPulse" source="vehicle" category="Sensors">
-    <description>
-      Information regarding a sent/received Sonar pulse.
-    </description>
-    <field name="Frequency" abbrev="frequency" type="int32_t" unit="Hz">
-      <description>
-        Frequency of the sent/received sonar pulse.
-      </description>
-    </field>
-    <field name="Pulse Length" abbrev="pulse_length" type="int32_t" unit="ms">
-      <description>
-        Pulse Length of the sonar pulse.
-      </description>
-    </field>
-    <field name="Time Delay" abbrev="time_delay" type="int32_t" unit="ms">
-      <description>
-        Time Delay of the sonar pulse.
-      </description>
-    </field>
-    <field name="Simulated Speed" abbrev="simulated_speed" type="int32_t" unit="m/s">
-      <description>
-        Doppler shift added to the sonar pulse in retransmission
-      </description>
-    </field>
-  </message-->
-
   <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
     <field name="Value" abbrev="value" type="fp64_t">
       <description>Total Magnetic Field Intensity (TMI)</description>
+    </field>
+  </message>
+
+  <message id="2007" name="Validate Plan DB" abbrev="ValidatePlan" source="vehicle" category="Plan Supervision">
+    <description>
+      Use to validate plans
+    </description>
+    <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="VPS">
+      <description>
+        Type of request.
+      </description>
+      <value id="0" abbrev="REQ" name="Request"/>
+      <value id="1" abbrev="VALID" name="Reply -- Valid"/>
+      <value id="2" abbrev="INVALID" name="Reply -- Invalid"/>
+    </field>
+    <field name="Plan DB" abbrev="plan" type="message" message-type="PlanDB">
+      <description>
+        An inline plan specification to be used both in requests and replies.
+      </description>
+    </field>
+  </message>
+
+  <message id="2008" name="Typed Entity Parameter" abbrev="TypedEntityParameter" source="vehicle" category="CCU">
+    <description>
+      Entity parameter with all the data that defines an entity parameter.
+    </description>
+    <field name="Entity Name" abbrev="name" type="plaintext">
+      <description>
+        Name of the parameter.
+      </description>
+    </field>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TYPE">
+      <value abbrev="BOOL" name="Boolean Domain" id="1"/>
+      <value abbrev="INT" name="Integer Domain" id="2"/>
+      <value abbrev="FLOAT" name="Float Domain" id="3"/>
+      <value abbrev="STRING" name="String Domain" id="4"/>
+      <value abbrev="LIST_BOOL" name="List of Booleans" id="5"/>
+      <value abbrev="LIST_INT" name="List of Integers" id="6"/>
+      <value abbrev="LIST_FLOAT" name="List of Floats" id="7"/>
+      <value abbrev="LIST_STRING" name="List of Strings" id="8"/>
+    </field>
+    <field name="Default Value" abbrev="default_value" type="plaintext">
+      <description>
+        Default value of the parameter.
+      </description>
+    </field>
+    <field name="Units" abbrev="units" type="plaintext">
+      <description>
+        The units of the field, if applicable
+      </description>
+    </field>
+    <field name="Description" abbrev="description" type="plaintext">
+      <description>
+        Description of the parameter
+      </description>
+    </field>
+    <field name="Min Value" abbrev="min_value" type="fp32_t">
+      <description>
+        Optional. Min value of the parameter
+      </description>
+    </field>
+    <field name="Max Value" abbrev="max_value" type="fp32_t">
+      <description>
+        Optional. Max value of the parameter
+      </description>
+    </field>
+    <field name="List Min Size" abbrev="list_min_size" type="uint32_t">
+      <description>
+        When the parameter is a list, list_min_size indicates the minimum size of the list
+      </description>
+    </field>
+    <field name="List Max Size" abbrev="list_max_size" type="uint32_t">
+      <description>
+        When the parameter is a list, list_max_size indicates the maximum size of the list
+      </description>
+    </field>
+    <field name="Visibility" abbrev="visibility" type="uint8_t" unit="Enumerated" prefix="VISIBILITY">
+      <value abbrev="user" name="User" id="0"/>
+      <value abbrev="developer" name="Developer" id="1"/>
+    </field>
+    <field name="Scope" abbrev="scope" type="uint8_t" unit="Enumerated" prefix="SCOPE">
+      <value abbrev="global" name="Global" id="0"/>
+      <value abbrev="idle" name="Idle" id="1"/>
+      <value abbrev="plan" name="Plan" id="2"/>
+      <value abbrev="maneuver" name="Maneuver" id="3"/>
+    </field>
+  </message>
+
+  <message id="2009" name="Typed Entity Parameters" abbrev="TypedEntityParameters" source="vehicle" category="CCU">
+    <description>This message can be used to query/report the entities and respective parameters in the system</description>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Operation to perform.
+      </description>
+      <value abbrev="REQUEST" name="Request" id="0"/>
+      <value abbrev="REPLY" name="Reply" id="1"/>
+    </field>
+    <field name="Request identitier" abbrev="request_id" type="uint32_t">
+      <description>Echoes the request_id in the request</description>
+    </field>
+    <field name="Entity Name" abbrev="entity_name" type="plaintext">
+      <description>Entity Label of the task that's replying to the request</description>
+    </field>
+    <field name="Parameters" abbrev="parameters" type="message-list" message-type="TypedEntityParameter">
+      <description>Contains an optionally defined List of TypedEntityParameter as a response to a TypedEntityParamaters Request.</description>
     </field>
   </message>
 
