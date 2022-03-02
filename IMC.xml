@@ -7407,7 +7407,7 @@
     </field>
   </message>
 
-   <message id="489" name="Sample Maneuver" abbrev="Sample" source="ccu" category="Maneuvering">
+  <message id="489" name="Sample Maneuver" abbrev="Sample" source="ccu" category="Maneuvering">
     <description>
       A "Sample" is a maneuver specifying a movement of the vehicle to a
       target waypoint. The waypoint is described by the WGS-84
