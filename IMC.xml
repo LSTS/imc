@@ -7741,77 +7741,138 @@
     </field>
   </message>
 
-<message id="496" name="Station Keeping Extended" abbrev="StationKeepingExtended" source="ccu" category="Maneuvering">
+  <message id="496" name="Follow Command Maneuver" abbrev="FollowCommand" source="ccu" category="Maneuvering">
     <description>
-      The Station Keeping Extended maneuver makes the vehicle come to the surface
-      and then enter a given circular perimeter around a waypoint coordinate
-      for a certain amount of time. It extends the Station Keeping maneuver with the feature
-      'Keep Safe', which allows for the vehicle to hold position underwater and popup periodically
-      to communicate.
+      This maneuver follows a direct command given by an external entity.
     </description>
-    <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+    <field name="Controlling Source" abbrev="control_src" type="uint16_t">
       <description>
-        WGS-84 Latitude.
+        The IMC identifier of the source system that is allowed to provide command to this maneuver.
+	If the value ''0xFFFF'' is used, any system is allowed to command references.
       </description>
     </field>
-    <field name="Longitude WGS-84" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+    <field name="Controlling Entity" abbrev="control_ent" type="uint8_t">
       <description>
-        WGS-84 Longitude.
+        The entity identifier of the entity that is allowed to provide commands to this maneuver.
+        If the value ''0xFF'' is used, any entity is allowed to command references.
+      </description>
+    </field>
+    <field name="Reference Update Timeout" abbrev="timeout" type="fp32_t">
+      <description>
+        The ammount of time, in seconds, after which the maneuver will be terminated if no new command has
+        been received. In other words, the controlling entity should send command updates in shorter periods than
+        'timeout'.
+      </description>
+    </field>
+  </message>
+
+  <message id="497" name="Command To Follow" abbrev="Command" source="ccu,vehicle" category="Maneuvering">
+    <description>
+      This message must be sent by an external entity to provide command references to a system
+      running a "Follow Command Maneuver". If no Command messages are transmitted, the system
+      will terminate maneuver.
+    </description>
+    <field name="Flags" abbrev="flags" type="uint8_t" unit="Bitfield" prefix="FLAG">
+      <value abbrev="SPEED_METERS_PS" name="Use Speed Reference in meters per second" id="0x01">
+        <description>
+          Command system to move at speed reference provided in "speed" field in meters per second.
+        </description>
+      </value>
+      <value abbrev="SPEED_RPM" name="Use Speed Reference in revolutions per minute" id="0x02">
+        <description>
+          Command system to move at speed reference provided in "speed" field in revolutions per minute.
+        </description>
+      </value>
+      <value abbrev="DEPTH" name="Use Z Reference as depth" id="0x04">
+        <description>
+          Command system to move at z reference provided in "z" field in depth.
+        </description>
+      </value>
+      <value abbrev="ALTITUDE" name="Use Z Reference as altitude" id="0x08">
+        <description>
+          Command system to move at z reference provided in "z" field in altitude.
+        </description>
+      </value>
+      <value abbrev="HEADING" name="Use Heading Reference" id="0x10">
+        <description>
+          Command system to move at a heading reference provided in "heading" field in radians.
+        </description>
+      </value>
+      <value abbrev="HEADING_RATE" name="Use Heading Rate Reference" id="0x20">
+        <description>
+          Command system to move at a heading rate reference provided in "heading" field in radians/s.
+        </description>
+      </value>
+      <value abbrev="MANDONE" name="Flag Maneuver Completion" id="0x80">
+        <description>
+          Command system to exit maneuver's execution.
+        </description>
+      </value>
+    </field>
+    <field name="Speed Reference" abbrev="speed" type="fp32_t">
+      <description>
+        The value of the desired speed, in the scale specified by the
+        "flags" field.
       </description>
     </field>
     <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
       <description>
-        Maneuver reference in the z axis. Use z_units to specify
-        whether z represents depth, altitude or other.
+        The value of the desired z reference in meters.
       </description>
     </field>
-    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+    <field name="Heading Reference" abbrev="heading" type="fp32_t" unit="rad">
       <description>
-        Units of the z reference.
+        The value of the desired heading angle, relative to true  north, in radians,
+	or, the value of the desired heading rate angle, in radians.
       </description>
     </field>
-    <field name="Radius" abbrev="radius" type="fp32_t" unit="m">
-      <description>Radius.</description>
-    </field>
-    <field name="Duration" abbrev="duration" type="uint16_t" unit="s">
-      <description>Duration (0 for unlimited).</description>
-    </field>
-    <field name="Speed" abbrev="speed" type="fp32_t">
+  </message>
+
+  <message id="498" name="Follow Command State" abbrev="FollowCommandState" source="vehicle" category="Maneuvering">
+    <field name="Controlling Source" abbrev="control_src" type="uint16_t">
       <description>
-        The value of the desired speed, in the scale specified
-        by the "Speed Units" field.
+        The IMC identifier of the source system that is allowed to control the vehicle.
+        If the value ''0xFFFF'' is used, any system is allowed to command references.
       </description>
     </field>
-    <field name="Speed Units" abbrev="speed_units" type="uint8_t" unit="Enumerated" enum-def="SpeedUnits">
-      <description>Indicates the units used for the speed value.</description>
-    </field>
-    <field name="PopUp Period" abbrev="popup_period" type="uint16_t" unit="s">
+    <field name="Controlling Entity" abbrev="control_ent" type="uint8_t">
       <description>
-        The period at which the vehicle will popup to report its position.
-        Only used if flag KEEP_SAFE is on.
+        The entity identifier of the entity that is allowed to control the vehicle.
+        If the value ''0xFF'' is used, any entity is allowed to command references.
       </description>
     </field>
-    <field name="PopUp Duration" abbrev="popup_duration" type="uint16_t" unit="s">
-      <description>
-        The duration of the station keeping at surface level when it pops up.
-        Only used if flag KEEP_SAFE is on.
-      </description>
+    <field name="Command" abbrev="command" type="message" message-type="Command">
+      <description>Command currently being followed.</description>
     </field>
-    <field name="Flags" abbrev="flags" prefix="FLG" type="uint8_t" unit="Bitfield">
+    <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="FC">
       <description>
-        Flags of the maneuver.
+	Current state of execution.
       </description>
-      <value id="0x01" abbrev="KEEP_SAFE" name="Keep safe behaviour">
-        <description>
-          If this flag is set, the vehicle will hold position underwater, loitering at z reference.
-          It will popup periodically to report position. When it pops up, it will stay at surface in "normal" station keeping behaviour for a certain time (popup_duration).
-        </description>
+      <value abbrev="WAIT" name="Waiting for first command" id="1">
+	<description>
+	  System is waiting for first command.
+	</description>
       </value>
-    </field>
-    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
-      <description>
-        Custom settings for maneuver.
-      </description>
+      <value abbrev="MOVING" name="Moving towards received command" id="2">
+	<description>
+	  System is moving according with command provided.
+	</description>
+      </value>
+      <value abbrev="STOPPED" name="Speed command is zero" id="3">
+	<description>
+	  System is stopped. Speed reference is zero.
+	</description>
+      </value>
+      <value abbrev="BAD_COMMAND" name="Command is out of safe bounds" id="4">
+	<description>
+	  Command provided breaks system's physical limitations.
+	</description>
+      </value>
+      <value abbrev="TIMEOUT" name="Controlling system timed out" id="5">
+	<description>
+	  Maneuver will be terminated since timeout was exceeded.
+	</description>
+      </value>
     </field>
   </message>
 
@@ -9745,6 +9806,81 @@
     <field name="Quality" abbrev="quality" type="uint8_t"/>
     <field name="Repetitions" abbrev="reps" type="uint8_t"/>
     <field name="Target Size" abbrev="tsize" type="uint8_t"/>
+  </message>
+
+  <!-- Maneuvering 2 -->
+  <message id="720" name="Station Keeping Extended" abbrev="StationKeepingExtended" source="ccu" category="Maneuvering">
+    <description>
+      The Station Keeping Extended maneuver makes the vehicle come to the surface
+      and then enter a given circular perimeter around a waypoint coordinate
+      for a certain amount of time. It extends the Station Keeping maneuver with the feature
+      'Keep Safe', which allows for the vehicle to hold position underwater and popup periodically
+      to communicate.
+    </description>
+    <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude.
+      </description>
+    </field>
+    <field name="Longitude WGS-84" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude.
+      </description>
+    </field>
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        Maneuver reference in the z axis. Use z_units to specify
+        whether z represents depth, altitude or other.
+      </description>
+    </field>
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the z reference.
+      </description>
+    </field>
+    <field name="Radius" abbrev="radius" type="fp32_t" unit="m">
+      <description>Radius.</description>
+    </field>
+    <field name="Duration" abbrev="duration" type="uint16_t" unit="s">
+      <description>Duration (0 for unlimited).</description>
+    </field>
+    <field name="Speed" abbrev="speed" type="fp32_t">
+      <description>
+        The value of the desired speed, in the scale specified
+        by the "Speed Units" field.
+      </description>
+    </field>
+    <field name="Speed Units" abbrev="speed_units" type="uint8_t" unit="Enumerated" enum-def="SpeedUnits">
+      <description>Indicates the units used for the speed value.</description>
+    </field>
+    <field name="PopUp Period" abbrev="popup_period" type="uint16_t" unit="s">
+      <description>
+        The period at which the vehicle will popup to report its position.
+        Only used if flag KEEP_SAFE is on.
+      </description>
+    </field>
+    <field name="PopUp Duration" abbrev="popup_duration" type="uint16_t" unit="s">
+      <description>
+        The duration of the station keeping at surface level when it pops up.
+        Only used if flag KEEP_SAFE is on.
+      </description>
+    </field>
+    <field name="Flags" abbrev="flags" prefix="FLG" type="uint8_t" unit="Bitfield">
+      <description>
+        Flags of the maneuver.
+      </description>
+      <value id="0x01" abbrev="KEEP_SAFE" name="Keep safe behaviour">
+        <description>
+          If this flag is set, the vehicle will hold position underwater, loitering at z reference.
+          It will popup periodically to report position. When it pops up, it will stay at surface in "normal" station keeping behaviour for a certain time (popup_duration).
+        </description>
+      </value>
+    </field>
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for maneuver.
+      </description>
+    </field>
   </message>
 
   <!-- External -->
