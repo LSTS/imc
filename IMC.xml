@@ -11221,14 +11221,14 @@
       </description>
     </field>
     <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TYPE">
-      <value abbrev="BOOL" name="Boolean Domain" id="1"/>
-      <value abbrev="INT" name="Integer Domain" id="2"/>
-      <value abbrev="FLOAT" name="Float Domain" id="3"/>
-      <value abbrev="STRING" name="String Domain" id="4"/>
-      <value abbrev="LIST_BOOL" name="List of Booleans" id="5"/>
-      <value abbrev="LIST_INT" name="List of Integers" id="6"/>
-      <value abbrev="LIST_FLOAT" name="List of Floats" id="7"/>
-      <value abbrev="LIST_STRING" name="List of Strings" id="8"/>
+      <value id="1" name="Boolean Domain" abbrev="BOOL" />
+      <value id="2" name="Integer Domain" abbrev="INT" />
+      <value id="3" name="Float Domain" abbrev="FLOAT" />
+      <value id="4" name="String Domain" abbrev="STRING" />
+      <value id="5" name="List of Booleans" abbrev="LIST_BOOL"/>
+      <value id="6" name="List of Integers" abbrev="LIST_INT"/>
+      <value id="7" name="List of Floats" abbrev="LIST_FLOAT"/>
+      <value id="8" name="List of Strings" abbrev="LIST_STRING"/>
     </field>
     <field name="Default Value" abbrev="default_value" type="plaintext">
       <description>
@@ -11266,14 +11266,14 @@
       </description>
     </field>
     <field name="Visibility" abbrev="visibility" type="uint8_t" unit="Enumerated" prefix="VISIBILITY">
-      <value abbrev="user" name="User" id="0"/>
-      <value abbrev="developer" name="Developer" id="1"/>
+      <value id="0" name="User" abbrev="USER" />
+      <value id="1" name="Developer" abbrev="DEVELOPER" />
     </field>
     <field name="Scope" abbrev="scope" type="uint8_t" unit="Enumerated" prefix="SCOPE">
-      <value abbrev="global" name="Global" id="0"/>
-      <value abbrev="idle" name="Idle" id="1"/>
-      <value abbrev="plan" name="Plan" id="2"/>
-      <value abbrev="maneuver" name="Maneuver" id="3"/>
+      <value id="0" name="Global" abbrev="GLOBAL" />
+      <value id="1" name="Idle" abbrev="IDLE" />
+      <value id="2" name="Plan" abbrev="PLAN" />
+      <value id="3" name="Maneuver" abbrev="MANEUVER" />
     </field>
   </message>
 
@@ -11283,8 +11283,8 @@
       <description>
         Operation to perform.
       </description>
-      <value abbrev="REQUEST" name="Request" id="0"/>
-      <value abbrev="REPLY" name="Reply" id="1"/>
+      <value id="0" name="Request" abbrev="REQUEST" />
+      <value id="1" name="Reply" abbrev="REPLY" />
     </field>
     <field name="Request identitier" abbrev="request_id" type="uint32_t">
       <description>Echoes the request_id in the request</description>
