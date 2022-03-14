@@ -10999,58 +10999,61 @@
         Altitude, in meters. Negative values denote invalid estimates.
       </description>
     </field>
-   </message>
+  </message>
 
-    <message id="910" name="Log Files Query" abbrev="LogFilesQuery" source="vehicle,ccu">
+  <message id="910" name="Log Files Query" abbrev="LogFilesQuery" source="vehicle,ccu" category="Networking">
     <description>
       Files Query Operations.
     </description>
     <field name="Request Id" abbrev="req_id" type="uint16_t" />
     <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="LFQTYPE">
-    	<value id="0" abbrev="FETCH" name="Fetch">
-            <description>Request file listing</description>
-        </value>
-        <value id="1" abbrev="QUERY" name="Query">
-            <description>Request file data</description>
-        </value>
-        <value id="2" abbrev="CLEAR" name="Clear">
-            <description>Clear files</description>
-        </value>
-        <value id="3" abbrev="CANCEL" name="Cancel">
-            <description>Cancel Request with same id</description>
-        </value>        
+      <value id="0" abbrev="FETCH" name="Fetch">
+        <description>Request file listing</description>
+      </value>
+      <value id="1" abbrev="QUERY" name="Query">
+        <description>Request file data</description>
+      </value>
+      <value id="2" abbrev="CLEAR" name="Clear">
+        <description>Clear files</description>
+      </value>
+      <value id="3" abbrev="CANCEL" name="Cancel">
+        <description>Cancel Request with same id</description>
+      </value>        
     </field>
-    <field name="Interval Beginning" abbrev="init" type="uint32_t" />
-        <description>Interval Beginning in UTC</description>
-    <field name="Interval End" abbrev="end" type="uint32_t" />
-        <description>Interval End in UTC</description>
-   </message>
+    <field name="Interval Beginning" abbrev="init" type="uint32_t" >
+      <description>Interval Beginning in UTC</description>
+    </field>
+    <field name="Interval End" abbrev="end" type="uint32_t" >
+      <description>Interval End in UTC</description>
+    </field>
+  </message>
 
-   <message id="911" name="Log Files Reply" abbrev="LogFilesReply" source="vehicle,ccu">
+  <message id="911" name="Log Files Reply" abbrev="LogFilesReply" source="vehicle,ccu" category="Networking">
     <description>
       Files Data Reply.
     </description>
-    <field name="Request Id" abbrev="req_id" type="uint16_t" />
-    <description>Associated Request Id</description>
-        <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="LFRTYPE">
-          <description>Associated Request Type</description>
+    <field name="Request Id" abbrev="req_id" type="uint16_t" >
+      <description>Associated Request Id</description>
+    </field>
+    <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="LFRTYPE">
+      <description>Associated Request Type</description>
       <value id="0" abbrev="FETCH" name="Fetch">
-            <description>Request file listing</description>
-        </value>
-        <value id="1" abbrev="QUERY" name="Query">
-            <description>Request file data</description>
-        </value>
-        <value id="2" abbrev="CLEAR" name="Clear">
-            <description>Clear files</description>
-        </value>
-        <value id="3" abbrev="CANCEL" name="Cancel">
-            <description>Cancel Previous Request</description>
-        </value>
-        </field>  
+        <description>Request file listing</description>
+      </value>
+      <value id="1" abbrev="QUERY" name="Query">
+        <description>Request file data</description>
+      </value>
+      <value id="2" abbrev="CLEAR" name="Clear">
+        <description>Clear files</description>
+      </value>
+      <value id="3" abbrev="CANCEL" name="Cancel">
+        <description>Cancel Previous Request</description>
+      </value>
+    </field>  
     <field name="Data" abbrev="data" type="message" message-type="FileFragment"/>
-   </message>
+  </message>
 
-   <message id="912" name="File Fragment" abbrev="FileFragment" source="vehicle,ccu">
+  <message id="912" name="File Fragment" abbrev="FileFragment" source="vehicle,ccu" category="Networking">
     <description>
       File fragment.
     </description>
@@ -11058,9 +11061,9 @@
     <field name="Fragment Number" abbrev="frag_number" type="uint16_t"/>
     <field name="Total Number of fragments" abbrev="num_frags" type="uint16_t"/>
     <field name="Fragment Data" abbrev="data" type="rawdata"/>
-   </message>
+  </message>
   
-    <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
+  <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
     <field name="Value" abbrev="value" type="fp64_t">
       <description>Total Magnetic Field Intensity (TMI)</description>
     </field>
