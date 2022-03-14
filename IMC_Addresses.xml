@@ -31,6 +31,7 @@
   <address id="0x0022" name="lauv-xplore-5"/>
   <address id="0x0023" name="lauv-nemo-1"/>
   <address id="0x00D1" name="lauv-simulator-1"/>
+  <address id="0x00D2" name="apdr-1"/>
   <!-- ROVs (LSTS) -->
   <address id="0x0401" name="rov-ies"/>
   <address id="0x0402" name="adamastor"/>
