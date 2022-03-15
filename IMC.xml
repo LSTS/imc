@@ -495,6 +495,7 @@
     <category name="Storage"/>
     <category name="Vehicle Supervision"/>
     <category name="Vision"/>
+    <category name="CoMap"/>
     <category name="Custom"/>
     <category name="External"/>
   </categories>
@@ -11559,7 +11560,7 @@
   </message>
 
    <!-- COMAP Messages -->
-   <message id="3001" name="World Model" abbrev="WorldModel">
+   <message id="3001" name="World Model" abbrev="WorldModel" category="CoMap">
      <description>
        This message represents a world model.
      </description>
@@ -11575,7 +11576,7 @@
     </field>
    </message>
 
-   <message id="3002" name="Geographical Feature" abbrev="GeoFeature">
+   <message id="3002" name="Geographical Feature" abbrev="GeoFeature" category="CoMap">
      <description>
        This message holds a geographical that, according to the number of vertices, may correspond to a point, a line or polygon.
      </description>
@@ -11594,7 +11595,7 @@
      </field>
     </message>
 
-    <message id="3003" name="Feature Coverage State" abbrev="CoverageState">
+    <message id="3003" name="Feature Coverage State" abbrev="CoverageState" category="CoMap">
       <description>
         This message is used to report the coverage state of a geographical feature.
         It is reported by the UxVs performing the surveys.
@@ -11623,7 +11624,7 @@
      </field>
     </message>
 
-    <message id="3004" name="Task Administration" abbrev="TaskAdim">
+    <message id="3004" name="Task Administration" abbrev="TaskAdim" category="CoMap">
       <field name="Task Identifier" abbrev="tid" type="uint16_t">
         <description>
           The unique task identifier. Task ids are managed by the C2.
@@ -11660,7 +11661,7 @@
       </field>
     </message>
 
-    <message id="3005" name="Synchronization Administration" abbrev="SynchAdmin">
+    <message id="3005" name="Synchronization Administration" abbrev="SynchAdmin" category="CoMap">
       <description>
         This message is used to control the state of execution for the entire system.
       </description>
@@ -11671,14 +11672,14 @@
       </field>
     </message>
 
-    <message id="3006" name="Vehicle Capabilities" abbrev="VehicleCapabilities">
+    <message id="3006" name="Vehicle Capabilities" abbrev="VehicleCapabilities" category="CoMap">
       <description>
         This message describes the capabilities provided by an UxV.
       </description>
       <field name="Capabilities" abbrev="capabilities" type="message-list" message-type="VehicleCapability" />
     </message>
   
-    <message id="3010" name="Area Survey Capability" abbrev="CapabilityAreaSurvey">
+    <message id="3010" name="Area Survey Capability" abbrev="CapabilityAreaSurvey" category="CoMap">
       <description>This message describes an area surveying capability.</description>
       <field name="Sensor" abbrev="sensor" type="uint8_t" unit="Enumerated" prefix="CAPSENSOR" enum-def="SensorType" />
       <field name="Resolution" abbrev="resolution" type="fp32_t" unit="px/m²" />
@@ -11687,19 +11688,19 @@
       <field name="Coverage Bathymetry Factor" abbrev="cov_bathym_factor" type="fp32_t" />
     </message>
   
-    <message id="3011" name="Point Survey Capability" abbrev="CapabilityPointSurvey">
+    <message id="3011" name="Point Survey Capability" abbrev="CapabilityPointSurvey" category="CoMap">
       <description>This message describes an area surveying capability.</description>
       <field name="Sensor" abbrev="Sensor" type="uint8_t" unit="Enumerated" prefix="CAPSENSOR" enum-def="SensorType" />
       <field name="Resolution" abbrev="resolution" type="fp32_t" unit="px/m²" />
       <field name="Duration" abbrev="duration" type="fp32_t" unit="s" />
     </message>
   
-    <message id="3012" name="Move Capability" abbrev="CapabilityMove">
+    <message id="3012" name="Move Capability" abbrev="CapabilityMove" category="CoMap">
       <description>This message describes a moving capability.</description>
       <field name="Speed" abbrev="speed" type="fp32_t" unit="m/s"></field>
     </message>
   
-    <message id="3101" name="Survey Task" abbrev="SurveyTask">
+    <message id="3101" name="Survey Task" abbrev="SurveyTask" category="CoMap">
       <description>This message is used to describe an area surveying task.</description>
       <field name="Task Identifier" abbrev="task_id" type="uint16_t">
         <description>The identifier for this task.</description>
@@ -11718,7 +11719,7 @@
       </field>
     </message>
 
-    <message id="3102" name="Move Task" abbrev="MoveTask">
+    <message id="3102" name="Move Task" abbrev="MoveTask" category="CoMap">
       <description>This message is used to describe an area surveying task.</description>
       <field name="Task Identifier" abbrev="task_id" type="uint16_t">
         <description>The identifier for this task.</description>
@@ -11735,7 +11736,7 @@
       </field>
     </message>
     
-    <message id="3103" name="Task Status" abbrev="TaskStatus">
+    <message id="3103" name="Task Status" abbrev="TaskStatus" category="CoMap">
       <field name="Task Identifier" abbrev="task_id" type="uint16_t">
         <description>The identifier for this task.</description>
       </field>
@@ -11749,7 +11750,7 @@
       <field name="Quality" abbrev="quality" type="uint8_t" unit="%" max="100" />
     </message>
 
-    <message id="3104" name="Synchronization Task" abbrev="SynchTask">
+    <message id="3104" name="Synchronization Task" abbrev="SynchTask" category="CoMap">
       <description>This message is used to describe an area synchronization task.</description>
       <field name="Task Identifier" abbrev="task_id" type="uint16_t">
         <description>The identifier for this task.</description>
