@@ -9832,6 +9832,12 @@
   </message>
 
   <!-- Maneuvering 2 -->
+  <message id="719" name="Maneuver Done" abbrev="ManeuverDone" source="ccu, vehicle" category="Maneuvering">
+    <description>
+      Notification of completion of a maneuver (optional use).
+    </description>
+  </message>
+
   <message id="720" name="Station Keeping Extended" abbrev="StationKeepingExtended" source="ccu" category="Maneuvering">
     <description>
       The Station Keeping Extended maneuver makes the vehicle come to the surface
