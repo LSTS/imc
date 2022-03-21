@@ -100,6 +100,8 @@
   <address id="0x200d" name="lauv-harald"/>
   <address id="0x2300" name="lrauv-sim"/>
   <address id="0x2400" name="buv-petinga-1"/>
+  <address id="0x2401" name="oceantech-auv"/>
+  <address id="0x2402" name="oceantech-lander"/>
   <!-- UAVs (Others) -->
   <address id="0x2c00" name="ntnu-hexa-testbed"/>
   <address id="0x2c01" name="ntnu-hexa-001"/>
