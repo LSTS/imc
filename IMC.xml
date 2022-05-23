@@ -11630,7 +11630,7 @@
      </field>
     </message>
 
-    <message id="3004" name="Task Administration" abbrev="TaskAdim" category="CoMap">
+    <message id="3004" name="Task Administration" abbrev="TaskAdmin" category="CoMap">
       <field name="Task Identifier" abbrev="tid" type="uint16_t">
         <description>
           The unique task identifier. Task ids are managed by the C2.
