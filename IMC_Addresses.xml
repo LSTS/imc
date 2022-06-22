@@ -182,8 +182,10 @@
   <address id="0x8042" name="piccolo-gs3"/>
   <address id="0x8070" name="ais-1"/>
   <address id="0x8071" name="ais-2"/>
+  <address id="0x8076" name="manta-omst-2"/>
   <address id="0x8081" name="bridgebox-1"/>
   <address id="0x8082" name="bridgebox-2"/>
+  <address id="0x8089" name="manta-omst-3"/>
   <address id="0x8401" name="spot-01"/>
   <address id="0x8402" name="spot-02"/>
   <address id="0x8403" name="spot-03"/>
