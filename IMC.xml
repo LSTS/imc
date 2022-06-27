@@ -2396,6 +2396,21 @@
     </field>
   </message>
 
+  <message id="217" name="Acoustic Release Request" abbrev="AcousticRelease" category="Acoustic Communication">
+    <description>
+      Request a system (local or remote) to activate its acoustic release.
+    </description>
+    <field name="System" abbrev="system" type="plaintext">
+      <description>
+        The name of the system that should execute an acoustic release.
+        </description>
+    </field>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="AROP">
+      <value id="0" name="Open" abbrev="OPEN"/>
+      <value id="1" name="Close" abbrev="CLOSE"/>
+    </field>
+  </message>
+
   <!-- Sensors -->
   <message id="250" name="Revolutions Per Minute" abbrev="Rpm" source="vehicle" category="Sensors">
     <description>
@@ -2405,10 +2420,6 @@
       <description>
         Number of revolutions per minute.
       </description>
-    </field>
-    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="AROP">
-      <value id="0" name="Open" abbrev="OPEN"/>
-      <value id="1" name="Close" abbrev="CLOSE"/>
     </field>
   </message>
 
