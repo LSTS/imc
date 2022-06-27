@@ -11174,8 +11174,9 @@
   
    <message id="910" name="Charging State" abbrev="ChargingState" source="Vehicle" category="Sensors">
     <description>Reports if the vehicle is charging or not</description>
-    <field name="Is Charging" abbrev="is_charging" type="uint8_t">
-      <description>0 - Not charging; 1 - charging</description>
+    <field name="Is Charging" abbrev="is_charging" type="uint8_t" unit="Enumerated" prefix="CSTATE">
+      <value id="0" name="Not Charging" abbrev="NOT_CHARGING"></value>
+      <value id="1" name="Is Charging" abbrev="IS_CHARGING"></value>
     </field>
   </message>
 
