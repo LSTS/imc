@@ -2406,6 +2406,10 @@
         Number of revolutions per minute.
       </description>
     </field>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="AROP">
+      <value id="0" name="Open" abbrev="OPEN"/>
+      <value id="1" name="Close" abbrev="CLOSE"/>
+    </field>
   </message>
 
   <message id="251" name="Voltage" abbrev="Voltage" source="vehicle" flags="periodic" category="Sensors">
