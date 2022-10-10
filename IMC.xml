@@ -11541,4 +11541,15 @@
       </description>
     </field>
   </message>
+
+  <message id="2014" name="Memory Usage" abbrev="MemUsage" source="vehicle" flags="periodic" category="Core">
+    <description>
+      Report of memory usage.
+    </description>
+    <field name="Value" abbrev="value" type="uint16_t" unit="MiB">
+      <description>
+        The memory usage, in MiB.
+      </description>
+    </field>
+  </message>
 </messages>
