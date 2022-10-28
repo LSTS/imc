@@ -619,6 +619,17 @@
     </field>
   </message>
 
+  <message id="10" name="Memory Usage" abbrev="MemUsage" source="vehicle" flags="periodic" category="Core">
+    <description>
+      Report of memory usage.
+    </description>
+    <field name="Usage percentage" abbrev="value" type="uint8_t" max="100" unit="%">
+      <description>
+        The memory usage, in percentage.
+      </description>
+    </field>
+  </message>
+
   <message id="12" name="Device Calibration Control" abbrev="DevCalibrationControl" source="vehicle,ccu" category="Core">
     <description>
       This message controls the calibration procedure of a given
@@ -11538,17 +11549,6 @@
     <field name="Simulated Speed" abbrev="simulated_speed" type="int32_t" unit="m/s">
       <description>
         Doppler shift added to the sonar pulse in retransmission
-      </description>
-    </field>
-  </message>
-
-  <message id="2014" name="Memory Usage" abbrev="MemUsage" source="vehicle" flags="periodic" category="Core">
-    <description>
-      Report of memory usage.
-    </description>
-    <field name="Value" abbrev="value" type="uint16_t" unit="MiB">
-      <description>
-        The memory usage, in MiB.
       </description>
     </field>
   </message>
