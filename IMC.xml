@@ -11549,4 +11549,41 @@
       </description>
     </field>
   </message>
+  <message id="2015" name="HealthCheck" abbrev="HealthCheck" source="ccu" category="Sensors">
+    <description>Used to request/reply a health check of a system</description>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Operation to perform. OP.REQUEST should start the HealthCheck. 
+        Use OP.REPLY to report the progress. 
+        OP.QUERY asks if the task implements health checking.
+        Upon receiving OP.Query, reply with OP.REPLY and STATUS.IMP or STATUS.NOT_IMP.
+      </description>
+      <value abbrev="REQUEST" name="Request" id="0"/>
+      <value abbrev="REPLY" name="Reply" id="1"/>
+      <value abbrev="QUERY" name="Query" id="2"/>
+    </field>
+    <field name="Request identitier" abbrev="request_id" type="uint32_t">
+      <description>Echoes the request_id in the request</description>
+    </field>
+    <field name="Entity Name" abbrev="entity_name" type="plaintext">
+      <description>Entity Label of the task that's replying to the request</description>
+    </field>
+    <field name="Status" abbrev="status" type="uint16_t" unit="Enumerated" prefix="ST">
+      <description>Health status of the entity</description>
+      <value id="0" name="Finished OK" abbrev="FINISHED_OK"></value>
+      <value id="1" name="Finished with errors" abbrev="FINISHED_ERROR"></value>
+      <value id="2" name="In Progress" abbrev="IN_PROGRESS"></value>
+      <value id="3" name="Implemented" abbrev="IMP"></value>
+      <value id="4" name="Not implemented" abbrev="NOT_IMP"></value>
+      <value id="5" name="Abort" abbrev="ABORT"></value>
+      <value id="6" name="Failed to establish connection" abbrev="CONN_ERROR"></value>
+      <value id="7" name="Failure sending data" abbrev="SEND_ERROR"></value>
+      <value id="8" name="Failure reading data" abbrev="READ_ERROR"></value>
+      <value id="9" name="Device error" abbrev="DEV_ERROR"></value>
+      <value id="10" name="Disconnect Error" abbrev="DISC_ERROR"></value>
+    </field>
+    <field name="Text" abbrev="text" type="plaintext">
+      <description>Textual description of the health status</description>
+    </field>
+  </message>
 </messages>
