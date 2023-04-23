@@ -389,6 +389,7 @@
       <message-type abbrev="SurveyTask"/>
       <message-type abbrev="MoveTask"/>
       <message-type abbrev="TaskStatus"/>
+      <message-type abbrev="SynchTask"/>
     </message-group>
   </message-groups>
 
