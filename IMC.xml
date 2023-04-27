@@ -11604,8 +11604,8 @@
        <description>
          The vertices of the feature. 
          If the feature has just one vertex, it is a point.
-         If the feature has exactly two vertices, it is a line.
-         Features with more than two points, correspond to polygons.
+         Features with more than three points, correspond to polygons (must be closed, last point the same as the first).
+         Otherwise, if the feature has more than two vertices, it is a line.
        </description>
      </field>
     </message>
