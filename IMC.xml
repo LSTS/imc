@@ -11426,14 +11426,14 @@
       </description>
     </field>
     <field name="Visibility" abbrev="visibility" type="uint8_t" unit="Enumerated" prefix="VISIBILITY">
-      <value abbrev="user" name="User" id="0"/>
-      <value abbrev="developer" name="Developer" id="1"/>
+      <value abbrev="USER" name="User" id="0"/>
+      <value abbrev="DEVELOPER" name="Developer" id="1"/>
     </field>
     <field name="Scope" abbrev="scope" type="uint8_t" unit="Enumerated" prefix="SCOPE">
-      <value abbrev="global" name="Global" id="0"/>
-      <value abbrev="idle" name="Idle" id="1"/>
-      <value abbrev="plan" name="Plan" id="2"/>
-      <value abbrev="maneuver" name="Maneuver" id="3"/>
+      <value abbrev="GLOBAL" name="Global" id="0"/>
+      <value abbrev="IDLE" name="Idle" id="1"/>
+      <value abbrev="PLAN" name="Plan" id="2"/>
+      <value abbrev="MANEUVER" name="Maneuver" id="3"/>
     </field>
   </message>
 
