@@ -38,7 +38,7 @@
   <address id="0x0403" name="squirtle"/>
   <!-- ASVs (LSTS) -->
   <address id="0x0801" name="swordfish"/>
-  <address id="0x0802" name="caravela"/>
+  <address id="0x0802" name="caravel"/>
   <address id="0x0803" name="otter"/>
   <address id="0x08c1" name="hermes"/>
   <address id="0x08c2" name="hermes-desired"/>
