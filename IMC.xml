@@ -3104,6 +3104,7 @@
       <value id="0" name="Sidescan" abbrev="SIDESCAN"/>
       <value id="1" name="Echo Sounder" abbrev="ECHOSOUNDER"/>
       <value id="2" name="Multibeam" abbrev="MULTIBEAM"/>
+      <value id="3" name="Pencil Beam" abbrev="PENCILBEAM"/>
     </field>
     <field name="Frequency" abbrev="frequency" type="uint32_t" unit="Hz">
       <description>
@@ -11595,32 +11596,7 @@
         Pose of this sonar measurement, in relation to the body frame.
       </description>
     </field>
-    <field name="Beam Configuration" abbrev="beam_config" type="message" message-type="BeamConfig">
-      <description>
-        Configuration of the sonar beam.
-      </description>
-    </field>
-    <field name="Frequency" abbrev="frequency" type="uint32_t" unit="Hz">
-      <description>
-        Operating frequency.
-      </description>
-    </field>    
-    <field name="Minimum Range" abbrev="min_range" type="uint16_t" unit="m">
-      <description>
-        Minimum range.
-      </description>
-    </field>
-    <field name="Maximum Range" abbrev="max_range" type="uint16_t" unit="m">
-      <description>
-        Maximum range.
-      </description>
-    </field>
-    <field name="Bits Per Data Point" abbrev="bits_per_point" type="uint8_t" unit="bit">
-      <description>
-        Size of the data unit. (Should be multiple of 8)
-      </description>
-    </field>
-    <field name="Data" abbrev="data" type="rawdata">
+    <field name="Measurement" abbrev="measurement" type="message" message-type="SonarData">
       <description>
         Data acquired by the measurement.
       </description>
