@@ -3284,7 +3284,7 @@
 
   <message id="282" name="Device State" abbrev="DeviceState" source="vehicle" category="Sensors">
     <description>
-      Location of a specific device in the system infrastructure.
+      Location of a specific device in the system's body frame.
     </description>
     <field name="Device Position - X" abbrev="x" type="fp32_t" unit="m">
       <description>
@@ -11584,6 +11584,46 @@
     </field>
     <field name="Text" abbrev="text" type="plaintext">
       <description>Textual description of the health status</description>
+    </field>
+  </message>
+  <message id="2019" name="Directional Sonar Data" abbrev="DirSonarData" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      This message contains the data acquired by a single sonar measurement whose angle can be controlled.
+    </description>
+    <field name="Relative Pose" abbrev="pose" type="message" message-type="DeviceState">
+      <description>
+        Pose of this sonar measurement, in relation to the body frame.
+      </description>
+    </field>
+    <field name="Beam Configuration" abbrev="beam_config" type="message" message-type="BeamConfig">
+      <description>
+        Configuration of the sonar beam.
+      </description>
+    </field>
+    <field name="Frequency" abbrev="frequency" type="uint32_t" unit="Hz">
+      <description>
+        Operating frequency.
+      </description>
+    </field>    
+    <field name="Minimum Range" abbrev="min_range" type="uint16_t" unit="m">
+      <description>
+        Minimum range.
+      </description>
+    </field>
+    <field name="Maximum Range" abbrev="max_range" type="uint16_t" unit="m">
+      <description>
+        Maximum range.
+      </description>
+    </field>
+    <field name="Bits Per Data Point" abbrev="bits_per_point" type="uint8_t" unit="bit">
+      <description>
+        Size of the data unit. (Should be multiple of 8)
+      </description>
+    </field>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        Data acquired by the measurement.
+      </description>
     </field>
   </message>
 </messages>
