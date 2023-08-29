@@ -11171,6 +11171,43 @@
     </field>
   </message>
 
+  <message id="1100" name="HTTPS Message Send" abbrev="HTTPSRequest" source="vehicle" category="Networking">
+    <description>
+      Send a HTTPS Request using curl library.
+    </description>
+    <field name="URL Server" abbrev="server" type="plaintext">
+      <description>
+        URL to use.
+      </description>
+    </field>
+    <field name="Path of executive" abbrev="path" type="plaintext">
+      <description>
+        Path of executive to send the request
+      </description>
+    </field>
+    <field name="Data Input" abbrev="data" type="plaintext">
+      <description>
+        Data to send in request.
+      </description>
+    </field>
+  </message>
+
+  <message id="1101" name="HTTPS Message Received" abbrev="HTTPSResponse" source="vehicle" category="Networking">
+    <description>
+      Get a response of HTTPS Request.
+    </description>
+    <field name="URL Server" abbrev="server" type="plaintext">
+      <description>
+        URL from response.
+      </description>
+    </field>
+    <field name="Response" abbrev="response" type="plaintext">
+      <description>
+        Response recived from the request
+      </description>
+    </field>
+  </message>
+
   <message id="2000" name="GPIO State" abbrev="GpioState" source="vehicle" category="Actuation">
     <description>
       Current state of a GPIO.
