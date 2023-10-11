@@ -156,6 +156,9 @@
   <address id="0x6009" name="lauv-noptilus-3-cpu-cam"/>
   <address id="0x6010" name="lauv-seacon-3-aux"/>
   <address id="0x6011" name="lauv-seacon-3-cpu-cam"/>
+  <address id="0x6012" name="lauv-seacon-2-aux"/>
+  <address id="0x6013" name="lauv-seacon-2-cpu-cam"/>
+  <address id="0x6014" name="otter-aux"/>
   <!-- Sensors of LSTS (Self containing sensor systems) -->
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
