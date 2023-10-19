@@ -3767,6 +3767,13 @@
       </description>
       <value abbrev="REPORT" name="Report" id="0"/>
       <value abbrev="QUERY" name="Query" id="1"/>
+      <value abbrev="REGISTER" name="Register" id="2">
+        <description>
+          This will serve as a registration of an additional action.
+          It should be used by an internal system entity to register an action to a central
+          registration. This way only one will responde to a QUERY request.
+        </description>
+      </value>
     </field>
     <field name="Actions" abbrev="actions" type="plaintext" unit="TupleList">
       <description>
