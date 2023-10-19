@@ -3796,17 +3796,17 @@
 
       Types:
 
-      +-------------------+--------------------------------------------------+
-      | Type              | Note                                             |
-      +===================+==================================================+
-      | Axis              | Axis like (full range)                           |
-      +-------------------+--------------------------------------------------+
-      | Button            | A buttom (0 for release, 1 for press)            |
-      +-------------------+--------------------------------------------------+
-      | Slider            | Slider like (full range)                         |
-      +-------------------+--------------------------------------------------+
-      | HalfSlider        | Slider like, but also positive half of the range |
-      +-------------------+--------------------------------------------------+
+      +-------------------+------------------------------------------------------+
+      | Type              | Note                                                 |
+      +===================+======================================================+
+      | Axis              | Axis like (full range)                               |
+      +-------------------+------------------------------------------------------+
+      | Button            | A button (0 for release, 1 for press)                |
+      +-------------------+------------------------------------------------------+
+      | Slider            | Slider like (full range)                             |
+      +-------------------+------------------------------------------------------+
+      | HalfSlider        | Slider like, but only the positive half of the range |
+      +-------------------+------------------------------------------------------+
 
     </description>
     <field name="operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
@@ -3818,7 +3818,7 @@
     </field>
     <field name="Actions" abbrev="actions" type="plaintext" unit="TupleList">
       <description>
-        Example: "Propulsion=Axis,PanTilt=Hat,Lights=Button"
+        Example: "Propulsion=Axis,Lights=Button"
       </description>
     </field>
   </message>
