@@ -11236,6 +11236,14 @@
     </field>
   </message>
 
+    <message id="1017" name="Frequency" abbrev="Frequency" source="vehicle" category="Sensors">
+    <field name="Value" abbrev="value" type="fp32_t" unit="Hertz">
+      <description>
+        Frequency value.
+      </description>
+    </field>
+  </message>
+
   <message id="2000" name="GPIO State" abbrev="GpioState" source="vehicle" category="Actuation">
     <description>
       Current state of a GPIO.
@@ -11302,6 +11310,7 @@
       </description>
     </field>
   </message>
+
   <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
     <field name="Value" abbrev="value" type="fp64_t">
       <description>Total Magnetic Field Intensity (TMI)</description>
