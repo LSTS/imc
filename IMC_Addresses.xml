@@ -187,6 +187,18 @@
   <address id="0x8091" name="wavynos-01"/>
   <address id="0x8092" name="wavynos-02"/>
   <address id="0x8093" name="wavynos-03"/>
+  <address id="0x8094" name="wavynos-04"/>
+  <address id="0x8095" name="wavynos-05"/>
+  <address id="0x8096" name="wavynos-06"/>
+  <address id="0x8097" name="wavynos-07"/>
+  <address id="0x8098" name="wavynos-08"/>
+  <address id="0x8099" name="wavynos-09"/>
+  <address id="0x80a0" name="wavynos-10"/>
+  <address id="0x80a1" name="wavynos-11"/>
+  <address id="0x80a2" name="wavynos-12"/>
+  <address id="0x80a3" name="wavynos-13"/>
+  <address id="0x80a4" name="wavynos-14"/>
+  <address id="0x80a5" name="wavynos-15"/>
   <address id="0x8401" name="spot-01"/>
   <address id="0x8402" name="spot-02"/>
   <address id="0x8403" name="spot-03"/>
