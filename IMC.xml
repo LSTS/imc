@@ -2862,6 +2862,8 @@
         </description>
       </value>
     </field>
+    
+
     <field name="Location" abbrev="location" type="message-list" message-type="DeviceState">
       <description>
         Device Location in the system.
@@ -11182,6 +11184,32 @@
     <field name="Danger" abbrev="danger" type="plaintext">
       <description>
         Example: "lat=63.46869;lon=10.37790"
+      </description>
+    </field>
+  </message>
+
+  <message id="915" name="Position Displacement" abbrev="Displacement" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Component of incremetal position vector over a period of time.
+    </description>
+    <field name="Device Time" abbrev="time" type="fp64_t" unit="s">
+      <description>
+        The device time.
+      </description>
+    </field>
+    <field name="X" abbrev="x" type="fp64_t" unit="m">
+      <description>
+        X component.
+      </description>
+    </field>
+    <field name="Y" abbrev="y" type="fp64_t" unit="m">
+      <description>
+        Y component.
+      </description>
+    </field>
+    <field name="Z" abbrev="z" type="fp64_t" unit="m">
+      <description>
+        Z component.
       </description>
     </field>
   </message>
