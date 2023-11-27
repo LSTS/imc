@@ -11167,6 +11167,25 @@
     <field name="Draught" abbrev="draught" type="fp32_t" unit="m"/>
   </message>
 
+  <message id="913" name="ENC Awareness" abbrev="ENCAwareness" source="vehicle" category="Autonomy">
+    <description>
+      Contains information as extracted from a digital S-57 chart.
+      This can be: location of static objects (buoys, beacons, etc), location and depth of depth contours,
+      location and depth of any other location contained in the chart.
+      For reference see Supervisors/Grounding.
+    </description>
+    <field name="Depth at location" abbrev="depth_at_loc" type="plaintext">
+      <description>
+        Example: "lat=63.46869;lon=10.37790;d=-10"
+      </description>
+    </field>
+    <field name="Danger" abbrev="danger" type="plaintext">
+      <description>
+        Example: "lat=63.46869;lon=10.37790"
+      </description>
+    </field>
+  </message>
+
   <message id="1014" name="Current Profile" abbrev="CurrentProfile" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Contains a profile of water velocities measured relative to the vehicle
