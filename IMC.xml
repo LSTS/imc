@@ -11283,8 +11283,8 @@
     </field>
   </message>
 
-    <message id="1017" name="Frequency" abbrev="Frequency" source="vehicle" category="Sensors">
-    <field name="Value" abbrev="value" type="fp32_t" unit="Hertz">
+  <message id="1017" name="Frequency" abbrev="Frequency" source="vehicle" category="Sensors">
+    <field name="Value" abbrev="value" type="fp32_t" unit="Hz">
       <description>
         Frequency value.
       </description>
