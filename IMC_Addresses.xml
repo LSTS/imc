@@ -194,11 +194,11 @@
   <address id="0x8098" name="wavy-imager-3"/>
   <address id="0x8099" name="wavy-imager-4"/>
   <address id="0x80a0" name="wavy-imager-5"/>
-  <address id="0x80a1" name="wavy-listener-1"/>
-  <address id="0x80a2" name="wavy-listener-2"/>
-  <address id="0x80a3" name="wavy-listener-3"/>
-  <address id="0x80a4" name="wavy-listener-4"/>
-  <address id="0x80a5" name="wavy-listener-5"/>
+  <address id="0x80a1" name="wavy-hydro-1"/>
+  <address id="0x80a2" name="wavy-hydro-2"/>
+  <address id="0x80a3" name="wavy-hydro-3"/>
+  <address id="0x80a4" name="wavy-hydro-4"/>
+  <address id="0x80a5" name="wavy-hydro-5"/>
   <address id="0x8401" name="spot-01"/>
   <address id="0x8402" name="spot-02"/>
   <address id="0x8403" name="spot-03"/>
