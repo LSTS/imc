@@ -184,21 +184,21 @@
   <address id="0x8081" name="bridgebox-1"/>
   <address id="0x8082" name="bridgebox-2"/>
   <address id="0x8090" name="wavynos-00"/>
-  <address id="0x8091" name="wavy-echo-1"/>
-  <address id="0x8092" name="wavy-echo-2"/>
-  <address id="0x8093" name="wavy-echo-3"/>
-  <address id="0x8094" name="wavy-echo-4"/>
-  <address id="0x8095" name="wavy-echo-5"/>
-  <address id="0x8096" name="wavy-imager-1"/>
-  <address id="0x8097" name="wavy-imager-2"/>
-  <address id="0x8098" name="wavy-imager-3"/>
-  <address id="0x8099" name="wavy-imager-4"/>
-  <address id="0x80a0" name="wavy-imager-5"/>
-  <address id="0x80a1" name="wavy-hydro-1"/>
-  <address id="0x80a2" name="wavy-hydro-2"/>
-  <address id="0x80a3" name="wavy-hydro-3"/>
-  <address id="0x80a4" name="wavy-hydro-4"/>
-  <address id="0x80a5" name="wavy-hydro-5"/>
+  <address id="0x8091" name="wavynos-echo-1"/>
+  <address id="0x8092" name="wavynos-echo-2"/>
+  <address id="0x8093" name="wavynos-echo-3"/>
+  <address id="0x8094" name="wavynos-echo-4"/>
+  <address id="0x8095" name="wavynos-echo-5"/>
+  <address id="0x8096" name="wavynos-imager-1"/>
+  <address id="0x8097" name="wavynos-imager-2"/>
+  <address id="0x8098" name="wavynos-imager-3"/>
+  <address id="0x8099" name="wavynos-imager-4"/>
+  <address id="0x80a0" name="wavynos-imager-5"/>
+  <address id="0x80a1" name="wavynos-hydro-1"/>
+  <address id="0x80a2" name="wavynos-hydro-2"/>
+  <address id="0x80a3" name="wavynos-hydro-3"/>
+  <address id="0x80a4" name="wavynos-hydro-4"/>
+  <address id="0x80a5" name="wavynos-hydro-5"/>
   <address id="0x8401" name="spot-01"/>
   <address id="0x8402" name="spot-02"/>
   <address id="0x8403" name="spot-03"/>
