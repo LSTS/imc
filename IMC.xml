@@ -11175,19 +11175,40 @@
     <description>
       Send a HTTP Request using curl library.
     </description>
-    <field name="Destination" abbrev="destination" type="plaintext">
+    <field name="Request Id" abbrev="rid" type="uint16_t">
       <description>
-        URL to use.
+        Id of request.
       </description>
     </field>
-    <field name="Path of executive" abbrev="path_executive" type="plaintext">
+    <field name="Hostname" abbrev="host" type="plaintext">
       <description>
-        Path of executive to send the request
+        Hostname of the server.
       </description>
     </field>
-    <field name="Data Text" abbrev="data" type="plaintext">
+    <field name="Path" abbrev="path" type="plaintext">
       <description>
-        Data to send in request.
+        Path within the server
+      </description>
+    </field>
+    <field name="Request Query" abbrev="query" type="plaintext">
+      <description>
+        Query data
+      </description>
+    </field>
+    <field name="Request Body" abbrev="body" type="rawdata">
+      <description>
+        Path of file to send in request.
+      </description>
+    </field>
+    <field name="Request Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="HTTPREQ">
+      <value id="0" abbrev="GET" name="GET"/>
+      <value id="1" abbrev="POST" name="POST"/>
+      <value id="2" abbrev="PUT" name="PUT"/>
+      <value id="3" abbrev="DELETE" name="DELETE"/>
+    </field>
+    <field name="Continuation Data On Disk" abbrev="file_data" type="plaintext">
+      <description>
+        Path of file to concatenate to body after *body* contents.
       </description>
     </field>
   </message>
@@ -11196,9 +11217,9 @@
     <description>
       Get the response of HTTP Request.
     </description>
-    <field name="Destination" abbrev="destination" type="plaintext">
+    <field name="Request Id" abbrev="rid" type="uint16_t">
       <description>
-        URL from response.
+        Id of request.
       </description>
     </field>
     <field name="Response" abbrev="response" type="plaintext">
@@ -11206,9 +11227,33 @@
         Response recived from the request
       </description>
     </field>
-    <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="HTTPSTAT">
-      <value id="0" abbrev="ERROR" name="Fail"/>
-      <value id="1" abbrev="SENT" name="Sent"/>
+    <field name="Status" abbrev="status" type="uint16_t" unit="Enumerated" prefix="HTTPSTAT">
+      <value id="100" abbrev="CONTINUE" name="Continue"/>
+      <value id="101" abbrev="SWITCHING_PROTOCOLS" name="Switching Protocols"/>
+      <value id="200" abbrev="OK" name="OK"/>
+      <value id="400" abbrev="BAD_REQUEST" name="Bad Request"/>
+      <value id="401" abbrev="UNAUTHORIZED" name="Unauthorized"/>
+      <value id="403" abbrev="FORBIDDEN" name="Forbidden"/>
+      <value id="404" abbrev="NOT_FOUND" name="Not Found"/>
+      <value id="405" abbrev="METHOD_NOT_ALLOWED" name="Method Not Allowed"/>
+      <value id="406" abbrev="NOT_ACCEPTABLE" name="Not Acceptable"/>
+      <value id="407" abbrev="PROXY_AUTHENTICATION_REQUIRED" name="Proxy Authentication Required"/>
+      <value id="408" abbrev="REQUEST_TIMEOUT" name="Request Timeout"/>
+      <value id="409" abbrev="CONFLICT" name="Conflict"/>
+      <value id="410" abbrev="GONE" name="Gone"/>
+      <value id="411" abbrev="LENGTH_REQUIRED" name="Length Required"/>
+      <value id="412" abbrev="PRECONDITION_FAILED" name="Precondition Failed"/>
+      <value id="413" abbrev="REQUEST_ENTITY_TOO_LARGE" name="Request Entity Too Large"/>
+      <value id="414" abbrev="REQUEST_URI_TOO_LONG" name="Request-URI Too Long"/>
+      <value id="415" abbrev="UNSUPPORTED_MEDIA_TYPE" name="Unsupported Media Type"/>
+      <value id="416" abbrev="REQUESTED_RANGE_NOT_SATISFIABLE" name="Requested Range Not Satisfiable"/>
+      <value id="417" abbrev="EXPECTATION_FAILED" name="Expectation Failed"/>
+      <value id="500" abbrev="ERROR" name="Internal Error"/>      
+      <value id="501" abbrev="NOT_IMPLEMENTED" name="Not Implemented"/>
+      <value id="502" abbrev="BAD_GATEWAY" name="Bad Gateway"/>
+      <value id="503" abbrev="SERVICE_UNAVAILABLE" name="Service Unavailable"/>
+      <value id="504" abbrev="GATEWAY_TIMEOUT" name="Gateway Timeout"/>
+      <value id="505" abbrev="HTTP_VERSION_NOT_SUPPORTED" name="HTTP Version Not Supported"/>            
     </field>
   </message>
 
