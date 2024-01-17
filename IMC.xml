@@ -11212,6 +11212,26 @@
     </field>
   </message>
 
+  <message id="1102" name="File Sample Event" abbrev="FileSampleEvent" source="vehicle" category="Networking">
+    <description>
+      Report a sample stored to disk.
+    </description>
+    <field name="File Type" abbrev="fstype" type="uint8_t" unit="Enumerated" prefix="FSTYPE">
+      <description>
+        Type of event.
+      </description>
+      <value id="0" name="Image" abbrev="IMAGE"/>
+      <value id="1" name="Audio" abbrev="AUDIO"/>
+      <value id="2" name="Sonar" abbrev="SONAR"/>
+      <value id="255" name="Other" abbrev="OTHER"/>
+    </field>
+    <field name="File name" abbrev="filename" type="plaintext">
+      <description>
+        File name this event is related to.
+      </description>
+    </field>
+  </message>
+  
   <message id="2000" name="GPIO State" abbrev="GpioState" source="vehicle" category="Actuation">
     <description>
       Current state of a GPIO.
