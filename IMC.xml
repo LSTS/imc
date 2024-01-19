@@ -11257,4 +11257,38 @@
     </field>
   </message>
 
+  <message id="2011" name="MqttTXFrame" abbrev="MqttTXFrame" source="ccu,vehicle" category="Networking">
+    <description>
+      This message shall be dispatched to Mqtt broker drivers to request
+      transmission of a data frame.
+    </description>
+    <field name="MQTT Topic" abbrev="topic" type="plaintext">
+      <description>
+        MQTT topic.
+      </description>
+    </field>
+    <field name="Payload" abbrev="payload" type="rawdata">
+      <description>
+        Mqtt payload data.
+      </description>
+    </field>
+  </message>
+
+  <message id="2012" name="MqttRXFrame" abbrev="MqttRXFrame" source="ccu,vehicle" category="Networking">
+    <description>
+      This message shall be dispatched by Mqtt broker drivers each time
+      a data frame is received over the acoustic channel.
+    </description>
+    <field name="MQTT Topic" abbrev="topic" type="plaintext">
+      <description>
+        MQTT topic.
+      </description>
+    </field>
+    <field name="Payload" abbrev="payload" type="rawdata">
+      <description>
+        MQTT payload data.
+      </description>
+    </field>
+  </message>
+
 </messages>
