@@ -11723,4 +11723,20 @@
     </field>
   </message>
 
+  <message id="2020" name="Maneuver Resumed" abbrev="ManeuverResumed" source="vehicle" category="Maneuvering">
+    <description>
+      This message is sent when a maneuver is stoped, describing how it could be resumed to completion later.
+    </description>
+    <field name="Maneuver Identifier" abbrev="man_id" type="plaintext">
+      <description>
+        ID of the maneuver that was stopped.
+      </description>
+    </field>
+    <field name="Maneuver List" abbrev="man_list" type="message-list" message-type="Maneuver">
+      <description>
+        List of maneuvers that can be executed to resume the stopped maneuver.
+      </description>
+    </field>
+  </message>
+
 </messages>
