@@ -11742,4 +11742,35 @@
     </field>
   </message>
 
+  <message id="2021" name="Version Info" abbrev="VersionInfo" source="vehicle" category="Core">
+    <description>
+      This message is used to query / report version information related to an entity.
+    </description>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Operation to perform.
+      </description>
+      <value abbrev="REPLY" name="Reply" id="0">
+        <description>
+          Report the entity list.
+        </description>
+      </value>
+      <value abbrev="QUERY" name="Query" id="1">
+        <description>
+          Request the entity list.
+        </description>
+      </value>     
+    </field>
+    <field name="Version" abbrev="version" type="plaintext" >
+      <description>
+        Version of the entity.
+      </description>
+    </field>
+    <field name="Description" abbrev="description" type="plaintext" >
+      <description>
+        Description of the entity.
+      </description>
+    </field>
+  </message>
+
 </messages>
