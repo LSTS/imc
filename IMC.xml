@@ -569,7 +569,17 @@
         Operation to perform.
       </description>
       <value abbrev="REPORT" name="Report" id="0"/>
-      <value abbrev="QUERY" name="Query" id="1"/>
+        <description>
+          Report the entity list.
+        </description>
+      <value abbrev="QUERY" name="Query" id="1">
+        <description>
+          Request the entity list.
+        </description>
+      <value abbrev="RELOAD" name="Reload" id="2">
+        <description>
+          Reload the entity list.
+        </description>
     </field>
     <field name="list" abbrev="list" type="plaintext" unit="TupleList">
       <description>
@@ -11712,4 +11722,5 @@
       </description>
     </field>
   </message>
+
 </messages>
