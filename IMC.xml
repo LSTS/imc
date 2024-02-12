@@ -3161,6 +3161,13 @@
     <description>
       Hardware pulse detection.
     </description>
+    <field name="Original Timestamp" abbrev="origin_timestamp" type="fp64_t" unit="s">
+      <description>
+        The time at which the pulse was dispatched from the original source. 
+        Represented in Universal Coordinated Time (UCT) in seconds since Jan 1, 1970 using IEEE
+        double precision floating point numbers.
+      </description>
+    </field>
   </message>
 
   <message id="278" name="Pulse Detection Control" abbrev="PulseDetectionControl" source="vehicle,ccu" category="Sensors">
