@@ -11289,6 +11289,28 @@
       </description>
     </field>
   </message>
+
+  <message id="1103" name="Query GSM Credit" abbrev="QueryGsmCredit" category="Networking">
+    <description>Request to check gsm credit</description>
+    <field name="Request ID" abbrev="req_id" type="uint16_t"></field>
+  </message>
+
+  <message id="1104" name="File Classification Event" abbrev="FileClassification" source="vehicle" category="Networking">
+    <description>Signals that an object has been detected by any of the vehicle's sensors</description>
+    <field name="Original Filepath" abbrev="original_filepath" type="plaintext"/>
+    <field name="Resized Filepath" abbrev="resized_filepath" type="plaintext"/>
+    <field name="Classification Prediction" abbrev="class_prediction" type="plaintext"/>
+    <field name="Confidence Value" abbrev="confidence" type="uint8_t" max="100"/>
+    <field name="File Type" abbrev="fstype" type="uint8_t" unit="Enumerated" prefix="FSTYPE">
+      <description>
+        Type of event.
+      </description>
+      <value id="0" name="Image" abbrev="IMAGE"/>
+      <value id="1" name="Audio" abbrev="AUDIO"/>
+      <value id="2" name="Sonar" abbrev="SONAR"/>
+      <value id="255" name="Other" abbrev="OTHER"/>
+    </field>
+  </message>
   
   <message id="2000" name="GPIO State" abbrev="GpioState" source="vehicle" category="Actuation">
     <description>
