@@ -3802,6 +3802,7 @@
       | Ranges        | Decimal, Range127 | Decimal [-1.0; 1.0], Range127[-127; 127] (default) |
       +---------------+-------------------+----------------------------------------------------+
 
+
       Types:
 
       +-------------------+------------------------------------------------------+
@@ -3815,6 +3816,13 @@
       +-------------------+------------------------------------------------------+
       | HalfSlider        | Slider like, but only the positive half of the range |
       +-------------------+------------------------------------------------------+
+
+      Special Types:
+      +--------------+----------------------------------------------------+
+      | Special Type | Notes                                              |
+      +==============+=====================================================
+      | Lock         | Specify a Verb to be "locked"                      |
+      +--------------+----------------------------------------------------+
 
     </description>
     <field name="operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
@@ -3833,7 +3841,7 @@
     </field>
     <field name="Actions" abbrev="actions" type="plaintext" unit="TupleList">
       <description>
-        Example: "Propulsion:Axis,Lights:Button"
+        Example: "Propulsion:Axis,Lights:Button,Lights:Lock"
       </description>
     </field>
   </message>
