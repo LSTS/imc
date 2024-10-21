@@ -8622,6 +8622,7 @@
       <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
       <value id="102" abbrev="TEMPORARY_FAILURE" name="Temporary Error"/>
       <value id="103" abbrev="PERMANENT_FAILURE" name="Permanent Failure"/>
+      <value id="104" abbrev="INV_ADDR" name="Invalid Address"/>
     </field>
     <field name="Range" abbrev="range" type="fp32_t" unit="m">
       <description>
