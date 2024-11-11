@@ -1385,12 +1385,12 @@
     </field>
     <field name="Number of Samples" abbrev="numSamples" type="uint8_t"/>
     <field name="Samples" abbrev="samples" type="message-list" message-type="ProfileSample"/>
-    <field name="Latitude" abbrev="lat" type="fp64_t" unit="rad">
+    <field name="Latitude" abbrev="lat" type="fp64_t" unit="°">
       <description>
         Latitude where the profile was calculated.
       </description>
     </field>
-    <field name="Longitude" abbrev="lon" type="fp64_t" unit="rad" >
+    <field name="Longitude" abbrev="lon" type="fp64_t" unit="°" >
     	<description>
         	Longitude where the profile was calculated.
         </description>
