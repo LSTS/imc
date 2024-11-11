@@ -1,4 +1,10 @@
 *.py[cod]
 .project
 doc/reference
+doc/generate2.py
+
 .idea
+.vscode
+
+IMC-*
+*.orig
