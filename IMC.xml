@@ -10200,6 +10200,11 @@
           Message has been acknowledged by the destination.
         </description>
       </value>
+      <value abbrev="NO_TRANSDUCER" name="No transducer" id="10">
+        <description>
+          Transducer not connected to the acoustic modem.
+        </description>
+      </value>
     </field>
     <field name="Error Message" abbrev="error" type="plaintext">
       <description>
