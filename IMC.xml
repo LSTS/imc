@@ -3315,7 +3315,7 @@
 
   <message id="282" name="Device State" abbrev="DeviceState" source="vehicle" category="Sensors">
     <description>
-      Location of a specific device in the system infrastructure.
+      Location of a specific device in the system's body frame.
     </description>
     <field name="Device Position - X" abbrev="x" type="fp32_t" unit="m">
       <description>
