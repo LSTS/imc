@@ -2384,7 +2384,8 @@
       <value id="100" abbrev="BUSY" name="Busy"/>
       <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
       <value id="102" abbrev="ERROR" name="Error trying to send acoustic text"/>
-      <value id="666" abbrev="UNSUPPORTED" name="Message Type is not defined or is unsupported"/>
+      <value id="103" abbrev="INV_ADDR" name="Invalid address"/>
+      <value id="255" abbrev="UNSUPPORTED" name="Message Type is not defined or is unsupported"/>
     </field>
     <field name="Information" abbrev="info" type="plaintext">
       <description> Status description.</description>
@@ -8622,6 +8623,7 @@
       <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
       <value id="102" abbrev="TEMPORARY_FAILURE" name="Temporary Error"/>
       <value id="103" abbrev="PERMANENT_FAILURE" name="Permanent Failure"/>
+      <value id="104" abbrev="INV_ADDR" name="Invalid Address"/>
     </field>
     <field name="Range" abbrev="range" type="fp32_t" unit="m">
       <description>
