@@ -11747,7 +11747,7 @@
         <description>
           Request the entity list.
         </description>
-      </value>     
+      </value>
     </field>
     <field name="Version" abbrev="version" type="plaintext" >
       <description>
