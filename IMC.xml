@@ -3076,9 +3076,9 @@
       +--------+------------------+-----+
       | Section| Flag Label       | Bit |
       +========+==================+=====+
-      | H4.1   | Intensities flag | 0   |
+      | H3.1   | Intensities flag | 0   |
       +--------+------------------+-----+
-      | H4.2   | Angle step flag  | 1   |
+      | H3.2   | Angle step flag  | 1   |
       +--------+------------------+-----+
 
       .. figure:: ../images/imc_multibeam.png
@@ -3091,8 +3091,8 @@
 
          angle[i] = H2_start_angle + (32-bit sum of D1_angle_step[0] through D1_angle_step[i]) * H4_scaling_factor
 
-      * If bit H4.1 is not set then sections H5 and D3 won't exist.
-      * If bit H4.2 is not set then sections H4 and D1 won't exist. In case this bit is set, then the angle steps is read from field "Beam Width" from "Beam Configuration".
+      * If bit H3.1 is not set then sections H5 and D3 won't exist.
+      * If bit H3.2 is not set then sections H4 and D1 won't exist. In case this bit is set, then the angle steps is read from field "Beam Width" from "Beam Configuration".
       * The type *uintX_t* will depend on the number of bits per unit, and it should be a multiple of 8.
       * Furthermore, for now, 32 bits is the highest value of bits per unit supported.
 
