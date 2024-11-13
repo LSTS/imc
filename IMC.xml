@@ -3134,6 +3134,7 @@
       <value id="0" name="Sidescan" abbrev="SIDESCAN"/>
       <value id="1" name="Echo Sounder" abbrev="ECHOSOUNDER"/>
       <value id="2" name="Multibeam" abbrev="MULTIBEAM"/>
+      <value id="3" name="Pencil Beam" abbrev="PENCILBEAM"/>
     </field>
     <field name="Frequency" abbrev="frequency" type="uint32_t" unit="Hz">
       <description>
