@@ -3796,6 +3796,7 @@
       | Ranges        | Decimal, Range127 | Decimal [-1.0; 1.0], Range127[-127; 127] (default) |
       +---------------+-------------------+----------------------------------------------------+
 
+
       Types:
 
       +-------------------+------------------------------------------------------+
@@ -3810,6 +3811,13 @@
       | HalfSlider        | Slider like, but only the positive half of the range |
       +-------------------+------------------------------------------------------+
 
+      Special Types:
+      +--------------+----------------------------------------------------+
+      | Special Type | Notes                                              |
+      +==============+=====================================================
+      | Lock         | Specify a Verb to be "locked"                      |
+      +--------------+----------------------------------------------------+
+
     </description>
     <field name="operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
       <description>
@@ -3817,10 +3825,17 @@
       </description>
       <value abbrev="REPORT" name="Report" id="0"/>
       <value abbrev="QUERY" name="Query" id="1"/>
+      <value abbrev="REGISTER" name="Register" id="2">
+        <description>
+          This will serve as a registration of an additional action.
+          It should be used by an internal system entity to register an action to a central
+          registration. This way only one will responde to a QUERY request.
+        </description>
+      </value>
     </field>
     <field name="Actions" abbrev="actions" type="plaintext" unit="TupleList">
       <description>
-        Example: "Propulsion=Axis,Lights=Button"
+        Example: "Propulsion:Axis,Lights:Button,Lights:Lock"
       </description>
     </field>
   </message>
