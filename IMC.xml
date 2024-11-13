@@ -9167,6 +9167,20 @@
           corresponds to the currently loaded plan.
         </description>
       </value>
+      <value id="4" abbrev="START_ON" name="Start Plan on Maneuver">
+        <description>
+          This operation requires *args* to contain a *StartOnManeuver* message.
+          Start plan identified by *plan_id* field, at maneuver specified by 
+          *man_id* field, from StartOnManeuver.
+          The command will try to load the corresponding plan, and in that case 
+          will follow the same discipline as the *LOAD* command.
+
+          If the message in *arg* is a :ref:`Maneuver`, a single-maneuver plan
+          will be generated and executed.
+
+          This will override any current plan being executed.
+        </description>
+      </value>
     </field>
     <field name="Request ID" abbrev="request_id" type="uint16_t">
       <description>
@@ -9551,6 +9565,14 @@
     <field name="Fuel" abbrev="fuel" type="plaintext" unit="TupleList">
       <description>
         Amount of fuel spent, in battery percentage, by different parcels (if applicable): Total=35,Hotel=5,Payload=10,Motion=20,IMU=0
+      </description>
+    </field>
+  </message>
+
+    <message id="565" name="Start On Maneuver" abbrev="StartOnManeuver" source="ccu" category="Plan Supervision">
+    <field name="Maneuver Identifier" abbrev="man_id" type="plaintext">
+      <description>
+        The name of the maneuver to start the plan from.
       </description>
     </field>
   </message>
