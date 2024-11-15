@@ -569,8 +569,21 @@
       <description>
         Operation to perform.
       </description>
-      <value abbrev="REPORT" name="Report" id="0"/>
-      <value abbrev="QUERY" name="Query" id="1"/>
+      <value abbrev="REPORT" name="Report" id="0">
+        <description>
+          Report the entity list.
+        </description>
+      </value>
+      <value abbrev="QUERY" name="Query" id="1">
+        <description>
+          Request the entity list.
+        </description>
+      </value>
+      <value abbrev="RELOAD" name="Reload" id="2">
+        <description>
+          Reload the entity list.
+        </description>
+      </value>
     </field>
     <field name="list" abbrev="list" type="plaintext" unit="TupleList">
       <description>
@@ -2385,7 +2398,8 @@
       <value id="100" abbrev="BUSY" name="Busy"/>
       <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
       <value id="102" abbrev="ERROR" name="Error trying to send acoustic text"/>
-      <value id="666" abbrev="UNSUPPORTED" name="Message Type is not defined or is unsupported"/>
+      <value id="103" abbrev="INV_ADDR" name="Invalid address"/>
+      <value id="255" abbrev="UNSUPPORTED" name="Message Type is not defined or is unsupported"/>
     </field>
     <field name="Information" abbrev="info" type="plaintext">
       <description> Status description.</description>
@@ -3123,6 +3137,7 @@
       <value id="0" name="Sidescan" abbrev="SIDESCAN"/>
       <value id="1" name="Echo Sounder" abbrev="ECHOSOUNDER"/>
       <value id="2" name="Multibeam" abbrev="MULTIBEAM"/>
+      <value id="3" name="Pencil Beam" abbrev="PENCILBEAM"/>
     </field>
     <field name="Frequency" abbrev="frequency" type="uint32_t" unit="Hz">
       <description>
@@ -3303,7 +3318,7 @@
 
   <message id="282" name="Device State" abbrev="DeviceState" source="vehicle" category="Sensors">
     <description>
-      Location of a specific device in the system infrastructure.
+      Location of a specific device in the system's body frame.
     </description>
     <field name="Device Position - X" abbrev="x" type="fp32_t" unit="m">
       <description>
@@ -3798,19 +3813,27 @@
       | Ranges        | Decimal, Range127 | Decimal [-1.0; 1.0], Range127[-127; 127] (default) |
       +---------------+-------------------+----------------------------------------------------+
 
+
       Types:
 
-      +-------------------+--------------------------------------------------+
-      | Type              | Note                                             |
-      +===================+==================================================+
-      | Axis              | Axis like (full range)                           |
-      +-------------------+--------------------------------------------------+
-      | Button            | A buttom (0 for release, 1 for press)            |
-      +-------------------+--------------------------------------------------+
-      | Slider            | Slider like (full range)                         |
-      +-------------------+--------------------------------------------------+
-      | HalfSlider        | Slider like, but also positive half of the range |
-      +-------------------+--------------------------------------------------+
+      +-------------------+------------------------------------------------------+
+      | Type              | Note                                                 |
+      +===================+======================================================+
+      | Axis              | Axis like (full range)                               |
+      +-------------------+------------------------------------------------------+
+      | Button            | A button (0 for release, 1 for press)                |
+      +-------------------+------------------------------------------------------+
+      | Slider            | Slider like (full range)                             |
+      +-------------------+------------------------------------------------------+
+      | HalfSlider        | Slider like, but only the positive half of the range |
+      +-------------------+------------------------------------------------------+
+
+      Special Types:
+      +--------------+----------------------------------------------------+
+      | Special Type | Notes                                              |
+      +==============+=====================================================
+      | Lock         | Specify a Verb to be "locked"                      |
+      +--------------+----------------------------------------------------+
 
     </description>
     <field name="operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
@@ -3819,10 +3842,17 @@
       </description>
       <value abbrev="REPORT" name="Report" id="0"/>
       <value abbrev="QUERY" name="Query" id="1"/>
+      <value abbrev="REGISTER" name="Register" id="2">
+        <description>
+          This will serve as a registration of an additional action.
+          It should be used by an internal system entity to register an action to a central
+          registration. This way only one will responde to a QUERY request.
+        </description>
+      </value>
     </field>
     <field name="Actions" abbrev="actions" type="plaintext" unit="TupleList">
       <description>
-        Example: "Propulsion=Axis,PanTilt=Hat,Lights=Button"
+        Example: "Propulsion:Axis,Lights:Button,Lights:Lock"
       </description>
     </field>
   </message>
@@ -8625,6 +8655,7 @@
       <value id="101" abbrev="INPUT_FAILURE" name="Input Error"/>
       <value id="102" abbrev="TEMPORARY_FAILURE" name="Temporary Error"/>
       <value id="103" abbrev="PERMANENT_FAILURE" name="Permanent Failure"/>
+      <value id="104" abbrev="INV_ADDR" name="Invalid Address"/>
     </field>
     <field name="Range" abbrev="range" type="fp32_t" unit="m">
       <description>
@@ -10172,6 +10203,11 @@
           Message has been acknowledged by the destination.
         </description>
       </value>
+      <value abbrev="NO_TRANSDUCER" name="No transducer" id="10">
+        <description>
+          Transducer not connected to the acoustic modem.
+        </description>
+      </value>
     </field>
     <field name="Error Message" abbrev="error" type="plaintext">
       <description>
@@ -11377,6 +11413,37 @@
     </field>
     <field name="Reason" abbrev="reason" type="plaintext">
       <description>Textual description for why this restriction is needed.</description>
+    </field>
+  </message>
+
+  <message id="2021" name="Version Info" abbrev="VersionInfo" source="vehicle" category="Core">
+    <description>
+      This message is used to query / report version information related to an entity.
+    </description>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Operation to perform.
+      </description>
+      <value abbrev="REPLY" name="Reply" id="0">
+        <description>
+          Report the entity list.
+        </description>
+      </value>
+      <value abbrev="QUERY" name="Query" id="1">
+        <description>
+          Request the entity list.
+        </description>
+      </value>
+    </field>
+    <field name="Version" abbrev="version" type="plaintext" >
+      <description>
+        Version of the entity.
+      </description>
+    </field>
+    <field name="Description" abbrev="description" type="plaintext" >
+      <description>
+        Description of the entity.
+      </description>
     </field>
   </message>
 
