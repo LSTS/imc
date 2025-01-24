@@ -3842,7 +3842,7 @@
     </field>
     <field name="Actions" abbrev="actions" type="plaintext" unit="TupleList">
       <description>
-        Example: "Propulsion:Axis,Lights:Button,Lights:Lock"
+        Example: "Propulsion=Axis,Lights=Button,Lights=Lock"
       </description>
     </field>
   </message>
