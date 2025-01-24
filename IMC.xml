@@ -11770,4 +11770,14 @@
     </field>
   </message>
 
+  <message id="2022" name="Total Heading" abbrev="TotalHeading" source="vehicle" category="Sensors">
+    <description>
+      This message is used to report the cumulative heading value.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="radians">
+      <description>
+        Cumulative heading value, in radians.
+      </description>
+    </field>
+  </message>
 </messages>
