@@ -11603,7 +11603,7 @@
     <description>
       This message is used to report the cumulative heading value.
     </description>
-    <field name="Value" abbrev="value" type="fp32_t" unit="radians">
+    <field name="Value" abbrev="value" type="fp32_t" unit="rad">
       <description>
         Cumulative heading value, in radians.
       </description>
