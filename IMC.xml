@@ -202,6 +202,7 @@
     <unit abbrev="ns" name="Nanosecond"/>
     <unit abbrev="S/m" name="Siemens per meter"/>
     <unit abbrev="kg" name="Kilogram"/>
+    <unit abbrev="kn" name="Knots"/>
     <unit abbrev="Nm" name="Newton meter"/>
     <unit abbrev="NTU" name="Nephelometric Turbidity Unit"/>
     <unit abbrev="N" name="Newton"/>
@@ -2876,6 +2877,8 @@
         </description>
       </value>
     </field>
+    
+
     <field name="Location" abbrev="location" type="message-list" message-type="DeviceState">
       <description>
         Device Location in the system.
@@ -11139,7 +11142,116 @@
       </description>
     </field>
    </message>
-  
+
+  <message id="911" name="Absolute Wind" abbrev="AbsoluteWind" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Measurement of wind speed.
+    </description>
+    <field name="Direction" abbrev="direction" type="fp32_t" unit="rad">
+      <description>
+        Direction of the measured wind speed.
+      </description>
+    </field>
+    <field name="Speed" abbrev="speed" type="fp32_t" unit="m/s">
+      <description>
+        The value of the wind speed as measured by the sensor.
+      </description>
+    </field>
+    <field name="Turbulence" abbrev="turbulence" type="fp32_t" unit="m/s">
+      <description>
+        Wind turbulence intensity.
+      </description>
+    </field>
+  </message>
+
+  <message id="912" name="AIS Info" abbrev="AisInfo" source="vehicle" category="Sensors">
+    <description>
+      Message containing static or dynamic AIS data received onboard the vehicle.
+    </description>
+    <field name="Message Type" abbrev="msg_type" type="plaintext">
+      <description>
+        Integer indicating the message type: 1,2,3,5, ...
+      </description>
+    </field>
+    <field name="Class" abbrev="sensor_class" type="plaintext">
+      <description>
+        The class of a sensor tells the type of sensor originating this message. It will determine how the sensor is to be shown and (optionally) how the custom data (tuplelist) is to be interpreted.
+      </description>
+    </field>
+    <field name="MMSI" abbrev="mmsi" type="plaintext">
+      <description>
+        An unique string that identifies the sensor/vessel.
+      </description>
+    </field>
+    <field name="Callsign" abbrev="callsign" type="plaintext"/>
+    <field name="Name" abbrev="name" type="plaintext"/>
+    <field name="Navigation Status" abbrev="nav_status" type="uint8_t"/>
+    <field name="Type and Cargo" abbrev="type_and_cargo" type="uint8_t"/>
+    <field name="Latitude" abbrev="lat" type="fp64_t" unit="rad"/>
+    <field name="Longitude" abbrev="lon" type="fp64_t" unit="rad"/>
+    <field name="Course" abbrev="course" type="fp32_t" unit="°"/>
+    <field name="Speed" abbrev="speed" type="fp32_t" unit="kn"/>
+    <field name="Distance" abbrev="dist" type="fp32_t" unit="m">
+      <description>
+        Distance to own vehicle.
+      </description>
+    </field>
+    <field name="Size A Length" abbrev="a" type="fp32_t" unit="m">
+      <description>
+        Size of the vehicle (length = A + B, width = C + D)
+      </description>
+    </field>
+    <field name="Size B Length" abbrev="b" type="fp32_t" unit="m"/>
+    <field name="Size C Width" abbrev="c" type="fp32_t" unit="m"/>
+    <field name="Size D Width" abbrev="d" type="fp32_t" unit="m"/>
+    <field name="Draught" abbrev="draught" type="fp32_t" unit="m"/>
+  </message>
+
+  <message id="913" name="ENC Awareness" abbrev="ENCAwareness" source="vehicle" category="Autonomy">
+    <description>
+      Contains information as extracted from a digital S-57 chart.
+      This can be: location of static objects (buoys, beacons, etc), location and depth of depth contours,
+      location and depth of any other location contained in the chart.
+      For reference see Supervisors/Grounding.
+    </description>
+    <field name="Depth at location" abbrev="depth_at_loc" type="plaintext">
+      <description>
+        Example: "lat=63.46869;lon=10.37790;d=-10"
+      </description>
+    </field>
+    <field name="Danger" abbrev="danger" type="plaintext">
+      <description>
+        Example: "lat=63.46869;lon=10.37790"
+      </description>
+    </field>
+  </message>
+
+  <message id="915" name="Position Displacement" abbrev="Displacement" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Component of incremetal position vector over a period of time.
+    </description>
+    <field name="Device Time" abbrev="time" type="fp64_t" unit="s">
+      <description>
+        The device time.
+      </description>
+    </field>
+    <field name="X" abbrev="x" type="fp64_t" unit="m">
+      <description>
+        X component.
+      </description>
+    </field>
+    <field name="Y" abbrev="y" type="fp64_t" unit="m">
+      <description>
+        Y component.
+      </description>
+    </field>
+    <field name="Z" abbrev="z" type="fp64_t" unit="m">
+      <description>
+        Z component.
+      </description>
+    </field>
+  </message>
+
   <message id="1014" name="Current Profile" abbrev="CurrentProfile" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Contains a profile of water velocities measured relative to the vehicle
@@ -11203,9 +11315,17 @@
         Amplitude of returning ping for the beam.
       </description>
     </field>
-    <field name="Correlation" abbrev="cor" type="uint8_t" unit="%" max="100" min="0">
+    <field name="Correlation" abbrev="cor" type="int8_t" unit="%" max="100" min="0">
       <description>
         Autocorrelation of returning ping for the beam.
+      </description>
+    </field>
+  </message>
+
+  <message id="1017" name="Frequency" abbrev="Frequency" source="vehicle" category="Sensors">
+    <field name="Value" abbrev="value" type="fp32_t" unit="Hz">
+      <description>
+        Frequency value.
       </description>
     </field>
   </message>
@@ -11276,6 +11396,7 @@
       </description>
     </field>
   </message>
+
   <message id="2006" name="Total Magnetic Field Intensity" abbrev="TotalMagIntensity" source="vehicle" category="Sensors">
     <field name="Value" abbrev="value" type="fp64_t">
       <description>Total Magnetic Field Intensity (TMI)</description>
