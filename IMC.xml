@@ -892,6 +892,17 @@
     <field name="Messages" abbrev="msgs" type="message-list"/>
   </message>
 
+  <message id="21" name="RAM Usage" abbrev="RamUsage" source="vehicle" flags="periodic" category="Core">
+    <description>
+      Report of software RAM usage.
+    </description>
+    <field name="Ussage" abbrev="value" type="fp64_t" unit="KiB">
+      <description>
+        The RAM usage, in KiB, of the sending software.
+      </description>
+    </field>
+  </message>
+
   <!-- Simulation -->
   <message id="50" name="Simulated State" abbrev="SimulatedState" source="vehicle" category="Simulation">
     <description>
