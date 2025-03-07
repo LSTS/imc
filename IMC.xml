@@ -193,6 +193,7 @@
     <unit abbrev="Hz" name="Hertz"/>
     <unit abbrev="kg/m/m/m" name="Kilogram per cubic metre"/>
     <unit abbrev="MiB" name="Mebibyte"/>
+    <unit abbrev="KiB" name="Kiloibyte"/>
     <unit abbrev="m" name="Meter"/>
     <unit abbrev="m/s" name="Meter per second"/>
     <unit abbrev="m/s/s" name="Meter per square second"/>
@@ -890,6 +891,17 @@
 
   <message id="20" name="Message List" abbrev="MsgList" category="Core">
     <field name="Messages" abbrev="msgs" type="message-list"/>
+  </message>
+
+  <message id="21" name="RAM Usage" abbrev="RamUsage" source="vehicle" flags="periodic" category="Core">
+    <description>
+      Report of software RAM usage.
+    </description>
+    <field name="Ussage" abbrev="value" type="fp64_t" unit="KiB">
+      <description>
+        The RAM usage, in KiB, of the sending software.
+      </description>
+    </field>
   </message>
 
   <!-- Simulation -->
@@ -2877,8 +2889,6 @@
         </description>
       </value>
     </field>
-    
-
     <field name="Location" abbrev="location" type="message-list" message-type="DeviceState">
       <description>
         Device Location in the system.
@@ -11315,7 +11325,7 @@
         Amplitude of returning ping for the beam.
       </description>
     </field>
-    <field name="Correlation" abbrev="cor" type="int8_t" unit="%" max="100" min="0">
+    <field name="Correlation" abbrev="cor" type="uint8_t" unit="%" max="100" min="0">
       <description>
         Autocorrelation of returning ping for the beam.
       </description>
