@@ -11340,6 +11340,147 @@
     </field>
   </message>
 
+  <message id="1018" name="Wave Spectrum Parameters" abbrev="WaveSpectrumParameters" source="vehicle" category="Sensors">
+    <description>
+      This message is used to report Wave Spectrum Parameters.
+    </description>
+    <field name="Significant Wave Height Hm0" abbrev="sig_wave_height_hm0" type="fp32_t" unit="m">
+      <description>
+        Significant Wave Height Hm0.
+      </description>
+    </field>
+    <field name="Wave Peak Direction" abbrev="wave_peak_direction" type="fp32_t" unit="°">
+      <description>
+        Wave Peak Direction.
+      </description>
+    </field>
+    <field name="Wave Peak Period" abbrev="wave_peak_period" type="fp32_t" unit="s">
+      <description>
+        Wave Peak Period.
+      </description>
+    </field>
+    <field name="Wave Height Wind Hm0" abbrev="wave_height_wind _hm0" type="fp32_t" unit="m">
+      <description>
+        Wave Height Wind Hm0.
+      </description>
+    </field>
+    <field name="Wave Height Swell Hm0" abbrev="wave_height_swell_hm0" type="fp32_t" unit="m">
+      <description>
+        Wave Height Swell Hm0.
+      </description>
+    </field>
+    <field name="Wave Peak Period Wind" abbrev="wave_peak_period_wind" type="fp32_t" unit="s">
+      <description>
+        Wave Peak Period Wind.
+      </description>
+    </field>
+    <field name="Wave Peak Period Swell" abbrev="wave_peak_period_swell" type="fp32_t" unit="s">
+      <description>
+        Wave Peak Period Swell.
+      </description>
+    </field>
+    <field name="Wave Peak Direction Wind" abbrev="wave_peak_direction_wind" type="fp32_t" unit="°">
+      <description>
+        Wave Peak Direction Wind.
+      </description>
+    </field>
+    <field name="Wave Peak Direction Swell" abbrev="wave_peak_direction_swell" type="fp32_t" unit="°">
+      <description>
+        Wave Peak Direction Swell.
+      </description>
+    </field>
+    <field name="Wave Mean Direction" abbrev="wave_mean_direction" type="fp32_t" unit="°">
+      <description>
+        Wave Mean Direction.
+      </description>
+    </field>
+    <field name="Wave Mean Period Tm02" abbrev="wave_mean_period_tm02" type="fp32_t" unit="s">
+      <description>
+        Wave Mean Period Tm02.
+      </description>
+    </field>
+    <field name="Wave Height Hmax" abbrev="wave_height_hmax" type="fp32_t" unit="m">
+      <description>
+        Wave Height Hmax.
+      </description>
+    </field>
+    <field name="Wave Height Crest" abbrev="wave_height_crest" type="fp32_t" unit="m">
+      <description>
+        Wave Height Crest.
+      </description>
+    </field>
+    <field name="Wave Height Trough" abbrev="wave_height_trough" type="fp32_t" unit="m">
+      <description>
+        Wave Height Trough.
+      </description>
+    </field>
+    <field name="Wave Period Tmax" abbrev="wave_period_tmax" type="fp32_t" unit="s">
+      <description>
+        Wave Period Tmax.
+      </description>
+    </field>
+    <field name="Wave Period Tz" abbrev="wave_period_tz" type="fp32_t" unit="s">
+      <description>
+        Wave Period Tz.
+      </description>
+    </field>
+    <field name="Significant Wave Height H1/3" abbrev="significant_wave_height_h1_3" type="fp32_t" unit="m">
+      <description>
+        Significant Wave Height H1/3.
+      </description>
+    </field>
+    <field name="Mean Spreading Angle" abbrev="mean_spreading_angle" type="fp32_t" unit="°">
+      <description>
+        Mean Spreading Angle.
+      </description>
+    </field>
+    <field name="First Order Spread" abbrev="first_order_spread" type="fp32_t" unit="°">
+      <description>
+        First Order Spread.
+      </description>
+    </field>
+    <field name="Long Crestedness Parameters" abbrev="long_crestedness_parameters" type="fp32_t">
+      <description>
+        Long Crestedness Parameters.
+      </description>
+    </field>
+    <field name="Heading" abbrev="heading" type="fp32_t" unit="°">
+      <description>
+        Heading.
+      </description>
+    </field>
+    <field name="Pitch" abbrev="pitch" type="fp32_t" unit="°">
+      <description>
+        Pitch.
+      </description>
+    </field>
+    <field name="Roll" abbrev="roll" type="fp32_t" unit="°">
+      <description>
+        Roll.
+      </description>
+    </field>
+    <field name="External Heading" abbrev="external_heading" type="fp32_t" unit="°">
+      <description>
+        External Heading.
+      </description>
+    </field>
+    <field name="StDev Heading" abbrev="stdev_heading" type="fp32_t" unit="°">
+      <description>
+        StDev Heading.
+      </description>
+    </field>
+    <field name="StDev Pitch" abbrev="stdev_pitch" type="fp32_t" unit="°">
+      <description>
+        StDev Pitch.
+      </description>
+    </field>
+    <field name="StDev Roll" abbrev="stdev_roll" type="fp32_t" unit="°">
+      <description>
+        StDev Roll.
+      </description>
+    </field>
+  </message>
+
   <message id="2000" name="GPIO State" abbrev="GpioState" source="vehicle" category="Actuation">
     <description>
       Current state of a GPIO.
