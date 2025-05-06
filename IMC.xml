@@ -620,16 +620,19 @@
     </field>
   </message>
 
-  <message id="9" name="Restart System" abbrev="RestartSystem" source="ccu" category="Core">
+  <message id="9" name="Restart" abbrev="Restart" source="ccu" category="Core">
     <description>
       Request the destination system to restart itself.
     </description>
-    <field name="Restart Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="RSTYPE">
+    <field name="Restart Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="RSTYPE">
       <value abbrev="DUNE" name="Dune" id="1">
         <description>Request a DUNE restart</description>
       </value>
       <value abbrev="SYSTEM" name="System" id="2">
         <description>Request a system restart.</description>
+      </value>
+      <value abbrev="TASK" name="Task" id="3">
+        <description>Request a DUNE Task restart.</description>
       </value>
     </field>
   </message>
