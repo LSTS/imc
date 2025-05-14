@@ -10520,6 +10520,13 @@
   </message>
 
   <message id="877" abbrev="MessagePart" name="Message Fragment" category="Networking">
+    <description>
+      This message is used to send a fragment of a message. The
+      fragments are sent in order, and the receiver must reassemble
+      them in the correct order.
+      The receiver can use the MessagePartControl message to inform the sender
+      of the status of the fragment transmission.
+    </description>
     <field name="Transmission Unique Id" abbrev="uid" type="uint8_t"/>
     <field name="Fragment Number" abbrev="frag_number" type="uint8_t"/>
     <field name="Total Number of fragments" abbrev="num_frags" type="uint8_t"/>
