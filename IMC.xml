@@ -11173,8 +11173,8 @@
       </description>
       <value abbrev="XYZ" name="xyz" id="0x01"/>
       <value abbrev="NED" name="ned" id="0x02"/>
-      <value abbrev="ENU" name="enu" id="0x03"/>
       <value abbrev="BEAMS" name="beams" id="0x04"/>
+      <value abbrev="ENU" name="enu" id="0x08"/>
     </field>
     <field name="Profile" abbrev="profile" type="message-list" message-type="CurrentProfileCell">
       <description>
