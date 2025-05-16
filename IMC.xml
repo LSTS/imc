@@ -624,12 +624,15 @@
     <description>
       Request the destination system to restart itself.
     </description>
-    <field name="Restart Type" abbrev="type" type="uint8_t" unit="Enumerated"  prefix="RSTYPE">
+    <field name="Restart Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="RSTYPE">
       <value abbrev="DUNE" name="Dune" id="1">
         <description>Request a DUNE restart</description>
       </value>
       <value abbrev="SYSTEM" name="System" id="2">
         <description>Request a system restart.</description>
+      </value>
+      <value abbrev="TASK" name="Task" id="3">
+        <description>Request a DUNE Task restart.</description>
       </value>
     </field>
   </message>
@@ -10517,10 +10520,52 @@
   </message>
 
   <message id="877" abbrev="MessagePart" name="Message Fragment" category="Networking">
+    <description>
+      This message is used to send a fragment of a message. The
+      fragments are sent in order, and the receiver must reassemble
+      them in the correct order.
+      The receiver can use the MessagePartControl message to inform the sender
+      of the status of the fragment transmission.
+    </description>
     <field name="Transmission Unique Id" abbrev="uid" type="uint8_t"/>
     <field name="Fragment Number" abbrev="frag_number" type="uint8_t"/>
     <field name="Total Number of fragments" abbrev="num_frags" type="uint8_t"/>
     <field name="Fragment Data" abbrev="data" type="rawdata"/>
+  </message>
+
+  <message id="878" abbrev="MessagePartControl" name="Message Fragment Control" category="Networking">
+    <description>
+      This message is used by the receiver of MessageParts messages
+      to inform the sender of the status of the reception of a message
+      in fragments.
+      The sender can then use this information to determine which
+      fragments were received and which ones were not.
+      This message is sent in response to a MessagePart message.
+    </description>
+    <field name="Transmission Unique Id" abbrev="uid" type="uint8_t"/>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <value abbrev="STATUS_RECEIVED" name="Status Received" id="0">
+        <description>
+          The status of the fragment transmission was received.
+        </description>
+      </value>
+      <value abbrev="REQUEST_RETRANSMIT" name="Request Retransmit" id="1">
+        <description>
+          The sender is requesting retransmission of the fragments.
+        </description>
+      </value>
+    </field>
+    <field name="Fragments IDs" abbrev="frag_ids" type="plaintext">
+      <description>
+        Comma-separated list of fragment numbers. Example: "1,2,3".
+        This field is used to inform the sender of the fragments that
+        should be considered. If this field starts with '!', it means
+        that the indicated fragments should not be considered. Example:
+        "!1,2,3" means that all fragments should be considered except
+        1,2,3. With this field equal to only "!" it means that all
+        fragments must be considered.
+      </description>
+    </field>
   </message>
 
   <message id="888" abbrev="NeptusBlob" name="Neptus Blob" category="CCU">
