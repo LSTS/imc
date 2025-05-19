@@ -3000,7 +3000,7 @@
 
   <message id="271" name="Wind Speed" abbrev="WindSpeed" source="vehicle" flags="periodic" category="Sensors">
     <description>
-      Measurement of wind speed.
+      Measurement of relative wind speed. (Meaning without correcting for vehicle effects).
     </description>
     <field name="Direction" abbrev="direction" type="fp32_t" unit="rad">
       <description>
@@ -11201,7 +11201,7 @@
 
   <message id="911" name="Absolute Wind" abbrev="AbsoluteWind" source="vehicle" flags="periodic" category="Sensors">
     <description>
-      Measurement of wind speed.
+      Measurement of absolute wind speed (Meaning without vehicle effects).
     </description>
     <field name="Direction" abbrev="direction" type="fp32_t" unit="rad">
       <description>
