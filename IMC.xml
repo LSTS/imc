@@ -1410,7 +1410,8 @@
       <value id="4" name="Redox" abbrev="REDOX"/>
       <value id="5" name="Chlorophyll" abbrev="CHLOROPHYLL"/>
       <value id="6" name="Turbidity" abbrev="TURBIDITY"/>
-      <value id="7" name="Current Velocity" abbrev="CURRENT_VELOCITY"/>
+      <value id="7" name="Current Velocity In x" abbrev="CURRENT_VELOCITY_U"/>
+      <value id="8" name="Current Velocity In y" abbrev="CURRENT_VELOCITY_V"/>
     </field>
     <field name="Number of Samples" abbrev="numSamples" type="uint8_t"/>
     <field name="Samples" abbrev="samples" type="message-list" message-type="ProfileSample"/>
