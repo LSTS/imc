@@ -1408,6 +1408,11 @@
       <value id="6" name="Turbidity" abbrev="TURBIDITY"/>
       <value id="7" name="Current Velocity In x" abbrev="CURRENT_VELOCITY_U"/>
       <value id="8" name="Current Velocity In y" abbrev="CURRENT_VELOCITY_V"/>
+      <value id="9" name="Absolute Wind" abbrev="ABSOLUTE_WIND">
+        <description>
+          Water parameter used to calculate the vertical profile.
+        </description>
+      </value>
     </field>
     <field name="Number of Samples" abbrev="numSamples" type="uint8_t"/>
     <field name="Samples" abbrev="samples" type="message-list" message-type="ProfileSample"/>
@@ -1419,7 +1424,7 @@
     <field name="Longitude" abbrev="lon" type="fp64_t" unit="°" >
     	<description>
         	Longitude where the profile was calculated.
-        </description>
+      </description>
     </field>
   </message>
   
