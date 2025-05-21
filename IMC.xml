@@ -1414,9 +1414,12 @@
       <value id="8" name="Current Velocity In y" abbrev="CURRENT_VELOCITY_V"/>
       <value id="9" name="Absolute Wind" abbrev="ABSOLUTE_WIND">
         <description>
-          Water parameter used to calculate the vertical profile.
+          In this case, the Depth value of the ProfileSample message indicates 
+          wind direction, in degrees.
         </description>
       </value>
+      <value id="10" name="Dissolved Organic Matter" abbrev="DISS_ORGANIC_MATTER"/>
+      <value id="11" name="Dissolved Oxygen" abbrev="DISS_OXYGEN"/>
     </field>
     <field name="Number of Samples" abbrev="numSamples" type="uint8_t"/>
     <field name="Samples" abbrev="samples" type="message-list" message-type="ProfileSample"/>
