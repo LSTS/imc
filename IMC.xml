@@ -11347,6 +11347,115 @@
       </description>
     </field>
   </message>
+  
+  <message id="2016" name="Query Typed Entity Parameters" abbrev="QueryTypedEntityParameters" source="vehicle" category="CCU">
+    <description>This message can be used to query/report the entities and respective parameters in the system</description>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Operation to perform.
+      </description>
+      <value id="0" name="Request" abbrev="REQUEST" />
+      <value id="1" name="Reply" abbrev="REPLY" />
+    </field>
+    <field name="Request identitier" abbrev="request_id" type="uint32_t">
+      <description>Echoes the request_id in the request</description>
+    </field>
+    <field name="Entity Name" abbrev="entity_name" type="plaintext">
+      <description>Entity Label of the task that's replying to the request</description>
+    </field>
+    <field name="Parameters" abbrev="parameters" type="message-list" message-type="TypedEntityParameter">
+      <description>Contains an optionally defined List of TypedEntityParameter as a response to a TypedEntityParamaters Request.</description>
+    </field>
+  </message>
+
+  <message id="2017" name="Typed Entity Parameter" abbrev="TypedEntityParameter" source="vehicle" category="CCU">
+    <description>
+      Entity parameter with all the data that defines an entity parameter.
+    </description>
+    <field name="Parameter Name" abbrev="name" type="plaintext">
+      <description>
+        Name of the parameter.
+      </description>
+    </field>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TYPE">
+      <value id="1" name="Boolean Domain" abbrev="BOOL" />
+      <value id="2" name="Integer Domain" abbrev="INT" />
+      <value id="3" name="Float Domain" abbrev="FLOAT" />
+      <value id="4" name="String Domain" abbrev="STRING" />
+      <value id="5" name="List of Booleans" abbrev="LIST_BOOL" />
+      <value id="6" name="List of Integers" abbrev="LIST_INT" />
+      <value id="7" name="List of Floats" abbrev="LIST_FLOAT" />
+      <value id="8" name="List of Strings" abbrev="LIST_STRING" />
+    </field>
+    <field name="Default Value" abbrev="default_value" type="plaintext">
+      <description>
+        Default value of the parameter.
+      </description>
+    </field>
+    <field name="Units" abbrev="units" type="plaintext">
+      <description>
+        The units of the field, if applicable
+      </description>
+    </field>
+    <field name="Description" abbrev="description" type="plaintext">
+      <description>
+        Description of the parameter
+      </description>
+    </field>
+    <field name="Values List" abbrev="values_list" type="plaintext">
+      <description>
+        Comma-separated list of possible values
+      </description>
+    </field>
+    <field name="Min Value" abbrev="min_value" type="fp32_t">
+      <description>
+        Optional. Min value of the parameter
+      </description>
+    </field>
+    <field name="Max Value" abbrev="max_value" type="fp32_t">
+      <description>
+        Optional. Max value of the parameter
+      </description>
+    </field>
+    <field name="List Min Size" abbrev="list_min_size" type="uint8_t">
+      <description>
+        When the parameter is a list, list_min_size indicates the minimum size of the list
+      </description>
+    </field>
+    <field name="List Max Size" abbrev="list_max_size" type="uint8_t">
+      <description>
+        When the parameter is a list, list_max_size indicates the maximum size of the list
+      </description>
+    </field>
+    <field name="Values If List" abbrev="values_if_list" type="message-list" message-type="ValuesIf">
+      <description>
+        A list of ValuesIf messages
+      </description>
+    </field>
+    <field name="Visibility" abbrev="visibility" type="uint8_t" unit="Enumerated" prefix="VISIBILITY">
+      <value id="0" name="User" abbrev="USER" />
+      <value id="1" name="Developer" abbrev="DEVELOPER" />
+    </field>
+    <field name="Scope" abbrev="scope" type="uint8_t" unit="Enumerated" prefix="SCOPE">
+      <value id="0" name="Global" abbrev="GLOBAL" />
+      <value id="1" name="Idle" abbrev="IDLE" />
+      <value id="2" name="Plan" abbrev="PLAN" />
+      <value id="3" name="Maneuver" abbrev="MANEUVER" />
+    </field>
+  </message>
+
+  <message id="2018" name="Values If" abbrev="ValuesIf" source="ccu,vehicle" category="Networking">
+    <description>This message is used to describe the ValuesIf content of a TypedEntityParameter.</description>
+    <field name="Param" abbrev="param" type="plaintext">
+      <description>Name of parameter to compare</description>
+    </field>
+    <field name="Value" abbrev="value" type="plaintext">
+      <description>Value to compare</description>
+    </field>
+    <field name="Values List" abbrev="values_list" type="plaintext">
+      <description>List of possible values if param=value</description>
+    </field>
+  </message>
 
   <message id="2022" name="Total Heading" abbrev="TotalHeading" source="vehicle" category="Sensors">
     <description>
