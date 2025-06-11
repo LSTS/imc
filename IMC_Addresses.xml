@@ -45,6 +45,8 @@
   <address id="0x08c2" name="hermes-desired"/>
   <address id="0x08c3" name="hermes-target"/>
   <address id="0x08c4" name="tex-wg"/>
+  <address id="0x08ca" name="waverider-1"/>
+  <address id="0x08cb" name="waverider-2"/>
   <!-- UAVs (LSTS) -->
   <address id="0x0c00" name="pixhawk-testbed"/>
   <address id="0x0c01" name="lusitania"/>
