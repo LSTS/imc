@@ -1412,14 +1412,20 @@
       <value id="6" name="Turbidity" abbrev="TURBIDITY"/>
       <value id="7" name="Current Velocity In x" abbrev="CURRENT_VELOCITY_U"/>
       <value id="8" name="Current Velocity In y" abbrev="CURRENT_VELOCITY_V"/>
-      <value id="9" name="Absolute Wind" abbrev="ABSOLUTE_WIND">
+      <value id="9" name="Absolute Wind Average" abbrev="ABSOLUTE_WIND_AVG">
         <description>
           In this case, the Depth value of the ProfileSample message indicates 
           wind direction, in degrees.
         </description>
       </value>
-      <value id="10" name="Dissolved Organic Matter" abbrev="DISS_ORGANIC_MATTER"/>
-      <value id="11" name="Dissolved Oxygen" abbrev="DISS_OXYGEN"/>
+      <value id="10" name="Absolute Wind Maximum" abbrev="ABSOLUTE_WIND_MAX">
+        <description>
+          In this case, the Depth value of the ProfileSample message indicates 
+          wind direction, in degrees.
+        </description>
+      </value>
+      <value id="11" name="Dissolved Organic Matter" abbrev="DISS_ORGANIC_MATTER"/>
+      <value id="12" name="Dissolved Oxygen" abbrev="DISS_OXYGEN"/>
     </field>
     <field name="Number of Samples" abbrev="numSamples" type="uint8_t"/>
     <field name="Samples" abbrev="samples" type="message-list" message-type="ProfileSample"/>
