@@ -11454,7 +11454,7 @@
         Amplitude of returning ping for the beam.
       </description>
     </field>
-    <field name="Correlation" abbrev="cor" type="uint8_t" unit="%" max="100" min="0">
+    <field name="Correlation" abbrev="cor" type="uint8_t" unit="%" max="100">
       <description>
         Autocorrelation of returning ping for the beam.
       </description>
