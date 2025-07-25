@@ -11322,6 +11322,36 @@
     </field>
   </message>
 
+  <message id="1004" name="Trigger Action" abbrev="TriggerAction" source="vehicle" category="Development">
+    <description>
+      Initiate/request some action on destination entity. The last should handle
+      message, additionally distinguishing requested actions, channels and so on
+      by specified 'act_id' field. As reply/response entity should use either the
+      this message with appropriate 'event' or some another predefined and
+      expected by initial source of request.
+    </description>
+    <field name="Event" abbrev="event" type="uint8_t" unit="Enumerated" prefix="TAE">
+      <description>
+        Identifies type of message and/or action result.
+      </description>
+      <value id="0" name="Request" abbrev="REQUEST"/>
+      <value id="1" name="Success" abbrev="SUCCESS"/>
+      <value id="2" name="Failure" abbrev="FAILURE"/>
+    </field>
+    <field name="Action Identifier" abbrev="act_id" type="uint16_t" unit="byte">
+      <description>
+        Specifies action, channel or defines other predefined by source and
+        destination entities information.
+      </description>
+    </field>
+    <field name="Custom settings for triggered action" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for triggered action.
+        Example: "lat=50.344456;lon=23.3400019"
+      </description>
+    </field>
+  </message>
+
   <message id="1014" name="Current Profile" abbrev="CurrentProfile" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Contains a profile of water velocities measured relative to the vehicle
@@ -11537,6 +11567,77 @@
     <field name="StDev Roll" abbrev="stdev_roll" type="fp32_t" unit="°">
       <description>
         The standard deviation of roll measurements, indicating fluctuations in vessel roll motion.
+      </description>
+    </field>
+  </message>
+
+  <message id="1060" name="HoPS Transmit" abbrev="HoPSTX" source="vehicle" category="Acoustic Communication">
+    <description>
+      Describes transmission (TX) of an acoustic msg over HoPS.
+    </description>
+    <field name="HoPS Destination" abbrev="hops_dst" type="uint8_t">
+      <description>
+        HoPS address of the destination.
+      </description>
+    </field>
+    <field name="Priority" abbrev="prio" type="uint8_t" unit="Enumerated" prefix="PRIO">
+      <description>
+        Priority of the message.
+      </description>
+      <value id="0" name="High" abbrev="HIGH"/>
+      <value id="1" name="Normal" abbrev="NORMAL"/>
+      <value id="255" name="Attached" abbrev="ATTACHED"/>
+    </field>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        Binary data to be transmitted.
+      </description>
+    </field>
+    <field name="Extra Information" abbrev="extra" unit="TupleList" type="plaintext">
+      <description>
+        Additional information about the detection.This field can be used to add
+        new information in a flexible and backward compatible way by adding new
+        key-value pairs.
+
+        Example: "tag=danger;model=generic-1.3"
+      </description>
+    </field>
+  </message>
+
+  <message id="1061" name="HoPS Receive" abbrev="HoPSRX" source="vehicle" category="Acoustic Communication">
+    <description>
+      Describes reception (RX) of an acoustic msg over HoPS.
+    </description>
+    <field name="HoPS Source" abbrev="hops_src" type="uint8_t">
+      <description>
+        HoPS address of the source.
+      </description>
+    </field>
+    <field name="HoPS Destination" abbrev="hops_dst" type="uint8_t">
+      <description>
+        HoPS address of the destination.
+      </description>
+    </field>
+    <field name="Priority" abbrev="prio" type="uint8_t" unit="Enumerated" prefix="PRIO">
+      <description>
+        Priority of the message.
+      </description>
+      <value id="0" name="High" abbrev="HIGH"/>
+      <value id="1" name="Normal" abbrev="NORMAL"/>
+      <value id="255" name="Attached" abbrev="ATTACHED"/>
+    </field>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        Binary data to be transmitted.
+      </description>
+    </field>
+    <field name="Extra Information" abbrev="extra" unit="TupleList" type="plaintext">
+      <description>
+        Additional information about the detection.This field can be used to add
+        new information in a flexible and backward compatible way by adding new
+        key-value pairs.
+
+        Example: "tag=danger;model=generic-1.3"
       </description>
     </field>
   </message>
