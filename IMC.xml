@@ -10114,6 +10114,16 @@
           Ignore safety checks such as "transducer not connected".
         </description>
       </value>
+      <value abbrev="JANUS_SEND" name="Janus Send" id="0x05">
+        <description>
+          Send data as a JANUS message.
+        </description>
+      </value>
+      <value abbrev="JANUS_GET_CARGO" name="Janus Get Cargo" id="0x06">
+        <description>
+          Use this flag to retrieve the cargo of the last JANUS message.
+        </description>
+      </value>
     </field>
     <field name="Data" abbrev="data" type="rawdata">
       <description>
@@ -10153,6 +10163,16 @@
       <value abbrev="DELAYED" name="Delayed" id="0x02">
         <description>
           The data frame was transmitted using the DELAYED flag.
+        </description>
+      </value>
+      <value abbrev="JANUS_BASELINE" name="Janus Baseline" id="0x03">
+        <description>
+          Indicates the data is a JANUS baseline message.
+        </description>
+      </value>
+      <value abbrev="JANUS_CARGO" name="Janus Cargo" id="0x04">
+        <description>
+          Indicates the data is the cargo of a JANUS message.
         </description>
       </value>
     </field>
