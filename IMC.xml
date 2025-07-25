@@ -10329,11 +10329,7 @@
       </description>
       <value id="0" name="Send Request" abbrev="SEND_REQ"/>
       <value id="1" name="Baseline Packet Received" abbrev="BASELINE_RECV"/>
-      <value id="2" name="Baseline Unpack Request" abbrev="UNPACK_REQ"/>
-      <value id="3" name="Baseline Unpack Reply" abbrev="UNPACK_REPLY"/>
-      <value id="4" name="Baseline Unpack Error" abbrev="UNPACK_ERROR"/>
-      <value id="5" name="Send Success" abbrev="SEND_SUCCESS"/>
-      <value id="6" name="Send Error" abbrev="SEND_ERROR"/>
+      <value id="2" name="Cargo Received" abbrev="CARGO_RECV"/>
     </field>
 
     <field name="Baseline Packet Flags" abbrev="baseline_flags" type="uint8_t" unit="Bitfield" prefix="JANUSBL">
