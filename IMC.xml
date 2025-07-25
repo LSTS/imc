@@ -10290,109 +10290,6 @@
     </field>
   </message>
 
-  <message id="819" name="UamJanusPacket" abbrev="UamJanusPacket" source="ccu,vehicle" category="Acoustic Communication">
-    <description>
-      This message is used to send and receive Janus packets over the acoustic channel, agnostic of underlying modem.
-    </description>
-
-    <field name="Sequence Id" abbrev="seq" type="uint16_t">
-      <description>
-        A sequence identifier that should be incremented for each
-        request. This number will then be used to issue transmission
-        status updates via the message UamTxStatus.
-      </description>
-    </field>
-
-    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
-      <description>
-        Operation on the Janus packet.
-      </description>
-      <value id="0" name="Send Request" abbrev="SEND_REQ"/>
-      <value id="1" name="Baseline Packet Received" abbrev="BASELINE_RECV"/>
-      <value id="2" name="Baseline Unpack Request" abbrev="UNPACK_REQ"/>
-      <value id="3" name="Baseline Unpack Reply" abbrev="UNPACK_REPLY"/>
-      <value id="4" name="Baseline Unpack Error" abbrev="UNPACK_ERROR"/>
-      <value id="5" name="Send Success" abbrev="SEND_SUCCESS"/>
-      <value id="6" name="Send Error" abbrev="SEND_ERROR"/>
-    </field>
-
-    <field name="Baseline Packet Flags" abbrev="baseline_flags" type="uint8_t" unit="Bitfield" prefix="JANUSBL">
-      <description>
-        Janus baseline packet flags.
-      </description>
-      <value abbrev="MOBILE" name="Mobile" id="0x01">
-        <description>
-          Indicates that the nature of the transmitting platform is mobile.
-        </description>
-      </value>
-      <value abbrev="REPEAT_INTERVAL" name="Repeat Interval" id="0x02">
-        <description>
-          Repeat interval, as specified in the time field.
-        </description>  
-      </value>
-      <value abbrev="RESERVATION_TIME" name="Reservation Time" id="0x04">
-        <description>
-          Reservation time as specified in the time field.
-        </description>  
-      </value>
-      <value abbrev="DECODE_CAPABILITY" name="Decode Capability" id="0x08">
-        <description>
-          Indicates the decode capability of the transmitting platform.
-        </description>
-      </value>
-      <value abbrev="FORWARD_CAPABILITY" name="Forward Capability" id="0x16">
-        <description>
-          Indicates the forwarding capability of the transmitting platform.
-        </description>
-      </value>
-    </field>
-
-      <field name="Time" abbrev="time" type="fp32_t" unit="s">
-        <description>
-          Time of the packet, in seconds. To be interpreted according to the flags.
-          If the REPEAT_INTERVAL flag is set, this field indicates the time interval
-          between packets. If the RESERVATION_TIME flag is set, sthis field indicates 
-          the time for the reservation.
-        </description>
-      </field>
-
-      <field name="Class User Id" abbrev="class_user_id" type="uint8_t">
-        <description>
-          Class user id.
-        </description>
-      </field>
-
-      <field name="Application Type" abbrev="application_type" type="uint8_t">
-        <description>
-          Application type.
-        </description>
-      </field>
-
-      <field name="Application Data Block" abbrev="adb" type="rawdata">
-        <description>
-          The Application Data Block corresponding to the baseline packet.
-        </description>
-      </field>
-      
-      <field name="Error" abbrev="error" type="plaintext">
-        <description>
-          Human-readable error message.
-        </description>
-      </field>
-
-      <field name="Length" abbrev="length" type="uint8_t">
-        <description>
-          Length of Janus cargo.
-        </description>
-      </field>
-
-      <field name="Janus Cargo" abbrev="cargo" type="rawdata">
-        <description>
-          Janus cargo, sent after the baseline packet.
-        </description>
-      </field>
-  </message>
-
   <message id="820" name="Formation Control Parameters" abbrev="FormCtrlParam" source="ccu,vehicle" category="Maneuvering">
     <description>
       Formation controller paramenters, as: trajectory gains, control boundary layer thickness, and formation shape gains.
@@ -11881,6 +11778,4 @@
       </description>
     </field>
   </message>
-
-  
 </messages>
