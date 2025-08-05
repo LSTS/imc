@@ -2282,6 +2282,13 @@
           as "transducer not connected".
         </description>
       </value>
+      <value id="19" name="Fragment Message" abbrev="MSG_FRAGMENT">
+        <description>
+          Request to fragment message over acoustic channel. The message to send
+          is specified by the 'msg' field. Size of fragment is specified in the
+          'range' field.
+        </description>
+      </value>
     </field>
     <field name="System" abbrev="system" type="plaintext">
       <description>
