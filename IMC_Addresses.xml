@@ -28,8 +28,11 @@
   <address id="0x001F" name="lauv-xplore-2"/>
   <address id="0x0020" name="lauv-xplore-3"/>
   <address id="0x0021" name="lauv-xplore-4"/>
-  <address id="0x0022" name="lauv-xplore-5"/>
+  <address id="0x0022" name="lauv-xplore-5"/>  
   <address id="0x0023" name="lauv-nemo-1"/>
+  <address id="0x0024" name="lauv-xplore-6"/>
+  <address id="0x0025" name="lauv-xplore-7"/>
+  <address id="0x0026" name="lauv-xplore-8"/>  
   <address id="0x00D1" name="lauv-simulator-1"/>
   <address id="0x00D2" name="apdr-1"/>
   <!-- ROVs (LSTS) -->
