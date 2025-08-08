@@ -227,6 +227,22 @@
   <address id="0x8500" name="wavy-0"/>
   <address id="0x8501" name="wavy-1"/>
   <address id="0x8502" name="wavy-2"/>
+  <!-- KTH MRL (ASVs) -->
+  <address id="0x8701" name="Duckling-1"/>
+  <address id="0x8702" name="Duckling-2"/> 
+  <address id="0x8703" name="Duckling-3"/>
+  <address id="0x8704" name="Duckling-4"/> 
+  <address id="0x8705" name="Vane-1"/> 
+  <!-- KTH MRL (AUVs) -->
+  <address id="0x8764" name="LoLo-1"/>
+  <!-- KTH MRL (UAVs) -->
+  <address id="0x87C8" name="Hawk-1"/>
+  <address id="0x87C9" name="Hawk-2"/>
+  <!-- NTNU AURlab (AUVs, ASVs) -->
+  <address id="0x8801" name="asv-jetyak"/>
+  <address id="0x8802" name="remus-mjolner"/> 
+  <!-- NTNU AURlab (Self containing sensor systems) -->
+  <address id="0x8901" name="manta-jetyak"/>
   <!-- Other Sensors (Self containing sensor systems) -->
   <address id="0x8803" name="ntnu-autonaut"/>
   <address id="0x8804" name="ntnu-autonaut-L3"/>
