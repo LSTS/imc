@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+ Copyright (C) 2007-2023 Laboratório de Sistemas e Tecnologia Subaquática   +
++ Copyright (C) 2007-2025 Laboratório de Sistemas e Tecnologia Subaquática   +
 + Departamento de Engenharia Electrotécnica e de Computadores                +
 + Rua Dr. Roberto Frias, 4200-465 Porto, Portugal                            +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1437,7 +1437,7 @@
     <field name="Longitude" abbrev="lon" type="fp64_t" unit="°" >
     	<description>
         	Longitude where the profile was calculated.
-      </description>
+        </description>
     </field>
   </message>
   
@@ -7548,7 +7548,7 @@
     </field>
   </message>
 
-   <message id="489" name="Sample Maneuver" abbrev="Sample" source="ccu" category="Maneuvering">
+  <message id="489" name="Sample Maneuver" abbrev="Sample" source="ccu" category="Maneuvering">
     <description>
       A "Sample" is a maneuver specifying a movement of the vehicle to a
       target waypoint. The waypoint is described by the WGS-84
@@ -11392,7 +11392,7 @@
         Amplitude of returning ping for the beam.
       </description>
     </field>
-    <field name="Correlation" abbrev="cor" type="uint8_t" unit="%" max="100" min="0">
+    <field name="Correlation" abbrev="cor" type="uint8_t" unit="%" min="0" max="100">
       <description>
         Autocorrelation of returning ping for the beam.
       </description>
@@ -11774,7 +11774,6 @@
       </description>
     </field>
   </message>
-  
 
   <message id="2022" name="Total Heading" abbrev="TotalHeading" source="vehicle" category="Sensors">
     <description>
