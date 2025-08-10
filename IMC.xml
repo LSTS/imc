@@ -214,6 +214,7 @@
     <unit abbrev="PSU" name="Pratical Salinity Unit"/>
     <unit abbrev="1/m" name="Inverse Meter"/>
     <unit abbrev="px" name="Pixel"/>
+    <unit abbrev="mg/L" name="Milligram per liter"/>
     <unit abbrev="µg/L" name="Microgram per liter"/>
     <unit abbrev="µM" name="Micromolar"/>
     <unit abbrev="rad" name="Radian"/>
@@ -304,6 +305,7 @@
       <value id="0x00000800" abbrev="FORCE" name="Force Control"/>
       <value id="0x00001000" abbrev="VELOCITY" name="Velocity Control"/>
       <value id="0x00002000" abbrev="THROTTLE" name="Throttle Control"/>
+      <value id="0x00004000" abbrev="HOVERING" name="Hovering Control"/>
       <value id="0x40000000" abbrev="EXTERNAL" name="Unspecified External Control"/>
       <value id="0x80000000" abbrev="NO_OVERRIDE" name="Non-overridable control"/>
       <value id="0xFFFFFFFF" abbrev="ALL" name="All"/>
@@ -333,6 +335,7 @@
       <message-type abbrev="IdleManeuver"/>
       <message-type abbrev="ImageTracking"/>
       <message-type abbrev="Elevator"/>
+      <message-type abbrev="FollowCommand"/>
       <message-type abbrev="FollowPath"/>
       <message-type abbrev="FollowPoint"/>
       <message-type abbrev="FollowReference"/>
@@ -2120,6 +2123,102 @@
     <field name="Beacons" abbrev="beacons" type="message-list" message-type="LblBeacon">
       <description>
         A list of LBL beacon configuration messages.
+      </description>
+    </field>
+  </message>
+
+  <message id="204" name="LBL Beacon Configuration Extended" abbrev="LblBeaconExtended" source="ccu,vehicle" category="Acoustic Communication">
+    <description>
+      Position and configuration of an LBL transponder (beacon). The LBL transponder may be fixed or mobile, depending on TTL value.
+    </description>
+    <field name="Beacon Name" abbrev="beacon" type="plaintext">
+      <description>
+        Name/Label of the acoustic transponder.
+      </description>
+    </field>
+    <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude coordinate.
+      </description>
+    </field>
+    <field name="Longitude WGS-84" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude coordinate.
+      </description>
+    </field>
+    <field name="Depth" abbrev="depth" type="fp32_t" unit="m">
+      <description>
+        The beacon's depth.
+      </description>
+    </field>
+    <field name="Interrogation channel" abbrev="query_channel" type="uint8_t">
+      <description>
+        Interrogation channel.
+      </description>
+    </field>
+    <field name="Reply channel" abbrev="reply_channel" type="uint8_t">
+      <description>
+        Reply channel.
+      </description>
+    </field>
+    <field name="Transponder delay" abbrev="transponder_delay" type="uint8_t" unit="ms">
+      <description>
+        Transponder delay.
+      </description>
+    </field>
+    <field name="Configuration Timestamp" abbrev="ctime" type="fp64_t" unit="s">
+      <description>
+        Epoch time of this beacon configuration. For *ttl* seconds after this instant, position is estimated 
+        to vary according to *vx*, *vy* and *vz*.
+      </description>
+    </field>
+    <field name="Time to live" abbrev="ttl" type="uint16_t" unit="s">
+      <description>
+        Defines if LBL Beacon is fixed or mobile. If set to 0, LBL Beacon is fixed. Otherwise, it's the time, 
+        in seconds, that the current position is considered valid.
+      </description>
+    </field>
+    <field name="Ground Velocity X (North)" abbrev="vx" type="fp32_t" unit="m/s">
+      <description>
+        For mobile LBL Beacons. Ground Velocity xx axis velocity component.
+      </description>
+    </field>
+    <field name="Ground Velocity Y (East)" abbrev="vy" type="fp32_t" unit="m/s">
+      <description>
+        For mobile LBL Beacons. Ground Velocity yy axis velocity component.
+      </description>
+    </field>
+    <field name="Ground Velocity Z (Down)" abbrev="vz" type="fp32_t" unit="m/s">
+      <description>
+        For mobile LBL Beacons. Ground Velocity zz axis velocity component.
+      </description>
+    </field>
+  </message>
+
+  <message id="205" name="LBL Configuration Extended" abbrev="LblConfigExtended" source="ccu,vehicle" category="Acoustic Communication">
+    <description>
+      Long Base Line configuration.
+    </description>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <description>
+        Used to define the type of the operation this message holds.
+      </description>
+      <value abbrev="SET_CFG" name="Set LBL Configuration" id="0">
+        <description>Set the beacons configuration aboard the vehicle.</description>
+      </value>
+      <value abbrev="GET_CFG" name="Retrieve LBL Configuration" id="1">
+        <description>Request the vehicle to send its current beacons configuration.</description>
+      </value>
+      <value abbrev="CUR_CFG" name="Reply to a GET command" id="2">
+        <description>Reply from vehicle with its current beacons configuration.</description>
+      </value>
+      <value abbrev="POS_CFG" name="Update LBL Configuration (beacons position)" id="3">
+        <description>Update the beacons position aboard the vehicle.</description>
+      </value>
+    </field>
+    <field name="Beacons" abbrev="beacons" type="message-list" message-type="LblBeaconExtended">
+      <description>
+        A list of LBL Beacon Configuration Extended messages.
       </description>
     </field>
   </message>
@@ -11646,7 +11745,7 @@
         Amplitude of returning ping for the beam.
       </description>
     </field>
-    <field name="Correlation" abbrev="cor" type="uint8_t" unit="%" min="0" max="100">
+    <field name="Correlation" abbrev="cor" type="uint8_t" unit="%" max="100">
       <description>
         Autocorrelation of returning ping for the beam.
       </description>
@@ -11799,6 +11898,48 @@
       <description>
         The standard deviation of roll measurements, indicating fluctuations in vessel roll motion.
       </description>
+    </field>
+  </message>
+
+  <message id="1102" name="File Sample Event" abbrev="FileSampleEvent" source="vehicle" category="Networking">
+    <description>
+      Report a sample stored to disk.
+    </description>
+    <field name="File Type" abbrev="fstype" type="uint8_t" unit="Enumerated" prefix="FSTYPE">
+      <description>
+        Type of event.
+      </description>
+      <value id="0" name="Image" abbrev="IMAGE"/>
+      <value id="1" name="Audio" abbrev="AUDIO"/>
+      <value id="2" name="Sonar" abbrev="SONAR"/>
+      <value id="255" name="Other" abbrev="OTHER"/>
+    </field>
+    <field name="File name" abbrev="filename" type="plaintext">
+      <description>
+        File name this event is related to.
+      </description>
+    </field>
+  </message>
+
+  <message id="1103" name="Query GSM Credit" abbrev="QueryGsmCredit" category="Networking">
+    <description>Request to check gsm credit</description>
+    <field name="Request ID" abbrev="req_id" type="uint16_t"></field>
+  </message>
+
+  <message id="1104" name="File Classification Event" abbrev="FileClassification" source="vehicle" category="Networking">
+    <description>Signals that an object has been detected by any of the vehicle's sensors</description>
+    <field name="Original Filepath" abbrev="original_filepath" type="plaintext"/>
+    <field name="Resized Filepath" abbrev="resized_filepath" type="plaintext"/>
+    <field name="Classification Prediction" abbrev="class_prediction" type="plaintext"/>
+    <field name="Confidence Value" abbrev="confidence" type="uint8_t" max="100"/>
+    <field name="File Type" abbrev="fstype" type="uint8_t" unit="Enumerated" prefix="FSTYPE">
+      <description>
+        Type of event.
+      </description>
+      <value id="0" name="Image" abbrev="IMAGE"/>
+      <value id="1" name="Audio" abbrev="AUDIO"/>
+      <value id="2" name="Sonar" abbrev="SONAR"/>
+      <value id="255" name="Other" abbrev="OTHER"/>
     </field>
   </message>
 
@@ -12237,4 +12378,187 @@
       </description>
     </field>
   </message>
+
+  <message id="2023" name="Satellites in View" abbrev="SatellitesInView" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      This message is used to report the number of satellites in view per constellation. The constellation should be provided by the Entity label.
+    </description>
+    <field name="Number of satellites" abbrev="nsat" type="uint8_t">
+      <description>
+        Number of satellites in view.
+      </description>
+    </field>
+  </message>
+
+  <message id="2024" name="GNSS Hardware Monitor" abbrev="GnssHwMon" source="vehicle"
+    flags="periodic" category="Sensors">
+    <description>GNSS debug information</description>
+    <field name="Jamming Probability" abbrev="jamming_prob" type="uint8_t" unit="%" max="100">
+      <description>
+        Probability of jamming, provided by the GNSS jamming indicator
+      </description>
+    </field>
+    <field name="Jamming Status" abbrev="jam_stat" type="uint8_t" unit="Enumerated" prefix="JS">
+      <description>
+        Jamming Status
+      </description>
+      <value id="0" name="Unknown" abbrev="UNKNOWN">
+        <description>Jamming/interference monitor not enabled, uninitializedor antenna disconnected
+        </description>
+      </value>
+      <value id="1" name="OK" abbrev="OK">
+        <description>no interference detected</description>
+      </value>
+      <value id="2" name="Warning" abbrev="WAR">
+        <description>position ok but interference is visible (above thethresholds)</description>
+      </value>
+      <value id="3" name="Critical" abbrev="CRIT">
+        <description>no reliable position fix and interference is visible (above the thresholds); interference is probable reason why there is no fix</description>
+      </value>
+    </field>
+    <field name="RF noise" abbrev="rf_noise" type="uint16_t">
+      <description>RF noise level as seen by the GNSS core</description>
+    </field>
+    <field name="Antenna Status" abbrev="ant_stat" type="uint8_t" unit="Enumerated" prefix="AS">
+      <description>Status of the antenna</description>
+      <value id="0" name="Initializing" abbrev="INIT">
+        <description>Initializing</description>
+      </value>
+      <value id="1" name="Unknown" abbrev="UNKNOWN">
+        <description>Unknown</description>
+      </value>
+      <value id="2" name="OK" abbrev="OK">
+        <description>OK</description>
+      </value>
+      <value id="3" name="Short" abbrev="SHORT">
+        <description>Short</description>
+      </value>
+      <value id="4" name="Open" abbrev="OPEN">
+        <description>Open</description>
+      </value>
+    </field>
+    <field name="Antenna Power" abbrev="ant_pwr" type="uint8_t" unit="Enumerated" prefix="AP">
+      <description>Status of the antenna power</description>
+      <value id="0" name="Off" abbrev="OFF">
+        <description>Antenna powered off</description>
+      </value>
+      <value id="1" name="On" abbrev="ON">
+        <description>Antenna powered on</description>
+      </value>
+      <value id="2" name="Unknown" abbrev="UNKNOWN">
+        <description>Antenna state unknown</description>
+      </value>
+    </field>
+  </message>
+  <message id="2025" name="Pulse Width" abbrev="PulseWidth" source="vehicle" category="Actuation">
+    <description>
+      Logs the commanded pulse width for motors or servos.
+      Use the entity label to identify the channel.
+    </description>
+    <field name="Value" abbrev="value" type="uint16_t" unit="µs">
+      <description>
+        The commanded pulse width in microseconds.
+      </description>
+    </field>
+  </message>
+
+  <message id="2026" name="Specific Conductance" abbrev="SpecificConductance" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Report of specific conductance.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="S/m">
+      <description>
+        The value of the specific conductance (temperature compensated conductivity).
+      </description>
+    </field>
+  </message>
+
+  <message id="2027" name="Ammonia" abbrev="Ammonia" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Ammonia (NH3) measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="mg/L">
+      <description>
+        Ammonia (NH3) reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="2028" name="Ammonium" abbrev="Ammonium" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Ammonium (NH4) measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="mg/L">
+      <description>
+        Ammonium (NH4) reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="2029" name="Nitrate" abbrev="Nitrate" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Nitrate (NO3) measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="mg/L">
+      <description>
+        Nitrate (NO3) reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="2030" name="Nitrate-N" abbrev="NitrateN" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Nitrate-N (NO3-N) measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="mg/L">
+      <description>
+        Nitrate-N (NO3-N) reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="2031" name="Chloride" abbrev="Chloride" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Chloride measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="mg/L">
+      <description>
+        Chloride reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="2032" name="Total Dissolved Solids" abbrev="TDS" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Total Dissolved Solids measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="mg/L">
+      <description>
+        Total Dissolved Solids reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="2033" name="Total Suspended Solids" abbrev="TSS" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Total Suspended Solids measurement.
+    </description>
+    <field name="Value" abbrev="value" type="fp32_t" unit="mg/L">
+      <description>
+        Total Suspended Solids reading.
+      </description>
+    </field>
+  </message>
+
+  <message id="2034" name="Non-linear Function Conductivity" abbrev="NLF" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Non-linear Function Conductivity (nLF).
+    </description>
+    <field name="nLF" abbrev="value" type="fp32_t" unit="S/m">
+      <description>
+        The value of the non-linear function conductivity.
+      </description>
+    </field>
+  </message>
+  
 </messages>
