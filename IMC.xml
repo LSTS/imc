@@ -10129,6 +10129,8 @@
       <description>
         The actual data frame to transmit. The data size shall not exceed
         the MTU of the acoustic modem.
+        In case the JANUS_GET_CARGO flag is set this field is size 1 and 
+        contains the cargo length.
       </description>
     </field>
   </message>
