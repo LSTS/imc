@@ -11785,4 +11785,26 @@
       </description>
     </field>
   </message>
+
+  <message id="2023" name="HTTP Action" abbrev="HTTPAction" source="vehicle" category="Networking">
+    <description>
+      This message is used to exectue HTTP actions.
+    </description>
+    <field name="Id" abbrev="id" type="uint32_t">
+      <description>
+        Action identifier.
+      </description>
+    </field>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <value id="0" name="Resquest" abbrev="REQUEST" />
+      <value id="1" name="Reply" abbrev="REPLY" />
+      <value id="2" name="Register" abbrev="REGISTER" />
+      <value id="3" name="Unregister" abbrev="UNREGISTER" />
+    </field>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        Data associated with the action.
+      </description>
+    </field>
+  </message>
 </messages>
