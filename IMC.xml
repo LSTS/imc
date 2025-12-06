@@ -10056,6 +10056,19 @@
     <field name="Target Size" abbrev="tsize" type="uint8_t"/>
   </message>
 
+  <message id="704" name="Image Snippet" abbrev="ImageSnippet" source="vehicle" category="Vision">
+    <description>
+      Small image encoded as several frames (transferable over low bandwidth lossy links).
+    </description>
+    <field name="Snippet Id" abbrev="snippet_id" type="uint16_t"/>
+    <field name="Total Frames" abbrev="total_frames" type="uint8_t"/>
+    <field name="Frame Number" abbrev="frame_id" type="uint8_t"/>
+    <field name="Codec" abbrev="codec" type="uint8_t" unit="Enumerated" prefix="CODEC">
+      <value id="0" name="JPEG2000" abbrev="JPEG2000"/>
+    </field>
+    <field name="Data" abbrev="data" type="rawdata"/>
+  </message>
+
   <!-- Maneuvering 2 -->
   <message id="719" name="Maneuver Done" abbrev="ManeuverDone" source="ccu, vehicle" category="Maneuvering">
     <description>
