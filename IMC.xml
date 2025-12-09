@@ -4304,6 +4304,22 @@
     </field>
   </message>
 
+  <message id="317" name="Desired Servo Position" abbrev="DesiredServoPosition" source="vehicle" category="Actuation">
+    <description>
+      Desired position of a fin.
+    </description>
+    <field name="Servo Identifier" abbrev="id" type="uint8_t">
+      <description>
+        Servo identifier.
+      </description>
+    </field>
+    <field name="Position" abbrev="position" type="fp32_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        Desired servo position.
+      </description>
+    </field>
+  </message>
+
   <!-- Navigation -->
   <message id="350" name="Estimated State" abbrev="EstimatedState" source="vehicle" flags="periodic" category="Navigation">
     <description>
