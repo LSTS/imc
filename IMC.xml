@@ -11807,4 +11807,40 @@
       </description>
     </field>
   </message>
+
+  <message id="2024" name="I2C Action" abbrev="I2CAction" source="vehicle" category="Networking">
+    <description>
+      This message is used to exectue I2C actions.
+    </description>
+    <field name="Id" abbrev="id" type="uint32_t">
+      <description>
+        Action identifier.
+      </description>
+    </field>
+    <field name="Address" abbrev="address" type="uint16_t">
+      <description>
+        Device address.
+      </description>
+    </field>
+    <field name="Lenght" abbrev="length" type="uint16_t">
+      <description>
+        Number of bytes.
+      </description>
+    </field>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <value id="0" name="Read" abbrev="READ" />
+      <value id="1" name="Write" abbrev="WRITE" />
+    </field>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        Data associated with the action.
+      </description>
+    </field>
+    <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="STAT">
+      <value id="0" abbrev="SUCCESS" name="Success"/>
+      <value id="1" abbrev="TEMPORARY_ERROR" name="Temporary Error"/>
+      <value id="2" abbrev="PERMANENT_ERROR" name="Permanent Error"/>
+      <value id="3" abbrev="INV_ADDR" name="Invalid Address"/>
+    </field>
+  </message>
 </messages>
