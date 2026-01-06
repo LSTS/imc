@@ -11772,17 +11772,6 @@
     </field>
   </message>
 
-  <message id="2019" name="Typed Entity Parameter Editor" abbrev="TypedEntityParameterEditor" source="ccu,vehicle" category="CCU">
-    <description>This message is used to describe the ValuesIf content of a TypedEntityParameter.</description>
-    <field name="Value" abbrev="value" type="plaintext">
-      <description>
-        String name of the editor to be used for this entity parameters.
-        This value is advisory only. The receiving end should try to honor it,
-        for the edition respect more complicated logic that Values-If can provide.
-      </description>
-    </field>
-  </message>
-
   <message id="2021" name="Version Info" abbrev="VersionInfo" source="vehicle" category="Core">
     <description>
       This message is used to query / report version information related to an entity.
@@ -11824,4 +11813,16 @@
       </description>
     </field>
   </message>
+
+  <message id="2036" name="Typed Entity Parameter Editor" abbrev="TypedEntityParameterEditor" source="ccu,vehicle" category="CCU">
+    <description>This message is used to describe the ValuesIf content of a TypedEntityParameter.</description>
+    <field name="Value" abbrev="value" type="plaintext">
+      <description>
+        String name of the editor to be used for this entity parameters.
+        This value is advisory only. The receiving end should try to honor it,
+        for the edition respect more complicated logic that Values-If can provide.
+      </description>
+    </field>
+  </message>
+
 </messages>
