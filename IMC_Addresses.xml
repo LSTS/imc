@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+ Copyright (C) 2007-2018 Laboratório de Sistemas e Tecnologia Subaquática   +
++ Copyright (C) 2007-2021 Laboratório de Sistemas e Tecnologia Subaquática   +
 + Departamento de Engenharia Electrotécnica e de Computadores                +
 + Rua Dr. Roberto Frias, 4200-465 Porto, Portugal                            +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -30,7 +30,11 @@
   <address id="0x0021" name="lauv-xplore-4"/>
   <address id="0x0022" name="lauv-xplore-5"/>
   <address id="0x0023" name="lauv-nemo-1"/>
+  <address id="0x0024" name="lauv-xplore-6"/>
+  <address id="0x0025" name="lauv-xplore-7"/>
+  <address id="0x0026" name="lauv-xplore-8"/>
   <address id="0x00D1" name="lauv-simulator-1"/>
+  <address id="0x00D2" name="apdr-1"/>
   <!-- ROVs (LSTS) -->
   <address id="0x0401" name="rov-ies"/>
   <address id="0x0402" name="adamastor"/>
@@ -38,10 +42,15 @@
   <!-- ASVs (LSTS) -->
   <address id="0x0801" name="swordfish"/>
   <address id="0x0802" name="caravela"/>
+  <address id="0x0803" name="otter"/>
+  <address id="0x0804" name="caravel"/>
+  <address id="0x0805" name="autonaut-01"/>
   <address id="0x08c1" name="hermes"/>
   <address id="0x08c2" name="hermes-desired"/>
   <address id="0x08c3" name="hermes-target"/>
   <address id="0x08c4" name="tex-wg"/>
+  <address id="0x08ca" name="waverider-1"/>
+  <address id="0x08cb" name="waverider-2"/>
   <!-- UAVs (LSTS) -->
   <address id="0x0c00" name="pixhawk-testbed"/>
   <address id="0x0c01" name="lusitania"/>
@@ -153,6 +162,9 @@
   <address id="0x6009" name="lauv-noptilus-3-cpu-cam"/>
   <address id="0x6010" name="lauv-seacon-3-aux"/>
   <address id="0x6011" name="lauv-seacon-3-cpu-cam"/>
+  <address id="0x6012" name="lauv-seacon-2-aux"/>
+  <address id="0x6013" name="lauv-seacon-2-cpu-cam"/>
+  <address id="0x6014" name="otter-aux"/>
   <!-- Sensors of LSTS (Self containing sensor systems) -->
   <address id="0x8000" name="star"/>
   <address id="0x8010" name="benthos-mgateway"/>
