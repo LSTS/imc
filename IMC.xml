@@ -371,6 +371,12 @@
       <message-type abbrev="RemoteCommand"/>
       <message-type abbrev="HistoricSample"/>
     </message-group>
+
+    <message-group name="RemoteData" abbrev="TypedEntityParametersOptions">
+      <message-type abbrev="TypedEntityParameter"/>
+      <message-type abbrev="TypedEntityParameterEditor"/>
+    </message-group>
+
   </message-groups>
 
   <flags>
@@ -11650,8 +11656,12 @@
     <field name="Entity Name" abbrev="entity_name" type="plaintext">
       <description>Entity Label of the task that's replying to the request</description>
     </field>
-    <field name="Parameters" abbrev="parameters" type="message-list" message-type="TypedEntityParameter">
-      <description>Contains an optionally defined List of TypedEntityParameter as a response to a TypedEntityParamaters Request.</description>
+    <field name="Parameters" abbrev="parameters" type="message-list" message-type="TypedEntityParametersOptions">
+      <description>
+        Contains an optionally defined List of TypedEntityParameter as a response to a TypedEntityParamaters Request.
+        Additionally, if the entity has a custom editor, this message will contain the information to load it with a
+        single TypedEntityParameterOptions message in the list.
+      </description>
     </field>
   </message>
 
@@ -11720,8 +11730,26 @@
       </description>
     </field>
     <field name="Visibility" abbrev="visibility" type="uint8_t" unit="Enumerated" prefix="VISIBILITY">
-      <value id="0" name="User" abbrev="USER" />
-      <value id="1" name="Developer" abbrev="DEVELOPER" />
+      <value id="0" name="User" abbrev="USER">
+        <description>
+          Parameter is visible and editable by the user.
+        </description>
+      </value>
+      <value id="1" name="Developer" abbrev="DEVELOPER">
+        <description>
+          Parameter is visible and editable by the user bu in developer view.
+        </description>
+      </value>
+      <value id="2" name="User - Not Editable" abbrev="USER_NOT_EDITABLE">
+        <description>
+          The same as for User, but the parameter is not editable.
+        </description>
+      </value>
+      <value id="3" name="Developer - Not Editable" abbrev="DEVELOPER_NOT_EDITABLE">
+        <description>
+          The same as for Developer, but the parameter is not editable.
+        </description>
+      </value>
     </field>
     <field name="Scope" abbrev="scope" type="uint8_t" unit="Enumerated" prefix="SCOPE">
       <value id="0" name="Global" abbrev="GLOBAL" />
@@ -11731,7 +11759,7 @@
     </field>
   </message>
 
-  <message id="2018" name="Values If" abbrev="ValuesIf" source="ccu,vehicle" category="Networking">
+  <message id="2018" name="Values If" abbrev="ValuesIf" source="ccu,vehicle" category="CCU">
     <description>This message is used to describe the ValuesIf content of a TypedEntityParameter.</description>
     <field name="Param" abbrev="param" type="plaintext">
       <description>Name of parameter to compare</description>
@@ -11785,4 +11813,16 @@
       </description>
     </field>
   </message>
+
+  <message id="2036" name="Typed Entity Parameter Editor" abbrev="TypedEntityParameterEditor" source="ccu,vehicle" category="CCU">
+    <description>This message is used to describe the ValuesIf content of a TypedEntityParameter.</description>
+    <field name="Value" abbrev="value" type="plaintext">
+      <description>
+        String name of the editor to be used for this entity parameters.
+        This value is advisory only. The receiving end should try to honor it,
+        for the edition respect more complicated logic that Values-If can provide.
+      </description>
+    </field>
+  </message>
+
 </messages>
