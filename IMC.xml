@@ -4024,52 +4024,52 @@
         The name of the power channel.
       </description>
     </field>
-    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" max="6" prefix="PCC_OP">
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" max="7" prefix="PCC_OP">
       <description>
         Operation to perform.
       </description>
       <value id="0" name="Turn Off" abbrev="TURN_OFF">
         <description>
-          Turn off power channel specified in field 'id'.
+          Turn off power channel specified in field 'name'.
         </description>
       </value>
       <value id="1" name="Turn On" abbrev="TURN_ON">
         <description>
-          Turn on power channel specified in field 'id'.
+          Turn on power channel specified in field 'name'.
         </description>
       </value>
       <value id="2" name="Toggle" abbrev="TOGGLE">
         <description>
-          Toggle power channel specified in field 'id'.
+          Toggle power channel specified in field 'name'.
         </description>
       </value>
       <value id="3" name="Schedule Turn On" abbrev="SCHED_ON">
         <description>
-          Turn on power channel specified in field 'id' in
+          Turn on power channel specified in field 'name' in
           'sched_time' seconds.
         </description>
       </value>
       <value id="4" name="Schedule Turn Off" abbrev="SCHED_OFF">
         <description>
-          Turn off power channel specified in field 'id' in
+          Turn off power channel specified in field 'name' in
           'sched_time' seconds.
         </description>
       </value>
       <value id="5" name="Reset Schedules" abbrev="SCHED_RESET">
         <description>
           Reset all scheduled operations for the channel specified in
-          field 'id'.
+          field 'name'.
         </description>
       </value>
       <value id="6" name="Save Current State" abbrev="SAVE">
         <description>
-          Save the current state of the channel 'id' to persistent
+          Save the current state of the channel 'name' to persistent
           storage.
         </description>
       </value>
       <value id="7" name="Restart" abbrev="RESTART">
         <description>
-          Restart power channel specified in field 'id'.
+          Restart power channel specified in field 'name'.
         </description>
       </value>
     </field>
