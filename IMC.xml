@@ -372,7 +372,7 @@
       <message-type abbrev="HistoricSample"/>
     </message-group>
 
-    <message-group name="RemoteData" abbrev="TypedEntityParametersOptions">
+    <message-group name="TypedEntityParametersOptions" abbrev="TypedEntityParametersOptions">
       <message-type abbrev="TypedEntityParameter"/>
       <message-type abbrev="TypedEntityParameterEditor"/>
     </message-group>
