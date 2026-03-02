@@ -8665,6 +8665,7 @@
       <value id="3" abbrev="ABORT" name="Abort"/>
       <value id="4" abbrev="RANGE" name="Range"/>
       <value id="5" abbrev="REVERSE_RANGE" name="Reverse Range"/>
+      <value id="6" abbrev="INLINEMSG_DCCL" name="Inline Message using DCCL Encoding"/>
     </field>
     <field name="Message Data" abbrev="msg_data" type="message">
       <description>
