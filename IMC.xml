@@ -11814,6 +11814,64 @@
     </field>
   </message>
 
+  <message id="2025" name="FTP Transmission Request" abbrev="FTPTransmissionRequest" source="vehicle" category="Networking">
+    <description>
+      This message is used to execute FTP transmission requests.
+    </description>
+    <field name="Id" abbrev="id" type="uint32_t">
+      <description>
+        Action identifier.
+      </description>
+    </field>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="TYPE">
+      <value id="0" name="File" abbrev="FILE" />
+      <value id="1" name="Text" abbrev="TEXT" />
+    </field>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="OP">
+      <value id="0" name="Append" abbrev="APPEND" />
+      <value id="1" name="Overwrite" abbrev="OVERWRITE" />
+    </field>
+    <field name="URL" abbrev="url" type="plaintext">
+      <description>
+        Destination URL.
+      </description>
+    </field>
+    <field name="Username" abbrev="username" type="plaintext">
+      <description>
+        Username for the destination URL.
+      </description>
+    </field>
+    <field name="Password" abbrev="password" type="plaintext">
+      <description>
+        Password for the destination URL.
+      </description>
+    </field>
+    <field name="Data" abbrev="data" type="plaintext">
+      <description>
+        Data associated with the action.
+        If the type is FILE, this should be the file directory.
+        If the type is TEXT, this should be the text to send.
+      </description>
+    </field>
+  </message>
+
+  <message id="2026" name="FTP Transmission Status" abbrev="FTPTransmissionStatus" source="vehicle" category="Networking">
+    <description>
+      This message is used to report the status of FTP transmission requests.
+    </description>
+    <field name="Id" abbrev="id" type="uint32_t">
+      <description>
+        Action identifier.
+      </description>
+    </field>
+    <field name="Status" abbrev="status" type="uint8_t" unit="Enumerated" prefix="STAT">
+      <value id="0" abbrev="SUCCESS" name="Success"/>
+      <value id="1" abbrev="TEMPORARY_ERROR" name="Temporary Error"/>
+      <value id="2" abbrev="PERMANENT_ERROR" name="Permanent Error"/>
+      <value id="3" abbrev="INV_ADDR" name="Invalid Address"/>
+    </field>
+  </message>
+
   <message id="2036" name="Typed Entity Parameter Editor" abbrev="TypedEntityParameterEditor" source="ccu,vehicle" category="CCU">
     <description>This message is used to describe the ValuesIf content of a TypedEntityParameter.</description>
     <field name="Value" abbrev="value" type="plaintext">
