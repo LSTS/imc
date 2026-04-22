@@ -8995,6 +8995,7 @@
       <value id="2" name="Satellite" abbrev="SATELLITE"/>
       <value id="3" name="Acoustic" abbrev="ACOUSTIC"/>
       <value id="4" name="SMS" abbrev="SMS"/>
+      <value id="5" name="MQTT" abbrev="MQTT"/>
     </field>
     <field name="Latitude" abbrev="lat" type="fp64_t" unit="rad" />
     <field name="Longitude" abbrev="lon" type="fp64_t" unit="rad" />
