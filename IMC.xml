@@ -194,12 +194,14 @@
     <unit abbrev="kg/m/m/m" name="Kilogram per cubic metre"/>
     <unit abbrev="MiB" name="Mebibyte"/>
     <unit abbrev="KiB" name="Kiloibyte"/>
+    <unit abbrev="mAh" name="Milliampere hour"/>
     <unit abbrev="m" name="Meter"/>
     <unit abbrev="m/s" name="Meter per second"/>
     <unit abbrev="m/s/s" name="Meter per square second"/>
     <unit abbrev="Mbps" name="Megabits per second"/>
     <unit abbrev="ms" name="Millisecond"/>
     <unit abbrev="µs" name="Microsecond"/>
+    <unit abbrev="min" name="Minute"/>
     <unit abbrev="ns" name="Nanosecond"/>
     <unit abbrev="S/m" name="Siemens per meter"/>
     <unit abbrev="kg" name="Kilogram"/>
@@ -223,6 +225,7 @@
     <unit abbrev="rpm/s" name="Revolutions per minute per second"/>
     <unit abbrev="s" name="Second"/>
     <unit abbrev="V" name="Volt"/>
+    <unit abbrev="mV" name="Millivolt"/>
     <unit abbrev="Enumerated" name="Enumeration of integer values"/>
     <unit abbrev="List" name="Comma separated list of values"/>
     <unit abbrev="Bitfield" name="Bit field"/>
@@ -12603,6 +12606,13 @@
     </field>
   </message>
 
+  <message id="2035" name="Battery Detailed Info" abbrev="BDI" source="vehicle" flags="periodic,deprecated" category="Sensors">
+    <description>Deprecated: use QueryBmsData/BmsData instead. Used to debug the state of a BMS.</description>
+    <field name="State of Health" abbrev="soh" type="int16_t" unit="%">
+      <description>State of health as a percentage (0-100%)</description>
+    </field>
+  </message>
+
   <message id="2036" name="Typed Entity Parameter Editor" abbrev="TypedEntityParameterEditor" source="ccu,vehicle" category="CCU">
     <description>This message is used to describe the ValuesIf content of a TypedEntityParameter.</description>
     <field name="Value" abbrev="value" type="plaintext">
@@ -12611,6 +12621,302 @@
         This value is advisory only. The receiving end should try to honor it,
         for the edition respect more complicated logic that Values-If can provide.
       </description>
+    </field>
+  </message>
+
+    <message id="2040" name="Acknowledged Message" abbrev="AckMsg" source="vehicle,ccu" category="Networking">
+    <description>
+      Generic acknowledgment message for request-response communication patterns.
+      Can be used by any task to acknowledge receipt and result of a command or request.
+    </description>
+    <field name="Original Message" abbrev="original" type="message">
+      <description>The original message being acknowledged.</description>
+    </field>
+    <field name="text" abbrev="text" type="plaintext">
+      <description>Optional human-readable description or error message.</description>
+    </field>
+
+    <field name="StatusEnum" abbrev="status" type="uint8_t" unit="Enumerated" prefix="ST">
+      <description>Result status of the request.</description>
+      <value id="0" name="Success" abbrev="SUCCESS" />
+      <value id="1" name="Failure" abbrev="FAILURE" />
+      <value id="2" name="In Progress" abbrev="IN_PROGRESS" />
+      <value id="3" name="Timeout" abbrev="TIMEOUT" />
+      <value id="4" name="Invalid Request" abbrev="INVALID" />
+      <value id="5" name="Not Supported" abbrev="NOT_SUPPORTED" />
+    </field>
+  </message>
+
+    <!-- BMS (Battery Management System) query/reply messages -->
+
+  <message id="2041" name="Query BMS Data" abbrev="QueryBmsData" source="ccu,vehicle" category="Sensors">
+    <description>
+      Request detailed battery management system data from a vehicle.
+      The vehicle replies with one or more BmsData messages depending
+      on the requested operation and pack index.  If pack_idx is 0xFF
+      the vehicle returns data for every detected battery pack.
+      The operation field selects which class of data is returned,
+      allowing future extension without protocol changes.
+    </description>
+    <field name="Operation" abbrev="op" type="uint8_t" unit="Enumerated" prefix="BOP">
+      <description>Type of BMS data requested.</description>
+      <value id="0" name="Read Telemetry" abbrev="READ_TELEMETRY">
+        <description>Voltage, current, temperature, SOC, time to empty.</description>
+      </value>
+      <value id="1" name="Read Cell Voltages" abbrev="READ_CELL_VOLTAGES">
+        <description>Individual cell voltages.</description>
+      </value>
+      <value id="2" name="Read Status" abbrev="READ_STATUS">
+        <description>SOH, battery status, cycle count, capacity, serial, FET status.</description>
+      </value>
+      <value id="3" name="Read All" abbrev="READ_ALL">
+        <description>Combination of telemetry, cell voltages and status.</description>
+      </value>
+      <value id="4" name="Raw Register Read" abbrev="READ_RAW">
+        <description>Read an arbitrary SBS register (address in sbs_register).</description>
+      </value>
+      <value id="5" name="Raw Register Write" abbrev="WRITE_RAW">
+        <description>Write to an arbitrary SBS register (address in sbs_register, payload in data).</description>
+      </value>
+      <value id="6" name="Set FET" abbrev="SET_FET">
+        <description>Control charge/discharge/pre-charge FETs.  Desired FET bit-mask in data[0-1] LE.</description>
+      </value>
+    </field>
+    <field name="Pack Index" abbrev="pack_idx" type="uint8_t" value="0xFF">
+      <description>
+        Battery pack index (0-based). Use 0xFF to address all detected packs.
+      </description>
+    </field>
+    <field name="SBS Register" abbrev="sbs_register" type="uint8_t">
+      <description>
+        SBS register address for READ_RAW / WRITE_RAW operations.  Ignored for other operations.
+      </description>
+    </field>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>
+        Payload for write operations (WRITE_RAW, SET_FET).  For READ_RAW,
+        data[0] specifies the expected response length in bytes (defaults to 2
+        if empty).  Unused for other read operations.
+      </description>
+    </field>
+  </message>
+
+  <message id="2042" name="BMS Data" abbrev="BmsData" source="vehicle" category="Sensors">
+    <description>
+      Battery management system data returned in response to a
+      QueryBmsData request.  One message is sent per battery pack.
+      Fields that are not applicable to the requested operation are
+      set to zero.
+    </description>
+    <field name="Original Message" abbrev="original" type="message">
+      <description>The message that originated the request.</description>
+    </field>
+    <field name="Request Status" abbrev="req_status" type="uint8_t" unit="Enumerated" prefix="BST">
+      <description>Outcome of the request.</description>
+      <value id="0" name="Success" abbrev="SUCCESS"/>
+      <value id="1" name="Failure" abbrev="FAILURE"/>
+      <value id="2" name="Not Supported" abbrev="NOT_SUPPORTED"/>
+      <value id="3" name="Invalid Pack" abbrev="INVALID_PACK"/>
+    </field>
+    <field name="Pack Index" abbrev="pack_idx" type="uint8_t">
+      <description>Battery pack index (0-based).</description>
+    </field>
+    <field name="Temperature" abbrev="temperature" type="fp32_t" unit="°C">
+      <description>Pack temperature in degrees Celsius.</description>
+    </field>
+    <field name="Voltage" abbrev="voltage" type="fp32_t" unit="V">
+      <description>Pack voltage.</description>
+    </field>
+    <field name="Current" abbrev="current" type="fp32_t" unit="A">
+      <description>Pack current (positive = charging).</description>
+    </field>
+    <field name="Relative State of Charge" abbrev="rsoc" type="uint8_t" unit="%">
+      <description>Relative state of charge.</description>
+    </field>
+    <field name="Absolute State of Charge" abbrev="asoc" type="uint8_t" unit="%">
+      <description>Absolute state of charge.</description>
+    </field>
+    <field name="State of Health" abbrev="soh" type="uint8_t" unit="%">
+      <description>State of health.</description>
+    </field>
+    <field name="Remaining Capacity" abbrev="remaining_capacity" type="uint16_t" unit="mAh">
+      <description>Remaining battery capacity.</description>
+    </field>
+    <field name="Full Charge Capacity" abbrev="full_charge_capacity" type="uint16_t" unit="mAh">
+      <description>Full charge capacity at current conditions.</description>
+    </field>
+    <field name="Cycle Count" abbrev="cycle_count" type="uint16_t">
+      <description>Number of charge/discharge cycles.</description>
+    </field>
+    <field name="Time to Empty" abbrev="time_to_empty" type="uint16_t" unit="min">
+      <description>Estimated time to empty.</description>
+    </field>
+    <field name="Time to Full" abbrev="time_to_full" type="uint16_t" unit="min">
+      <description>Estimated time to full charge.</description>
+    </field>
+    <field name="Battery Status" abbrev="battery_status" type="uint16_t" unit="Bitfield" prefix="BST">
+      <description>Raw SBS battery status register.</description>
+      <value id="0x8000" name="Overcharged Alarm" abbrev="OCA"/>
+      <value id="0x4000" name="Terminate Charge Alarm" abbrev="TCA"/>
+      <value id="0x1000" name="Overtemperature Alarm" abbrev="OTA"/>
+      <value id="0x0800" name="Terminate Discharge Alarm" abbrev="TDA"/>
+      <value id="0x0200" name="Remaining Capacity Alarm" abbrev="RCA"/>
+      <value id="0x0100" name="Remaining Time Alarm" abbrev="RTA"/>
+      <value id="0x0080" name="Initialization" abbrev="INIT"/>
+      <value id="0x0040" name="Discharging or Rest" abbrev="DSG"/>
+      <value id="0x0020" name="Fully Charged" abbrev="FC"/>
+      <value id="0x0010" name="Fully Discharged" abbrev="FD"/>
+      <value id="0x0007" name="Error Code" abbrev="EC"/>
+    </field>
+    <field name="Serial Number" abbrev="serial_number" type="uint16_t">
+      <description>BMS serial number.</description>
+    </field>
+    <field name="FET Status" abbrev="fet_status" type="uint16_t" unit="Bitfield" prefix="FET">
+      <description>Host FET control register state.</description>
+      <value id="0x01" name="Charge FET" abbrev="CHG"/>
+      <value id="0x02" name="Discharge FET" abbrev="DSG"/>
+      <value id="0x04" name="Pre-Charge FET" abbrev="PCHG"/>
+    </field>
+    <field name="Safety Status" abbrev="safety_status" type="uint32_t" unit="Bitfield" prefix="SS">
+      <description>Safety Status register bitfield from the battery gauge IC.</description>
+      <value id="0x00100000" name="Overcharge" abbrev="OC"/>
+      <value id="0x00040000" name="Charge Timeout" abbrev="CTO"/>
+      <value id="0x00010000" name="Precharge Timeout" abbrev="PTO"/>
+      <value id="0x00004000" name="Overcurrent During Discharge Latch" abbrev="OCDL"/>
+      <value id="0x00002000" name="Overtemperature Fault" abbrev="OTF"/>
+      <value id="0x00001000" name="AFE Alert" abbrev="AFE_OVRD"/>
+      <value id="0x00000800" name="Undertemperature During Discharge" abbrev="UTD"/>
+      <value id="0x00000400" name="Undertemperature During Charge" abbrev="UTC"/>
+      <value id="0x00000200" name="Overtemperature During Discharge" abbrev="OTD"/>
+      <value id="0x00000100" name="Overtemperature During Charge" abbrev="OTC"/>
+      <value id="0x00000080" name="Short Circuit During Discharge Latch" abbrev="ASCDL"/>
+      <value id="0x00000040" name="Short Circuit During Discharge" abbrev="ASCD"/>
+      <value id="0x00000020" name="Overload During Discharge Latch" abbrev="AOLDL"/>
+      <value id="0x00000010" name="Overload During Discharge" abbrev="AOLD"/>
+      <value id="0x00000008" name="Overcurrent During Discharge" abbrev="OCD"/>
+      <value id="0x00000004" name="Overcurrent During Charge" abbrev="OCC"/>
+      <value id="0x00000002" name="Cell Overvoltage" abbrev="COV"/>
+      <value id="0x00000001" name="Cell Undervoltage" abbrev="CUV"/>
+    </field>
+    <field name="PF Status" abbrev="pf_status" type="uint32_t" unit="Bitfield" prefix="PF">
+      <description>Permanent Failure Status register bitfield from the battery gauge IC.</description>
+      <value id="0x00020000" name="Data Flash Wearout Failure" abbrev="DFW"/>
+      <value id="0x00010000" name="Instruction Flash Checksum Failure" abbrev="IFC"/>
+      <value id="0x00008000" name="Safety Overtemperature FET Failure" abbrev="SOTF"/>
+      <value id="0x00004000" name="Open Thermistor TS3 Failure" abbrev="TS3"/>
+      <value id="0x00002000" name="Open Thermistor TS2 Failure" abbrev="TS2"/>
+      <value id="0x00001000" name="Open Thermistor TS1 Failure" abbrev="TS1"/>
+      <value id="0x00000800" name="AFE XREADY Failure" abbrev="AFE_XRDY"/>
+      <value id="0x00000400" name="AFE Override Failure" abbrev="AFE_OVRD"/>
+      <value id="0x00000200" name="AFE Communication Failure" abbrev="AFEC"/>
+      <value id="0x00000100" name="AFE Register Failure" abbrev="AFER"/>
+      <value id="0x00000080" name="Discharge FET Failure" abbrev="DFETF"/>
+      <value id="0x00000040" name="Charge FET Failure" abbrev="CFETF"/>
+      <value id="0x00000020" name="Voltage Imbalance At Rest Failure" abbrev="VIMR"/>
+      <value id="0x00000010" name="Safety Overtemperature Cell Failure" abbrev="SOT"/>
+      <value id="0x00000008" name="Safety Overcurrent in Discharge" abbrev="SOCD"/>
+      <value id="0x00000004" name="Safety Overcurrent in Charge" abbrev="SOCC"/>
+      <value id="0x00000002" name="Safety Cell Overvoltage Failure" abbrev="SOV"/>
+      <value id="0x00000001" name="Safety Cell Undervoltage Failure" abbrev="SUV"/>
+    </field>
+    <field name="Operation Status" abbrev="operation_status" type="uint32_t" unit="Bitfield" prefix="OS">
+      <description>Operation Status register bitfield from the battery gauge IC.</description>
+      <value id="0x80000000" name="KEYIN" abbrev="KEYIN"/>
+      <value id="0x10000000" name="Cell Balancing" abbrev="CB"/>
+      <value id="0x08000000" name="CC Measurement in SLEEP" abbrev="SLPCC"/>
+      <value id="0x04000000" name="ADC Measurement in SLEEP" abbrev="SLPAD"/>
+      <value id="0x01000000" name="Initialization After Full Reset" abbrev="INIT"/>
+      <value id="0x00800000" name="SLEEP Mode" abbrev="SLEEPM"/>
+      <value id="0x00400000" name="400-kHz SMBus Mode" abbrev="XL"/>
+      <value id="0x00200000" name="Calibration Output CC" abbrev="CAL_OFFSET"/>
+      <value id="0x00100000" name="Calibration Output ADC and CC" abbrev="CAL"/>
+      <value id="0x00040000" name="Authentication In Progress" abbrev="AUTH"/>
+      <value id="0x00020000" name="LED Display" abbrev="LED"/>
+      <value id="0x00010000" name="SHUTDOWN Via Command" abbrev="SDM"/>
+      <value id="0x00008000" name="SLEEP Conditions Met" abbrev="SLEEP"/>
+      <value id="0x00004000" name="Charging Disabled" abbrev="XCHG"/>
+      <value id="0x00002000" name="Discharging Disabled" abbrev="XDSG"/>
+      <value id="0x00001000" name="Permanent Failure Mode" abbrev="PF"/>
+      <value id="0x00000800" name="Safety Mode" abbrev="SAFE_MODE"/>
+      <value id="0x00000400" name="Shutdown Via Low Voltage" abbrev="SDV"/>
+      <value id="0x00000200" name="Security Mode SEC1" abbrev="SEC1"/>
+      <value id="0x00000100" name="Security Mode SEC0" abbrev="SEC0"/>
+      <value id="0x00000020" name="SAFE Pin" abbrev="SAFE"/>
+      <value id="0x00000010" name="Host FET Control" abbrev="HCFET"/>
+      <value id="0x00000008" name="Precharge FET" abbrev="PCHG"/>
+      <value id="0x00000004" name="DSG FET" abbrev="DSG"/>
+      <value id="0x00000002" name="CHG FET" abbrev="CHG"/>
+      <value id="0x00000001" name="System Present Low" abbrev="PRES"/>
+    </field>
+    <field name="Charging Status" abbrev="charging_status" type="uint16_t" unit="Bitfield" prefix="CS">
+      <description>Charging Status register bitfield from the battery gauge IC.</description>
+      <value id="0x8000" name="Charge Termination" abbrev="VCT"/>
+      <value id="0x2000" name="Charge Suspend" abbrev="SU"/>
+      <value id="0x1000" name="Charge Inhibit" abbrev="IN"/>
+      <value id="0x0200" name="Fast Charge Mode" abbrev="FCHG"/>
+      <value id="0x0100" name="Pre-Charge Mode" abbrev="PCHG"/>
+      <value id="0x0010" name="Overtemperature Region" abbrev="OT"/>
+      <value id="0x0008" name="High Temperature Region" abbrev="HT"/>
+      <value id="0x0004" name="Standard Temperature Region" abbrev="ST"/>
+      <value id="0x0002" name="Low Temperature Region" abbrev="LT"/>
+      <value id="0x0001" name="Undertemperature Region" abbrev="UT"/>
+    </field>
+    <field name="Gauging Status" abbrev="gauging_status" type="uint16_t" unit="Bitfield" prefix="GS">
+      <description>Gauging Status register bitfield from the battery gauge IC.</description>
+      <value id="0x8000" name="Discharge Qualified for Learning" abbrev="VDQ"/>
+      <value id="0x4000" name="End-of-Discharge Voltage Level 2" abbrev="EDV2"/>
+      <value id="0x2000" name="End-of-Discharge Voltage Level 1" abbrev="EDV1"/>
+      <value id="0x0400" name="Full Charge Capacity Updated" abbrev="FCCX"/>
+      <value id="0x0100" name="Rest" abbrev="REST"/>
+      <value id="0x0080" name="Condition Flag" abbrev="CF"/>
+      <value id="0x0040" name="Discharge or Relax" abbrev="DSG"/>
+      <value id="0x0020" name="End-of-Discharge Voltage Level 0" abbrev="EDV0"/>
+      <value id="0x0010" name="Cell Balancing Possible" abbrev="BAL_OK"/>
+      <value id="0x0008" name="Terminate Charge" abbrev="TC"/>
+      <value id="0x0004" name="Terminate Discharge" abbrev="TD"/>
+      <value id="0x0002" name="Fully Charged" abbrev="FC"/>
+      <value id="0x0001" name="Fully Discharged" abbrev="FD"/>
+    </field>
+    <field name="Cell Voltages" abbrev="cell_voltages" type="message-list" message-type="BmsCellVoltage">
+      <description>Individual cell voltages (populated for READ_CELL_VOLTAGES and READ_ALL).</description>
+    </field>
+    <field name="Registers" abbrev="registers" type="message-list" message-type="BmsRegister">
+      <description>
+        Arbitrary SBS register values.  Each entry carries a register
+        address and its raw value, allowing the handler to expose new
+        registers without protocol changes.  Populated alongside the
+        typed fields for READ_TELEMETRY, READ_STATUS and READ_ALL;
+        always populated for READ_RAW.
+      </description>
+    </field>
+    <field name="Data" abbrev="data" type="rawdata">
+      <description>Raw response data for READ_RAW / WRITE_RAW operations.</description>
+    </field>
+  </message>
+
+  <message id="2043" name="BMS Cell Voltage" abbrev="BmsCellVoltage" source="vehicle" category="Sensors">
+    <description>
+      Voltage of a single battery cell, used as a sub-message inside BmsData.
+    </description>
+    <field name="Cell Number" abbrev="cell_number" type="uint8_t">
+      <description>Cell index (1-based).</description>
+    </field>
+    <field name="Voltage" abbrev="voltage" type="fp32_t" unit="V">
+      <description>Cell voltage.</description>
+    </field>
+  </message>
+
+  <message id="2044" name="BMS Register" abbrev="BmsRegister" source="vehicle" category="Sensors">
+    <description>
+      Raw SBS register value, used as a sub-message inside BmsData.
+      Allows returning arbitrary register data in a structured way
+      without requiring protocol changes for each new register.
+    </description>
+    <field name="Register" abbrev="reg" type="uint8_t">
+      <description>SBS register address.</description>
+    </field>
+    <field name="Value" abbrev="value" type="rawdata">
+      <description>Raw register value (length depends on register).</description>
     </field>
   </message>
   
