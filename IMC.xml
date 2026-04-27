@@ -9957,6 +9957,41 @@
     </field>
   </message>
 
+  <message id="723" name="Sampling Action" abbrev="SamplingAction" source="vehicle" category="Networking">
+    <description>
+      This message is used to execute a sampling action.
+    </description>
+    <field name="Action" abbrev="action" type="uint8_t" unit="Enumerated" prefix="SA">
+      <description>
+        Sampling action.
+      </description>
+      <value id="0" name="Report" abbrev="REPORT"/>
+      <value id="1" name="Command" abbrev="COMMAND"/>
+    </field>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="SAT">
+      <description>
+        Type of the sampling action.
+      </description>
+      <value id="0" name="State Idle" abbrev="STATE_IDLE"/>
+      <value id="1" name="State Starting" abbrev="STATE_STARTING"/>
+      <value id="2" name="State Stopping" abbrev="STATE_STOPPING"/>
+      <value id="3" name="State Paused" abbrev="STATE_PAUSED"/>
+      <value id="4" name="State Resuming" abbrev="STATE_RESUMING"/>
+      <value id="5" name="State Sampling" abbrev="STATE_SAMPLING"/>
+      <value id="6" name="State Error" abbrev="STATE_ERROR"/>
+      <value id="7" name="Command Query State" abbrev="CMD_QUERY_STATE"/>
+      <value id="8" name="Command Start" abbrev="CMD_START"/>
+      <value id="9" name="Command Stop" abbrev="CMD_STOP"/>
+      <value id="10" name="Command Pause" abbrev="CMD_PAUSE"/>
+      <value id="11" name="Command Resume" abbrev="CMD_RESUME"/>
+    </field>
+    <field name="Description" abbrev="description" type="plaintext">
+      <description>
+        Complementary information about the sampling action.
+      </description>
+    </field>
+  </message>
+
   <!-- External -->
   <message id="750" name="Remote State" abbrev="RemoteState" source="vehicle" category="CCU">
     <description>State summary for a remote vehicle.</description>
