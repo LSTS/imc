@@ -226,6 +226,7 @@
     <unit abbrev="s" name="Second"/>
     <unit abbrev="V" name="Volt"/>
     <unit abbrev="mV" name="Millivolt"/>
+    <unit abbrev="W" name="Watt"/>
     <unit abbrev="Enumerated" name="Enumeration of integer values"/>
     <unit abbrev="List" name="Comma separated list of values"/>
     <unit abbrev="Bitfield" name="Bit field"/>
@@ -4867,6 +4868,18 @@
     <field name="Sideslip angle" abbrev="ssa" type="fp32_t" unit="rad">
       <description>
         Sideslip angle.
+      </description>
+    </field>
+  </message>
+
+  <message id="364" name="Power" abbrev="Power" source="vehicle" flags="periodic" category="Sensors">
+    <description>
+      Report of electrical power.
+    </description>
+    <field name="Measured Power Value" abbrev="value" type="fp32_t" unit="W">
+      <description>
+        The value of the internal electrical power as measured by
+        the sensor.
       </description>
     </field>
   </message>
