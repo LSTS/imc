@@ -11640,7 +11640,7 @@
     <field name="Type and Cargo" abbrev="type_and_cargo" type="uint8_t"/>
     <field name="Latitude" abbrev="lat" type="fp64_t" unit="rad"/>
     <field name="Longitude" abbrev="lon" type="fp64_t" unit="rad"/>
-    <field name="Course" abbrev="course" type="fp32_t" unit="°"/>
+    <field name="Course" abbrev="course" type="fp32_t" unit="rad"/>
     <field name="Speed" abbrev="speed" type="fp32_t" unit="kn"/>
     <field name="Distance" abbrev="dist" type="fp32_t" unit="m">
       <description>
