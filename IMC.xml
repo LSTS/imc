@@ -197,6 +197,7 @@
     <unit abbrev="m" name="Meter"/>
     <unit abbrev="m/s" name="Meter per second"/>
     <unit abbrev="m/s/s" name="Meter per square second"/>
+    <unit abbrev="m*m*m/s" name="Cubic meter per second"/>
     <unit abbrev="Mbps" name="Megabits per second"/>
     <unit abbrev="mAh" name="Milliampere hour"/>
     <unit abbrev="ms" name="Millisecond"/>
@@ -352,6 +353,7 @@
       <message-type abbrev="Rows"/>
       <message-type abbrev="RowsCoverage"/>
       <message-type abbrev="Sample"/>
+      <message-type abbrev="Sampling"/>
       <message-type abbrev="ScheduledGoto"/>
       <message-type abbrev="StationKeeping"/>
       <message-type abbrev="StationKeepingExtended"/>
@@ -9919,6 +9921,95 @@
     <field name="Target Size" abbrev="tsize" type="uint8_t"/>
   </message>
 
+  <message id="722" name="Sampling Maneuver" abbrev="Sampling" source="ccu" category="Maneuvering">
+    <description>
+      A "Sampling" is a maneuver specifying a movement of the vehicle to a
+      target waypoint for sampling purposes. The waypoint is described by the WGS-84
+      waypoint coordinate and target Z reference.
+    </description>
+    <field name="Latitude WGS-84" abbrev="lat" type="fp64_t" unit="rad" min="-1.5707963267948966" max="1.5707963267948966">
+      <description>
+        WGS-84 Latitude of target waypoint.
+      </description>
+    </field>
+    <field name="Longitude WGS-84" abbrev="lon" type="fp64_t" unit="rad" min="-3.141592653589793" max="3.141592653589793">
+      <description>
+        WGS-84 Longitude of target waypoint.
+      </description>
+    </field>
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        Target reference in the z axis. Use z_units to specify
+        whether z represents depth, altitude or other.
+      </description>
+    </field>
+    <field name="Z Units" abbrev="z_units" type="uint8_t" value="0" unit="Enumerated" enum-def="ZUnits">
+      <description>
+        Units of the z reference.
+      </description>
+    </field>
+    <field name="Speed" abbrev="speed" type="fp32_t">
+      <description>
+        Maneuver speed reference.
+      </description>
+    </field>
+    <field name="Speed Units" abbrev="speed_units" type="uint8_t" value="0" unit="Enumerated" enum-def="SpeedUnits">
+      <description>
+        Speed units.
+      </description>
+    </field>
+    <field name="Sampling Type" abbrev="sampling_type" type="plaintext">
+      <description>
+        Type of sampler to use in maneuver.
+      </description>
+    </field>
+    <field name="Sampling Arguments" abbrev="sampling_args" type="plaintext"  unit="TupleList">
+      <description>
+        Arguments for the sampler type to use in maneuver.
+      </description>
+    </field>
+    <field name="Custom settings for maneuver" abbrev="custom" unit="TupleList" type="plaintext">
+      <description>
+        Custom settings for maneuver.
+      </description>
+    </field>
+  </message>
+
+  <message id="723" name="Sampling Action" abbrev="SamplingAction" source="vehicle" category="Networking">
+    <description>
+      This message is used to execute a sampling action.
+    </description>
+    <field name="Action" abbrev="action" type="uint8_t" unit="Enumerated" prefix="SA">
+      <description>
+        Sampling action.
+      </description>
+      <value id="0" name="Report" abbrev="REPORT"/>
+      <value id="1" name="Command" abbrev="COMMAND"/>
+    </field>
+    <field name="Type" abbrev="type" type="uint8_t" unit="Enumerated" prefix="SAT">
+      <description>
+        Type of the sampling action.
+      </description>
+      <value id="0" name="State Idle" abbrev="STATE_IDLE"/>
+      <value id="1" name="State Starting" abbrev="STATE_STARTING"/>
+      <value id="2" name="State Stopping" abbrev="STATE_STOPPING"/>
+      <value id="3" name="State Paused" abbrev="STATE_PAUSED"/>
+      <value id="4" name="State Resuming" abbrev="STATE_RESUMING"/>
+      <value id="5" name="State Sampling" abbrev="STATE_SAMPLING"/>
+      <value id="6" name="State Error" abbrev="STATE_ERROR"/>
+      <value id="7" name="Command Query State" abbrev="CMD_QUERY_STATE"/>
+      <value id="8" name="Command Start" abbrev="CMD_START"/>
+      <value id="9" name="Command Stop" abbrev="CMD_STOP"/>
+      <value id="10" name="Command Pause" abbrev="CMD_PAUSE"/>
+      <value id="11" name="Command Resume" abbrev="CMD_RESUME"/>
+    </field>
+    <field name="Description" abbrev="description" type="plaintext">
+      <description>
+        Complementary information about the sampling action.
+      </description>
+    </field>
+  </message>
+
   <!-- External -->
   <message id="750" name="Remote State" abbrev="RemoteState" source="vehicle" category="CCU">
     <description>State summary for a remote vehicle.</description>
@@ -11568,6 +11659,17 @@
     <field name="StDev Roll" abbrev="stdev_roll" type="fp32_t" unit="°">
       <description>
         The standard deviation of roll measurements, indicating fluctuations in vessel roll motion.
+      </description>
+    </field>
+  </message>
+
+  <message id="1019" name="Water Flow" abbrev="WaterFlow" source="vehicle" category="Sensors">
+    <description>
+      This message is used to report the water flow rate.
+    </description>
+    <field name="Value" abbrev="value" type="fp64_t" unit="m*m*m/s">
+      <description>
+        Water flow rate, in cubic meters per second.
       </description>
     </field>
   </message>
