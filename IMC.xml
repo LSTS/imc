@@ -11444,6 +11444,146 @@
     </field>
   </message>
 
+  <message id="996" name="Follow Command Maneuver" abbrev="FollowCommand" source="ccu" category="Maneuvering">
+    <description>
+      This maneuver follows a direct command given by an external entity.
+    </description>
+    <field name="Controlling Source" abbrev="control_src" type="uint16_t">
+      <description>
+        The IMC identifier of the source system that is allowed to provide command to this maneuver.
+	If the value ''0xFFFF'' is used, any system is allowed to command references.
+      </description>
+    </field>
+    <field name="Controlling Entity" abbrev="control_ent" type="uint8_t">
+      <description>
+        The entity identifier of the entity that is allowed to provide commands to this maneuver.
+        If the value ''0xFF'' is used, any entity is allowed to command references.
+      </description>
+    </field>
+    <field name="Reference Update Timeout" abbrev="timeout" type="fp32_t">
+      <description>
+        The ammount of time, in seconds, after which the maneuver will be terminated if no new command has
+        been received. In other words, the controlling entity should send command updates in shorter periods than
+        'timeout'.
+      </description>
+    </field>
+  </message>
+
+  <message id="997" name="Command To Follow" abbrev="Command" source="ccu,vehicle" category="Maneuvering">
+    <description>
+      This message must be sent by an external entity to provide command references to a system
+      running a "Follow Command Maneuver". If no Command messages are transmitted, the system
+      will terminate maneuver.
+    </description>
+    <field name="Flags" abbrev="flags" type="uint8_t" unit="Bitfield" prefix="FLAG">
+      <value id="0x01" name="Use Speed Reference in meters per second" abbrev="SPEED_METERS_PS" >
+        <description>
+          Command system to move at speed reference provided in "speed" field in meters per second.
+        </description>
+      </value>
+      <value id="0x02" name="Use Speed Reference in revolutions per minute" abbrev="SPEED_RPM" >
+        <description>
+          Command system to move at speed reference provided in "speed" field in revolutions per minute.
+        </description>
+      </value>
+      <value id="0x04" name="Use Z Reference as depth" abbrev="DEPTH" >
+        <description>
+          Command system to move at z reference provided in "z" field in depth.
+        </description>
+      </value>
+      <value id="0x08" name="Use Z Reference as altitude" abbrev="ALTITUDE" >
+        <description>
+          Command system to move at z reference provided in "z" field in altitude.
+        </description>
+      </value>
+      <value id="0x10" name="Use Heading Reference" abbrev="HEADING" >
+        <description>
+          Command system to move at a heading reference provided in "heading" field in radians.
+        </description>
+      </value>
+      <value id="0x20" name="Use Heading Rate Reference" abbrev="HEADING_RATE" >
+        <description>
+          Command system to move at a heading rate reference provided in "heading" field in radians/s.
+        </description>
+      </value>
+      <value id="0x40" name="Use Speed Reference in percentage" abbrev="SPEED_PERCENT" >
+        <description>
+          Command system to move at speed reference provided in "speed" field in percentage.
+        </description>
+      </value>
+      <value id="0x80" name="Flag Maneuver Completion" abbrev="MANDONE" >
+        <description>
+          Command system to exit maneuver's execution.
+        </description>
+      </value>
+    </field>
+    <field name="Speed Reference" abbrev="speed" type="fp32_t">
+      <description>
+        The value of the desired speed, in the scale specified by the
+        "flags" field.
+      </description>
+    </field>
+    <field name="Z Reference" abbrev="z" type="fp32_t" unit="m">
+      <description>
+        The value of the desired z reference in meters.
+      </description>
+    </field>
+    <field name="Heading Reference" abbrev="heading" type="fp32_t" unit="rad">
+      <description>
+        The value of the desired heading angle, relative to true  north, in radians,
+	or, the value of the desired heading rate angle, in radians.
+      </description>
+    </field>
+  </message>
+
+  <message id="998" name="Follow Command State" abbrev="FollowCommandState" source="vehicle" category="Maneuvering">
+    <field name="Controlling Source" abbrev="control_src" type="uint16_t">
+      <description>
+        The IMC identifier of the source system that is allowed to control the vehicle.
+        If the value ''0xFFFF'' is used, any system is allowed to command references.
+      </description>
+    </field>
+    <field name="Controlling Entity" abbrev="control_ent" type="uint8_t">
+      <description>
+        The entity identifier of the entity that is allowed to control the vehicle.
+        If the value ''0xFF'' is used, any entity is allowed to command references.
+      </description>
+    </field>
+    <field name="Command" abbrev="command" type="message" message-type="Command">
+      <description>Command currently being followed.</description>
+    </field>
+    <field name="State" abbrev="state" type="uint8_t" unit="Enumerated" prefix="FC">
+      <description>
+	Current state of execution.
+      </description>
+      <value id="1" name="Waiting for first command" abbrev="WAIT" >
+	<description>
+	  System is waiting for first command.
+	</description>
+      </value>
+      <value id="2" name="Moving towards received command" abbrev="MOVING" >
+	<description>
+	  System is moving according with command provided.
+	</description>
+      </value>
+      <value id="3" name="Speed command is zero" abbrev="STOPPED" >
+	<description>
+	  System is stopped. Speed reference is zero.
+	</description>
+      </value>
+      <value id="4" name="Command is out of safe bounds" abbrev="BAD_COMMAND">
+	<description>
+	  Command provided breaks system's physical limitations.
+	</description>
+      </value>
+      <value id="5" name="Controlling system timed out" abbrev="TIMEOUT" >
+	<description>
+	  Maneuver will be terminated since timeout was exceeded.
+	</description>
+      </value>
+    </field>
+  </message>
+
   <message id="1014" name="Current Profile" abbrev="CurrentProfile" source="vehicle" flags="periodic" category="Sensors">
     <description>
       Contains a profile of water velocities measured relative to the vehicle
