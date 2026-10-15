@@ -338,6 +338,7 @@
       <message-type abbrev="IdleManeuver"/>
       <message-type abbrev="ImageTracking"/>
       <message-type abbrev="Elevator"/>
+      <message-type abbrev="FollowCommand"/>
       <message-type abbrev="FollowPath"/>
       <message-type abbrev="FollowPoint"/>
       <message-type abbrev="FollowReference"/>
