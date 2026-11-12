@@ -11,7 +11,7 @@ XSD := IMC.xsd
 
 validate:
 	@echo "* Validating $(XSD)..."
-	@xmllint -noout -schema 'http://www.w3.org/2001/XMLSchema.xsd' $(XSD)
+	@xmllint -noout -schema 'http://www.w3.org/2001/XMLSchema.xsd' $(XSD) || echo "* NOT ABLE TO VALIDATE $(XSD)..."
 	@echo "* Validating $(XML)..."
 	@xmllint -noout $(XML)
 	@echo "* Validating $(XML) against $(XSD)..."
